@@ -1,0 +1,2562 @@
+{
+  "users": [
+    {
+      "email": "admin@omsaiclinic.local",
+      "passwordHash": "87f01d35adea6c0005bfe56675236a40:1d8c337a1c1eab7d7072410159bb697da2b67adad4f85054d973558e8854936535f37472c6b40b42de940dfde98b8ec004762a18f0c3723212444095b8ef8c6b",
+      "userType": "staff",
+      "isActive": true,
+      "mustChangePassword": true,
+      "preferredLocale": "en",
+      "id": "18e4a5d3-bfc1-41b9-81b9-931d9e40d3e5",
+      "createdAt": "2026-10-26T10:38:29.311Z",
+      "updatedAt": "2026-10-26T10:38:29.311Z"
+    },
+    {
+      "email": "test.patient.1793011109312@example.com",
+      "phone": "9841000000",
+      "passwordHash": "c7cec7aab6a6815cfbd491f712508652:920cac783b7aafc5a0f2856fcbc36af11e76747c3e2e938cb9d96425c48ca6acba50dcbceb3e9302458598b21890a8240a65de55804ee65ce0f4ffb42b8f9d6c",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T10:38:29.360Z",
+      "verificationTokenHash": null,
+      "preferredLocale": "ne",
+      "id": "23c592b7-47b2-4b66-8432-cbde013c87f3",
+      "createdAt": "2026-10-26T10:38:29.359Z",
+      "updatedAt": "2026-10-26T10:38:29.360Z"
+    },
+    {
+      "email": "anita.sharma@example.com",
+      "phone": "9841234567",
+      "passwordHash": "3d63cdcffc85b9f213bd6be6de12d974:d15b639b0afbe4900df77b1aca6f45e4454cf6696923d636d87492734ed7e2d3f8bd5cd7f7e654578f0795b72faab46b211df64db09118d64cb9ec3acaba17f6",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": null,
+      "verificationTokenHash": "76bbe4e299cd36f8cadf3ce9ac6c467349a0cdc1f9c8c5695d1de173be97c2c8",
+      "preferredLocale": "ne",
+      "id": "701d6c67-4ec4-498e-a64e-46a56090224e",
+      "createdAt": "2026-10-26T10:38:35.184Z",
+      "updatedAt": "2026-10-26T10:38:35.184Z"
+    },
+    {
+      "email": "test.patient.1793012167315@example.com",
+      "phone": "9841000000",
+      "passwordHash": "802ecc42bd6f81b9b05a70ff1ebd3282:8ce0d8079163f4331e695aba1a6fcf2c4eddab39356fec5342638cd3a5e7dbbca842fe4eed674ff5d0eeb148b5e53a10ef62aef0f707d5288e307120cff0b26c",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T10:56:07.366Z",
+      "verificationTokenHash": null,
+      "preferredLocale": "ne",
+      "id": "74644fa8-e5d4-44e9-919f-2960558ed6f7",
+      "createdAt": "2026-10-26T10:56:07.365Z",
+      "updatedAt": "2026-10-26T10:56:07.366Z"
+    },
+    {
+      "email": "patient.a.1793013035236@example.com",
+      "passwordHash": "dummy",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T11:10:35.236Z",
+      "preferredLocale": "en",
+      "id": "da951176-5cc6-4f16-ad83-f4ae1a4dcf18",
+      "createdAt": "2026-10-26T11:10:35.236Z",
+      "updatedAt": "2026-10-26T11:10:35.236Z"
+    },
+    {
+      "email": "patient.b.1793013035237@example.com",
+      "passwordHash": "dummy",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T11:10:35.237Z",
+      "preferredLocale": "en",
+      "id": "ccbcee6c-c7a8-42db-8faf-6605a870803d",
+      "createdAt": "2026-10-26T11:10:35.237Z",
+      "updatedAt": "2026-10-26T11:10:35.237Z"
+    },
+    {
+      "email": "patient.a.1793014264430@example.com",
+      "passwordHash": "dummy",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T11:31:04.430Z",
+      "preferredLocale": "en",
+      "id": "b817881c-39ff-49dd-9790-5b965d909c2f",
+      "createdAt": "2026-10-26T11:31:04.430Z",
+      "updatedAt": "2026-10-26T11:31:04.430Z"
+    },
+    {
+      "email": "patient.b.1793014264430@example.com",
+      "passwordHash": "dummy",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T11:31:04.430Z",
+      "preferredLocale": "en",
+      "id": "e5609a09-5133-4fb9-b31e-d3edcc5d8320",
+      "createdAt": "2026-10-26T11:31:04.430Z",
+      "updatedAt": "2026-10-26T11:31:04.430Z"
+    },
+    {
+      "email": "patient.a.1793014273641@example.com",
+      "passwordHash": "dummy",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T11:31:13.641Z",
+      "preferredLocale": "en",
+      "id": "4beceede-754b-40e2-a878-c7a1abb325eb",
+      "createdAt": "2026-10-26T11:31:13.641Z",
+      "updatedAt": "2026-10-26T11:31:13.641Z"
+    },
+    {
+      "email": "patient.b.1793014273643@example.com",
+      "passwordHash": "dummy",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T11:31:13.643Z",
+      "preferredLocale": "en",
+      "id": "60734db1-7aab-4937-8c10-fed4b36e365c",
+      "createdAt": "2026-10-26T11:31:13.643Z",
+      "updatedAt": "2026-10-26T11:31:13.643Z"
+    },
+    {
+      "email": "stage4_patient_1793014279713@example.com",
+      "phone": "9841000004",
+      "userType": "patient",
+      "passwordHash": "dummy_hash",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T11:31:19.713Z",
+      "preferredLocale": "en",
+      "id": "11813e6f-afa5-4b93-9e49-0a0372f995b6",
+      "createdAt": "2026-10-26T11:31:19.713Z",
+      "updatedAt": "2026-10-26T11:31:19.713Z"
+    },
+    {
+      "email": "stage4_patient_1793014304016@example.com",
+      "phone": "9841000004",
+      "userType": "patient",
+      "passwordHash": "dummy_hash",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T11:31:44.016Z",
+      "preferredLocale": "en",
+      "id": "5e534d25-96a8-4cc2-854b-78fbb978c640",
+      "createdAt": "2026-10-26T11:31:44.017Z",
+      "updatedAt": "2026-10-26T11:31:44.017Z"
+    },
+    {
+      "email": "stage4_stranger_1793014304025@example.com",
+      "phone": "9841000005",
+      "userType": "patient",
+      "passwordHash": "dummy_hash",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T11:31:44.025Z",
+      "preferredLocale": "en",
+      "id": "14673468-c2d8-4a3f-8269-bf6dad4d1f20",
+      "createdAt": "2026-10-26T11:31:44.025Z",
+      "updatedAt": "2026-10-26T11:31:44.025Z"
+    },
+    {
+      "email": "test.patient.1793016185436@example.com",
+      "phone": "9841000000",
+      "passwordHash": "5aadd0d964bab40422405d8760a1042e:b723f3decfe4023680c81bae2362c658c8376163a69452986d5fa7c64737cc3ae6d609ca087237daa1ea6850a21e98cabdc6b1df56df8019f4dbfbf8385517ba",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T12:03:05.494Z",
+      "verificationTokenHash": null,
+      "preferredLocale": "ne",
+      "id": "a1bbf871-abb1-41a4-9afe-97bcae794bf8",
+      "createdAt": "2026-10-26T12:03:05.492Z",
+      "updatedAt": "2026-10-26T12:03:05.494Z"
+    },
+    {
+      "email": "patient.a.1793016193879@example.com",
+      "passwordHash": "dummy",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T12:03:13.879Z",
+      "preferredLocale": "en",
+      "id": "c059307e-02a6-4a57-a8f1-df252e685b0a",
+      "createdAt": "2026-10-26T12:03:13.879Z",
+      "updatedAt": "2026-10-26T12:03:13.879Z"
+    },
+    {
+      "email": "patient.b.1793016193880@example.com",
+      "passwordHash": "dummy",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T12:03:13.880Z",
+      "preferredLocale": "en",
+      "id": "5d246b84-3f10-4b61-9e87-b6070fb560d1",
+      "createdAt": "2026-10-26T12:03:13.880Z",
+      "updatedAt": "2026-10-26T12:03:13.880Z"
+    },
+    {
+      "email": "stage4_patient_1793016197988@example.com",
+      "phone": "9841000004",
+      "userType": "patient",
+      "passwordHash": "dummy_hash",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T12:03:17.988Z",
+      "preferredLocale": "en",
+      "id": "4ac4c07e-e64d-436c-a7a1-5fff1ebccc62",
+      "createdAt": "2026-10-26T12:03:17.988Z",
+      "updatedAt": "2026-10-26T12:03:17.988Z"
+    },
+    {
+      "email": "stage4_stranger_1793016197997@example.com",
+      "phone": "9841000005",
+      "userType": "patient",
+      "passwordHash": "dummy_hash",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T12:03:17.997Z",
+      "preferredLocale": "en",
+      "id": "ba1e4b8d-46d5-4617-9d43-c7044db2cfde",
+      "createdAt": "2026-10-26T12:03:17.997Z",
+      "updatedAt": "2026-10-26T12:03:17.997Z"
+    },
+    {
+      "email": "test.patient.1793021601571@example.com",
+      "phone": "9841000000",
+      "passwordHash": "95d545966601cbd7191b313b4a45efd3:84a6860bf9b960f537aa3e9ca30e4147e06e620bf21326e06daab0ce582b84709d8806632852e498971d0629c9d5484f05f8a36b25f16decb142af677eabfac6",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T13:33:21.620Z",
+      "verificationTokenHash": null,
+      "preferredLocale": "ne",
+      "id": "0f55a55f-fc07-415c-ab27-87285e4db408",
+      "createdAt": "2026-10-26T13:33:21.619Z",
+      "updatedAt": "2026-10-26T13:33:21.621Z"
+    },
+    {
+      "email": "patient.a.1793021625827@example.com",
+      "passwordHash": "dummy",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T13:33:45.827Z",
+      "preferredLocale": "en",
+      "id": "67882ae2-0db7-4d1b-8879-22db1b33def4",
+      "createdAt": "2026-10-26T13:33:45.827Z",
+      "updatedAt": "2026-10-26T13:33:45.827Z"
+    },
+    {
+      "email": "patient.b.1793021625829@example.com",
+      "passwordHash": "dummy",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T13:33:45.829Z",
+      "preferredLocale": "en",
+      "id": "952f0b45-3bdd-488d-9476-eff64df39f40",
+      "createdAt": "2026-10-26T13:33:45.829Z",
+      "updatedAt": "2026-10-26T13:33:45.829Z"
+    },
+    {
+      "email": "stage4_patient_1793021638579@example.com",
+      "phone": "9841000004",
+      "userType": "patient",
+      "passwordHash": "dummy_hash",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T13:33:58.579Z",
+      "preferredLocale": "en",
+      "id": "960b2f6c-9995-4c65-8538-0f203c459ca2",
+      "createdAt": "2026-10-26T13:33:58.579Z",
+      "updatedAt": "2026-10-26T13:33:58.579Z"
+    },
+    {
+      "email": "stage4_stranger_1793021638590@example.com",
+      "phone": "9841000005",
+      "userType": "patient",
+      "passwordHash": "dummy_hash",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T13:33:58.590Z",
+      "preferredLocale": "en",
+      "id": "6c4e4a96-7b5f-4e3b-bd5c-ca9c5665feb1",
+      "createdAt": "2026-10-26T13:33:58.590Z",
+      "updatedAt": "2026-10-26T13:33:58.590Z"
+    },
+    {
+      "email": "test.patient.1793022558717@example.com",
+      "phone": "9841000000",
+      "passwordHash": "a64768920783807e11bdfe1a77c0ecef:661c5ce872c973b105e0e0cd65779c8bf9ce7135630b38c6f2fad38cf461ed2ef1a8466189cd0db3be95d4b8eee60192911c2a4af4c79ef1b3ed7cf9efd13e77",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T13:49:18.770Z",
+      "verificationTokenHash": null,
+      "preferredLocale": "ne",
+      "id": "7d50802a-84cf-41b2-830d-cc46e95530ce",
+      "createdAt": "2026-10-26T13:49:18.768Z",
+      "updatedAt": "2026-10-26T13:49:18.770Z"
+    },
+    {
+      "email": "patient.a.1793022581175@example.com",
+      "passwordHash": "dummy",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T13:49:41.175Z",
+      "preferredLocale": "en",
+      "id": "fcf84eea-a807-4a79-87b3-a36a12548232",
+      "createdAt": "2026-10-26T13:49:41.175Z",
+      "updatedAt": "2026-10-26T13:49:41.175Z"
+    },
+    {
+      "email": "patient.b.1793022581177@example.com",
+      "passwordHash": "dummy",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T13:49:41.177Z",
+      "preferredLocale": "en",
+      "id": "77758e2f-df5d-44ec-aecc-2fc1e065f10c",
+      "createdAt": "2026-10-26T13:49:41.177Z",
+      "updatedAt": "2026-10-26T13:49:41.177Z"
+    },
+    {
+      "email": "stage4_patient_1793022592589@example.com",
+      "phone": "9841000004",
+      "userType": "patient",
+      "passwordHash": "dummy_hash",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T13:49:52.589Z",
+      "preferredLocale": "en",
+      "id": "e6e0de01-db02-4f73-982f-a6b414f33e77",
+      "createdAt": "2026-10-26T13:49:52.589Z",
+      "updatedAt": "2026-10-26T13:49:52.589Z"
+    },
+    {
+      "email": "stage4_stranger_1793022592609@example.com",
+      "phone": "9841000005",
+      "userType": "patient",
+      "passwordHash": "dummy_hash",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T13:49:52.609Z",
+      "preferredLocale": "en",
+      "id": "36afe563-4846-4506-855c-9f68fa930246",
+      "createdAt": "2026-10-26T13:49:52.609Z",
+      "updatedAt": "2026-10-26T13:49:52.609Z"
+    },
+    {
+      "email": "test.patient.1793023264785@example.com",
+      "phone": "9841000000",
+      "passwordHash": "2b1d9e0c46bfba5b423b21631f488ebb:4008fff8eaba5d592aabc138c19278dcd527f4534685bb78d86448a66142e05a5a47c71d443d42bbdd82f51469bc1eba4410ef70d14e2bb1e68ab7fbe4e32dba",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T14:01:04.843Z",
+      "verificationTokenHash": null,
+      "preferredLocale": "ne",
+      "id": "2a73079e-af58-4580-9a9f-9152f462aae9",
+      "createdAt": "2026-10-26T14:01:04.840Z",
+      "updatedAt": "2026-10-26T14:01:04.843Z"
+    },
+    {
+      "email": "patient.a.1793023267252@example.com",
+      "passwordHash": "dummy",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T14:01:07.252Z",
+      "preferredLocale": "en",
+      "id": "7d37c9aa-1795-4889-bcb3-1caa173043cc",
+      "createdAt": "2026-10-26T14:01:07.252Z",
+      "updatedAt": "2026-10-26T14:01:07.252Z"
+    },
+    {
+      "email": "patient.b.1793023267254@example.com",
+      "passwordHash": "dummy",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T14:01:07.254Z",
+      "preferredLocale": "en",
+      "id": "15fb7c50-0b75-4ded-88e9-864b8b0dc97b",
+      "createdAt": "2026-10-26T14:01:07.254Z",
+      "updatedAt": "2026-10-26T14:01:07.254Z"
+    },
+    {
+      "email": "stage4_patient_1793023268179@example.com",
+      "phone": "9841000004",
+      "userType": "patient",
+      "passwordHash": "dummy_hash",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T14:01:08.179Z",
+      "preferredLocale": "en",
+      "id": "3f4868d7-4884-4008-8518-a9c763e8ae18",
+      "createdAt": "2026-10-26T14:01:08.179Z",
+      "updatedAt": "2026-10-26T14:01:08.179Z"
+    },
+    {
+      "email": "stage4_stranger_1793023268192@example.com",
+      "phone": "9841000005",
+      "userType": "patient",
+      "passwordHash": "dummy_hash",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T14:01:08.192Z",
+      "preferredLocale": "en",
+      "id": "a70cb49d-4b35-4b02-81aa-828b99c6dc92",
+      "createdAt": "2026-10-26T14:01:08.192Z",
+      "updatedAt": "2026-10-26T14:01:08.192Z"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "24aad80d-5c14-40cb-9d2b-2c58839eca17",
+      "userId": "701d6c67-4ec4-498e-a64e-46a56090224e",
+      "tokenHash": "390cb4a55c6688c092ccd4525220300e94a1d41a0199a63d4f0e1c9c038a6f8f",
+      "expiresAt": "2026-11-02T10:38:40.421Z",
+      "ipAddress": "::ffff:127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "createdAt": "2026-10-26T10:38:40.421Z"
+    }
+  ],
+  "roles": [
+    {
+      "id": "super_admin",
+      "name": "Super Admin",
+      "description": "Full administrative access across clinical, operational, user management and system settings.",
+      "defaultPermissions": [
+        "bookings.view",
+        "bookings.manage",
+        "patients.view",
+        "patients.manage",
+        "reports.view",
+        "reports.upload",
+        "reports.release",
+        "reports.revoke",
+        "catalogue.manage",
+        "content.manage",
+        "settings.manage",
+        "users.manage",
+        "audit.view"
+      ]
+    },
+    {
+      "id": "reception",
+      "name": "Reception",
+      "description": "Front desk operations: review and confirm bookings, manage walk-in profiles, upload draft reports.",
+      "defaultPermissions": [
+        "bookings.view",
+        "bookings.manage",
+        "patients.view",
+        "patients.manage",
+        "reports.view",
+        "reports.upload"
+      ]
+    }
+  ],
+  "staffProfiles": [
+    {
+      "userId": "18e4a5d3-bfc1-41b9-81b9-931d9e40d3e5",
+      "roleId": "super_admin",
+      "fullName": "System Super Administrator",
+      "customGrantedPermissions": [],
+      "customRevokedPermissions": [],
+      "createdAt": "2026-10-26T10:38:29.311Z"
+    }
+  ],
+  "patientProfiles": [
+    {
+      "managingUserId": "23c592b7-47b2-4b66-8432-cbde013c87f3",
+      "fullName": "Test Verification Patient",
+      "relationshipLabel": "myself",
+      "id": "1e05bc46-787e-4e72-88c5-95d30aaabe51",
+      "createdAt": "2026-10-26T10:38:29.360Z",
+      "updatedAt": "2026-10-26T10:38:29.360Z"
+    },
+    {
+      "managingUserId": "701d6c67-4ec4-498e-a64e-46a56090224e",
+      "fullName": "Anita Sharma",
+      "phone": "9841234567",
+      "relationshipLabel": "myself",
+      "id": "db9f9497-6856-4144-aaff-9022817ad7ac",
+      "createdAt": "2026-10-26T10:38:35.184Z",
+      "updatedAt": "2026-10-26T10:38:35.184Z"
+    },
+    {
+      "managingUserId": "74644fa8-e5d4-44e9-919f-2960558ed6f7",
+      "fullName": "Test Verification Patient",
+      "relationshipLabel": "myself",
+      "id": "596272b6-221a-4db0-8df0-c07ca29d5d0d",
+      "createdAt": "2026-10-26T10:56:07.366Z",
+      "updatedAt": "2026-10-26T10:56:07.366Z"
+    },
+    {
+      "managingUserId": "da951176-5cc6-4f16-ad83-f4ae1a4dcf18",
+      "fullName": "Patient Alpha",
+      "relationshipLabel": "myself",
+      "id": "ff22c5a6-25b6-47e5-ad2b-d4bd142b9969",
+      "createdAt": "2026-10-26T11:10:35.237Z",
+      "updatedAt": "2026-10-26T11:10:35.237Z"
+    },
+    {
+      "managingUserId": "ccbcee6c-c7a8-42db-8faf-6605a870803d",
+      "fullName": "Patient Beta",
+      "relationshipLabel": "myself",
+      "id": "2d6160e8-31d1-4997-b2c6-cbcada525ab5",
+      "createdAt": "2026-10-26T11:10:35.237Z",
+      "updatedAt": "2026-10-26T11:10:35.237Z"
+    },
+    {
+      "managingUserId": "b817881c-39ff-49dd-9790-5b965d909c2f",
+      "fullName": "Patient Alpha",
+      "relationshipLabel": "myself",
+      "id": "c5ce6126-1f1b-4450-8202-e3e3b2fadac8",
+      "createdAt": "2026-10-26T11:31:04.430Z",
+      "updatedAt": "2026-10-26T11:31:04.430Z"
+    },
+    {
+      "managingUserId": "e5609a09-5133-4fb9-b31e-d3edcc5d8320",
+      "fullName": "Patient Beta",
+      "relationshipLabel": "myself",
+      "id": "44365f68-47d7-4d45-aae0-950be2731afc",
+      "createdAt": "2026-10-26T11:31:04.431Z",
+      "updatedAt": "2026-10-26T11:31:04.431Z"
+    },
+    {
+      "managingUserId": "4beceede-754b-40e2-a878-c7a1abb325eb",
+      "fullName": "Patient Alpha",
+      "relationshipLabel": "myself",
+      "id": "cd9ba7ec-7dab-454b-8ffe-5c90cfb8b029",
+      "createdAt": "2026-10-26T11:31:13.641Z",
+      "updatedAt": "2026-10-26T11:31:13.641Z"
+    },
+    {
+      "managingUserId": "60734db1-7aab-4937-8c10-fed4b36e365c",
+      "fullName": "Patient Beta",
+      "relationshipLabel": "myself",
+      "id": "20d86f67-f81d-480b-9f73-b349c41cdca3",
+      "createdAt": "2026-10-26T11:31:13.643Z",
+      "updatedAt": "2026-10-26T11:31:13.643Z"
+    },
+    {
+      "managingUserId": "11813e6f-afa5-4b93-9e49-0a0372f995b6",
+      "fullName": "Sita Devi",
+      "relationshipLabel": "myself",
+      "sex": "female",
+      "id": "093612db-94af-4100-a3b1-6e7364b7ebde",
+      "createdAt": "2026-10-26T11:31:19.714Z",
+      "updatedAt": "2026-10-26T11:31:19.714Z"
+    },
+    {
+      "managingUserId": "5e534d25-96a8-4cc2-854b-78fbb978c640",
+      "fullName": "Sita Devi",
+      "relationshipLabel": "myself",
+      "sex": "female",
+      "id": "ea78300f-b0a1-4aea-bd3b-f0af8653a740",
+      "createdAt": "2026-10-26T11:31:44.018Z",
+      "updatedAt": "2026-10-26T11:31:44.018Z"
+    },
+    {
+      "managingUserId": "14673468-c2d8-4a3f-8269-bf6dad4d1f20",
+      "fullName": "Stranger User",
+      "relationshipLabel": "myself",
+      "id": "42234a55-bd03-40eb-a10d-dd4b11cf2663",
+      "createdAt": "2026-10-26T11:31:44.025Z",
+      "updatedAt": "2026-10-26T11:31:44.025Z"
+    },
+    {
+      "managingUserId": "5e534d25-96a8-4cc2-854b-78fbb978c640",
+      "fullName": "Ram Bahadur Walkin",
+      "relationshipLabel": "patient",
+      "phone": "9841999888",
+      "id": "811d3aae-f0ad-4da2-a9d3-71e46449204c",
+      "createdAt": "2026-10-26T11:31:44.025Z",
+      "updatedAt": "2026-10-26T11:31:44.026Z"
+    },
+    {
+      "managingUserId": "a1bbf871-abb1-41a4-9afe-97bcae794bf8",
+      "fullName": "Test Verification Patient",
+      "relationshipLabel": "myself",
+      "id": "45f38c88-bf09-4581-8c57-6df24eab28bd",
+      "createdAt": "2026-10-26T12:03:05.493Z",
+      "updatedAt": "2026-10-26T12:03:05.493Z"
+    },
+    {
+      "managingUserId": "c059307e-02a6-4a57-a8f1-df252e685b0a",
+      "fullName": "Patient Alpha",
+      "relationshipLabel": "myself",
+      "id": "7a9f743d-d542-4c75-ab52-0f4eefdde31f",
+      "createdAt": "2026-10-26T12:03:13.880Z",
+      "updatedAt": "2026-10-26T12:03:13.880Z"
+    },
+    {
+      "managingUserId": "5d246b84-3f10-4b61-9e87-b6070fb560d1",
+      "fullName": "Patient Beta",
+      "relationshipLabel": "myself",
+      "id": "9077fc8b-fd4a-44f2-b2bc-cb02214b153c",
+      "createdAt": "2026-10-26T12:03:13.880Z",
+      "updatedAt": "2026-10-26T12:03:13.880Z"
+    },
+    {
+      "managingUserId": "4ac4c07e-e64d-436c-a7a1-5fff1ebccc62",
+      "fullName": "Sita Devi",
+      "relationshipLabel": "myself",
+      "sex": "female",
+      "id": "1db9f211-e9b9-4e1b-9d0f-89bedce10dc1",
+      "createdAt": "2026-10-26T12:03:17.988Z",
+      "updatedAt": "2026-10-26T12:03:17.988Z"
+    },
+    {
+      "managingUserId": "ba1e4b8d-46d5-4617-9d43-c7044db2cfde",
+      "fullName": "Stranger User",
+      "relationshipLabel": "myself",
+      "id": "eb7eb1c0-d0db-4c45-9ada-eddb442866ac",
+      "createdAt": "2026-10-26T12:03:17.997Z",
+      "updatedAt": "2026-10-26T12:03:17.997Z"
+    },
+    {
+      "managingUserId": "4ac4c07e-e64d-436c-a7a1-5fff1ebccc62",
+      "fullName": "Ram Bahadur Walkin",
+      "relationshipLabel": "patient",
+      "phone": "9841999888",
+      "id": "421d80ba-33ca-4c15-8fa5-4a13a738bf51",
+      "createdAt": "2026-10-26T12:03:17.998Z",
+      "updatedAt": "2026-10-26T12:03:17.999Z"
+    },
+    {
+      "managingUserId": "0f55a55f-fc07-415c-ab27-87285e4db408",
+      "fullName": "Test Verification Patient",
+      "relationshipLabel": "myself",
+      "id": "5319d4df-41df-4748-9448-cf87f1884a85",
+      "createdAt": "2026-10-26T13:33:21.620Z",
+      "updatedAt": "2026-10-26T13:33:21.620Z"
+    },
+    {
+      "managingUserId": "67882ae2-0db7-4d1b-8879-22db1b33def4",
+      "fullName": "Patient Alpha",
+      "relationshipLabel": "myself",
+      "id": "b0ebde56-cea9-470c-a840-cc084c599324",
+      "createdAt": "2026-10-26T13:33:45.828Z",
+      "updatedAt": "2026-10-26T13:33:45.828Z"
+    },
+    {
+      "managingUserId": "952f0b45-3bdd-488d-9476-eff64df39f40",
+      "fullName": "Patient Beta",
+      "relationshipLabel": "myself",
+      "id": "a1af656a-4e0b-42cb-8cbb-07bf23479f95",
+      "createdAt": "2026-10-26T13:33:45.829Z",
+      "updatedAt": "2026-10-26T13:33:45.829Z"
+    },
+    {
+      "managingUserId": "960b2f6c-9995-4c65-8538-0f203c459ca2",
+      "fullName": "Sita Devi",
+      "relationshipLabel": "myself",
+      "sex": "female",
+      "id": "21b67993-b561-4dcb-bbb1-c321434d4633",
+      "createdAt": "2026-10-26T13:33:58.582Z",
+      "updatedAt": "2026-10-26T13:33:58.582Z"
+    },
+    {
+      "managingUserId": "6c4e4a96-7b5f-4e3b-bd5c-ca9c5665feb1",
+      "fullName": "Stranger User",
+      "relationshipLabel": "myself",
+      "id": "bcba047b-ec7c-4976-90a5-957eefe0cbca",
+      "createdAt": "2026-10-26T13:33:58.590Z",
+      "updatedAt": "2026-10-26T13:33:58.590Z"
+    },
+    {
+      "managingUserId": "960b2f6c-9995-4c65-8538-0f203c459ca2",
+      "fullName": "Ram Bahadur Walkin",
+      "relationshipLabel": "patient",
+      "phone": "9841999888",
+      "id": "7db7f673-f4b8-441e-aa8d-c5fad5e04e4e",
+      "createdAt": "2026-10-26T13:33:58.591Z",
+      "updatedAt": "2026-10-26T13:33:58.593Z"
+    },
+    {
+      "managingUserId": "7d50802a-84cf-41b2-830d-cc46e95530ce",
+      "fullName": "Test Verification Patient",
+      "relationshipLabel": "myself",
+      "id": "f54717c5-cbbb-48ba-828d-99e0f91be3a0",
+      "createdAt": "2026-10-26T13:49:18.769Z",
+      "updatedAt": "2026-10-26T13:49:18.769Z"
+    },
+    {
+      "managingUserId": "fcf84eea-a807-4a79-87b3-a36a12548232",
+      "fullName": "Patient Alpha",
+      "relationshipLabel": "myself",
+      "id": "1d555776-21a1-4a37-b5f5-dd3833693218",
+      "createdAt": "2026-10-26T13:49:41.176Z",
+      "updatedAt": "2026-10-26T13:49:41.176Z"
+    },
+    {
+      "managingUserId": "77758e2f-df5d-44ec-aecc-2fc1e065f10c",
+      "fullName": "Patient Beta",
+      "relationshipLabel": "myself",
+      "id": "4639a59b-4bfe-4875-be79-199445101800",
+      "createdAt": "2026-10-26T13:49:41.177Z",
+      "updatedAt": "2026-10-26T13:49:41.177Z"
+    },
+    {
+      "managingUserId": "e6e0de01-db02-4f73-982f-a6b414f33e77",
+      "fullName": "Sita Devi",
+      "relationshipLabel": "myself",
+      "sex": "female",
+      "id": "9456be57-aa39-4742-80a2-b2b7fd1199cf",
+      "createdAt": "2026-10-26T13:49:52.590Z",
+      "updatedAt": "2026-10-26T13:49:52.590Z"
+    },
+    {
+      "managingUserId": "36afe563-4846-4506-855c-9f68fa930246",
+      "fullName": "Stranger User",
+      "relationshipLabel": "myself",
+      "id": "85008f2f-e909-4173-9568-db945c033ae3",
+      "createdAt": "2026-10-26T13:49:52.610Z",
+      "updatedAt": "2026-10-26T13:49:52.610Z"
+    },
+    {
+      "managingUserId": "e6e0de01-db02-4f73-982f-a6b414f33e77",
+      "fullName": "Ram Bahadur Walkin",
+      "relationshipLabel": "patient",
+      "phone": "9841999888",
+      "id": "59fd644c-6973-44fc-84b7-1710a83f369f",
+      "createdAt": "2026-10-26T13:49:52.611Z",
+      "updatedAt": "2026-10-26T13:49:52.613Z"
+    },
+    {
+      "managingUserId": "2a73079e-af58-4580-9a9f-9152f462aae9",
+      "fullName": "Test Verification Patient",
+      "relationshipLabel": "myself",
+      "id": "639acfae-fdb6-4e01-b844-f670ceb097de",
+      "createdAt": "2026-10-26T14:01:04.842Z",
+      "updatedAt": "2026-10-26T14:01:04.842Z"
+    },
+    {
+      "managingUserId": "7d37c9aa-1795-4889-bcb3-1caa173043cc",
+      "fullName": "Patient Alpha",
+      "relationshipLabel": "myself",
+      "id": "d6413cc8-2e62-48f6-9aed-baab96f2fc97",
+      "createdAt": "2026-10-26T14:01:07.253Z",
+      "updatedAt": "2026-10-26T14:01:07.253Z"
+    },
+    {
+      "managingUserId": "15fb7c50-0b75-4ded-88e9-864b8b0dc97b",
+      "fullName": "Patient Beta",
+      "relationshipLabel": "myself",
+      "id": "1eeb6418-f0a3-4c3c-bae4-3b6f1fde06f2",
+      "createdAt": "2026-10-26T14:01:07.255Z",
+      "updatedAt": "2026-10-26T14:01:07.255Z"
+    },
+    {
+      "managingUserId": "3f4868d7-4884-4008-8518-a9c763e8ae18",
+      "fullName": "Sita Devi",
+      "relationshipLabel": "myself",
+      "sex": "female",
+      "id": "46f714ed-3545-4b39-b2fa-1d9806c85266",
+      "createdAt": "2026-10-26T14:01:08.181Z",
+      "updatedAt": "2026-10-26T14:01:08.181Z"
+    },
+    {
+      "managingUserId": "a70cb49d-4b35-4b02-81aa-828b99c6dc92",
+      "fullName": "Stranger User",
+      "relationshipLabel": "myself",
+      "id": "72cc5c8b-36e9-4610-bfbb-e3aa8f6bf240",
+      "createdAt": "2026-10-26T14:01:08.193Z",
+      "updatedAt": "2026-10-26T14:01:08.193Z"
+    },
+    {
+      "managingUserId": "3f4868d7-4884-4008-8518-a9c763e8ae18",
+      "fullName": "Ram Bahadur Walkin",
+      "relationshipLabel": "patient",
+      "phone": "9841999888",
+      "id": "92d7bb1f-e06e-4ea1-bd34-2cd0522efe45",
+      "createdAt": "2026-10-26T14:01:08.194Z",
+      "updatedAt": "2026-10-26T14:01:08.196Z"
+    }
+  ],
+  "claimCodes": [
+    {
+      "id": "56d17ea8-c6ea-491b-a503-9092096caab3",
+      "profileId": "811d3aae-f0ad-4da2-a9d3-71e46449204c",
+      "codeHash": "ea75ff353e3741a25ad70fee85ca672425da8b591c8825fff156c0ad598f10e2",
+      "expiresAt": "2026-11-02T11:31:44.026Z",
+      "createdByStaffId": "staff-reception",
+      "createdAt": "2026-10-26T11:31:44.026Z",
+      "usedAt": "2026-10-26T11:31:44.027Z"
+    },
+    {
+      "id": "38a42263-8e94-493f-9d0a-008a748b79d1",
+      "profileId": "421d80ba-33ca-4c15-8fa5-4a13a738bf51",
+      "codeHash": "ea75ff353e3741a25ad70fee85ca672425da8b591c8825fff156c0ad598f10e2",
+      "expiresAt": "2026-11-02T12:03:17.998Z",
+      "createdByStaffId": "staff-reception",
+      "createdAt": "2026-10-26T12:03:17.998Z",
+      "usedAt": "2026-10-26T12:03:17.999Z"
+    },
+    {
+      "id": "d7bc79f3-6098-4509-ad31-c4d850b1ab46",
+      "profileId": "7db7f673-f4b8-441e-aa8d-c5fad5e04e4e",
+      "codeHash": "ea75ff353e3741a25ad70fee85ca672425da8b591c8825fff156c0ad598f10e2",
+      "expiresAt": "2026-11-02T13:33:58.592Z",
+      "createdByStaffId": "staff-reception",
+      "createdAt": "2026-10-26T13:33:58.592Z",
+      "usedAt": "2026-10-26T13:33:58.594Z"
+    },
+    {
+      "id": "a01deee1-b133-457b-aef7-27b830df4c26",
+      "profileId": "59fd644c-6973-44fc-84b7-1710a83f369f",
+      "codeHash": "ea75ff353e3741a25ad70fee85ca672425da8b591c8825fff156c0ad598f10e2",
+      "expiresAt": "2026-11-02T13:49:52.612Z",
+      "createdByStaffId": "staff-reception",
+      "createdAt": "2026-10-26T13:49:52.612Z",
+      "usedAt": "2026-10-26T13:49:52.614Z"
+    },
+    {
+      "id": "62f5571e-1903-457d-92d3-66f03bf32ef6",
+      "profileId": "92d7bb1f-e06e-4ea1-bd34-2cd0522efe45",
+      "codeHash": "ea75ff353e3741a25ad70fee85ca672425da8b591c8825fff156c0ad598f10e2",
+      "expiresAt": "2026-11-02T14:01:08.195Z",
+      "createdByStaffId": "staff-reception",
+      "createdAt": "2026-10-26T14:01:08.195Z",
+      "usedAt": "2026-10-26T14:01:08.197Z"
+    }
+  ],
+  "doctors": [
+    {
+      "slug": "test-doc-1793012175171",
+      "nameEn": "Dr. Stage Two Specialist",
+      "nameNe": "",
+      "specialtyEn": "Orthopedics & Sports Medicine",
+      "specialtyNe": "",
+      "consultationFee": 700,
+      "slotDurationMinutes": 20,
+      "isActive": true,
+      "isFeatured": true,
+      "id": "8356c5c2-b8f1-42c2-a8b3-2fe09538520c",
+      "createdAt": "2026-10-26T10:56:15.171Z"
+    },
+    {
+      "slug": "doctor-stage3-1793013035235",
+      "nameEn": "Dr. Conflict Test Specialist",
+      "nameNe": "डा. परीक्षण विशेषज्ञ",
+      "specialtyEn": "Cardiology",
+      "specialtyNe": "मुटुरोग",
+      "consultationFee": 1500,
+      "slotDurationMinutes": 20,
+      "isActive": true,
+      "isFeatured": false,
+      "id": "f06c3f6b-3c1b-4aad-add5-dfdd761dc7a1",
+      "createdAt": "2026-10-26T11:10:35.236Z"
+    },
+    {
+      "slug": "doctor-stage3-1793014264428",
+      "nameEn": "Dr. Conflict Test Specialist",
+      "nameNe": "डा. परीक्षण विशेषज्ञ",
+      "specialtyEn": "Cardiology",
+      "specialtyNe": "मुटुरोग",
+      "consultationFee": 1500,
+      "slotDurationMinutes": 20,
+      "isActive": true,
+      "isFeatured": false,
+      "id": "fcb9ad0a-85bd-43db-a42b-c3216e201d70",
+      "createdAt": "2026-10-26T11:31:04.429Z"
+    },
+    {
+      "slug": "doctor-stage3-1793014273640",
+      "nameEn": "Dr. Conflict Test Specialist",
+      "nameNe": "डा. परीक्षण विशेषज्ञ",
+      "specialtyEn": "Cardiology",
+      "specialtyNe": "मुटुरोग",
+      "consultationFee": 1500,
+      "slotDurationMinutes": 20,
+      "isActive": true,
+      "isFeatured": false,
+      "id": "79f0c30d-cdef-4d01-85f7-5c8599fbf7e3",
+      "createdAt": "2026-10-26T11:31:13.641Z"
+    },
+    {
+      "slug": "dr-anand-stage5",
+      "nameEn": "Dr. Anand Sharma",
+      "nameNe": "डा. आनन्द शर्मा",
+      "specialtyEn": "Internal Medicine",
+      "specialtyNe": "इन्टरनल मेडिसिन",
+      "consultationFee": 700,
+      "slotDurationMinutes": 20,
+      "isActive": true,
+      "isFeatured": true,
+      "id": "0b20360c-df81-44eb-904b-824517889fbc",
+      "createdAt": "2026-10-26T11:31:53.992Z"
+    },
+    {
+      "slug": "test-doc-1793016190464",
+      "nameEn": "Dr. Stage Two Specialist",
+      "nameNe": "",
+      "specialtyEn": "Orthopedics & Sports Medicine",
+      "specialtyNe": "",
+      "consultationFee": 700,
+      "slotDurationMinutes": 20,
+      "isActive": true,
+      "isFeatured": true,
+      "id": "2205fbe4-c9f4-4708-bd68-4c58063f2b65",
+      "createdAt": "2026-10-26T12:03:10.464Z"
+    },
+    {
+      "slug": "doctor-stage3-1793016193879",
+      "nameEn": "Dr. Conflict Test Specialist",
+      "nameNe": "डा. परीक्षण विशेषज्ञ",
+      "specialtyEn": "Cardiology",
+      "specialtyNe": "मुटुरोग",
+      "consultationFee": 1500,
+      "slotDurationMinutes": 20,
+      "isActive": true,
+      "isFeatured": false,
+      "id": "acef44f8-7223-44bb-8848-b7467869d5fc",
+      "createdAt": "2026-10-26T12:03:13.879Z"
+    },
+    {
+      "slug": "dr-anand-stage5",
+      "nameEn": "Dr. Anand Sharma",
+      "nameNe": "डा. आनन्द शर्मा",
+      "specialtyEn": "Internal Medicine",
+      "specialtyNe": "इन्टरनल मेडिसिन",
+      "consultationFee": 700,
+      "slotDurationMinutes": 20,
+      "isActive": true,
+      "isFeatured": true,
+      "id": "47eb4a51-20a7-4c65-a802-48c184359153",
+      "createdAt": "2026-10-26T12:03:21.755Z"
+    },
+    {
+      "slug": "test-doc-1793021619707",
+      "nameEn": "Dr. Stage Two Specialist",
+      "nameNe": "",
+      "specialtyEn": "Orthopedics & Sports Medicine",
+      "specialtyNe": "",
+      "consultationFee": 700,
+      "slotDurationMinutes": 20,
+      "isActive": true,
+      "isFeatured": true,
+      "id": "2b8a6af7-c3b5-4283-9cd5-140268abb50d",
+      "createdAt": "2026-10-26T13:33:39.708Z"
+    },
+    {
+      "slug": "doctor-stage3-1793021625827",
+      "nameEn": "Dr. Conflict Test Specialist",
+      "nameNe": "डा. परीक्षण विशेषज्ञ",
+      "specialtyEn": "Cardiology",
+      "specialtyNe": "मुटुरोग",
+      "consultationFee": 1500,
+      "slotDurationMinutes": 20,
+      "isActive": true,
+      "isFeatured": false,
+      "id": "60b17dfe-cd88-4fb2-bcac-9ce1b5e74af9",
+      "createdAt": "2026-10-26T13:33:45.827Z"
+    },
+    {
+      "slug": "dr-anand-stage5",
+      "nameEn": "Dr. Anand Sharma",
+      "nameNe": "डा. आनन्द शर्मा",
+      "specialtyEn": "Internal Medicine",
+      "specialtyNe": "इन्टरनल मेडिसिन",
+      "consultationFee": 700,
+      "slotDurationMinutes": 20,
+      "isActive": true,
+      "isFeatured": true,
+      "id": "d8ec2e75-6424-4729-93ad-45ea1d916301",
+      "createdAt": "2026-10-26T13:34:06.893Z"
+    },
+    {
+      "slug": "test-doc-1793022566351",
+      "nameEn": "Dr. Stage Two Specialist",
+      "nameNe": "",
+      "specialtyEn": "Orthopedics & Sports Medicine",
+      "specialtyNe": "",
+      "consultationFee": 700,
+      "slotDurationMinutes": 20,
+      "isActive": true,
+      "isFeatured": true,
+      "id": "717ac95e-dd3d-41a4-b7c8-0561778f1513",
+      "createdAt": "2026-10-26T13:49:26.351Z"
+    },
+    {
+      "slug": "doctor-stage3-1793022581175",
+      "nameEn": "Dr. Conflict Test Specialist",
+      "nameNe": "डा. परीक्षण विशेषज्ञ",
+      "specialtyEn": "Cardiology",
+      "specialtyNe": "मुटुरोग",
+      "consultationFee": 1500,
+      "slotDurationMinutes": 20,
+      "isActive": true,
+      "isFeatured": false,
+      "id": "e662195e-0520-4ce8-851e-f33d0b98d49b",
+      "createdAt": "2026-10-26T13:49:41.175Z"
+    },
+    {
+      "slug": "dr-anand-stage5",
+      "nameEn": "Dr. Anand Sharma",
+      "nameNe": "डा. आनन्द शर्मा",
+      "specialtyEn": "Internal Medicine",
+      "specialtyNe": "इन्टरनल मेडिसिन",
+      "consultationFee": 700,
+      "slotDurationMinutes": 20,
+      "isActive": true,
+      "isFeatured": true,
+      "id": "1783d924-769d-4d7d-840b-b90a3df6deae",
+      "createdAt": "2026-10-26T13:50:05.577Z"
+    },
+    {
+      "slug": "test-doc-1793023265855",
+      "nameEn": "Dr. Stage Two Specialist",
+      "nameNe": "",
+      "specialtyEn": "Orthopedics & Sports Medicine",
+      "specialtyNe": "",
+      "consultationFee": 700,
+      "slotDurationMinutes": 20,
+      "isActive": true,
+      "isFeatured": true,
+      "id": "1210b3a4-198a-4cdb-b62a-333ce611f315",
+      "createdAt": "2026-10-26T14:01:05.855Z"
+    },
+    {
+      "slug": "doctor-stage3-1793023267251",
+      "nameEn": "Dr. Conflict Test Specialist",
+      "nameNe": "डा. परीक्षण विशेषज्ञ",
+      "specialtyEn": "Cardiology",
+      "specialtyNe": "मुटुरोग",
+      "consultationFee": 1500,
+      "slotDurationMinutes": 20,
+      "isActive": true,
+      "isFeatured": false,
+      "id": "23827108-c25a-4ac5-a9b8-d1b6c9ccd7d9",
+      "createdAt": "2026-10-26T14:01:07.251Z"
+    },
+    {
+      "slug": "dr-anand-stage5",
+      "nameEn": "Dr. Anand Sharma",
+      "nameNe": "डा. आनन्द शर्मा",
+      "specialtyEn": "Internal Medicine",
+      "specialtyNe": "इन्टरनल मेडिसिन",
+      "consultationFee": 700,
+      "slotDurationMinutes": 20,
+      "isActive": true,
+      "isFeatured": true,
+      "id": "fed28dd6-cc8b-4ae8-93cf-412bfd9e1129",
+      "createdAt": "2026-10-26T14:01:08.905Z"
+    }
+  ],
+  "doctorSchedules": [
+    {
+      "id": "48d8d537-07a0-4749-af76-ea0db6ca90e5",
+      "doctorId": "8356c5c2-b8f1-42c2-a8b3-2fe09538520c",
+      "dayOfWeek": 0,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "b8c8148e-b1f1-4123-967d-0a806e3598ff",
+      "doctorId": "8356c5c2-b8f1-42c2-a8b3-2fe09538520c",
+      "dayOfWeek": 1,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "d26bc5ca-4970-4492-9e80-649669fc34cd",
+      "doctorId": "2205fbe4-c9f4-4708-bd68-4c58063f2b65",
+      "dayOfWeek": 0,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "0f1976c8-3656-4cf0-9f4f-496ed439d0fc",
+      "doctorId": "2205fbe4-c9f4-4708-bd68-4c58063f2b65",
+      "dayOfWeek": 1,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "4831ea0c-f818-4501-bde7-90ed03798f27",
+      "doctorId": "2b8a6af7-c3b5-4283-9cd5-140268abb50d",
+      "dayOfWeek": 0,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "4c3545c2-d8b2-454d-bb59-ff18035b93e6",
+      "doctorId": "2b8a6af7-c3b5-4283-9cd5-140268abb50d",
+      "dayOfWeek": 1,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "274be13e-2f40-4240-b7bf-7c59535decb6",
+      "doctorId": "717ac95e-dd3d-41a4-b7c8-0561778f1513",
+      "dayOfWeek": 0,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "39fd04dd-0087-4feb-9d93-8465af43e02d",
+      "doctorId": "717ac95e-dd3d-41a4-b7c8-0561778f1513",
+      "dayOfWeek": 1,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "fdaccaf0-1f72-45f6-88aa-0cee7ae1b394",
+      "doctorId": "1210b3a4-198a-4cdb-b62a-333ce611f315",
+      "dayOfWeek": 0,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "a9ac68e0-b83b-4535-aa1b-d701a55c2ddf",
+      "doctorId": "1210b3a4-198a-4cdb-b62a-333ce611f315",
+      "dayOfWeek": 1,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    }
+  ],
+  "doctorUnavailabilities": [],
+  "medicalServices": [
+    {
+      "slug": "test-service-1793012175172",
+      "nameEn": "Preventive Cardiac Health Check",
+      "nameNe": "रोकथाम मुटु स्वास्थ्य परीक्षण",
+      "fee": 2500,
+      "bookingMode": "request",
+      "isActive": true,
+      "isFeatured": true,
+      "id": "4039847c-e19e-434b-bb40-daaaab5bd8d5",
+      "createdAt": "2026-10-26T10:56:15.172Z"
+    },
+    {
+      "slug": "test-service-1793016190465",
+      "nameEn": "Preventive Cardiac Health Check",
+      "nameNe": "रोकथाम मुटु स्वास्थ्य परीक्षण",
+      "fee": 2500,
+      "bookingMode": "request",
+      "isActive": true,
+      "isFeatured": true,
+      "id": "c3722259-09fd-4316-bb7c-99c5978716fa",
+      "createdAt": "2026-10-26T12:03:10.465Z"
+    },
+    {
+      "slug": "test-service-1793021619710",
+      "nameEn": "Preventive Cardiac Health Check",
+      "nameNe": "रोकथाम मुटु स्वास्थ्य परीक्षण",
+      "fee": 2500,
+      "bookingMode": "request",
+      "isActive": true,
+      "isFeatured": true,
+      "id": "eafb7549-3794-4fc7-b25d-9dc4de1c810a",
+      "createdAt": "2026-10-26T13:33:39.710Z"
+    },
+    {
+      "slug": "test-service-1793022566353",
+      "nameEn": "Preventive Cardiac Health Check",
+      "nameNe": "रोकथाम मुटु स्वास्थ्य परीक्षण",
+      "fee": 2500,
+      "bookingMode": "request",
+      "isActive": true,
+      "isFeatured": true,
+      "id": "e22a7b27-c9bf-41ac-a90e-7a15614fca84",
+      "createdAt": "2026-10-26T13:49:26.353Z"
+    },
+    {
+      "slug": "test-service-1793023265872",
+      "nameEn": "Preventive Cardiac Health Check",
+      "nameNe": "रोकथाम मुटु स्वास्थ्य परीक्षण",
+      "fee": 2500,
+      "bookingMode": "request",
+      "isActive": true,
+      "isFeatured": true,
+      "id": "1a7f28cd-7ca1-47c6-9697-3a49329bb99f",
+      "createdAt": "2026-10-26T14:01:05.872Z"
+    }
+  ],
+  "serviceQuestions": [],
+  "labCategories": [
+    {
+      "slug": "cat-1793012175173",
+      "nameEn": "Biochemistry Panel",
+      "nameNe": "बायोकेमिस्ट्री",
+      "displayOrder": 1,
+      "id": "3371ed51-7106-4f3c-8894-c77b9052b092"
+    },
+    {
+      "slug": "cat-1793016190466",
+      "nameEn": "Biochemistry Panel",
+      "nameNe": "बायोकेमिस्ट्री",
+      "displayOrder": 1,
+      "id": "e171a6ca-c025-471d-98a4-5a27f59a4a42"
+    },
+    {
+      "slug": "cat-1793021619711",
+      "nameEn": "Biochemistry Panel",
+      "nameNe": "बायोकेमिस्ट्री",
+      "displayOrder": 1,
+      "id": "13c90073-e655-49b7-809f-51ff6dc003ca"
+    },
+    {
+      "slug": "cat-1793022566354",
+      "nameEn": "Biochemistry Panel",
+      "nameNe": "बायोकेमिस्ट्री",
+      "displayOrder": 1,
+      "id": "eec3dfb7-1c93-4a29-badc-b87ae1e94622"
+    },
+    {
+      "slug": "cat-1793023265874",
+      "nameEn": "Biochemistry Panel",
+      "nameNe": "बायोकेमिस्ट्री",
+      "displayOrder": 1,
+      "id": "905565b6-eacd-48b4-af8f-c3a2959771ea"
+    }
+  ],
+  "labTests": [
+    {
+      "categoryId": "3371ed51-7106-4f3c-8894-c77b9052b092",
+      "slug": "test-lab-1793012175173",
+      "nameEn": "Lipid Profile Extended",
+      "nameNe": "लिपिड प्रोफाइल",
+      "prepInstructionsEn": "12 hours overnight fasting required.",
+      "prepInstructionsNe": "१२ घण्टा खाली पेट बस्नुपर्ने।",
+      "sampleTypeEn": "Serum Blood",
+      "price": null,
+      "isHomeCollectionAvailable": true,
+      "isActive": true,
+      "isFeatured": false,
+      "id": "fac7255e-3feb-4fb3-867f-bf80a76079ce",
+      "createdAt": "2026-10-26T10:56:15.173Z"
+    },
+    {
+      "categoryId": "e171a6ca-c025-471d-98a4-5a27f59a4a42",
+      "slug": "test-lab-1793016190466",
+      "nameEn": "Lipid Profile Extended",
+      "nameNe": "लिपिड प्रोफाइल",
+      "prepInstructionsEn": "12 hours overnight fasting required.",
+      "prepInstructionsNe": "१२ घण्टा खाली पेट बस्नुपर्ने।",
+      "sampleTypeEn": "Serum Blood",
+      "price": null,
+      "isHomeCollectionAvailable": true,
+      "isActive": true,
+      "isFeatured": false,
+      "id": "02470174-4d72-4625-ac8a-24faf1e11d18",
+      "createdAt": "2026-10-26T12:03:10.466Z"
+    },
+    {
+      "categoryId": "13c90073-e655-49b7-809f-51ff6dc003ca",
+      "slug": "test-lab-1793021619711",
+      "nameEn": "Lipid Profile Extended",
+      "nameNe": "लिपिड प्रोफाइल",
+      "prepInstructionsEn": "12 hours overnight fasting required.",
+      "prepInstructionsNe": "१२ घण्टा खाली पेट बस्नुपर्ने।",
+      "sampleTypeEn": "Serum Blood",
+      "price": null,
+      "isHomeCollectionAvailable": true,
+      "isActive": true,
+      "isFeatured": false,
+      "id": "6bf7b321-80c8-42a2-939e-5b4169ff2f88",
+      "createdAt": "2026-10-26T13:33:39.711Z"
+    },
+    {
+      "categoryId": "eec3dfb7-1c93-4a29-badc-b87ae1e94622",
+      "slug": "test-lab-1793022566354",
+      "nameEn": "Lipid Profile Extended",
+      "nameNe": "लिपिड प्रोफाइल",
+      "prepInstructionsEn": "12 hours overnight fasting required.",
+      "prepInstructionsNe": "१२ घण्टा खाली पेट बस्नुपर्ने।",
+      "sampleTypeEn": "Serum Blood",
+      "price": null,
+      "isHomeCollectionAvailable": true,
+      "isActive": true,
+      "isFeatured": false,
+      "id": "08b4b503-16f2-4d13-a0fc-c9779094f2a4",
+      "createdAt": "2026-10-26T13:49:26.355Z"
+    },
+    {
+      "categoryId": "905565b6-eacd-48b4-af8f-c3a2959771ea",
+      "slug": "test-lab-1793023265877",
+      "nameEn": "Lipid Profile Extended",
+      "nameNe": "लिपिड प्रोफाइल",
+      "prepInstructionsEn": "12 hours overnight fasting required.",
+      "prepInstructionsNe": "१२ घण्टा खाली पेट बस्नुपर्ने।",
+      "sampleTypeEn": "Serum Blood",
+      "price": null,
+      "isHomeCollectionAvailable": true,
+      "isActive": true,
+      "isFeatured": false,
+      "id": "0fb8cc16-df70-4637-be8e-50c13f4499f7",
+      "createdAt": "2026-10-26T14:01:05.878Z"
+    }
+  ],
+  "appointments": [
+    {
+      "profileId": "ff22c5a6-25b6-47e5-ad2b-d4bd142b9969",
+      "doctorId": "f06c3f6b-3c1b-4aad-add5-dfdd761dc7a1",
+      "startTime": "2026-11-10T10:00:00.000Z",
+      "endTime": "2026-11-10T10:20:00.000Z",
+      "status": "confirmed",
+      "doctorNameSnapshot": "Dr. Conflict Test Specialist",
+      "feeSnapshot": 800,
+      "id": "8311e131-a77c-4f4a-ba59-53438e144e40",
+      "referenceNo": "OSA-KUDPDZ",
+      "createdAt": "2026-10-26T11:10:35.237Z",
+      "updatedAt": "2026-10-26T11:10:35.238Z"
+    },
+    {
+      "profileId": "2d6160e8-31d1-4997-b2c6-cbcada525ab5",
+      "doctorId": "f06c3f6b-3c1b-4aad-add5-dfdd761dc7a1",
+      "startTime": "2026-11-10T11:00:00.000Z",
+      "endTime": "2026-11-10T11:20:00.000Z",
+      "status": "confirmed",
+      "doctorNameSnapshot": "Dr. Conflict Test Specialist",
+      "feeSnapshot": 800,
+      "id": "328afe7b-2090-4b6d-bdcc-169814b1aedb",
+      "referenceNo": "OSA-Z8QSA2",
+      "createdAt": "2026-10-26T11:10:35.239Z",
+      "updatedAt": "2026-10-26T11:10:35.239Z",
+      "patientMessage": "Please come at 11:00 AM instead."
+    },
+    {
+      "profileId": "ff22c5a6-25b6-47e5-ad2b-d4bd142b9969",
+      "startTime": "2026-11-12T09:00:00.000Z",
+      "endTime": "2026-11-12T09:20:00.000Z",
+      "status": "declined",
+      "feeSnapshot": 500,
+      "id": "47ee4036-53f0-4ed7-9160-20c9e3488467",
+      "referenceNo": "OSA-HM9BXH",
+      "createdAt": "2026-10-26T11:10:35.240Z",
+      "updatedAt": "2026-10-26T11:10:35.240Z",
+      "patientMessage": "Doctor unavailable."
+    },
+    {
+      "profileId": "c5ce6126-1f1b-4450-8202-e3e3b2fadac8",
+      "doctorId": "fcb9ad0a-85bd-43db-a42b-c3216e201d70",
+      "startTime": "2026-11-10T10:00:00.000Z",
+      "endTime": "2026-11-10T10:20:00.000Z",
+      "status": "confirmed",
+      "doctorNameSnapshot": "Dr. Conflict Test Specialist",
+      "feeSnapshot": 800,
+      "id": "e773514e-a121-4474-8165-69f9c3980dc2",
+      "referenceNo": "OSA-MDPSJC",
+      "createdAt": "2026-10-26T11:31:04.431Z",
+      "updatedAt": "2026-10-26T11:31:04.432Z"
+    },
+    {
+      "profileId": "44365f68-47d7-4d45-aae0-950be2731afc",
+      "doctorId": "fcb9ad0a-85bd-43db-a42b-c3216e201d70",
+      "startTime": "2026-11-10T11:00:00.000Z",
+      "endTime": "2026-11-10T11:20:00.000Z",
+      "status": "confirmed",
+      "doctorNameSnapshot": "Dr. Conflict Test Specialist",
+      "feeSnapshot": 800,
+      "id": "1a90d35e-f475-481f-8911-dd99c19e8228",
+      "referenceNo": "OSA-2WZBNJ",
+      "createdAt": "2026-10-26T11:31:04.432Z",
+      "updatedAt": "2026-10-26T11:31:04.433Z",
+      "patientMessage": "Please come at 11:00 AM instead."
+    },
+    {
+      "profileId": "c5ce6126-1f1b-4450-8202-e3e3b2fadac8",
+      "startTime": "2026-11-12T09:00:00.000Z",
+      "endTime": "2026-11-12T09:20:00.000Z",
+      "status": "declined",
+      "feeSnapshot": 500,
+      "id": "19db2850-5b3c-409b-a061-b6f20ee98ad6",
+      "referenceNo": "OSA-FETQ55",
+      "createdAt": "2026-10-26T11:31:04.434Z",
+      "updatedAt": "2026-10-26T11:31:04.434Z",
+      "patientMessage": "Doctor unavailable."
+    },
+    {
+      "profileId": "cd9ba7ec-7dab-454b-8ffe-5c90cfb8b029",
+      "doctorId": "79f0c30d-cdef-4d01-85f7-5c8599fbf7e3",
+      "startTime": "2026-11-10T10:00:00.000Z",
+      "endTime": "2026-11-10T10:20:00.000Z",
+      "status": "confirmed",
+      "doctorNameSnapshot": "Dr. Conflict Test Specialist",
+      "feeSnapshot": 800,
+      "id": "c6753914-4857-41a6-8d06-f00decc44d5a",
+      "referenceNo": "OSA-LUD83P",
+      "createdAt": "2026-10-26T11:31:13.643Z",
+      "updatedAt": "2026-10-26T11:31:13.644Z"
+    },
+    {
+      "profileId": "20d86f67-f81d-480b-9f73-b349c41cdca3",
+      "doctorId": "79f0c30d-cdef-4d01-85f7-5c8599fbf7e3",
+      "startTime": "2026-11-10T11:00:00.000Z",
+      "endTime": "2026-11-10T11:20:00.000Z",
+      "status": "confirmed",
+      "doctorNameSnapshot": "Dr. Conflict Test Specialist",
+      "feeSnapshot": 800,
+      "id": "96547772-a67a-4706-b8e0-7b74c26c55e5",
+      "referenceNo": "OSA-ZXV493",
+      "createdAt": "2026-10-26T11:31:13.645Z",
+      "updatedAt": "2026-10-26T11:31:13.648Z",
+      "patientMessage": "Please come at 11:00 AM instead."
+    },
+    {
+      "profileId": "cd9ba7ec-7dab-454b-8ffe-5c90cfb8b029",
+      "startTime": "2026-11-12T09:00:00.000Z",
+      "endTime": "2026-11-12T09:20:00.000Z",
+      "status": "declined",
+      "feeSnapshot": 500,
+      "id": "75d14756-ad3d-4b1f-a4ce-f636dafd6186",
+      "referenceNo": "OSA-4YMTUU",
+      "createdAt": "2026-10-26T11:31:13.649Z",
+      "updatedAt": "2026-10-26T11:31:13.649Z",
+      "patientMessage": "Doctor unavailable."
+    },
+    {
+      "profileId": "7a9f743d-d542-4c75-ab52-0f4eefdde31f",
+      "doctorId": "acef44f8-7223-44bb-8848-b7467869d5fc",
+      "startTime": "2026-11-10T10:00:00.000Z",
+      "endTime": "2026-11-10T10:20:00.000Z",
+      "status": "confirmed",
+      "doctorNameSnapshot": "Dr. Conflict Test Specialist",
+      "feeSnapshot": 800,
+      "id": "6e98c7fe-553d-4d59-87f4-15f4b9d70a0b",
+      "referenceNo": "OSA-552CVW",
+      "createdAt": "2026-10-26T12:03:13.881Z",
+      "updatedAt": "2026-10-26T12:03:13.882Z"
+    },
+    {
+      "profileId": "9077fc8b-fd4a-44f2-b2bc-cb02214b153c",
+      "doctorId": "acef44f8-7223-44bb-8848-b7467869d5fc",
+      "startTime": "2026-11-10T11:00:00.000Z",
+      "endTime": "2026-11-10T11:20:00.000Z",
+      "status": "confirmed",
+      "doctorNameSnapshot": "Dr. Conflict Test Specialist",
+      "feeSnapshot": 800,
+      "id": "33ae6468-df44-4b1d-95bf-6ae57e7b24df",
+      "referenceNo": "OSA-C3FUQN",
+      "createdAt": "2026-10-26T12:03:13.883Z",
+      "updatedAt": "2026-10-26T12:03:13.884Z",
+      "patientMessage": "Please come at 11:00 AM instead."
+    },
+    {
+      "profileId": "7a9f743d-d542-4c75-ab52-0f4eefdde31f",
+      "startTime": "2026-11-12T09:00:00.000Z",
+      "endTime": "2026-11-12T09:20:00.000Z",
+      "status": "declined",
+      "feeSnapshot": 500,
+      "id": "f56e0018-9af1-4455-8db5-ac1cde66ca6b",
+      "referenceNo": "OSA-VHG9F8",
+      "createdAt": "2026-10-26T12:03:13.884Z",
+      "updatedAt": "2026-10-26T12:03:13.885Z",
+      "patientMessage": "Doctor unavailable."
+    },
+    {
+      "profileId": "b0ebde56-cea9-470c-a840-cc084c599324",
+      "doctorId": "60b17dfe-cd88-4fb2-bcac-9ce1b5e74af9",
+      "startTime": "2026-11-10T10:00:00.000Z",
+      "endTime": "2026-11-10T10:20:00.000Z",
+      "status": "confirmed",
+      "doctorNameSnapshot": "Dr. Conflict Test Specialist",
+      "feeSnapshot": 800,
+      "id": "14ffde74-0c82-45bb-a238-06a5740fc96b",
+      "referenceNo": "OSA-ANJKC7",
+      "createdAt": "2026-10-26T13:33:45.829Z",
+      "updatedAt": "2026-10-26T13:33:45.831Z"
+    },
+    {
+      "profileId": "a1af656a-4e0b-42cb-8cbb-07bf23479f95",
+      "doctorId": "60b17dfe-cd88-4fb2-bcac-9ce1b5e74af9",
+      "startTime": "2026-11-10T11:00:00.000Z",
+      "endTime": "2026-11-10T11:20:00.000Z",
+      "status": "confirmed",
+      "doctorNameSnapshot": "Dr. Conflict Test Specialist",
+      "feeSnapshot": 800,
+      "id": "cc06e9ac-58c5-4885-949a-f11c1ea7849d",
+      "referenceNo": "OSA-9KXGQ4",
+      "createdAt": "2026-10-26T13:33:45.833Z",
+      "updatedAt": "2026-10-26T13:33:45.835Z",
+      "patientMessage": "Please come at 11:00 AM instead."
+    },
+    {
+      "profileId": "b0ebde56-cea9-470c-a840-cc084c599324",
+      "startTime": "2026-11-12T09:00:00.000Z",
+      "endTime": "2026-11-12T09:20:00.000Z",
+      "status": "declined",
+      "feeSnapshot": 500,
+      "id": "ae01c51a-35f8-4be3-a1d9-2c47683baa48",
+      "referenceNo": "OSA-9H72BP",
+      "createdAt": "2026-10-26T13:33:45.836Z",
+      "updatedAt": "2026-10-26T13:33:45.836Z",
+      "patientMessage": "Doctor unavailable."
+    },
+    {
+      "profileId": "1d555776-21a1-4a37-b5f5-dd3833693218",
+      "doctorId": "e662195e-0520-4ce8-851e-f33d0b98d49b",
+      "startTime": "2026-11-10T10:00:00.000Z",
+      "endTime": "2026-11-10T10:20:00.000Z",
+      "status": "confirmed",
+      "doctorNameSnapshot": "Dr. Conflict Test Specialist",
+      "feeSnapshot": 800,
+      "id": "0cb20630-941c-427b-8fad-a9f9e2dabcdb",
+      "referenceNo": "OSA-JMXR23",
+      "createdAt": "2026-10-26T13:49:41.178Z",
+      "updatedAt": "2026-10-26T13:49:41.180Z"
+    },
+    {
+      "profileId": "4639a59b-4bfe-4875-be79-199445101800",
+      "doctorId": "e662195e-0520-4ce8-851e-f33d0b98d49b",
+      "startTime": "2026-11-10T11:00:00.000Z",
+      "endTime": "2026-11-10T11:20:00.000Z",
+      "status": "confirmed",
+      "doctorNameSnapshot": "Dr. Conflict Test Specialist",
+      "feeSnapshot": 800,
+      "id": "6fb2105c-57fe-415a-97da-132a42eabda2",
+      "referenceNo": "OSA-VJZ84C",
+      "createdAt": "2026-10-26T13:49:41.182Z",
+      "updatedAt": "2026-10-26T13:49:41.184Z",
+      "patientMessage": "Please come at 11:00 AM instead."
+    },
+    {
+      "profileId": "1d555776-21a1-4a37-b5f5-dd3833693218",
+      "startTime": "2026-11-12T09:00:00.000Z",
+      "endTime": "2026-11-12T09:20:00.000Z",
+      "status": "declined",
+      "feeSnapshot": 500,
+      "id": "b8d4faf5-2e93-42c8-82c9-e0161d71578b",
+      "referenceNo": "OSA-W8GQMS",
+      "createdAt": "2026-10-26T13:49:41.186Z",
+      "updatedAt": "2026-10-26T13:49:41.186Z",
+      "patientMessage": "Doctor unavailable."
+    },
+    {
+      "profileId": "d6413cc8-2e62-48f6-9aed-baab96f2fc97",
+      "doctorId": "23827108-c25a-4ac5-a9b8-d1b6c9ccd7d9",
+      "startTime": "2026-11-10T10:00:00.000Z",
+      "endTime": "2026-11-10T10:20:00.000Z",
+      "status": "confirmed",
+      "doctorNameSnapshot": "Dr. Conflict Test Specialist",
+      "feeSnapshot": 800,
+      "id": "4e46cf76-7fbf-4abb-8107-c52a14bb04a7",
+      "referenceNo": "OSA-CF7NF5",
+      "createdAt": "2026-10-26T14:01:07.256Z",
+      "updatedAt": "2026-10-26T14:01:07.258Z"
+    },
+    {
+      "profileId": "1eeb6418-f0a3-4c3c-bae4-3b6f1fde06f2",
+      "doctorId": "23827108-c25a-4ac5-a9b8-d1b6c9ccd7d9",
+      "startTime": "2026-11-10T11:00:00.000Z",
+      "endTime": "2026-11-10T11:20:00.000Z",
+      "status": "confirmed",
+      "doctorNameSnapshot": "Dr. Conflict Test Specialist",
+      "feeSnapshot": 800,
+      "id": "2e751a28-371b-420b-9ff5-d53dbaa76992",
+      "referenceNo": "OSA-P7VH7G",
+      "createdAt": "2026-10-26T14:01:07.260Z",
+      "updatedAt": "2026-10-26T14:01:07.262Z",
+      "patientMessage": "Please come at 11:00 AM instead."
+    },
+    {
+      "profileId": "d6413cc8-2e62-48f6-9aed-baab96f2fc97",
+      "startTime": "2026-11-12T09:00:00.000Z",
+      "endTime": "2026-11-12T09:20:00.000Z",
+      "status": "declined",
+      "feeSnapshot": 500,
+      "id": "78cef8c0-9e63-4c91-9a26-d545d7a7f192",
+      "referenceNo": "OSA-ZWSCQK",
+      "createdAt": "2026-10-26T14:01:07.264Z",
+      "updatedAt": "2026-10-26T14:01:07.265Z",
+      "patientMessage": "Doctor unavailable."
+    }
+  ],
+  "labBookings": [
+    {
+      "profileId": "093612db-94af-4100-a3b1-6e7364b7ebde",
+      "preferredTime": "2026-10-27T11:31:19.714Z",
+      "status": "confirmed",
+      "estimatedTotal": 1500,
+      "patientNotes": "Fasting lipid profile test",
+      "id": "c4487a68-aeff-4fac-bfc4-cffbadd888b7",
+      "referenceNo": "OSL-2SFPAU",
+      "createdAt": "2026-10-26T11:31:19.714Z",
+      "updatedAt": "2026-10-26T11:31:19.714Z"
+    },
+    {
+      "profileId": "ea78300f-b0a1-4aea-bd3b-f0af8653a740",
+      "preferredTime": "2026-10-27T11:31:44.018Z",
+      "status": "confirmed",
+      "estimatedTotal": 1500,
+      "patientNotes": "Fasting lipid profile test",
+      "id": "9d6fb193-1862-4911-a396-65f722d9c0c2",
+      "referenceNo": "OSL-XUHSKG",
+      "createdAt": "2026-10-26T11:31:44.018Z",
+      "updatedAt": "2026-10-26T11:31:44.018Z"
+    },
+    {
+      "profileId": "1db9f211-e9b9-4e1b-9d0f-89bedce10dc1",
+      "preferredTime": "2026-10-27T12:03:17.989Z",
+      "status": "confirmed",
+      "estimatedTotal": 1500,
+      "patientNotes": "Fasting lipid profile test",
+      "id": "a8e88488-e5d7-4bc6-a1d2-a63e7a3c7e50",
+      "referenceNo": "OSL-MPRUTU",
+      "createdAt": "2026-10-26T12:03:17.989Z",
+      "updatedAt": "2026-10-26T12:03:17.989Z"
+    },
+    {
+      "profileId": "21b67993-b561-4dcb-bbb1-c321434d4633",
+      "preferredTime": "2026-10-27T13:33:58.583Z",
+      "status": "confirmed",
+      "estimatedTotal": 1500,
+      "patientNotes": "Fasting lipid profile test",
+      "id": "94a6cdb1-a3e3-407a-8c0c-edcde10d58d9",
+      "referenceNo": "OSL-7G8VQ2",
+      "createdAt": "2026-10-26T13:33:58.583Z",
+      "updatedAt": "2026-10-26T13:33:58.583Z"
+    },
+    {
+      "profileId": "9456be57-aa39-4742-80a2-b2b7fd1199cf",
+      "preferredTime": "2026-10-27T13:49:52.592Z",
+      "status": "confirmed",
+      "estimatedTotal": 1500,
+      "patientNotes": "Fasting lipid profile test",
+      "id": "4649d168-5fdd-4223-9349-1c21d761c249",
+      "referenceNo": "OSL-ZYMMNA",
+      "createdAt": "2026-10-26T13:49:52.592Z",
+      "updatedAt": "2026-10-26T13:49:52.592Z"
+    },
+    {
+      "profileId": "46f714ed-3545-4b39-b2fa-1d9806c85266",
+      "preferredTime": "2026-10-27T14:01:08.182Z",
+      "status": "confirmed",
+      "estimatedTotal": 1500,
+      "patientNotes": "Fasting lipid profile test",
+      "id": "df4d00fb-005a-49e1-9874-86adbe8f33c8",
+      "referenceNo": "OSL-SAWAW2",
+      "createdAt": "2026-10-26T14:01:08.182Z",
+      "updatedAt": "2026-10-26T14:01:08.182Z"
+    }
+  ],
+  "labBookingItems": [
+    {
+      "labTestId": "test-lipid",
+      "nameEnSnapshot": "Complete Lipid Profile",
+      "nameNeSnapshot": "लिपिड प्रोफाइल",
+      "priceSnapshot": 1500,
+      "id": "8612ad7b-7438-4076-9c7a-7f9a4fc0aec6",
+      "labBookingId": "c4487a68-aeff-4fac-bfc4-cffbadd888b7"
+    },
+    {
+      "labTestId": "test-lipid",
+      "nameEnSnapshot": "Complete Lipid Profile",
+      "nameNeSnapshot": "लिपिड प्रोफाइल",
+      "priceSnapshot": 1500,
+      "id": "78786fd1-3d57-436e-8c2f-c5eaf2e1c52f",
+      "labBookingId": "9d6fb193-1862-4911-a396-65f722d9c0c2"
+    },
+    {
+      "labTestId": "test-lipid",
+      "nameEnSnapshot": "Complete Lipid Profile",
+      "nameNeSnapshot": "लिपिड प्रोफाइल",
+      "priceSnapshot": 1500,
+      "id": "bb7519de-baf7-4c8b-b875-f227a54bfeae",
+      "labBookingId": "a8e88488-e5d7-4bc6-a1d2-a63e7a3c7e50"
+    },
+    {
+      "labTestId": "test-lipid",
+      "nameEnSnapshot": "Complete Lipid Profile",
+      "nameNeSnapshot": "लिपिड प्रोफाइल",
+      "priceSnapshot": 1500,
+      "id": "3a02d61d-1332-4b7a-bfd3-3d5c79fb1316",
+      "labBookingId": "94a6cdb1-a3e3-407a-8c0c-edcde10d58d9"
+    },
+    {
+      "labTestId": "test-lipid",
+      "nameEnSnapshot": "Complete Lipid Profile",
+      "nameNeSnapshot": "लिपिड प्रोफाइल",
+      "priceSnapshot": 1500,
+      "id": "9d6dec48-c32b-4796-89d4-ecc29cf30de7",
+      "labBookingId": "4649d168-5fdd-4223-9349-1c21d761c249"
+    },
+    {
+      "labTestId": "test-lipid",
+      "nameEnSnapshot": "Complete Lipid Profile",
+      "nameNeSnapshot": "लिपिड प्रोफाइल",
+      "priceSnapshot": 1500,
+      "id": "df472c07-f2dc-4ac8-b8d7-37f2e2b31b53",
+      "labBookingId": "df4d00fb-005a-49e1-9874-86adbe8f33c8"
+    }
+  ],
+  "labReports": [
+    {
+      "labBookingId": "9d6fb193-1862-4911-a396-65f722d9c0c2",
+      "profileId": "ea78300f-b0a1-4aea-bd3b-f0af8653a740",
+      "version": 1,
+      "status": "superseded",
+      "storageKey": "reports/9d6fb193-1862-4911-a396-65f722d9c0c2/v1-1793014304018.pdf",
+      "originalFilename": "Sita_Devi_Lipid_v1.pdf",
+      "fileSize": 54,
+      "checksumSha256": "10aacd5f15af12aff0307017d61404d2b826d5e34d0e3710516511dadd3b6ade",
+      "mimeType": "application/pdf",
+      "uploadedByStaffId": "staff-reception-test",
+      "confirmedAt": "2026-10-26T11:31:44.022Z",
+      "confirmedByStaffId": "staff-reception-test",
+      "id": "60a81af7-e082-46ba-a5ab-73adcdca16ff",
+      "createdAt": "2026-10-26T11:31:44.022Z",
+      "releasedAt": "2026-10-26T11:31:44.022Z",
+      "releasedByStaffId": "super-admin-test"
+    },
+    {
+      "labBookingId": "9d6fb193-1862-4911-a396-65f722d9c0c2",
+      "profileId": "ea78300f-b0a1-4aea-bd3b-f0af8653a740",
+      "version": 2,
+      "status": "revoked",
+      "storageKey": "reports/9d6fb193-1862-4911-a396-65f722d9c0c2/v2-1793014304022.pdf",
+      "originalFilename": "Sita_Devi_Lipid_v2_Revision.pdf",
+      "fileSize": 64,
+      "checksumSha256": "e6ffb2cc51c774d68d455b4d56995a2115d02e0968f2ee4f5c1302440aec219c",
+      "mimeType": "application/pdf",
+      "uploadedByStaffId": "staff-reception-test",
+      "confirmedAt": "2026-10-26T11:31:44.023Z",
+      "confirmedByStaffId": "staff-reception-test",
+      "id": "76001e52-8892-46ed-b812-424ef5a45327",
+      "createdAt": "2026-10-26T11:31:44.023Z",
+      "releasedAt": "2026-10-26T11:31:44.024Z",
+      "releasedByStaffId": "super-admin-test",
+      "revokedAt": "2026-10-26T11:31:44.024Z",
+      "revokedByStaffId": "super-admin-test",
+      "revokeReason": "Sample recollection required due to lipemic serum"
+    },
+    {
+      "labBookingId": "a8e88488-e5d7-4bc6-a1d2-a63e7a3c7e50",
+      "profileId": "1db9f211-e9b9-4e1b-9d0f-89bedce10dc1",
+      "version": 1,
+      "status": "superseded",
+      "storageKey": "reports/a8e88488-e5d7-4bc6-a1d2-a63e7a3c7e50/v1-1793016197989.pdf",
+      "originalFilename": "Sita_Devi_Lipid_v1.pdf",
+      "fileSize": 54,
+      "checksumSha256": "10aacd5f15af12aff0307017d61404d2b826d5e34d0e3710516511dadd3b6ade",
+      "mimeType": "application/pdf",
+      "uploadedByStaffId": "staff-reception-test",
+      "confirmedAt": "2026-10-26T12:03:17.992Z",
+      "confirmedByStaffId": "staff-reception-test",
+      "id": "11a7aa9c-fc11-4d08-af2b-cc5e36c20a5f",
+      "createdAt": "2026-10-26T12:03:17.993Z",
+      "releasedAt": "2026-10-26T12:03:17.993Z",
+      "releasedByStaffId": "super-admin-test"
+    },
+    {
+      "labBookingId": "a8e88488-e5d7-4bc6-a1d2-a63e7a3c7e50",
+      "profileId": "1db9f211-e9b9-4e1b-9d0f-89bedce10dc1",
+      "version": 2,
+      "status": "revoked",
+      "storageKey": "reports/a8e88488-e5d7-4bc6-a1d2-a63e7a3c7e50/v2-1793016197993.pdf",
+      "originalFilename": "Sita_Devi_Lipid_v2_Revision.pdf",
+      "fileSize": 64,
+      "checksumSha256": "e6ffb2cc51c774d68d455b4d56995a2115d02e0968f2ee4f5c1302440aec219c",
+      "mimeType": "application/pdf",
+      "uploadedByStaffId": "staff-reception-test",
+      "confirmedAt": "2026-10-26T12:03:17.995Z",
+      "confirmedByStaffId": "staff-reception-test",
+      "id": "e3fde615-499c-4796-ba45-78076cc24948",
+      "createdAt": "2026-10-26T12:03:17.995Z",
+      "releasedAt": "2026-10-26T12:03:17.996Z",
+      "releasedByStaffId": "super-admin-test",
+      "revokedAt": "2026-10-26T12:03:17.996Z",
+      "revokedByStaffId": "super-admin-test",
+      "revokeReason": "Sample recollection required due to lipemic serum"
+    },
+    {
+      "labBookingId": "94a6cdb1-a3e3-407a-8c0c-edcde10d58d9",
+      "profileId": "21b67993-b561-4dcb-bbb1-c321434d4633",
+      "version": 1,
+      "status": "superseded",
+      "storageKey": "reports/94a6cdb1-a3e3-407a-8c0c-edcde10d58d9/v1-1793021638583.pdf",
+      "originalFilename": "Sita_Devi_Lipid_v1.pdf",
+      "fileSize": 54,
+      "checksumSha256": "10aacd5f15af12aff0307017d61404d2b826d5e34d0e3710516511dadd3b6ade",
+      "mimeType": "application/pdf",
+      "uploadedByStaffId": "staff-reception-test",
+      "confirmedAt": "2026-10-26T13:33:58.585Z",
+      "confirmedByStaffId": "staff-reception-test",
+      "id": "54000b6b-6f0c-4b25-b21b-dd051195c62a",
+      "createdAt": "2026-10-26T13:33:58.585Z",
+      "releasedAt": "2026-10-26T13:33:58.586Z",
+      "releasedByStaffId": "super-admin-test"
+    },
+    {
+      "labBookingId": "94a6cdb1-a3e3-407a-8c0c-edcde10d58d9",
+      "profileId": "21b67993-b561-4dcb-bbb1-c321434d4633",
+      "version": 2,
+      "status": "revoked",
+      "storageKey": "reports/94a6cdb1-a3e3-407a-8c0c-edcde10d58d9/v2-1793021638586.pdf",
+      "originalFilename": "Sita_Devi_Lipid_v2_Revision.pdf",
+      "fileSize": 64,
+      "checksumSha256": "e6ffb2cc51c774d68d455b4d56995a2115d02e0968f2ee4f5c1302440aec219c",
+      "mimeType": "application/pdf",
+      "uploadedByStaffId": "staff-reception-test",
+      "confirmedAt": "2026-10-26T13:33:58.587Z",
+      "confirmedByStaffId": "staff-reception-test",
+      "id": "6be86843-0875-44c1-b199-dc27c5a85516",
+      "createdAt": "2026-10-26T13:33:58.587Z",
+      "releasedAt": "2026-10-26T13:33:58.589Z",
+      "releasedByStaffId": "super-admin-test",
+      "revokedAt": "2026-10-26T13:33:58.589Z",
+      "revokedByStaffId": "super-admin-test",
+      "revokeReason": "Sample recollection required due to lipemic serum"
+    },
+    {
+      "labBookingId": "4649d168-5fdd-4223-9349-1c21d761c249",
+      "profileId": "9456be57-aa39-4742-80a2-b2b7fd1199cf",
+      "version": 1,
+      "status": "superseded",
+      "storageKey": "reports/4649d168-5fdd-4223-9349-1c21d761c249/v1-1793022592593.pdf",
+      "originalFilename": "Sita_Devi_Lipid_v1.pdf",
+      "fileSize": 54,
+      "checksumSha256": "10aacd5f15af12aff0307017d61404d2b826d5e34d0e3710516511dadd3b6ade",
+      "mimeType": "application/pdf",
+      "uploadedByStaffId": "staff-reception-test",
+      "confirmedAt": "2026-10-26T13:49:52.595Z",
+      "confirmedByStaffId": "staff-reception-test",
+      "id": "e68e6709-5bb5-4957-9fee-9e5b7459702a",
+      "createdAt": "2026-10-26T13:49:52.595Z",
+      "releasedAt": "2026-10-26T13:49:52.596Z",
+      "releasedByStaffId": "super-admin-test"
+    },
+    {
+      "labBookingId": "4649d168-5fdd-4223-9349-1c21d761c249",
+      "profileId": "9456be57-aa39-4742-80a2-b2b7fd1199cf",
+      "version": 2,
+      "status": "revoked",
+      "storageKey": "reports/4649d168-5fdd-4223-9349-1c21d761c249/v2-1793022592597.pdf",
+      "originalFilename": "Sita_Devi_Lipid_v2_Revision.pdf",
+      "fileSize": 64,
+      "checksumSha256": "e6ffb2cc51c774d68d455b4d56995a2115d02e0968f2ee4f5c1302440aec219c",
+      "mimeType": "application/pdf",
+      "uploadedByStaffId": "staff-reception-test",
+      "confirmedAt": "2026-10-26T13:49:52.597Z",
+      "confirmedByStaffId": "staff-reception-test",
+      "id": "8943320e-5613-4d8f-8971-3f21fa61bf2c",
+      "createdAt": "2026-10-26T13:49:52.597Z",
+      "releasedAt": "2026-10-26T13:49:52.599Z",
+      "releasedByStaffId": "super-admin-test",
+      "revokedAt": "2026-10-26T13:49:52.608Z",
+      "revokedByStaffId": "super-admin-test",
+      "revokeReason": "Sample recollection required due to lipemic serum"
+    },
+    {
+      "labBookingId": "df4d00fb-005a-49e1-9874-86adbe8f33c8",
+      "profileId": "46f714ed-3545-4b39-b2fa-1d9806c85266",
+      "version": 1,
+      "status": "superseded",
+      "storageKey": "reports/df4d00fb-005a-49e1-9874-86adbe8f33c8/v1-1793023268183.pdf",
+      "originalFilename": "Sita_Devi_Lipid_v1.pdf",
+      "fileSize": 54,
+      "checksumSha256": "10aacd5f15af12aff0307017d61404d2b826d5e34d0e3710516511dadd3b6ade",
+      "mimeType": "application/pdf",
+      "uploadedByStaffId": "staff-reception-test",
+      "confirmedAt": "2026-10-26T14:01:08.185Z",
+      "confirmedByStaffId": "staff-reception-test",
+      "id": "2d10abce-ea68-441c-a01a-a418d8db6409",
+      "createdAt": "2026-10-26T14:01:08.185Z",
+      "releasedAt": "2026-10-26T14:01:08.186Z",
+      "releasedByStaffId": "super-admin-test"
+    },
+    {
+      "labBookingId": "df4d00fb-005a-49e1-9874-86adbe8f33c8",
+      "profileId": "46f714ed-3545-4b39-b2fa-1d9806c85266",
+      "version": 2,
+      "status": "revoked",
+      "storageKey": "reports/df4d00fb-005a-49e1-9874-86adbe8f33c8/v2-1793023268187.pdf",
+      "originalFilename": "Sita_Devi_Lipid_v2_Revision.pdf",
+      "fileSize": 64,
+      "checksumSha256": "e6ffb2cc51c774d68d455b4d56995a2115d02e0968f2ee4f5c1302440aec219c",
+      "mimeType": "application/pdf",
+      "uploadedByStaffId": "staff-reception-test",
+      "confirmedAt": "2026-10-26T14:01:08.188Z",
+      "confirmedByStaffId": "staff-reception-test",
+      "id": "b4a27052-0cb6-4436-af3e-3d90e34e6864",
+      "createdAt": "2026-10-26T14:01:08.188Z",
+      "releasedAt": "2026-10-26T14:01:08.191Z",
+      "releasedByStaffId": "super-admin-test",
+      "revokedAt": "2026-10-26T14:01:08.191Z",
+      "revokedByStaffId": "super-admin-test",
+      "revokeReason": "Sample recollection required due to lipemic serum"
+    }
+  ],
+  "bookingStatusEvents": [
+    {
+      "bookingType": "appointment",
+      "bookingId": "8311e131-a77c-4f4a-ba59-53438e144e40",
+      "fromStatus": "pending",
+      "toStatus": "confirmed",
+      "actorType": "staff",
+      "actorUserId": "staff-admin-id",
+      "id": "9d9dd2a5-2ceb-4078-9c76-f47ca220846c",
+      "createdAt": "2026-10-26T11:10:35.238Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "328afe7b-2090-4b6d-bdcc-169814b1aedb",
+      "fromStatus": "pending",
+      "toStatus": "reschedule_proposed",
+      "actorType": "staff",
+      "actorUserId": "staff-admin-id",
+      "patientMessage": "Please come at 11:00 AM instead.",
+      "id": "6d9cb24b-2977-427c-ac01-985f0ecbed66",
+      "createdAt": "2026-10-26T11:10:35.239Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "328afe7b-2090-4b6d-bdcc-169814b1aedb",
+      "fromStatus": "reschedule_proposed",
+      "toStatus": "confirmed",
+      "actorType": "patient",
+      "actorUserId": "ccbcee6c-c7a8-42db-8faf-6605a870803d",
+      "id": "4487ddc4-3fa0-48c9-a54a-d8a3956023c4",
+      "createdAt": "2026-10-26T11:10:35.240Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "47ee4036-53f0-4ed7-9160-20c9e3488467",
+      "fromStatus": "pending",
+      "toStatus": "declined",
+      "actorType": "staff",
+      "actorUserId": "staff-admin-id",
+      "patientMessage": "Doctor unavailable.",
+      "id": "536a33f4-f075-4d17-8430-6a4e36e469e3",
+      "createdAt": "2026-10-26T11:10:35.240Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "e773514e-a121-4474-8165-69f9c3980dc2",
+      "fromStatus": "pending",
+      "toStatus": "confirmed",
+      "actorType": "staff",
+      "actorUserId": "staff-admin-id",
+      "id": "73c6aa14-1f73-4684-acdf-86f2e7b32f94",
+      "createdAt": "2026-10-26T11:31:04.432Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "1a90d35e-f475-481f-8911-dd99c19e8228",
+      "fromStatus": "pending",
+      "toStatus": "reschedule_proposed",
+      "actorType": "staff",
+      "actorUserId": "staff-admin-id",
+      "patientMessage": "Please come at 11:00 AM instead.",
+      "id": "88f6635e-4b46-4c09-b677-b9d9ab0cee27",
+      "createdAt": "2026-10-26T11:31:04.433Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "1a90d35e-f475-481f-8911-dd99c19e8228",
+      "fromStatus": "reschedule_proposed",
+      "toStatus": "confirmed",
+      "actorType": "patient",
+      "actorUserId": "e5609a09-5133-4fb9-b31e-d3edcc5d8320",
+      "id": "01a19ba7-44fe-4c53-85e7-d83df0bbbe26",
+      "createdAt": "2026-10-26T11:31:04.434Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "19db2850-5b3c-409b-a061-b6f20ee98ad6",
+      "fromStatus": "pending",
+      "toStatus": "declined",
+      "actorType": "staff",
+      "actorUserId": "staff-admin-id",
+      "patientMessage": "Doctor unavailable.",
+      "id": "146450e9-47e8-4506-855b-53974bc2aa3d",
+      "createdAt": "2026-10-26T11:31:04.434Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "c6753914-4857-41a6-8d06-f00decc44d5a",
+      "fromStatus": "pending",
+      "toStatus": "confirmed",
+      "actorType": "staff",
+      "actorUserId": "staff-admin-id",
+      "id": "3e8b46be-cbbb-4605-92b6-616a6710ab26",
+      "createdAt": "2026-10-26T11:31:13.644Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "96547772-a67a-4706-b8e0-7b74c26c55e5",
+      "fromStatus": "pending",
+      "toStatus": "reschedule_proposed",
+      "actorType": "staff",
+      "actorUserId": "staff-admin-id",
+      "patientMessage": "Please come at 11:00 AM instead.",
+      "id": "ad8aa184-88e5-4942-829f-bde8a7af1912",
+      "createdAt": "2026-10-26T11:31:13.648Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "96547772-a67a-4706-b8e0-7b74c26c55e5",
+      "fromStatus": "reschedule_proposed",
+      "toStatus": "confirmed",
+      "actorType": "patient",
+      "actorUserId": "60734db1-7aab-4937-8c10-fed4b36e365c",
+      "id": "59c8e5fa-5c05-47e4-aa56-80d518cd919c",
+      "createdAt": "2026-10-26T11:31:13.648Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "75d14756-ad3d-4b1f-a4ce-f636dafd6186",
+      "fromStatus": "pending",
+      "toStatus": "declined",
+      "actorType": "staff",
+      "actorUserId": "staff-admin-id",
+      "patientMessage": "Doctor unavailable.",
+      "id": "d16374b3-c8a9-4645-9ba9-613face1c897",
+      "createdAt": "2026-10-26T11:31:13.649Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "6e98c7fe-553d-4d59-87f4-15f4b9d70a0b",
+      "fromStatus": "pending",
+      "toStatus": "confirmed",
+      "actorType": "staff",
+      "actorUserId": "staff-admin-id",
+      "id": "79561742-30c2-4e8e-8971-77aea72884fd",
+      "createdAt": "2026-10-26T12:03:13.882Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "33ae6468-df44-4b1d-95bf-6ae57e7b24df",
+      "fromStatus": "pending",
+      "toStatus": "reschedule_proposed",
+      "actorType": "staff",
+      "actorUserId": "staff-admin-id",
+      "patientMessage": "Please come at 11:00 AM instead.",
+      "id": "35d98688-3649-4f12-adc0-fe44bfc4d572",
+      "createdAt": "2026-10-26T12:03:13.883Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "33ae6468-df44-4b1d-95bf-6ae57e7b24df",
+      "fromStatus": "reschedule_proposed",
+      "toStatus": "confirmed",
+      "actorType": "patient",
+      "actorUserId": "5d246b84-3f10-4b61-9e87-b6070fb560d1",
+      "id": "3080db47-1ec7-475d-b291-4d3499fd4cf0",
+      "createdAt": "2026-10-26T12:03:13.884Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "f56e0018-9af1-4455-8db5-ac1cde66ca6b",
+      "fromStatus": "pending",
+      "toStatus": "declined",
+      "actorType": "staff",
+      "actorUserId": "staff-admin-id",
+      "patientMessage": "Doctor unavailable.",
+      "id": "f9699198-9ccf-4b9b-b12a-10a73abd6b15",
+      "createdAt": "2026-10-26T12:03:13.885Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "14ffde74-0c82-45bb-a238-06a5740fc96b",
+      "fromStatus": "pending",
+      "toStatus": "confirmed",
+      "actorType": "staff",
+      "actorUserId": "staff-admin-id",
+      "id": "8d90941c-1727-4139-b415-c2f0c724d8d4",
+      "createdAt": "2026-10-26T13:33:45.831Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "cc06e9ac-58c5-4885-949a-f11c1ea7849d",
+      "fromStatus": "pending",
+      "toStatus": "reschedule_proposed",
+      "actorType": "staff",
+      "actorUserId": "staff-admin-id",
+      "patientMessage": "Please come at 11:00 AM instead.",
+      "id": "41ea8138-a707-459e-b560-5312b1c91f08",
+      "createdAt": "2026-10-26T13:33:45.834Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "cc06e9ac-58c5-4885-949a-f11c1ea7849d",
+      "fromStatus": "reschedule_proposed",
+      "toStatus": "confirmed",
+      "actorType": "patient",
+      "actorUserId": "952f0b45-3bdd-488d-9476-eff64df39f40",
+      "id": "262a300f-9e43-4c6a-b1e6-1897862a4f44",
+      "createdAt": "2026-10-26T13:33:45.835Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "ae01c51a-35f8-4be3-a1d9-2c47683baa48",
+      "fromStatus": "pending",
+      "toStatus": "declined",
+      "actorType": "staff",
+      "actorUserId": "staff-admin-id",
+      "patientMessage": "Doctor unavailable.",
+      "id": "503e63c4-1662-433e-b55f-2827e062735e",
+      "createdAt": "2026-10-26T13:33:45.836Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "0cb20630-941c-427b-8fad-a9f9e2dabcdb",
+      "fromStatus": "pending",
+      "toStatus": "confirmed",
+      "actorType": "staff",
+      "actorUserId": "staff-admin-id",
+      "id": "da899049-cee7-4c11-b499-041d432050ef",
+      "createdAt": "2026-10-26T13:49:41.181Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "6fb2105c-57fe-415a-97da-132a42eabda2",
+      "fromStatus": "pending",
+      "toStatus": "reschedule_proposed",
+      "actorType": "staff",
+      "actorUserId": "staff-admin-id",
+      "patientMessage": "Please come at 11:00 AM instead.",
+      "id": "726d2c1d-4ee2-47ea-ba44-e3ca6d230a60",
+      "createdAt": "2026-10-26T13:49:41.183Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "6fb2105c-57fe-415a-97da-132a42eabda2",
+      "fromStatus": "reschedule_proposed",
+      "toStatus": "confirmed",
+      "actorType": "patient",
+      "actorUserId": "77758e2f-df5d-44ec-aecc-2fc1e065f10c",
+      "id": "03043daf-7ec6-445f-8e96-951a6fb424eb",
+      "createdAt": "2026-10-26T13:49:41.185Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "b8d4faf5-2e93-42c8-82c9-e0161d71578b",
+      "fromStatus": "pending",
+      "toStatus": "declined",
+      "actorType": "staff",
+      "actorUserId": "staff-admin-id",
+      "patientMessage": "Doctor unavailable.",
+      "id": "56561967-b96c-4e40-9816-2f45453061da",
+      "createdAt": "2026-10-26T13:49:41.187Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "4e46cf76-7fbf-4abb-8107-c52a14bb04a7",
+      "fromStatus": "pending",
+      "toStatus": "confirmed",
+      "actorType": "staff",
+      "actorUserId": "staff-admin-id",
+      "id": "2554a323-b8f9-43fe-ada6-1ecdf242e376",
+      "createdAt": "2026-10-26T14:01:07.259Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "2e751a28-371b-420b-9ff5-d53dbaa76992",
+      "fromStatus": "pending",
+      "toStatus": "reschedule_proposed",
+      "actorType": "staff",
+      "actorUserId": "staff-admin-id",
+      "patientMessage": "Please come at 11:00 AM instead.",
+      "id": "24744bbb-3cbb-490d-b7e4-3e9d502f8d69",
+      "createdAt": "2026-10-26T14:01:07.261Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "2e751a28-371b-420b-9ff5-d53dbaa76992",
+      "fromStatus": "reschedule_proposed",
+      "toStatus": "confirmed",
+      "actorType": "patient",
+      "actorUserId": "15fb7c50-0b75-4ded-88e9-864b8b0dc97b",
+      "id": "e44d175a-bf21-422d-9088-cf57c1946c2c",
+      "createdAt": "2026-10-26T14:01:07.263Z"
+    },
+    {
+      "bookingType": "appointment",
+      "bookingId": "78cef8c0-9e63-4c91-9a26-d545d7a7f192",
+      "fromStatus": "pending",
+      "toStatus": "declined",
+      "actorType": "staff",
+      "actorUserId": "staff-admin-id",
+      "patientMessage": "Doctor unavailable.",
+      "id": "4fa5d13a-4cb0-4912-9f20-d875b5cb1a6f",
+      "createdAt": "2026-10-26T14:01:07.265Z"
+    }
+  ],
+  "auditLogs": [
+    {
+      "actorType": "system",
+      "actorEmail": "system@clinic.local",
+      "action": "stage5.verification_run",
+      "entityType": "system",
+      "metadataJson": {
+        "runTime": "2026-10-26T14:01:08.908Z"
+      },
+      "id": "a998a574-cca5-4650-87d7-a998f3561f8d",
+      "createdAt": "2026-10-26T14:01:08.908Z"
+    },
+    {
+      "actorUserId": "2a73079e-af58-4580-9a9f-9152f462aae9",
+      "actorType": "patient",
+      "action": "test_audit_event",
+      "entityType": "test",
+      "id": "4c2d251d-eaa8-428e-bf0d-6cc455e26435",
+      "createdAt": "2026-10-26T14:01:04.847Z"
+    },
+    {
+      "actorType": "system",
+      "actorEmail": "system@clinic.local",
+      "action": "stage5.verification_run",
+      "entityType": "system",
+      "metadataJson": {
+        "runTime": "2026-10-26T13:50:05.581Z"
+      },
+      "id": "7ccfa174-5db7-42f7-8b0b-6983932cf55b",
+      "createdAt": "2026-10-26T13:50:05.581Z"
+    },
+    {
+      "actorUserId": "7d50802a-84cf-41b2-830d-cc46e95530ce",
+      "actorType": "patient",
+      "action": "test_audit_event",
+      "entityType": "test",
+      "id": "6df3d79d-e3a1-433f-a18d-be00ccefaa5e",
+      "createdAt": "2026-10-26T13:49:18.772Z"
+    },
+    {
+      "actorType": "system",
+      "actorEmail": "system@clinic.local",
+      "action": "stage5.verification_run",
+      "entityType": "system",
+      "metadataJson": {
+        "runTime": "2026-10-26T13:34:06.896Z"
+      },
+      "id": "a61a286c-7c5d-4b81-b0a1-bb6b4148c8aa",
+      "createdAt": "2026-10-26T13:34:06.896Z"
+    },
+    {
+      "actorUserId": "0f55a55f-fc07-415c-ab27-87285e4db408",
+      "actorType": "patient",
+      "action": "test_audit_event",
+      "entityType": "test",
+      "id": "df8bfc4f-0308-4875-96dc-cc77f45bbffe",
+      "createdAt": "2026-10-26T13:33:21.622Z"
+    },
+    {
+      "actorType": "system",
+      "actorEmail": "system@clinic.local",
+      "action": "stage5.verification_run",
+      "entityType": "system",
+      "metadataJson": {
+        "runTime": "2026-10-26T12:03:21.761Z"
+      },
+      "id": "b22e0117-a7f0-4760-8b3b-25a29252c8b1",
+      "createdAt": "2026-10-26T12:03:21.761Z"
+    },
+    {
+      "actorUserId": "a1bbf871-abb1-41a4-9afe-97bcae794bf8",
+      "actorType": "patient",
+      "action": "test_audit_event",
+      "entityType": "test",
+      "id": "87e0f5ab-76e3-4733-88d8-5886e8093bea",
+      "createdAt": "2026-10-26T12:03:05.496Z"
+    },
+    {
+      "actorType": "system",
+      "actorEmail": "system@clinic.local",
+      "action": "stage5.verification_run",
+      "entityType": "system",
+      "metadataJson": {
+        "runTime": "2026-10-26T11:31:53.993Z"
+      },
+      "id": "d47ca518-2d85-49e5-a923-b092ccb9c383",
+      "createdAt": "2026-10-26T11:31:53.994Z"
+    },
+    {
+      "actorUserId": "74644fa8-e5d4-44e9-919f-2960558ed6f7",
+      "actorType": "patient",
+      "action": "test_audit_event",
+      "entityType": "test",
+      "id": "579fd02e-f4b3-4d57-a06a-b82ccc292b96",
+      "createdAt": "2026-10-26T10:56:07.367Z"
+    },
+    {
+      "actorUserId": "701d6c67-4ec4-498e-a64e-46a56090224e",
+      "actorEmail": "anita.sharma@example.com",
+      "actorType": "patient",
+      "action": "patient_login_success",
+      "entityType": "session",
+      "entityId": "701d6c67-4ec4-498e-a64e-46a56090224e",
+      "requestId": null,
+      "ipAddress": "::ffff:127.0.0.1",
+      "metadataJson": {},
+      "id": "fddb8ceb-05c2-4467-9cfc-2c4610eb747a",
+      "createdAt": "2026-10-26T10:38:40.423Z"
+    },
+    {
+      "actorUserId": "701d6c67-4ec4-498e-a64e-46a56090224e",
+      "actorEmail": "anita.sharma@example.com",
+      "actorType": "patient",
+      "action": "patient_registration",
+      "entityType": "user",
+      "entityId": "701d6c67-4ec4-498e-a64e-46a56090224e",
+      "requestId": null,
+      "ipAddress": "::ffff:127.0.0.1",
+      "metadataJson": {
+        "termsVersion": "2026-10-v1",
+        "preferredLocale": "ne"
+      },
+      "id": "b0e8e969-6e8a-48ab-a43b-3dfb7dbd992b",
+      "createdAt": "2026-10-26T10:38:35.185Z"
+    },
+    {
+      "actorUserId": "23c592b7-47b2-4b66-8432-cbde013c87f3",
+      "actorType": "patient",
+      "action": "test_audit_event",
+      "entityType": "test",
+      "id": "dca7bbb5-3628-47eb-a975-bccc3222b14f",
+      "createdAt": "2026-10-26T10:38:29.361Z"
+    },
+    {
+      "actorUserId": "18e4a5d3-bfc1-41b9-81b9-931d9e40d3e5",
+      "actorEmail": "admin@omsaiclinic.local",
+      "actorType": "system",
+      "action": "bootstrap_super_admin",
+      "entityType": "staff_profile",
+      "entityId": "18e4a5d3-bfc1-41b9-81b9-931d9e40d3e5",
+      "requestId": null,
+      "ipAddress": null,
+      "metadataJson": {
+        "initialEmail": "admin@omsaiclinic.local"
+      },
+      "id": "f1dfd478-2850-45d7-a0d5-ff643a8096d3",
+      "createdAt": "2026-10-26T10:38:29.312Z"
+    }
+  ],
+  "clinicSettings": {
+    "clinic_name": "Om Sai Aadarsha Clinic",
+    "clinic_name_ne": "ॐ साई आदर्श क्लिनिक",
+    "tagline_en": "Compassionate Care, Reliable Diagnostics & Expert Consultations",
+    "tagline_ne": "सहृदयी स्वास्थ्य सेवा, गुणस्तरीय ल्याब तथा विशेषज्ञ परामर्श",
+    "min_lead_time_hours": 3,
+    "max_advance_booking_days": 30,
+    "cancellation_cutoff_hours": 4,
+    "max_open_requests_per_patient": 5,
+    "default_slot_duration_minutes": 20,
+    "week_start_day": 0,
+    "weekly_holiday_day": 6,
+    "address_en": "",
+    "address_ne": "",
+    "phone": "",
+    "email": "",
+    "emergency_phone": "",
+    "whatsapp_number": "",
+    "map_url": "",
+    "facebook_url": "https://www.facebook.com/p/Om-Sai-Aadarsha-Clinic-100084050983392/",
+    "opening_hours_en": "Sunday – Friday: 07:00 AM – 08:00 PM (Saturday Closed)",
+    "opening_hours_ne": "आइतबार – शुक्रबार: बिहान ०७:०० – साँझ ०८:०० (शनिबार बन्द)"
+  },
+  "clinicClosures": [
+    {
+      "id": "98a5a90e-b44b-48fd-82c2-aebe3564f68e",
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-03",
+      "reasonEn": "Tihar Festival Holiday",
+      "reasonNe": "तिहार बिदा"
+    },
+    {
+      "id": "853f18c1-7b5e-43b6-a4d7-66b5489e408b",
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-03",
+      "reasonEn": "Tihar Festival Holiday",
+      "reasonNe": "तिहार बिदा"
+    },
+    {
+      "id": "eac5c5dc-e38c-4500-89b1-4a5136142c7a",
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-03",
+      "reasonEn": "Tihar Festival Holiday",
+      "reasonNe": "तिहार बिदा"
+    },
+    {
+      "id": "341f53f8-5ef0-4963-908e-4776483a930f",
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-03",
+      "reasonEn": "Tihar Festival Holiday",
+      "reasonNe": "तिहार बिदा"
+    },
+    {
+      "id": "35b57956-a7a6-4758-af0e-61a29548aab1",
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-03",
+      "reasonEn": "Tihar Festival Holiday",
+      "reasonNe": "तिहार बिदा"
+    }
+  ],
+  "rateLimits": {
+    "reg:::ffff:127.0.0.1": {
+      "key": "reg:::ffff:127.0.0.1",
+      "hits": 1,
+      "resetAt": "2026-10-26T10:53:35.133Z"
+    },
+    "login:patient:::ffff:127.0.0.1:anita.sharma@example.com": {
+      "key": "login:patient:::ffff:127.0.0.1:anita.sharma@example.com",
+      "hits": 1,
+      "resetAt": "2026-10-26T10:48:40.362Z"
+    },
+    "test_login_ratelimit_1793014313994": {
+      "key": "test_login_ratelimit_1793014313994",
+      "hits": 3,
+      "resetAt": "2026-10-26T11:32:53.994Z"
+    },
+    "test_login_ratelimit_1793016201762": {
+      "key": "test_login_ratelimit_1793016201762",
+      "hits": 3,
+      "resetAt": "2026-10-26T12:04:21.762Z"
+    },
+    "test_login_ratelimit_1793021646896": {
+      "key": "test_login_ratelimit_1793021646896",
+      "hits": 3,
+      "resetAt": "2026-10-26T13:35:06.896Z"
+    },
+    "test_login_ratelimit_1793022605582": {
+      "key": "test_login_ratelimit_1793022605582",
+      "hits": 3,
+      "resetAt": "2026-10-26T13:51:05.582Z"
+    },
+    "test_login_ratelimit_1793023268909": {
+      "key": "test_login_ratelimit_1793023268909",
+      "hits": 3,
+      "resetAt": "2026-10-26T14:02:08.909Z"
+    }
+  },
+  "articles": [
+    {
+      "slug": "unreviewed-draft-article",
+      "titleEn": "Unreviewed Draft Article",
+      "titleNe": "",
+      "excerptEn": "Draft",
+      "excerptNe": "",
+      "contentEn": "Draft content",
+      "contentNe": "",
+      "category": "General",
+      "status": "draft",
+      "id": "a1b55e1a-e43d-4e72-a6a6-78d11529f47a",
+      "createdAt": "2026-10-26T14:01:08.907Z",
+      "updatedAt": "2026-10-26T14:01:08.907Z"
+    },
+    {
+      "slug": "hypertension-awareness-stage5",
+      "titleEn": "Hypertension Management and Dietary Salt Reduction",
+      "titleNe": "",
+      "excerptEn": "Practical guidance on blood pressure monitoring and dietary lifestyle modifications.",
+      "excerptNe": "",
+      "contentEn": "Hypertension is often called the silent killer. Regular monitoring and balanced diet are critical.",
+      "contentNe": "",
+      "category": "Chronic Disease",
+      "reviewedByDoctorId": "fed28dd6-cc8b-4ae8-93cf-412bfd9e1129",
+      "reviewedByDoctorName": "Dr. Anand Sharma",
+      "reviewedAt": "2026-10-26T14:01:08.906Z",
+      "status": "published",
+      "id": "58b097c5-a94b-4220-b981-e2b7d920a318",
+      "createdAt": "2026-10-26T14:01:08.906Z",
+      "updatedAt": "2026-10-26T14:01:08.906Z"
+    },
+    {
+      "slug": "unreviewed-draft-article",
+      "titleEn": "Unreviewed Draft Article",
+      "titleNe": "",
+      "excerptEn": "Draft",
+      "excerptNe": "",
+      "contentEn": "Draft content",
+      "contentNe": "",
+      "category": "General",
+      "status": "draft",
+      "id": "f406e3ba-029e-4d7b-9fd4-9a03cc74b67d",
+      "createdAt": "2026-10-26T13:50:05.580Z",
+      "updatedAt": "2026-10-26T13:50:05.580Z"
+    },
+    {
+      "slug": "hypertension-awareness-stage5",
+      "titleEn": "Hypertension Management and Dietary Salt Reduction",
+      "titleNe": "",
+      "excerptEn": "Practical guidance on blood pressure monitoring and dietary lifestyle modifications.",
+      "excerptNe": "",
+      "contentEn": "Hypertension is often called the silent killer. Regular monitoring and balanced diet are critical.",
+      "contentNe": "",
+      "category": "Chronic Disease",
+      "reviewedByDoctorId": "1783d924-769d-4d7d-840b-b90a3df6deae",
+      "reviewedByDoctorName": "Dr. Anand Sharma",
+      "reviewedAt": "2026-10-26T13:50:05.579Z",
+      "status": "published",
+      "id": "e943abf8-217c-4a8a-a92d-8b7945df14a6",
+      "createdAt": "2026-10-26T13:50:05.579Z",
+      "updatedAt": "2026-10-26T13:50:05.579Z"
+    },
+    {
+      "slug": "unreviewed-draft-article",
+      "titleEn": "Unreviewed Draft Article",
+      "titleNe": "",
+      "excerptEn": "Draft",
+      "excerptNe": "",
+      "contentEn": "Draft content",
+      "contentNe": "",
+      "category": "General",
+      "status": "draft",
+      "id": "20ddc1d6-e4c1-41f7-ab00-d5ddc3c4ab78",
+      "createdAt": "2026-10-26T13:34:06.895Z",
+      "updatedAt": "2026-10-26T13:34:06.895Z"
+    },
+    {
+      "slug": "hypertension-awareness-stage5",
+      "titleEn": "Hypertension Management and Dietary Salt Reduction",
+      "titleNe": "",
+      "excerptEn": "Practical guidance on blood pressure monitoring and dietary lifestyle modifications.",
+      "excerptNe": "",
+      "contentEn": "Hypertension is often called the silent killer. Regular monitoring and balanced diet are critical.",
+      "contentNe": "",
+      "category": "Chronic Disease",
+      "reviewedByDoctorId": "d8ec2e75-6424-4729-93ad-45ea1d916301",
+      "reviewedByDoctorName": "Dr. Anand Sharma",
+      "reviewedAt": "2026-10-26T13:34:06.894Z",
+      "status": "published",
+      "id": "90f42868-11f2-4e5c-aa28-db73d26cd8a2",
+      "createdAt": "2026-10-26T13:34:06.894Z",
+      "updatedAt": "2026-10-26T13:34:06.894Z"
+    },
+    {
+      "slug": "unreviewed-draft-article",
+      "titleEn": "Unreviewed Draft Article",
+      "titleNe": "",
+      "excerptEn": "Draft",
+      "excerptNe": "",
+      "contentEn": "Draft content",
+      "contentNe": "",
+      "category": "General",
+      "status": "draft",
+      "id": "b96eb2f0-09e7-42c9-96ac-08a9c0c716af",
+      "createdAt": "2026-10-26T12:03:21.756Z",
+      "updatedAt": "2026-10-26T12:03:21.756Z"
+    },
+    {
+      "slug": "hypertension-awareness-stage5",
+      "titleEn": "Hypertension Management and Dietary Salt Reduction",
+      "titleNe": "",
+      "excerptEn": "Practical guidance on blood pressure monitoring and dietary lifestyle modifications.",
+      "excerptNe": "",
+      "contentEn": "Hypertension is often called the silent killer. Regular monitoring and balanced diet are critical.",
+      "contentNe": "",
+      "category": "Chronic Disease",
+      "reviewedByDoctorId": "47eb4a51-20a7-4c65-a802-48c184359153",
+      "reviewedByDoctorName": "Dr. Anand Sharma",
+      "reviewedAt": "2026-10-26T12:03:21.756Z",
+      "status": "published",
+      "id": "6d7c17a1-901b-4efe-ac29-79ce467b855f",
+      "createdAt": "2026-10-26T12:03:21.756Z",
+      "updatedAt": "2026-10-26T12:03:21.756Z"
+    },
+    {
+      "slug": "unreviewed-draft-article",
+      "titleEn": "Unreviewed Draft Article",
+      "titleNe": "",
+      "excerptEn": "Draft",
+      "excerptNe": "",
+      "contentEn": "Draft content",
+      "contentNe": "",
+      "category": "General",
+      "status": "draft",
+      "id": "0072dcc8-9ce9-49c2-a075-cfeade2f497a",
+      "createdAt": "2026-10-26T11:31:53.993Z",
+      "updatedAt": "2026-10-26T11:31:53.993Z"
+    },
+    {
+      "slug": "hypertension-awareness-stage5",
+      "titleEn": "Hypertension Management and Dietary Salt Reduction",
+      "titleNe": "",
+      "excerptEn": "Practical guidance on blood pressure monitoring and dietary lifestyle modifications.",
+      "excerptNe": "",
+      "contentEn": "Hypertension is often called the silent killer. Regular monitoring and balanced diet are critical.",
+      "contentNe": "",
+      "category": "Chronic Disease",
+      "reviewedByDoctorId": "0b20360c-df81-44eb-904b-824517889fbc",
+      "reviewedByDoctorName": "Dr. Anand Sharma",
+      "reviewedAt": "2026-10-26T11:31:53.993Z",
+      "status": "published",
+      "id": "212752a0-537d-49c5-9bb7-128e511fdf02",
+      "createdAt": "2026-10-26T11:31:53.993Z",
+      "updatedAt": "2026-10-26T11:31:53.993Z"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Remix Om Sai Aadarsha Clinic",
+  "description": "Bilingual (English / Nepali) healthcare portal, request-based booking system, secure lab reports, and clinic management CMS for Om Sai Aadarsha Clinic.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

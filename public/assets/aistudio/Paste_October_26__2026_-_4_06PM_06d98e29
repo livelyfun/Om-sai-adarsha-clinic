@@ -1,0 +1,426 @@
+Om Sai Aadarsha Clinic — AI Studio Build Prompt (Revised)
+Oct 26, 2026 · @Mithlesh Kumar  Das
+1. How to work
+You are building a real, working application for Om Sai Aadarsha Clinic: a bilingual (English / Nepali) public website, a patient portal with request-based bookings and secure lab-report access, and a private clinic-management CMS. Act as a senior full-stack engineer who also owns security and UX decisions.
+Follow these rules throughout:
+1. Inspect before changing. If the project already contains files, read its structure, dependencies and current behaviour first and report what you found. Extend working code; do not rewrite it without a stated reason.
+2. One stage at a time. Build in the stages of Section 14. Finish a stage, run its checks, send the stage report, then stop. Do not start the next stage until told to continue.
+3. Real implementations only. Anything you call working must use real persistence, real authentication, real server-side authorization and real file handling. Never fake a protected or persistent feature with hardcoded arrays, localStorage, or checks that exist only in the browser.
+4. Report honestly. If a capability cannot run in this environment (for example private object storage or email delivery), build the integration boundary (an interface plus configuration), label it NOT CONFIGURED, and say exactly what must be supplied. Never present a stub as finished.
+5. Use these status labels in every report: Implemented and tested, Implemented, not tested, Boundary only, Not started.
+6. Do not invent clinic facts. Follow Section 13. Placeholders must look like placeholders; sample data exists only in development and is removable with one command.
+7. Decide small things yourself. Ask a question only when a missing decision materially affects architecture, security, or the clinic's workflow. State each non-trivial decision and its reason in the stage report.
+8. Keep it simple. Add no dependency, abstraction, service or feature that this prompt does not need. If a requirement conflicts with the platform, say so and propose the smallest workable alternative instead of silently dropping it.
+9. When requirements conflict, prefer this order: patient-data security, then booking correctness, then bilingual completeness, then usability, then visual polish.
+2. Product and fixed decisions
+Build one cohesive application with three surfaces that share one database and one authorization layer: the public website, the patient portal, and the staff CMS at /sai-clinic-management. The clinic's core need is simple: patients request doctor appointments, lab tests and other services online; reception reviews and confirms; patients sign in to check statuses and download released lab reports.
+The decisions below are fixed. If one looks technically impossible, explain why and propose the smallest alternative. Never substitute silently.
+• Languages: English and Nepali (नेपाली) across the public site, patient portal, booking flows, validation messages, status labels and clinic content.
+• Request-based booking: a submission is a request, never a confirmed appointment, until reception confirms it. Every patient-facing booking screen says so.
+• Patient accounts are required to submit a booking and to see statuses and reports.
+• CMS route: /sai-clinic-management. It is protected by real authentication and server-side authorization. A hidden URL is not a security measure. The route never appears in the public navbar, footer, sitemap, robots.txt or the patient dashboard.
+• Lab reports are delivered online. Authorized staff upload and release them. A patient can open only released reports that belong to a patient profile managed by their own account.
+• No automated booking notifications or reminders (no SMS, email, push or WhatsApp about bookings or reports). Patients check the portal. Emails used strictly for authentication (verification, password reset, staff invitation) are allowed and kept separate.
+• No online payments: no gateway, checkout or payment dependency. Prices are informational.
+• Reception manages bookings. Launch roles are Super Admin, Reception and Patient. The permission model must let the clinic add doctor or lab-staff roles later without redesign.
+• Clinic facts are never invented (Section 13).
+• Existing clinic software is unknown. Do not build integrations or migrations. In the Stage 0 blueprint, note where a patient or catalogue import boundary would fit.
+3. Scope and priorities
+Core. These must work end to end before anything else is polished: authentication and roles; doctor, lab-test and service catalogues managed in the CMS; request-based bookings with reception management; the patient dashboard; secure lab-report upload, release and access; the audit log.
+Supporting. Build these after Core works: homepage and clinic-information management; About and FAQ; the blog; SEO metadata and structured data; banners and featured content; tooling that shows incomplete Nepali translations.
+Non-goals. Do not add these or their dependencies: online payments; automated notifications or reminders; telemedicine; prescriptions; electronic medical records; pharmacy or inventory; AI diagnosis or AI-generated medical content; analytics platforms; a drag-and-drop page builder; microservices; native mobile apps; report generation (the app only delivers files that staff provide).
+4. Platform and technology
+Platform check (Stage 0, before any application code). Build mode changes quickly, so verify what this environment can actually provide and report each item as Confirmed (you saw it work or saw it documented here) or Assumed. Check: a server-side runtime; server-rendered pages (Next.js or an equivalent); database options (PostgreSQL, Firestore); sign-in methods (email and password, Google, others); private file storage; sending authentication email; secrets management; deployment target and region; export to GitHub or ZIP.
+For orientation only, Google's documentation describes a React front end by default, a Node.js server runtime with secrets and npm, a Firebase integration (Firestore and Authentication, documented with Google sign-in), a Cloud SQL for PostgreSQL integration, and deployment to Cloud Run. Verify these; do not rely on them.
+Preferred stack.
+• TypeScript throughout, with Next.js (App Router), React and Tailwind CSS.
+• PostgreSQL with Prisma or Drizzle. Migrations are committed.
+• A maintained authentication solution. It hashes passwords. Never write custom cryptography.
+• Server-side validation of every input with a schema library such as Zod.
+• A standard localization library such as next-intl.
+• Private object storage for lab reports, behind a storage interface.
+Decision rules.
+1. Database. Use PostgreSQL for core records, because booking conflicts, ownership checks and audit history need transactions and constraints. Use the platform's PostgreSQL integration if it exists; otherwise any managed PostgreSQL through a DATABASE_URL secret. Use Firestore for core records only if PostgreSQL is impossible. In that case say so in Stage 0 and explain how you will keep conflict checks transactional, enforce ownership on the server, and deny all direct client access through security rules.
+2. Rendering. Serve public pages as server-rendered or pre-rendered HTML, with crawlable text, metadata and structured data for each URL. The SEO and bilingual-URL requirements depend on this. A client-only single-page app does not satisfy it.
+3. Patient sign-in. Patients need self-registration, email verification and password reset. If the platform's built-in sign-in supports only Google accounts, treat that as incomplete: add email and password, or report what is missing. Google sign-in may be offered as an extra for patients, never as the only path.
+4. Server-only data access. The browser never reads or writes the database or file storage directly. Every server read or write checks the session and the permission.
+5. Report storage. Reports live in a private bucket or container with no public access, behind a ReportStorage interface (put, openStream, delete). Local disk is allowed only in development and must be marked NOT FOR PRODUCTION, because container hosts often have ephemeral disks.
+6. Portability. Keep a standard project: configuration through environment variables with a .env.example, committed migrations, an idempotent seed script, and a README covering setup, deployment and restore. The clinic must be able to change hosts.
+7. Missing credentials. If a service needs credentials you do not have, build the boundary and mark it NOT CONFIGURED. Never fake it.
+What the app implements, and what must be supplied separately.
+Capability
+The app implements
+Supplied or configured separately
+Database
+Schema, migrations, queries, constraints
+Managed PostgreSQL instance, region, automated backups
+Authentication
+Registration, login, verification, reset, sessions, roles
+Email-sending credentials (sender domain, SMTP or provider)
+Report storage
+Upload, validation, access checks, controlled downloads
+Private bucket, credentials, encryption, versioning and backup
+Hosting
+Build and start scripts, health check
+Hosting account, domain, TLS, production environment variables
+Content
+CMS forms, clearly marked placeholders
+Real clinic facts, logo, photographs, reviewed translations
+Legal text
+Draft privacy policy and booking terms
+Clinic and legal review before launch
+5. Public website and bilingual content
+Navbar (fixed information architecture).
+• Far left: the clinic logo and the name "Om Sai Aadarsha Clinic". Both link to Home.
+• Main navigation, in this order: Home, Doctors, Medical Services, Lab Tests, Explore. Explore is a dropdown containing About, FAQ and Health Information (the blog).
+• Rightmost: the English / नेपाली switch, then the primary button Book a Session.
+• The CMS never appears in the navbar.
+• The Explore dropdown works with mouse, keyboard (Enter, Space, Escape, arrow keys) and touch. On mobile, a menu button opens a panel with every item (Explore shown as a group), the language switch, and a prominent Book a Session button that stays visible.
+• The language switch keeps the visitor on the current page when a translation exists. Otherwise it goes to the other language's home page with a short notice.
+• The navbar has no sign-in item and must stay as specified. Give patients account access through the footer ("Patient login / My account"), the Book a Session page ("My bookings and reports" when signed in, "Sign in or register" when not), and the foot of the mobile menu.
+Book a Session opens a booking hub: doctor appointment, lab tests, or other service. A signed-out visitor is asked to sign in or register, then returns to the same flow with their selection intact.
+Public pages.
+• Home: hero with the booking action; quick links to Doctors, Medical Services and Lab Tests; featured doctors and services chosen in the CMS; selected lab tests; clinic information, approved images and location from settings; FAQ preview; latest articles; footer with approved contact details, navigation, language options and privacy link. A section with no content is hidden. Never fill it with invented content.
+• Doctors: searchable directory and individual pages with name, approved photograph, qualifications, specialty, biography, consultation fee (only if confirmed) and a booking action.
+• Medical Services: catalogue and detail pages with description, fee, availability and booking type. Distinguish "appointment request" services from "informational only" services.
+• Lab Tests: searchable catalogue filtered by category. Detail pages show description, approved price, clinic-approved preparation instructions, sample or collection information and availability. A patient can select several tests and start one lab booking.
+• Explore: About, FAQ, and the Health Information blog (listing and articles). Articles carry draft, in-review and published states. Show "reviewed by" or dates only when staff entered them. Never present unreviewed health information as clinic-approved.
+• Supporting pages: patient login, registration, account recovery, booking flows, dashboard, privacy policy, booking terms, confirmation pages, and 404, error and access-denied pages.
+Localization.
+• URLs: every public URL carries a locale prefix, /en/... or /ne/.... The bare / redirects once to the visitor's last chosen language, otherwise English. Do not choose language by IP address. Slugs use Latin script and are shared across languages. Emit hreflang (en, ne, x-default) and canonical tags, and only for translations that exist. The CMS stays at /sai-clinic-management with no locale prefix.
+• No hardcoded text. All interface text lives in message files (en.json, ne.json) under stable keys. This includes validation messages, status labels, empty and error states, and authentication email text.
+• Interface strings: you may draft the Nepali interface text. List every drafted Nepali string in docs/TRANSLATION-REVIEW.md for review by a native speaker.
+• Clinic content (doctor biographies, service and test descriptions, preparation instructions, FAQs, articles, About) is entered by staff in each language. Never machine-translate it. Never invent translations of medical guidance. If a Nepali version is missing, show the English text with a visible note that Nepali is not yet available, and mark the item as an incomplete translation in the CMS.
+• Nepali presentation: use a Devanagari-capable font such as Noto Sans Devanagari with comfortable line height. Store all date-times in UTC and display them in Asia/Kathmandu. Make week start and weekly holiday configurable; do not assume a Saturday–Sunday weekend. Display dates in Gregorian (AD) and route all date formatting through one helper so Bikram Sambat (BS) display can be added later (Section 13).
+6. Accounts and authentication
+Patient accounts.
+• Registration collects full name, email, mobile number and password, plus consent to the privacy policy and booking terms (store the document version and timestamp). Collect nothing else at registration.
+• Email verification is required before a patient can submit a booking. An unverified patient can sign in and sees a verification prompt.
+• Sign-in uses email and password. Login, registration and password-reset responses must not reveal whether an email address is registered. Rate-limit by IP address and by account, with a temporary lockout after repeated failures.
+• Password reset uses a single-use, short-lived token. A successful reset ends the account's other sessions.
+• Sessions use HttpOnly, Secure, SameSite cookies, CSRF protection on state-changing requests, idle and absolute timeouts, and server-side invalidation at logout.
+• No self-service account deletion in the MVP. Staff can disable an account. Booking and report records follow the clinic's retention policy (Section 13).
+Patient profiles (self and family). One account may manage several patient profiles: "myself" (created at registration) and family members such as a child or parent. A profile has a name, date of birth, optional sex, optional phone and a relationship label. Every booking belongs to exactly one profile. A report belongs to the same profile as its booking. The account that manages a profile sees that profile's bookings and released reports, and nobody else does. Cap profiles per account at a configurable number (default 6).
+Walk-in patients and claim codes (build in Stage 4). Reception can create a profile for someone with no account, such as a walk-in lab patient. That profile is unlinked, and no report can be released for it. To link it, reception verifies the patient's identity in person under the clinic's procedure and generates a one-time claim code. The code is random, expires after a configurable period, is stored hashed, and is shown once. The patient signs in, enters the code under "Add a profile", and the profile attaches to their account. Record who verified the identity and when.
+Staff accounts.
+• There is no public staff registration.
+• Create the first Super Admin with a one-time bootstrap command that reads credentials from environment variables, forces a password change at first login, and refuses to run if a Super Admin already exists.
+• A Super Admin creates staff accounts and assigns roles. The new staff member receives an invitation link, or a temporary password that must be changed at first login. Disabling a staff account ends its sessions immediately.
+• Staff sign in at /sai-clinic-management/login. Patient accounts can never access the CMS: check the role on the server for every CMS page and API call. Keep staff and patient accounts separate, with different email addresses.
+• Offer multi-factor authentication (TOTP) for staff if the authentication solution supports it natively, and require it for Super Admin where available. Otherwise list it as recommended hardening. Use shorter staff session timeouts than patient timeouts, and make logout prominent for shared reception computers.
+Authentication email. Use one sendAuthEmail() function behind an email-provider boundary, only for verification, password reset and staff invitation. Without credentials in development, print the link to the server console. Without credentials in production, mark verification and reset NOT CONFIGURED and show a clear admin warning. Never log tokens in production.
+7. Bookings
+Rules for every booking type.
+• The patient must be signed in and email-verified, and must choose which patient profile the booking is for.
+• A submission is a request. The confirmation screen says so in plain words ("Request received. It is not confirmed until reception confirms it.") and shows a reference number.
+• The reference number is random, non-sequential and human-friendly (for example OSA-7K4Q9X). It is a label only and never grants access to anything.
+• Collect only what is needed: profile, preferred date and time, a short optional note, a contact phone if different, and service-specific answers.
+• Validate on the server: the preferred time is not in the past, falls inside the bookable window (configurable minimum lead time and maximum days ahead), and is not on a clinic closure or doctor-unavailable date.
+• Limit abuse: rate-limit submissions and cap each patient's open requests (pending or reschedule_proposed) at a configurable number, default 5.
+• Keep staff notes (internal) separate from patient messages (shown to the patient, such as a decline reason).
+• Write a status-history row for every change: from, to, actor, time, patient message, internal note.
+Doctor appointments. The patient selects a doctor and sees slots computed from the doctor's weekly schedule and unavailable dates, minus already-confirmed appointments. The patient picks a preferred slot, completes the details and submits. Pending requests do not block a slot; several patients may request the same one. Slot length is set per doctor. Store the doctor's name and displayed fee on the appointment as a snapshot.
+Lab bookings. The patient selects one or more bookable tests, reviews approved prices and clinic-approved preparation instructions, chooses a preferred visit time within the lab's configurable hours, and submits. Show the price total as an estimate and say final charges are set by the clinic. Store each test as a line item with a snapshot of its name (both languages), price and preparation text at request time. Do not assume home collection; offer it only where the clinic enables it for a test. The completed status means the visit or sample collection is done. It does not mean a report exists. Report availability comes only from the report record (Section 8).
+Other services. Reuse the appointment request flow. Each service has a booking mode set in the CMS: request or informational (no booking). A request service may define a few simple extra questions (label in both languages, text or choice, required or not). Do not build a general form builder.
+Statuses. Store stable codes: pending, confirmed, reschedule_proposed, declined, cancelled, completed, no_show. Show English and Nepali labels from the message files.
+The server rejects every transition not in this table.
+From
+To
+Who
+Rules
+pending
+confirmed
+Staff
+Conflict check must pass (appointments)
+pending
+declined
+Staff
+Patient-visible reason required
+pending
+reschedule_proposed
+Staff
+Proposed date and time required
+pending
+cancelled
+Patient or staff
+Reason optional
+reschedule_proposed
+confirmed
+Patient (accepts) or staff
+The proposed time becomes the booking time; run the conflict check again
+reschedule_proposed
+reschedule_proposed
+Staff
+A new proposal replaces the earlier one
+reschedule_proposed
+cancelled
+Patient (declines) or staff
+
+confirmed
+reschedule_proposed
+Staff
+Proposed date and time required
+confirmed
+cancelled
+Patient or staff
+Patient cancellation allowed until a configurable cutoff before the start time
+confirmed
+completed
+Staff
+Only on or after the start time
+confirmed
+no_show
+Staff
+Only after the start time
+declined, cancelled, completed, no_show
+none
+none
+Terminal
+Because no notifications are sent, a reschedule_proposed booking shows an "Action needed" banner in the patient dashboard and appears in a "waiting for patient" list on the staff dashboard. A proposal does not hold the slot.
+Conflict rule. Two appointments conflict when they have the same doctor, overlapping time ranges, and both are confirmed. Enforce this in the database (for example a PostgreSQL exclusion constraint on doctor and time range for confirmed rows) or inside a serializable transaction. An application-level check alone is not enough, because two staff members can confirm at the same moment. On conflict, tell staff which booking holds the time. When staff review a request, show other requests for the same doctor and time so they can choose. Doctor-unavailable dates and clinic closures also block confirmation. Lab bookings have no doctor conflict; apply a capacity limit per time window only if the clinic configures one.
+Patient dashboard. Sections: Upcoming, Past, Lab bookings, Reports, Profiles, Account. Each booking shows its reference, type, profile, requested and confirmed times, the status label in the current language, the patient message, the status history, and the actions allowed to the patient (cancel; accept or decline a proposal). A banner explains that a request is not confirmed until reception confirms it. Every query filters by the signed-in account's own profiles on the server.
+8. Laboratory reports
+This feature delivers finished files that clinic staff provide. It does not generate reports, interpret results or diagnose anyone.
+Report record. Store one row per uploaded file version, with the lab booking, the patient profile, a version number, a status, file metadata, and who uploaded, released or revoked it and when. Statuses are draft, released, revoked and superseded.
+Staff workflow.
+1. Staff find the lab booking by reference or by patient search. Only a confirmed or completed lab booking can receive a report.
+2. Staff upload a finalized PDF. Beside the upload, the app shows the patient's name, date of birth and the booking reference, and requires a ticked confirmation: "I have verified that this report belongs to this patient and booking." Store who confirmed it and when.
+3. Staff save it as draft or release it. A user without the reports.release permission can only save drafts. A user with that permission reviews and releases.
+4. Release is allowed only if the patient profile is linked to a patient account (Section 6). Otherwise the app explains how to link it with a claim code.
+5. A released report appears in the patient's dashboard under Reports and on the related booking.
+6. To correct a report, staff upload a new version and release it. In the same transaction, the earlier released version becomes superseded. The patient sees only the latest released version.
+7. To withdraw a report, staff with release permission revoke it with a required internal reason. The patient loses access immediately and sees "This report is temporarily unavailable. Please contact the clinic."
+Storage and delivery.
+• Accept PDF only by default, with a configurable size limit (default 10 MB). Validate the file signature, not just the extension or the declared MIME type. Reject everything else.
+• Store each file under a random, non-guessable key. Never put a patient name, phone number or original filename in the key. Keep the sanitized original filename as metadata and record a SHA-256 checksum.
+• Never create a public or permanent URL for a report. Patients download through an authenticated server endpoint that (a) checks the session, (b) checks that the report is released and belongs to a profile managed by that account, and only then (c) streams the file or issues a signed URL that expires within a few minutes.
+• Send Cache-Control: private, no-store, X-Content-Type-Options: nosniff and a generated download filename such as lab-report-OSA-7K4Q9X.pdf.
+• Return the same "not found" response for a report that does not exist and a report the user may not see, so existence is never revealed.
+• Keep report files and endpoints out of sitemaps, search indexes, analytics and logs.
+• If malware scanning is available in this environment, scan on upload. If not, list it as a known gap in the Stage 4 report.
+Audit. Write an append-only audit entry for upload, staff view, release, supersede, revoke, patient download, denied access attempts and claim-code linking. Entries hold identifiers, actor, action, timestamp and a request ID, never file contents or health details.
+Permissions. The keys are reports.view, reports.upload, reports.release and reports.revoke (defaults in Section 9). The clinic decides who uploads and who releases. Until it does, Reception can upload and save drafts, and only Super Admin can release and revoke.
+Retention. Reports are retained. The MVP has no delete function. Revoking hides a report but keeps the record.
+9. CMS and roles
+Route protection.
+• Every page, API route and server action under /sai-clinic-management requires an authenticated staff session and a permission check on the server. Hiding a button in the interface is cosmetic only.
+• An unauthenticated visitor reaches only /sai-clinic-management/login. A signed-in patient who requests the CMS gets the generic access-denied page.
+• Do not list the route in the navbar, footer, sitemap, robots.txt or the patient dashboard. Do not add a Disallow line for it in robots.txt, because that would publish the path. Send X-Robots-Tag: noindex, nofollow and Cache-Control: no-store on every CMS response instead.
+• Rate-limit the staff login. The CMS interface is in English. Content forms edit the English and Nepali fields side by side.
+Modules. Build each as simple structured forms and searchable lists, with loading, empty, success and error states. Do not build a page builder.
+• Dashboard (Core): pending requests; upcoming confirmed appointments; new lab requests; bookings waiting for a patient; reports in draft; recent audit activity.
+• Bookings (Core): search and filter by status, type, doctor, date, reference and patient; detail view; confirm, decline, propose a new time, cancel, complete, mark no-show; internal notes; status history.
+• Doctors (Core): bilingual profile, photograph, qualifications, specialty, fee, weekly schedule, slot length, unavailable dates, visibility.
+• Medical services (Core): bilingual content, fee, availability, booking mode, optional extra questions, publish and deactivate.
+• Lab catalogue (Core): tests with categories, bilingual name, description and preparation text, price, collection information, availability and visibility. A discontinued test accepts no new bookings and stays in history.
+• Patients (Core): search by name, phone or email; view profiles and booking history; disable an account; create an unlinked profile; issue a claim code. Reception sees only what desk work needs.
+• Lab reports (Core): as in Section 8.
+• Clinic settings (Core): clinic name, logo, contact details, address and directions, opening hours, closures and holidays, booking window and cancellation cutoff, week start and weekly holiday, language settings, public contact information.
+• User management (Core, Super Admin only): create and disable staff, assign roles and permissions, view audit history.
+• Website content (Supporting): homepage sections, About, FAQ, blog articles (draft, in review, published), banners, images, featured items, and page metadata per language.
+Translation status. Every bilingual item shows Complete, Missing Nepali or Missing English. Staff can list and filter incomplete items. Publishing with a missing translation is allowed, with a visible warning, because the public site falls back to the other language.
+Roles and permissions. Permissions are keys checked on the server. A role supplies a default set of keys. A Super Admin can add or remove individual keys for any staff account. Store roles and their default keys in the database so a doctor or lab-staff role can be added later without changing code. Patient access is not a permission. It is enforced by ownership checks on every query.
+Permission key
+Super Admin
+Reception (default)
+bookings.view, bookings.manage
+Yes
+Yes
+patients.view (limited fields for Reception)
+Yes
+Yes
+patients.manage (unlinked profiles, claim codes, disable account)
+Yes
+Yes
+reports.view, reports.upload
+Yes
+Yes
+reports.release, reports.revoke
+Yes
+No
+catalogue.manage (doctors, services, tests)
+Yes
+No
+content.manage
+Yes
+No
+settings.manage
+Yes
+No
+users.manage, audit.view
+Yes
+No
+The clinic will confirm these defaults (Section 13).
+10. Data model
+Design a normalized relational schema. Adjust it where you can justify a better design, and record the change in the Stage 0 blueprint. Include at least these entities.
+Entity
+Purpose and key points
+User
+Login identity for patients and staff: email, status (active or disabled), email-verified time, type (patient or staff), preferred language. Password data is managed by the authentication solution.
+Role, StaffProfile
+A role holds default permission keys. A staff profile links a user to a role and holds per-account added or removed permission keys.
+PatientProfile
+A person who receives care: name, date of birth, optional sex, phone, relationship label. managing_user_id is null until linked. Records who verified identity and when.
+ClaimCode
+One-time code for linking a walk-in profile: profile, hashed code, expiry, used time, creator.
+Doctor, DoctorSchedule, DoctorUnavailability
+Bilingual profile, photo, fee, slot length, visibility; weekly availability windows; unavailable date ranges.
+ClinicClosure
+Clinic-wide closed dates.
+MedicalService, ServiceQuestion
+Bilingual service content, fee, availability, booking mode (request or informational), optional extra questions.
+LabTestCategory, LabTest
+Bilingual name, description, preparation text and collection information; price; availability; visibility.
+Appointment
+Reference, profile, doctor or service, start and end, status, snapshots of name and fee, patient note, patient message, and service answers.
+LabBooking, LabBookingItem
+Reference, profile, preferred time, status; one item per test with snapshots of name (both languages), price and preparation text.
+BookingStatusEvent
+History of every status change: booking, from, to, actor, patient message, internal note, time.
+LabReport
+One row per file version: lab booking, profile, version, status, storage key, file metadata, checksum, and uploader, confirmer, releaser and revoker with times.
+Page, Article, FAQ, Banner, MediaAsset
+Managed website content with bilingual fields, publish state and metadata.
+ClinicSetting
+Typed settings: contact details, address, opening hours, booking window, cancellation cutoff, week start, weekly holiday, language options.
+AuditLog
+Append-only record of sensitive actions: actor, action, entity type and ID, time, request ID.
+Rules.
+• Bilingual fields: use paired columns such as name_en and name_ne, which are simple and queryable. Derive a translation status from them.
+• Snapshots: bookings copy the names, fees, prices and preparation text shown at request time, so later catalogue edits never rewrite history.
+• No hard deletes of referenced records. Deactivate catalogue entries instead. Use restrictive foreign keys.
+• Ownership by constraint: make it impossible in the database to attach a report to a profile that does not match its lab booking, for example a composite foreign key on lab booking and profile.
+• Conflict constraint: enforce non-overlapping confirmed appointments per doctor in the database (Section 7).
+• Time and money: store date-times as UTC timestamps. Store money as integers in the smallest unit or as decimals, never floats, with a currency field that defaults to NPR.
+• Audit log: the application's database role can insert into it but cannot update or delete from it.
+• Indexes: add them for booking search (status, doctor, date, reference, profile), patient search and catalogue search.
+• Import boundary: keep stable internal IDs and avoid clinic-software assumptions, so patient or catalogue data could be imported later.
+11. Security, privacy and operations
+The application holds personal and medical information. Apply these controls in proportion to the real risks, and in a form the clinic can operate.
+Access control.
+• Every protected read and write checks the session and the permission or ownership on the server. There are no exceptions for "internal" endpoints.
+• Patient-facing queries always filter by the signed-in account's own profiles. For every patient-facing endpoint, test that a second patient account receives "not found".
+• The browser never talks to the database or file storage directly.
+• Use random identifiers in URLs, but never treat an unguessable URL as authorization.
+Web protections.
+• Validate every input on the server. Use parameterized queries only.
+• Add CSRF protection and secure headers (Content-Security-Policy, X-Content-Type-Options, frame protection, referrer policy, and HSTS in production).
+• Sanitize rich text from the CMS (blog, FAQ) before rendering it. Restrict image uploads by type and size.
+• Rate-limit login, registration, password reset, booking submission, claim-code entry and report download. Keep the counters in the database or another shared store. Per-instance memory is not enough on hosts that run several instances.
+Errors, logging and analytics.
+• Show safe error messages with no stack traces, SQL, file paths or patient data.
+• Logs never contain names, phone numbers, email addresses, health details, tokens, passwords or report contents. Log identifiers and a request ID instead.
+• Add no analytics or third-party tracking scripts, and none at all on account, booking or CMS pages. Add analytics only if the clinic asks.
+Audit. Record who did what and when for staff sign-ins and failed sign-ins, booking status changes, views and changes of patient records, claim-code issue and use, report actions (Section 8), staff-account and permission changes, and settings changes. Super Admin can view and filter the log. Nobody can edit it.
+Secrets and environments. Keep every secret in environment variables or the platform's secret store, never in code, client bundles or logs. Provide .env.example with names only. Keep development and production separate. The sample-data seed must refuse to run when APP_ENV=production, and any development page showing sample data carries a visible "SAMPLE DATA" banner.
+Backups and recovery. The app cannot back up infrastructure itself. In the README, document what is backed up (database and report storage), how often, where, who is responsible, how long copies are kept, and a step-by-step restore procedure with a test-restore drill the clinic repeats. Enable versioning or backup on report storage so an overwritten or deleted file can be recovered. Mark backups NOT CONFIGURED until the clinic confirms that its hosting plan provides them.
+Retention. Treat retention as a documented clinic policy, not code. The MVP deletes nothing automatically.
+Location and compliance. Choose the nearest suitable hosting region and record it. Do not claim legal compliance. List the obligations the clinic should confirm with a qualified adviser, such as those under Nepal's Privacy Act (2018) and any health-record rules.
+12. UX, accessibility and SEO
+Design direction. Make a calm, trustworthy, professional healthcare site: clean layouts, generous spacing, one consistent type scale and a restrained palette. Use a neutral placeholder palette until the supplied logo defines the brand colours. Design mobile-first, because many patients will use phones on slower connections. Use responsive images in modern formats, lazy-load images below the fold, subset fonts, and keep client-side JavaScript small on public pages.
+Never invent awards, credentials, testimonials, ratings, staff photographs or facility images. Use the supplied logo and approved assets. Where an asset is missing, use a replaceable neutral placeholder that makes no claim about real people or facilities.
+Usability.
+• Booking forms have few fields, inline validation, messages in the current language, input preserved after an error, and a clear next step.
+• Every list and page has loading, empty, success and error states.
+• Patient screens use plain words, short explanations next to each status, and the "request, not confirmation" message.
+• Reception screens are efficient: keyboard-friendly tables, filters, one-click common actions, confirmation for destructive actions, and clear conflict messages.
+Accessibility. Target WCAG 2.2 AA. Use semantic HTML, labelled form controls with associated error messages, visible focus, a keyboard-operable navbar and dropdown, sufficient contrast, touch targets of at least 44 px, respect for reduced-motion settings, a skip link, and the correct lang attribute on each page (en or ne).
+SEO and local discoverability.
+• Public pages are server-rendered with search-friendly URLs.
+• Each page has a title and description in each language, taken from CMS metadata with sensible fallbacks.
+• Add canonical URLs, and hreflang only for translations that exist.
+• The sitemap lists only published public pages, per language. robots.txt allows public pages and does not mention the CMS route.
+• Account, booking, report, login and CMS pages carry noindex and Cache-Control: no-store.
+• Emit structured data (MedicalClinic or LocalBusiness, and Physician for doctors) only from verified data in settings and the CMS, and only for fields that exist. Never emit rating or review markup.
+• Add internal links between doctors, services, lab tests and related articles. Let staff choose related items in the CMS.
+• Give images meaningful alt text in each language.
+• Show the clinic's address, phone number, hours and map link consistently, from one settings source.
+13. Open requirements and clinic facts
+The clinic has not yet supplied the facts below. Never invent them. Make each one configurable in the CMS, and behave as the table says until it is supplied. Keep a checklist of these items in docs/OPEN-REQUIREMENTS.md and update it at every stage.
+Open item
+Behaviour until the clinic supplies it
+Logo and brand assets
+Neutral placeholder wordmark and palette, replaceable in settings
+Address, phone, email, map link, opening hours
+Empty settings. Hide the related blocks and omit them from structured data. Do not show fake contact details
+Doctor roster, qualifications, photographs, fees, schedules
+Empty directory with an "information coming soon" state. Doctor booking stays unavailable until a doctor is published with a schedule
+Medical services
+Empty catalogue state. No service is bookable until published
+Lab tests, prices, preparation instructions, collection information
+Empty catalogue state. A test with no price shows "Price confirmed by the clinic"
+Nepali versions of clinical content
+English fallback with a visible note, and an incomplete-translation flag in the CMS
+Reception booking procedure
+Configurable defaults: minimum lead time, maximum days ahead, cancellation cutoff, slot length, open-request cap. Mark each default "confirm with clinic"
+Who uploads and who releases reports
+Defaults in Section 9, adjustable per staff account
+Patient verification method
+Email verification (Section 6). Phone one-time codes are a later option
+Hosting, region, database, private storage, email provider
+NOT CONFIGURED, with development fallbacks that cannot run in production
+Existing clinic software
+None assumed. No integration is built
+Privacy policy and booking terms
+Clearly marked DRAFT templates. Registration records the version accepted. They need clinic and legal review before launch
+Retention policy
+Documented by the clinic. Nothing is deleted automatically
+Bikram Sambat (BS) date display
+Gregorian only, through the single date-formatting helper
+Weekly holiday and week start
+Configurable. Do not assume Saturday–Sunday
+Sample data.
+• Use sample data only in development, through a seed script that refuses to run when APP_ENV=production.
+• Mark every sample record is_sample, label it in the interface (for example "Sample doctor, not real"), and exclude it from the sitemap and structured data.
+• Use obviously fake names, no realistic medical credentials, and clearly invalid phone numbers.
+• Provide one command that removes all sample records.
+Launch gate. Production launch requires: no sample records; every NOT CONFIGURED item resolved or explicitly accepted by the clinic; the legal texts reviewed; the Nepali interface strings reviewed.
+14. Implementation stages
+Build in this order. Keep the application running and testable throughout. When a later stage changes earlier work, rerun the earlier stage's checks. Finish each stage with the report described at the end of this section, then stop and wait for "continue".
+Stage 0 — Blueprint (no application code). In your reply, deliver:
+1. The platform check from Section 4, with every item marked Confirmed or Assumed.
+2. The architecture decisions (stack, database, authentication, storage, rendering, hosting) with reasons, and every deviation from the preferred stack.
+3. The route map: public pages with locale prefixes, patient pages, booking flows, CMS pages, and API routes.
+4. The data model as entities, relationships and key constraints.
+5. The authorization model: roles, permission keys and ownership checks.
+6. The report-storage design and the status state machine.
+7. The stage plan, the NOT CONFIGURED items you already expect, and at most five questions, asked only if the answer blocks safe progress.
+Stage 1 — Foundation. Project structure, database and migrations, patient and staff authentication, roles and permissions, localization with /en and /ne routing and message files, the navbar and page shell, the storage and email boundaries, settings, the audit log, the seed script, .env.example and the first README.
+Acceptance: the app runs from a clean checkout by following the README. A patient can register, verify (development console link), sign in and reset a password. The Super Admin bootstrap works exactly once. Staff sign in at the CMS login. A patient account is refused by the CMS on the server, proven by a request-level test. The language switch works and no interface text is hardcoded. Sign-ins write audit entries.
+Stage 2 — Catalogues and public site. CMS modules for settings, doctors (with schedules and unavailable dates), medical services and the lab catalogue. Public Home, Doctors, Medical Services, Lab Tests, simple About and FAQ, footer, empty states, and the SEO basics (titles, canonical, hreflang, sitemap, robots.txt, noindex rules).
+Acceptance: staff can create, publish and deactivate a doctor, service and test in both languages. Public pages show only published records. A missing Nepali translation falls back to English with a note. The navbar matches Section 5 exactly and works on desktop and mobile.
+Stage 3 — Bookings and patient dashboard. Booking flows for appointments, lab tests and services; patient profiles for self and family; reference numbers; the status machine; the database-level conflict constraint; reception booking management; the patient dashboard.
+Acceptance: the server accepts only the transitions in Section 7 and rejects all others, proven by tests. Two overlapping confirmations for one doctor cannot both succeed, including when sent at the same moment. A patient sees only their own profiles' bookings. A reschedule proposal shows "Action needed" and can be accepted or declined. Snapshots survive later catalogue edits.
+Stage 4 — Laboratory reports. Upload and validation, private storage, draft, release, supersede and revoke, patient viewing and download, claim codes, and report audit entries.
+Acceptance: a second patient's request for another patient's report returns "not found". Revoked and superseded reports cannot be downloaded. A non-PDF or oversized upload is rejected. No public or permanent report URL exists. Audit entries exist for every report action. The storage boundary's status is reported honestly.
+Stage 5 — Content, hardening and launch readiness. The blog, FAQ and About management, homepage sections, banners, media, page metadata, structured data and translation-status tools. Then a security pass against Section 11, an accessibility pass, a performance pass, backup and restore documentation, deployment documentation, a full end-to-end test run, and the launch-gate checklist.
+Acceptance: every item in Section 15.
+Stage report (end of every stage).
+1. Implemented, using the status labels from Section 1.
+2. Tested: what you ran and what happened, and what you did not run.
+3. Decisions made and why.
+4. Deviations from this prompt and why.
+5. NOT CONFIGURED items and anything the clinic must supply.
+6. The next stage and its main risk.
+15. Testing and definition of done
+Testing. Write automated tests where this environment can run them. Otherwise write a manual test script in docs/TESTING.md and label the result Implemented, not tested. Prioritize the tests that protect patients and booking logic:
+• Authorization: for every protected page and API (CMS, bookings, reports), test the patient, staff and signed-out cases. Test that a second patient account gets "not found" for another account's profiles, bookings and reports. Test that permission keys are enforced (by default Reception cannot release reports or manage the catalogue).
+• Bookings: each allowed transition and a sample of forbidden ones; concurrent confirmation of overlapping appointments; accepting and declining a reschedule proposal; the patient cancellation cutoff; the open-request cap; snapshots after a catalogue edit.
+• Reports: upload validation (type, size, signature), release, supersede, revoke, download authorization, absence of any public URL, and audit entries.
+• Authentication: registration, verification, password reset, no account enumeration, rate-limit responses, session expiry, and a disabled staff account losing its session.
+• Localization: every public and patient page renders in both languages; the switch keeps the current page; the fallback note appears for a missing translation; the lang attribute is correct.
+• Public site: navbar order and the Explore dropdown by mouse, keyboard and touch; layouts at phone, tablet and desktop widths; sitemap contents; noindex headers on private pages; the CMS route absent from the sitemap, robots.txt, navbar, footer and dashboard.
+• CMS: publish and deactivate flows, translation-status display, and staff account creation and disabling.
+• Recovery: perform the documented restore once if the environment allows it.
+Definition of done. The MVP is ready for clinic acceptance when all of these are true:
+• The public website follows the navbar and page structure in Section 5, and English and Nepali both work.
+• Catalogue and site content are managed in the CMS. No clinic fact is hardcoded or invented.
+• Patients can register, verify, sign in, recover a password, manage profiles, submit booking requests and track them. A request is never shown as confirmed before reception acts.
+• Reception can review, confirm, decline, propose a new time, cancel and complete bookings, and overlapping confirmations are impossible.
+• Authorized staff can upload, release, replace and revoke reports. Patients can open only released reports of their own profiles.
+• /sai-clinic-management is protected by server-side authentication and permission checks, and appears on no public surface.
+• The Section 11 controls are implemented, or listed as NOT CONFIGURED with a named owner.
+• The tests above exist and their results are reported, with any gaps named.
+• The README and docs/ folder cover setup, environment variables, deployment, database, storage, authentication and email configuration, backup and restore, open requirements, translation review and testing.
+• The launch gate in Section 13 is stated as met or not met.
+Start now. Begin with Stage 0 only. Do not write application code in this reply. Send the Stage 0 blueprint, then wait for the word "continue".
