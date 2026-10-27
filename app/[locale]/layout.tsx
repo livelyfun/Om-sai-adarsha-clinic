@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Navbar from '@/components/public/Navbar';
 import Footer from '@/components/public/Footer';
 import { getMessages, isValidLocale, Locale } from '@/lib/i18n';
-import { AlertCircle } from 'lucide-react';
+import { db } from '@/lib/db';
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
@@ -19,20 +19,25 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   }
 
   const messages = getMessages(locale as Locale);
-  const isDev = process.env.APP_ENV !== 'production';
+
+  const phone = db.getSetting('phone') || '+977 9800000000';
+  const facebookUrl =
+    db.getSetting('facebook_url') || 'https://www.facebook.com/p/Om-Sai-Aadarsha-Clinic-100084050983392/';
+  const openingHours =
+    locale === 'ne'
+      ? db.getSetting('opening_hours_ne') || 'आइतबार – शुक्रबार: बिहान ०७:०० – साँझ ०८:००'
+      : db.getSetting('opening_hours_en') || 'Sunday – Friday · 7:00 AM – 8:00 PM';
 
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 font-sans text-slate-900 antialiased selection:bg-teal-100 selection:text-teal-900">
-      {/* Sample Data Dev Banner (Section 11) */}
-      {isDev && (
-        <div className="bg-amber-500 text-slate-950 px-4 py-1.5 text-center text-xs font-semibold flex items-center justify-center gap-2 tracking-wide shadow-xs">
-          <AlertCircle className="h-4 w-4 shrink-0" />
-          <span>{messages.common.sampleDataBanner}</span>
-        </div>
-      )}
-
+    <div className="flex min-h-screen flex-col bg-cream font-sans text-ink antialiased">
       {/* Public Navbar */}
-      <Navbar locale={locale as Locale} messages={messages} />
+      <Navbar
+        locale={locale as Locale}
+        messages={messages}
+        phone={phone}
+        openingHours={openingHours}
+        facebookUrl={facebookUrl}
+      />
 
       {/* Main Content Area */}
       <main className="flex-1">{children}</main>

@@ -2,14 +2,14 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { useSearchParams, useParams, useRouter } from 'next/navigation';
+import { useSearchParams, useParams } from 'next/navigation';
 import { getMessages, Locale } from '@/lib/i18n';
 import { Lock, CheckCircle2, AlertCircle, ArrowRight } from 'lucide-react';
+import AuthShell from '@/components/public/AuthShell';
 
 export default function ResetPasswordPage() {
   const searchParams = useSearchParams();
   const params = useParams();
-  const router = useRouter();
   const locale = (params.locale as Locale) || 'en';
   const messages = getMessages(locale);
   const t = messages.auth;
@@ -60,76 +60,70 @@ export default function ResetPasswordPage() {
 
   if (!token) {
     return (
-      <div className="min-h-[70vh] flex items-center justify-center p-4">
-        <div className="max-w-md bg-white p-8 rounded-2xl border border-slate-200 text-center space-y-4">
+      <AuthShell locale={locale}>
+        <div className="rounded-[1.75rem] border border-brand-950/8 bg-white p-8 text-center shadow-soft">
           <AlertCircle className="mx-auto h-12 w-12 text-amber-500" />
-          <h2 className="text-xl font-bold text-slate-900">
-            {locale === 'ne' ? 'अमान्य वा म्याद सकिएको लिङ्क' : 'Missing Reset Token'}
+          <h2 className="mt-4 font-display text-xl font-semibold text-ink">
+            {locale === 'ne' ? 'अमान्य वा म्याद सकिएको लिङ्क' : 'Missing reset token'}
           </h2>
-          <p className="text-sm text-slate-600">
-            {locale === 'ne' ? 'कृपया नयाँ पासवर्ड रिसेट लिङ्क अनुरोध गर्नुहोस्।' : 'Please request a new password recovery link.'}
+          <p className="mt-2 text-sm text-slate-600">
+            {locale === 'ne'
+              ? 'कृपया नयाँ पासवर्ड रिसेट लिङ्क अनुरोध गर्नुहोस्।'
+              : 'Please request a new password recovery link.'}
           </p>
-          <Link
-            href={`/${locale}/portal/forgot-password`}
-            className="inline-block text-sm font-semibold text-teal-800 hover:underline"
-          >
-            {t.forgotPassword} →
+          <Link href={`/${locale}/portal/forgot-password`} className="btn btn-primary mt-5 w-full">
+            {t.forgotPassword}
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
-      </div>
+      </AuthShell>
     );
   }
 
   return (
-    <div className="min-h-[70vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
-        <div className="text-center">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-teal-100 text-teal-800">
-            <Lock className="h-6 w-6" />
-          </div>
-          <h2 className="mt-4 text-2xl font-bold tracking-tight text-slate-900 font-serif">
-            {t.resetPassword}
-          </h2>
-          <p className="mt-1 text-sm text-slate-600">
-            {locale === 'ne' ? 'आफ्नो खाताको लागि नयाँ सुरक्षित पासवर्ड प्रविष्ट गर्नुहोस्।' : 'Enter a new secure password for your patient account.'}
-          </p>
-        </div>
+    <AuthShell locale={locale}>
+      <div className="rounded-[1.75rem] border border-brand-950/8 bg-white p-7 shadow-soft sm:p-9">
+        <span className="grid h-11 w-11 place-items-center rounded-2xl bg-brand-50 text-brand-800">
+          <Lock className="h-5 w-5" />
+        </span>
+
+        <h1 className="display-title mt-6 text-3xl">{t.resetPassword}</h1>
+        <p className="mt-2 text-sm leading-relaxed text-slate-600">
+          {locale === 'ne'
+            ? 'आफ्नो खाताको लागि नयाँ सुरक्षित पासवर्ड प्रविष्ट गर्नुहोस्।'
+            : 'Enter a new secure password for your patient account.'}
+        </p>
 
         {error && (
-          <div className="rounded-xl bg-red-50 border border-red-200 p-4 text-sm text-red-800 flex items-center gap-2">
-            <AlertCircle className="h-5 w-5 text-red-600 shrink-0" />
+          <div className="mt-5 flex items-start gap-3 rounded-xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-800">
+            <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-rose-600" />
             <span>{error}</span>
           </div>
         )}
 
         {success ? (
-          <div className="text-center space-y-4 py-4">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">
-              <CheckCircle2 className="h-8 w-8" />
+          <div className="mt-6 space-y-4 text-center">
+            <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-brand-50 text-brand-700">
+              <CheckCircle2 className="h-7 w-7" />
             </div>
-            <h3 className="text-lg font-bold text-slate-900">
-              {locale === 'ne' ? 'पासवर्ड सफलतापूर्वक परिवर्तन भयो' : 'Password Successfully Reset'}
-            </h3>
-            <p className="text-sm text-slate-600">
+            <h2 className="font-display text-lg font-semibold text-ink">
+              {locale === 'ne' ? 'पासवर्ड सफलतापूर्वक परिवर्तन भयो' : 'Password successfully reset'}
+            </h2>
+            <p className="text-sm leading-relaxed text-slate-600">
               {locale === 'ne'
                 ? 'तपाईंका पुराना सबै सक्रिय सत्रहरू समाप्त गरिएका छन्। नयाँ पासवर्ड प्रयोग गरी लगइन गर्नुहोस्।'
                 : 'All other active sessions have been terminated. Please log in with your new credentials.'}
             </p>
-            <div className="pt-2">
-              <Link
-                href={`/${locale}/portal/login`}
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-teal-800 px-6 py-2.5 text-sm font-semibold text-white hover:bg-teal-900"
-              >
-                <span>{t.patientSignIn}</span>
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
+            <Link href={`/${locale}/portal/login`} className="btn btn-primary w-full">
+              {t.patientSignIn}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="mt-6 space-y-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-                {locale === 'ne' ? 'नयाँ पासवर्ड' : 'New Password'} *
+              <label className="mb-1.5 block text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-slate-500">
+                {locale === 'ne' ? 'नयाँ पासवर्ड' : 'New password'} *
               </label>
               <input
                 type="password"
@@ -137,13 +131,13 @@ export default function ResetPasswordPage() {
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full rounded-xl border border-slate-300 py-2.5 px-3 text-sm text-slate-900 focus:border-teal-700 focus:outline-hidden focus:ring-1 focus:ring-teal-700"
+                className="field"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-                {locale === 'ne' ? 'नयाँ पासवर्ड पुनः पुष्टि गर्नुहोस्' : 'Confirm New Password'} *
+              <label className="mb-1.5 block text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-slate-500">
+                {locale === 'ne' ? 'नयाँ पासवर्ड पुनः पुष्टि गर्नुहोस्' : 'Confirm new password'} *
               </label>
               <input
                 type="password"
@@ -151,20 +145,16 @@ export default function ResetPasswordPage() {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full rounded-xl border border-slate-300 py-2.5 px-3 text-sm text-slate-900 focus:border-teal-700 focus:outline-hidden focus:ring-1 focus:ring-teal-700"
+                className="field"
               />
             </div>
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full flex items-center justify-center gap-2 rounded-xl bg-teal-800 py-3 px-4 text-sm font-semibold text-white shadow-xs hover:bg-teal-900 disabled:opacity-50 transition-colors"
-            >
+            <button type="submit" disabled={loading} className="btn btn-primary w-full disabled:opacity-60">
               {loading ? common.loading : t.resetPassword}
             </button>
           </form>
         )}
       </div>
-    </div>
+    </AuthShell>
   );
 }

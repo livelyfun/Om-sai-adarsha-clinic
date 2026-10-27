@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import { Activity, ShieldCheck, MapPin, Phone, Mail, Clock, ExternalLink } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ArrowUpRight, Facebook, ShieldCheck } from 'lucide-react';
 import { Locale } from '@/lib/i18n';
 import { db } from '@/lib/db';
+import ClinicLogo from './ClinicLogo';
 
 interface FooterProps {
   locale: Locale;
@@ -14,9 +15,9 @@ export default function Footer({ locale, messages }: FooterProps) {
   const common = messages.common;
   const nav = messages.nav;
 
-  const clinicName = db.getSetting('clinic_name') || 'Om Sai Aadarsha Clinic';
-  const clinicNameNe = db.getSetting('clinic_name_ne') || 'ॐ साई आदर्श क्लिनिक';
-  const address = locale === 'ne' ? (db.getSetting('address_ne') || db.getSetting('address_en') || '') : (db.getSetting('address_en') || '');
+  const address = locale === 'ne'
+    ? (db.getSetting('address_ne') || db.getSetting('address_en') || '')
+    : (db.getSetting('address_en') || '');
   const phone = db.getSetting('phone') || '';
   const email = db.getSetting('email') || '';
   const facebookUrl = db.getSetting('facebook_url') || 'https://www.facebook.com/p/Om-Sai-Aadarsha-Clinic-100084050983392/';
@@ -25,148 +26,122 @@ export default function Footer({ locale, messages }: FooterProps) {
     : (db.getSetting('opening_hours_en') || 'Sunday – Friday: 07:00 AM – 08:00 PM (Saturday Closed)');
   const emergencyPhone = db.getSetting('emergency_phone') || '';
 
+  const quickLinks = [
+    { href: `/${locale}`, label: nav.home },
+    { href: `/${locale}/doctors`, label: nav.doctors },
+    { href: `/${locale}/services`, label: nav.medicalServices },
+    { href: `/${locale}/lab-tests`, label: nav.labTests },
+    { href: `/${locale}/explore/about`, label: nav.about },
+    { href: `/${locale}/explore/faq`, label: nav.faq },
+  ];
+
+  const patientLinks = [
+    { href: `/${locale}/portal/login`, label: common.myAccount },
+    { href: `/${locale}/book`, label: common.bookSession },
+    { href: `/${locale}/privacy`, label: t.privacyPolicy },
+    { href: `/${locale}/terms`, label: t.bookingTerms },
+  ];
+
   return (
-    <footer className="border-t border-slate-200 bg-slate-900 text-slate-300">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 xl:gap-12">
-          {/* Col 1: Clinic Identity & Mission */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-600 text-white">
-                <Activity className="h-5 w-5" />
-              </div>
-              <span className="font-serif text-lg font-bold text-white tracking-tight">
-                {locale === 'ne' ? clinicNameNe : clinicName}
-              </span>
-            </div>
-            <p className="text-sm text-slate-400 leading-relaxed">
+    <footer className="relative overflow-hidden bg-brand-950 text-brand-100">
+      <div className="pointer-events-none absolute inset-0 bg-grid-light opacity-40" />
+      <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-brand-700/30 blur-3xl" />
+      <div className="pointer-events-none absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-sand-500/10 blur-3xl" />
+
+      <div className="container-x relative py-14 lg:py-16">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+          {/* Identity */}
+          <div className="space-y-5 lg:col-span-4">
+            <ClinicLogo locale={locale} variant="dark" />
+            <p className="max-w-xs text-sm leading-relaxed text-brand-100/70">
               {t.aboutClinic}
             </p>
-            <div className="flex items-center gap-2 pt-2 text-xs text-teal-400">
-              <ShieldCheck className="h-4 w-4" />
-              <span>Government of Nepal Regd. Healthcare Facility</span>
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[0.6875rem] font-medium text-brand-100/80">
+              <ShieldCheck className="h-3.5 w-3.5 text-sand-400" />
+              {locale === 'ne' ? 'नेपाल सरकार दर्ता स्वास्थ्य संस्था' : 'Government of Nepal registered facility'}
             </div>
-
             {facebookUrl && (
-              <div className="pt-1">
+              <div>
                 <a
                   href={facebookUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/40 text-blue-300 text-xs font-semibold transition-colors"
+                  className="inline-flex items-center gap-2 text-xs font-semibold text-brand-200 transition-colors hover:text-white"
                 >
-                  <span>{locale === 'ne' ? 'फेसबुकमा क्लिनिक पेज' : 'Official Facebook Page'}</span>
-                  <ExternalLink className="h-3.5 w-3.5" />
+                  <span className="grid h-7 w-7 place-items-center rounded-full bg-white/10">
+                    <Facebook className="h-3.5 w-3.5" />
+                  </span>
+                  {locale === 'ne' ? 'फेसबुकमा क्लिनिक पेज' : 'Official Facebook page'}
+                  <ArrowUpRight className="h-3.5 w-3.5" />
                 </a>
               </div>
             )}
           </div>
 
-          {/* Col 2: Navigation Links */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
+          {/* Sitemap */}
+          <div className="lg:col-span-2">
+            <h3 className="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-sand-300">
               {t.quickLinks}
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm">
-              <li>
-                <Link href={`/${locale}`} className="hover:text-teal-400 transition-colors">
-                  {nav.home}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/doctors`} className="hover:text-teal-400 transition-colors">
-                  {nav.doctors}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/services`} className="hover:text-teal-400 transition-colors">
-                  {nav.medicalServices}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/lab-tests`} className="hover:text-teal-400 transition-colors">
-                  {nav.labTests}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/explore/about`} className="hover:text-teal-400 transition-colors">
-                  {nav.about}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/explore/faq`} className="hover:text-teal-400 transition-colors">
-                  {nav.faq}
-                </Link>
-              </li>
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-brand-100/70 transition-colors hover:text-white">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Col 3: Patient Portal & Legal */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
+          {/* Patient services */}
+          <div className="lg:col-span-2">
+            <h3 className="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-sand-300">
               {t.patientServices}
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm">
-              <li>
-                <Link
-                  href={`/${locale}/portal/login`}
-                  className="font-medium text-teal-300 hover:text-teal-200 transition-colors"
-                >
-                  {common.myAccount}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/book`} className="hover:text-teal-400 transition-colors">
-                  {common.bookSession}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/privacy`} className="hover:text-teal-400 transition-colors">
-                  {t.privacyPolicy}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/terms`} className="hover:text-teal-400 transition-colors">
-                  {t.bookingTerms}
-                </Link>
-              </li>
+              {patientLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-brand-100/70 transition-colors hover:text-white">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Col 4: Contact & Hours */}
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
+          {/* Contact */}
+          <div className="lg:col-span-4">
+            <h3 className="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-sand-300">
               {t.contactHeading}
             </h3>
-            <div className="space-y-2.5 text-sm text-slate-400">
-              {address ? (
-                <div className="flex items-start gap-2.5">
-                  <MapPin className="h-4 w-4 text-teal-400 shrink-0 mt-0.5" />
-                  <span>{address}</span>
-                </div>
-              ) : (
-                <div className="flex items-center gap-2 text-xs italic text-slate-500">
-                  <MapPin className="h-4 w-4" />
-                  <span>Location details to be confirmed by clinic</span>
-                </div>
+            <div className="mt-4 space-y-3 text-sm">
+              <div className="flex items-start gap-2.5 text-brand-100/70">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-sand-400" />
+                <span className="leading-relaxed">
+                  {address || (locale === 'ne' ? 'ठेगाना क्लिनिकद्वारा पुष्टि हुने' : 'Location confirmed by clinic')}
+                </span>
+              </div>
+              {phone && (
+                <a
+                  href={`tel:${phone}`}
+                  className="flex items-center gap-2.5 font-medium text-white transition-colors hover:text-sand-300"
+                >
+                  <Phone className="h-4 w-4 shrink-0 text-sand-400" />
+                  {phone}
+                </a>
               )}
-
-              {phone ? (
-                <div className="flex items-center gap-2.5">
-                  <Phone className="h-4 w-4 text-teal-400 shrink-0" />
-                  <span>{phone}</span>
-                </div>
-              ) : null}
-
-              {email ? (
-                <div className="flex items-center gap-2.5">
-                  <Mail className="h-4 w-4 text-teal-400 shrink-0" />
-                  <span>{email}</span>
-                </div>
-              ) : null}
-
+              {email && (
+                <a
+                  href={`mailto:${email}`}
+                  className="flex items-center gap-2.5 text-brand-100/70 transition-colors hover:text-white"
+                >
+                  <Mail className="h-4 w-4 shrink-0 text-sand-400" />
+                  {email}
+                </a>
+              )}
               {emergencyPhone && (
-                <div className="flex items-center gap-2.5 text-red-400">
+                <div className="flex items-center gap-2.5 text-rose-300">
                   <Phone className="h-4 w-4 shrink-0" />
                   <span className="text-xs">
                     {locale === 'ne' ? 'आपतकालीन: ' : 'Emergency: '}
@@ -174,24 +149,20 @@ export default function Footer({ locale, messages }: FooterProps) {
                   </span>
                 </div>
               )}
-
-              <div className="pt-2 border-t border-slate-800">
-                <div className="flex items-start gap-2 text-xs text-slate-400">
-                  <Clock className="h-4 w-4 text-teal-400 shrink-0 mt-0.5" />
-                  <span className="leading-relaxed">{openingHours}</span>
-                </div>
+              <div className="flex items-start gap-2.5 border-t border-white/10 pt-3 text-xs text-brand-100/60">
+                <Clock className="mt-0.5 h-4 w-4 shrink-0 text-sand-400" />
+                <span className="leading-relaxed">{openingHours}</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-[0.6875rem] text-brand-100/50 sm:flex-row">
           <p>{t.copyright}</p>
-          <div className="flex items-center gap-4">
-            <Link href="/en" className="hover:text-slate-300">English</Link>
-            <span>•</span>
-            <Link href="/ne" className="hover:text-slate-300">नेपाली</Link>
+          <div className="flex items-center gap-3">
+            <Link href="/en" className="transition-colors hover:text-white">English</Link>
+            <span className="h-1 w-1 rounded-full bg-brand-100/30" />
+            <Link href="/ne" className="transition-colors hover:text-white">नेपाली</Link>
           </div>
         </div>
       </div>

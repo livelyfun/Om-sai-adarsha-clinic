@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { getMessages, Locale } from '@/lib/i18n';
 import { UserPlus, Mail, Phone, Lock, User, AlertCircle, CheckCircle } from 'lucide-react';
+import AuthShell from '@/components/public/AuthShell';
 
 export default function PatientRegisterPage() {
   const params = useParams();
@@ -66,167 +67,151 @@ export default function PatientRegisterPage() {
     }
   }
 
+  const fieldLabel = 'mb-1.5 block text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-slate-500';
+
   return (
-    <div className="min-h-[75vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-lg space-y-8 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
-        <div className="text-center">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-teal-100 text-teal-800">
-            <UserPlus className="h-6 w-6" />
-          </div>
-          <h2 className="mt-4 text-2xl font-bold tracking-tight text-slate-900 font-serif">
-            {t.patientRegister}
-          </h2>
-          <p className="mt-1 text-sm text-slate-600">
-            {locale === 'ne' ? 'अनलाइन बुकिङ तथा डिजिटल ल्याब रिपोर्टको लागि खाता खोल्नुहोस्।' : 'Create an account to submit requests and access your laboratory reports.'}
-          </p>
+    <AuthShell locale={locale}>
+      <div className="rounded-[1.75rem] border border-brand-950/8 bg-white p-7 shadow-soft sm:p-9">
+        <div className="flex items-start justify-between">
+          <span className="grid h-11 w-11 place-items-center rounded-2xl bg-brand-50 text-brand-800">
+            <UserPlus className="h-5 w-5" />
+          </span>
+          <span className="chip">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
+            {locale === 'ne' ? 'नयाँ खाता' : 'New account'}
+          </span>
         </div>
 
+        <h1 className="display-title mt-6 text-3xl">{t.patientRegister}</h1>
+        <p className="mt-2 text-sm leading-relaxed text-slate-600">
+          {locale === 'ne'
+            ? 'अनलाइन बुकिङ तथा डिजिटल ल्याब रिपोर्टको लागि खाता खोल्नुहोस्।'
+            : 'Create an account to submit requests and access your laboratory reports.'}
+        </p>
+
         {error && (
-          <div className="rounded-xl bg-red-50 border border-red-200 p-4 flex items-start gap-3 text-sm text-red-800">
-            <AlertCircle className="h-5 w-5 text-red-600 shrink-0 mt-0.5" />
+          <div className="mt-5 flex items-start gap-3 rounded-xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-800">
+            <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-rose-600" />
             <span>{error}</span>
           </div>
         )}
 
         {success ? (
-          <div className="space-y-4">
-            <div className="rounded-xl bg-emerald-50 border border-emerald-200 p-5 flex items-start gap-3 text-sm text-emerald-900">
-              <CheckCircle className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
+          <div className="mt-6 space-y-4">
+            <div className="flex items-start gap-3 rounded-xl border border-brand-200 bg-brand-50 p-5 text-sm text-brand-900">
+              <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-brand-600" />
               <div>
-                <p className="font-semibold text-emerald-950">{locale === 'ne' ? 'दर्ता सफल भयो' : 'Registration Submitted'}</p>
+                <p className="font-display font-semibold text-brand-950">
+                  {locale === 'ne' ? 'दर्ता सफल भयो' : 'Registration submitted'}
+                </p>
                 <p className="mt-1 text-xs leading-relaxed">{success}</p>
               </div>
             </div>
 
-            {/* Development quick link for convenience */}
             {devVerificationUrl && (
-              <div className="p-4 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 space-y-2">
+              <div className="space-y-2 rounded-xl border border-amber-200 bg-amber-50 p-4 text-xs text-amber-900">
                 <span className="font-bold">[DEVELOPMENT HELPER] Verification link generated:</span>
-                <div className="overflow-x-auto font-mono text-[11px] p-2 bg-white rounded border border-amber-300">
+                <div className="overflow-x-auto rounded border border-amber-300 bg-white p-2 font-mono text-[0.6875rem]">
                   {devVerificationUrl}
                 </div>
                 <Link
                   href={devVerificationUrl}
-                  className="inline-block mt-2 font-bold text-teal-800 underline hover:text-teal-950"
+                  className="mt-2 inline-block font-bold text-brand-800 underline hover:text-brand-950"
                 >
-                  Verify Email Now (Development Shortcut) →
+                  Verify email now (development shortcut) →
                 </Link>
               </div>
             )}
 
-            <div className="pt-2 text-center">
-              <Link
-                href={`/${locale}/portal/login`}
-                className="inline-flex items-center justify-center rounded-xl bg-teal-800 px-6 py-2.5 text-sm font-semibold text-white hover:bg-teal-900"
-              >
-                {t.patientSignIn}
-              </Link>
-            </div>
+            <Link href={`/${locale}/portal/login`} className="btn btn-primary w-full">
+              {t.patientSignIn}
+            </Link>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="mt-6 space-y-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-                {t.fullNameLabel} *
-              </label>
+              <label className={fieldLabel}>{t.fullNameLabel} *</label>
               <div className="relative">
-                <User className="pointer-events-none absolute left-3 top-3.5 h-4 w-4 text-slate-400" />
+                <User className="pointer-events-none absolute left-3.5 top-3 h-4 w-4 text-slate-400" />
                 <input
                   type="text"
                   required
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   placeholder={t.fullNamePlaceholder}
-                  className="w-full rounded-xl border border-slate-300 py-2.5 pl-10 pr-3 text-sm text-slate-900 focus:border-teal-700 focus:outline-hidden focus:ring-1 focus:ring-teal-700"
+                  className="field !pl-10"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-                {t.emailLabel} *
-              </label>
+              <label className={fieldLabel}>{t.emailLabel} *</label>
               <div className="relative">
-                <Mail className="pointer-events-none absolute left-3 top-3.5 h-4 w-4 text-slate-400" />
+                <Mail className="pointer-events-none absolute left-3.5 top-3 h-4 w-4 text-slate-400" />
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder={t.emailPlaceholder}
-                  className="w-full rounded-xl border border-slate-300 py-2.5 pl-10 pr-3 text-sm text-slate-900 focus:border-teal-700 focus:outline-hidden focus:ring-1 focus:ring-teal-700"
+                  className="field !pl-10"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-                {t.phoneLabel} *
-              </label>
+              <label className={fieldLabel}>{t.phoneLabel} *</label>
               <div className="relative">
-                <Phone className="pointer-events-none absolute left-3 top-3.5 h-4 w-4 text-slate-400" />
+                <Phone className="pointer-events-none absolute left-3.5 top-3 h-4 w-4 text-slate-400" />
                 <input
                   type="tel"
                   required
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder={t.phonePlaceholder}
-                  className="w-full rounded-xl border border-slate-300 py-2.5 pl-10 pr-3 text-sm text-slate-900 focus:border-teal-700 focus:outline-hidden focus:ring-1 focus:ring-teal-700"
+                  className="field !pl-10"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-                {t.passwordLabel} *
-              </label>
+              <label className={fieldLabel}>{t.passwordLabel} *</label>
               <div className="relative">
-                <Lock className="pointer-events-none absolute left-3 top-3.5 h-4 w-4 text-slate-400" />
+                <Lock className="pointer-events-none absolute left-3.5 top-3 h-4 w-4 text-slate-400" />
                 <input
                   type="password"
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder={t.passwordPlaceholder}
-                  className="w-full rounded-xl border border-slate-300 py-2.5 pl-10 pr-3 text-sm text-slate-900 focus:border-teal-700 focus:outline-hidden focus:ring-1 focus:ring-teal-700"
+                  className="field !pl-10"
                 />
               </div>
             </div>
 
-            <div className="pt-2">
-              <label className="flex items-start gap-3 cursor-pointer">
-                <input
-                  type="checkbox"
-                  required
-                  checked={termsConsent}
-                  onChange={(e) => setTermsConsent(e.target.checked)}
-                  className="mt-1 h-4 w-4 rounded border-slate-300 text-teal-800 focus:ring-teal-700"
-                />
-                <span className="text-xs text-slate-600 leading-normal">
-                  {t.termsConsent}
-                </span>
-              </label>
-            </div>
+            <label className="flex cursor-pointer items-start gap-3 pt-1">
+              <input
+                type="checkbox"
+                required
+                checked={termsConsent}
+                onChange={(e) => setTermsConsent(e.target.checked)}
+                className="mt-0.5 h-4 w-4 rounded border-slate-300 accent-brand-800"
+              />
+              <span className="text-[0.6875rem] leading-relaxed text-slate-600">{t.termsConsent}</span>
+            </label>
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full mt-4 flex items-center justify-center rounded-xl bg-teal-800 py-3 px-4 text-sm font-semibold text-white shadow-xs hover:bg-teal-900 focus:outline-hidden disabled:opacity-50 transition-colors"
-            >
+            <button type="submit" disabled={loading} className="btn btn-primary mt-2 w-full disabled:opacity-60">
               {loading ? common.loading : t.patientRegister}
             </button>
           </form>
         )}
 
-        <div className="text-center pt-4 border-t border-slate-100">
-          <Link
-            href={`/${locale}/portal/login`}
-            className="text-sm font-medium text-teal-800 hover:text-teal-950 hover:underline"
-          >
+        <div className="mt-6 border-t border-brand-950/8 pt-5 text-center">
+          <Link href={`/${locale}/portal/login`} className="text-xs font-semibold text-brand-700 hover:underline">
             {t.alreadyHaveAccount}
           </Link>
         </div>
       </div>
-    </div>
+    </AuthShell>
   );
 }

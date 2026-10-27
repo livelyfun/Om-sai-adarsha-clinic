@@ -387,6 +387,32 @@
       "id": "a70cb49d-4b35-4b02-81aa-828b99c6dc92",
       "createdAt": "2026-10-26T14:01:08.192Z",
       "updatedAt": "2026-10-26T14:01:08.192Z"
+    },
+    {
+      "email": "test.patient.1793027851068@example.com",
+      "phone": "9841000000",
+      "passwordHash": "9e1f9d940458ef4a58f83fa883ce6c8a:509b2f306dbc82df8cedfe4e2d18b85bc8827f8b440f8eba42a9dba13cb7d03a8794abd886e8e83e29e961946665052386a45334b1cf39cb368bedb74789d9f7",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-26T15:17:31.148Z",
+      "verificationTokenHash": null,
+      "preferredLocale": "ne",
+      "id": "9404562b-8f5f-4858-ab09-34a78d9da2a3",
+      "createdAt": "2026-10-26T15:17:31.136Z",
+      "updatedAt": "2026-10-26T15:17:31.148Z"
+    },
+    {
+      "email": "mithleshkumar527@gmail.com",
+      "phone": "mithleshkumar527@gmail.com",
+      "passwordHash": "3468cf267b72c64625ea9ec831dc7810:f68cee2e230c2cc7a950bea176c4b5083776feb17713c91a4da9351e10751ac1fe99f19b33d61f5fb33ee35b660d60cda8d7b472894c97447bf3b6cbba9df065",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-27T07:07:46.987Z",
+      "verificationTokenHash": null,
+      "preferredLocale": "en",
+      "id": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "createdAt": "2026-10-27T07:05:15.128Z",
+      "updatedAt": "2026-10-27T07:07:46.987Z"
     }
   ],
   "sessions": [
@@ -398,6 +424,42 @@
       "ipAddress": "::ffff:127.0.0.1",
       "userAgent": "curl/7.88.1",
       "createdAt": "2026-10-26T10:38:40.421Z"
+    },
+    {
+      "id": "36f5456e-ecba-4887-a351-4ec5a253d0f7",
+      "userId": "18e4a5d3-bfc1-41b9-81b9-931d9e40d3e5",
+      "tokenHash": "70fc6c2f886835d834eceb53ec837815357b22af0ad170cc3fb41f035ccbd421",
+      "expiresAt": "2026-11-02T15:17:26.315Z",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.18.0",
+      "createdAt": "2026-10-26T15:17:26.316Z"
+    },
+    {
+      "id": "dd8468f4-5bc2-481e-aec6-28fe2dcdf354",
+      "userId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "tokenHash": "c5ab949ea0b6722259276d1b5ceaef3a66991daa6d55f71f7bec9219fe3c05d2",
+      "expiresAt": "2026-11-03T07:12:54.005Z",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "createdAt": "2026-10-27T07:12:54.005Z"
+    },
+    {
+      "id": "6f96e0b6-74cb-40de-b9ae-e21d802aec78",
+      "userId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "tokenHash": "b82cf3a2c239bbdf59f4104589de6c1272b4de0b10e8fd3ddefe85ec2323272d",
+      "expiresAt": "2026-11-03T07:13:00.542Z",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "createdAt": "2026-10-27T07:13:00.542Z"
+    },
+    {
+      "id": "a8248623-ed76-4556-9496-b6c0cf384339",
+      "userId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "tokenHash": "86cc3044d59f0025056062970516aa28e043d125f912785ff8339aede539e15f",
+      "expiresAt": "2026-11-03T07:13:03.443Z",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "createdAt": "2026-10-27T07:13:03.443Z"
     }
   ],
   "roles": [
@@ -753,6 +815,23 @@
       "id": "92d7bb1f-e06e-4ea1-bd34-2cd0522efe45",
       "createdAt": "2026-10-26T14:01:08.194Z",
       "updatedAt": "2026-10-26T14:01:08.196Z"
+    },
+    {
+      "managingUserId": "9404562b-8f5f-4858-ab09-34a78d9da2a3",
+      "fullName": "Test Verification Patient",
+      "relationshipLabel": "myself",
+      "id": "1a22f734-45d3-41bd-a72a-30203da6900c",
+      "createdAt": "2026-10-26T15:17:31.140Z",
+      "updatedAt": "2026-10-26T15:17:31.140Z"
+    },
+    {
+      "managingUserId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "fullName": "Sambhu",
+      "phone": "mithleshkumar527@gmail.com",
+      "relationshipLabel": "myself",
+      "id": "9f0ed6f7-c751-449d-bd5c-04cc9053bf04",
+      "createdAt": "2026-10-27T07:05:15.131Z",
+      "updatedAt": "2026-10-27T07:05:15.131Z"
     }
   ],
   "claimCodes": [
@@ -1111,48 +1190,30 @@
       "createdAt": "2026-10-26T10:56:15.172Z"
     },
     {
-      "slug": "test-service-1793016190465",
-      "nameEn": "Preventive Cardiac Health Check",
-      "nameNe": "रोकथाम मुटु स्वास्थ्य परीक्षण",
-      "fee": 2500,
+      "id": "d2c1295d-b7c9-49b4-b1dc-df04b01d0fd2",
+      "slug": "general-opd-consultation",
+      "nameEn": "General OPD Consultation",
+      "nameNe": "सामान्य ओपीडी परामर्श",
+      "descriptionEn": "A general outpatient consultation for everyday health concerns, prescriptions and referrals.",
+      "descriptionNe": "दैनिक स्वास्थ्य समस्या, औषधि सिफारिस तथा रेफरलका लागि सामान्य ओपीडी परामर्श।",
+      "fee": 500,
       "bookingMode": "request",
       "isActive": true,
       "isFeatured": true,
-      "id": "c3722259-09fd-4316-bb7c-99c5978716fa",
-      "createdAt": "2026-10-26T12:03:10.465Z"
+      "createdAt": "2026-10-27T03:17:13.989Z"
     },
     {
-      "slug": "test-service-1793021619710",
-      "nameEn": "Preventive Cardiac Health Check",
-      "nameNe": "रोकथाम मुटु स्वास्थ्य परीक्षण",
-      "fee": 2500,
+      "id": "f8eecbe2-1810-43bc-b5bb-079299b26873",
+      "slug": "diabetes-hypertension-follow-up",
+      "nameEn": "Diabetes & Blood Pressure Follow-up",
+      "nameNe": "डायबिटिज तथा रक्तचाप फलोअप",
+      "descriptionEn": "Routine follow-up for diabetes and hypertension, including vitals review and medication advice.",
+      "descriptionNe": "डायबिटिज र उच्च रक्तचापको नियमित फलोअप, भाइटल्स समीक्षा र औषधि सल्लाह।",
+      "fee": 800,
       "bookingMode": "request",
       "isActive": true,
       "isFeatured": true,
-      "id": "eafb7549-3794-4fc7-b25d-9dc4de1c810a",
-      "createdAt": "2026-10-26T13:33:39.710Z"
-    },
-    {
-      "slug": "test-service-1793022566353",
-      "nameEn": "Preventive Cardiac Health Check",
-      "nameNe": "रोकथाम मुटु स्वास्थ्य परीक्षण",
-      "fee": 2500,
-      "bookingMode": "request",
-      "isActive": true,
-      "isFeatured": true,
-      "id": "e22a7b27-c9bf-41ac-a90e-7a15614fca84",
-      "createdAt": "2026-10-26T13:49:26.353Z"
-    },
-    {
-      "slug": "test-service-1793023265872",
-      "nameEn": "Preventive Cardiac Health Check",
-      "nameNe": "रोकथाम मुटु स्वास्थ्य परीक्षण",
-      "fee": 2500,
-      "bookingMode": "request",
-      "isActive": true,
-      "isFeatured": true,
-      "id": "1a7f28cd-7ca1-47c6-9697-3a49329bb99f",
-      "createdAt": "2026-10-26T14:01:05.872Z"
+      "createdAt": "2026-10-27T03:17:13.989Z"
     }
   ],
   "serviceQuestions": [],
@@ -1165,32 +1226,25 @@
       "id": "3371ed51-7106-4f3c-8894-c77b9052b092"
     },
     {
-      "slug": "cat-1793016190466",
-      "nameEn": "Biochemistry Panel",
-      "nameNe": "बायोकेमिस्ट्री",
-      "displayOrder": 1,
-      "id": "e171a6ca-c025-471d-98a4-5a27f59a4a42"
+      "id": "e23b5362-389b-485b-ad99-9bd162b62f9d",
+      "slug": "hematology",
+      "nameEn": "Hematology",
+      "nameNe": "हेमाटोलोजी",
+      "displayOrder": 2
     },
     {
-      "slug": "cat-1793021619711",
-      "nameEn": "Biochemistry Panel",
-      "nameNe": "बायोकेमिस्ट्री",
-      "displayOrder": 1,
-      "id": "13c90073-e655-49b7-809f-51ff6dc003ca"
+      "id": "b35b7f0c-883a-455b-aeae-54ea996fcf13",
+      "slug": "thyroid-hormones",
+      "nameEn": "Thyroid & Hormones",
+      "nameNe": "थाइराइड तथा हर्मोन",
+      "displayOrder": 3
     },
     {
-      "slug": "cat-1793022566354",
-      "nameEn": "Biochemistry Panel",
-      "nameNe": "बायोकेमिस्ट्री",
-      "displayOrder": 1,
-      "id": "eec3dfb7-1c93-4a29-badc-b87ae1e94622"
-    },
-    {
-      "slug": "cat-1793023265874",
-      "nameEn": "Biochemistry Panel",
-      "nameNe": "बायोकेमिस्ट्री",
-      "displayOrder": 1,
-      "id": "905565b6-eacd-48b4-af8f-c3a2959771ea"
+      "id": "99eae90e-90de-4d28-9085-a612ba9577d9",
+      "slug": "diabetes-screening",
+      "nameEn": "Diabetes Screening",
+      "nameNe": "डायबिटिज स्क्रिनिङ",
+      "displayOrder": 4
     }
   ],
   "labTests": [
@@ -1210,64 +1264,76 @@
       "createdAt": "2026-10-26T10:56:15.173Z"
     },
     {
-      "categoryId": "e171a6ca-c025-471d-98a4-5a27f59a4a42",
-      "slug": "test-lab-1793016190466",
-      "nameEn": "Lipid Profile Extended",
-      "nameNe": "लिपिड प्रोफाइल",
-      "prepInstructionsEn": "12 hours overnight fasting required.",
-      "prepInstructionsNe": "१२ घण्टा खाली पेट बस्नुपर्ने।",
-      "sampleTypeEn": "Serum Blood",
-      "price": null,
+      "categoryId": "e23b5362-389b-485b-ad99-9bd162b62f9d",
+      "slug": "complete-blood-count-cbc",
+      "nameEn": "Complete Blood Count (CBC)",
+      "nameNe": "पूर्ण रक्त गणना (सीबीसी)",
+      "descriptionEn": "Screens red cells, white cells, haemoglobin and platelets — a routine baseline investigation.",
+      "descriptionNe": "रक्तकोष, श्वेतकोष, हिमोग्लोबिन र प्लेटलेट जाँच्ने आधारभूत परीक्षण।",
+      "prepInstructionsEn": "No fasting required.",
+      "prepInstructionsNe": "खाली पेट आवश्यक छैन।",
+      "sampleTypeEn": "Whole Blood",
+      "sampleTypeNe": "पूर्ण रक्त",
+      "price": 450,
       "isHomeCollectionAvailable": true,
+      "id": "b00dc751-7557-42af-bbea-9ab3056eab50",
       "isActive": true,
-      "isFeatured": false,
-      "id": "02470174-4d72-4625-ac8a-24faf1e11d18",
-      "createdAt": "2026-10-26T12:03:10.466Z"
+      "isFeatured": true,
+      "createdAt": "2026-10-27T03:17:13.989Z"
     },
     {
-      "categoryId": "13c90073-e655-49b7-809f-51ff6dc003ca",
-      "slug": "test-lab-1793021619711",
-      "nameEn": "Lipid Profile Extended",
-      "nameNe": "लिपिड प्रोफाइल",
-      "prepInstructionsEn": "12 hours overnight fasting required.",
-      "prepInstructionsNe": "१२ घण्टा खाली पेट बस्नुपर्ने।",
+      "categoryId": "b35b7f0c-883a-455b-aeae-54ea996fcf13",
+      "slug": "thyroid-profile-t3-t4-tsh",
+      "nameEn": "Thyroid Profile (T3, T4, TSH)",
+      "nameNe": "थाइराइड प्रोफाइल (टी३, टी४, टीएसएच)",
+      "descriptionEn": "Assesses thyroid function for fatigue, weight change and other related symptoms.",
+      "descriptionNe": "थकान, तौल परिवर्तन तथा सम्बन्धित लक्षणका लागि थाइराइड कार्यक्षमता जाँच।",
+      "prepInstructionsEn": "Morning sample preferred. No fasting required.",
+      "prepInstructionsNe": "बिहानको नमुना उपयुक्त। खाली पेट आवश्यक छैन।",
       "sampleTypeEn": "Serum Blood",
-      "price": null,
+      "sampleTypeNe": "सीरम रक्त",
+      "price": 1200,
       "isHomeCollectionAvailable": true,
+      "id": "65c3e149-f0ad-430d-8ad4-b658b2d959e2",
       "isActive": true,
-      "isFeatured": false,
-      "id": "6bf7b321-80c8-42a2-939e-5b4169ff2f88",
-      "createdAt": "2026-10-26T13:33:39.711Z"
+      "isFeatured": true,
+      "createdAt": "2026-10-27T03:17:13.989Z"
     },
     {
-      "categoryId": "eec3dfb7-1c93-4a29-badc-b87ae1e94622",
-      "slug": "test-lab-1793022566354",
-      "nameEn": "Lipid Profile Extended",
-      "nameNe": "लिपिड प्रोफाइल",
-      "prepInstructionsEn": "12 hours overnight fasting required.",
-      "prepInstructionsNe": "१२ घण्टा खाली पेट बस्नुपर्ने।",
-      "sampleTypeEn": "Serum Blood",
-      "price": null,
+      "categoryId": "99eae90e-90de-4d28-9085-a612ba9577d9",
+      "slug": "hba1c-glycated-hemoglobin",
+      "nameEn": "HbA1c (Glycated Haemoglobin)",
+      "nameNe": "एचबीए१सी (ग्लाइकेटेड हिमोग्लोबिन)",
+      "descriptionEn": "Reflects average blood sugar over the last three months for diabetes monitoring.",
+      "descriptionNe": "पछिल्लो तीन महिनाको औसत रक्त सुगर देखाउने डायबिटिज निगरानी परीक्षण।",
+      "prepInstructionsEn": "No fasting required.",
+      "prepInstructionsNe": "खाली पेट आवश्यक छैन।",
+      "sampleTypeEn": "Whole Blood",
+      "sampleTypeNe": "पूर्ण रक्त",
+      "price": 900,
       "isHomeCollectionAvailable": true,
+      "id": "db221fe4-5a67-42f6-be85-a1ccba5cd52a",
       "isActive": true,
-      "isFeatured": false,
-      "id": "08b4b503-16f2-4d13-a0fc-c9779094f2a4",
-      "createdAt": "2026-10-26T13:49:26.355Z"
+      "isFeatured": true,
+      "createdAt": "2026-10-27T03:17:13.989Z"
     },
     {
-      "categoryId": "905565b6-eacd-48b4-af8f-c3a2959771ea",
-      "slug": "test-lab-1793023265877",
-      "nameEn": "Lipid Profile Extended",
-      "nameNe": "लिपिड प्रोफाइल",
-      "prepInstructionsEn": "12 hours overnight fasting required.",
-      "prepInstructionsNe": "१२ घण्टा खाली पेट बस्नुपर्ने।",
+      "categoryId": "3371ed51-7106-4f3c-8894-c77b9052b092",
+      "slug": "kidney-function-test-kft",
+      "nameEn": "Kidney Function Test (KFT)",
+      "nameNe": "मृगौला कार्य परीक्षण (केएफटी)",
+      "descriptionEn": "Measures urea, creatinine and electrolytes to review kidney function.",
+      "descriptionNe": "मृगौलाको कार्यक्षमता हेर्न युरिया, क्रिएटिनिन तथा इलेक्ट्रोलाइट मापन।",
+      "prepInstructionsEn": "8 hours fasting recommended.",
+      "prepInstructionsNe": "८ घण्टा खाली पेट रहन सिफारिस गरिन्छ।",
       "sampleTypeEn": "Serum Blood",
-      "price": null,
+      "sampleTypeNe": "सीरम रक्त",
+      "price": 1100,
       "isHomeCollectionAvailable": true,
+      "id": "86652777-8ddd-403e-8b10-2f7d343a242f",
       "isActive": true,
-      "isFeatured": false,
-      "id": "0fb8cc16-df70-4637-be8e-50c13f4499f7",
-      "createdAt": "2026-10-26T14:01:05.878Z"
+      "isFeatured": true,
+      "createdAt": "2026-10-27T03:17:13.989Z"
     }
   ],
   "appointments": [
@@ -2158,6 +2224,108 @@
   ],
   "auditLogs": [
     {
+      "actorUserId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "actorEmail": "mithleshkumar527@gmail.com",
+      "actorType": "patient",
+      "action": "patient_login_success",
+      "entityType": "session",
+      "entityId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "cd80dea9-99d1-4cb1-b11a-f7e5d6fb55d2",
+      "createdAt": "2026-10-27T07:13:03.458Z"
+    },
+    {
+      "actorUserId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "actorEmail": "mithleshkumar527@gmail.com",
+      "actorType": "patient",
+      "action": "patient_login_success",
+      "entityType": "session",
+      "entityId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "6108f5ab-5844-4477-9433-580af88eac86",
+      "createdAt": "2026-10-27T07:13:00.554Z"
+    },
+    {
+      "actorUserId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "actorEmail": "mithleshkumar527@gmail.com",
+      "actorType": "patient",
+      "action": "patient_login_success",
+      "entityType": "session",
+      "entityId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "1a96bed7-647a-4e28-8383-63e7499ab852",
+      "createdAt": "2026-10-27T07:12:54.019Z"
+    },
+    {
+      "actorUserId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "actorEmail": "mithleshkumar527@gmail.com",
+      "actorType": "patient",
+      "action": "patient_email_verified",
+      "entityType": "user",
+      "entityId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "requestId": null,
+      "ipAddress": null,
+      "metadataJson": {},
+      "id": "0c9361aa-0293-4f6a-9c80-71ea0d20cea8",
+      "createdAt": "2026-10-27T07:07:46.992Z"
+    },
+    {
+      "actorUserId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "actorEmail": "mithleshkumar527@gmail.com",
+      "actorType": "patient",
+      "action": "patient_registration",
+      "entityType": "user",
+      "entityId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {
+        "termsVersion": "2026-10-v1",
+        "preferredLocale": "en"
+      },
+      "id": "a43f57b9-fb7e-4232-b3a3-68adc15bd0f2",
+      "createdAt": "2026-10-27T07:05:15.134Z"
+    },
+    {
+      "actorUserId": null,
+      "actorEmail": "mithleshkumar527@gmail.com",
+      "actorType": "anonymous",
+      "action": "patient_login_failed",
+      "entityType": "auth",
+      "entityId": null,
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "b62761b0-a57f-431a-b7f6-f9adc790ba0c",
+      "createdAt": "2026-10-27T07:04:34.330Z"
+    },
+    {
+      "actorUserId": "9404562b-8f5f-4858-ab09-34a78d9da2a3",
+      "actorType": "patient",
+      "action": "test_audit_event",
+      "entityType": "test",
+      "id": "028f959a-9d3b-40dc-a62b-248781207035",
+      "createdAt": "2026-10-26T15:17:31.184Z"
+    },
+    {
+      "actorUserId": "18e4a5d3-bfc1-41b9-81b9-931d9e40d3e5",
+      "actorEmail": "admin@omsaiclinic.local",
+      "actorType": "staff",
+      "action": "staff_login_success",
+      "entityType": "cms_session",
+      "entityId": "18e4a5d3-bfc1-41b9-81b9-931d9e40d3e5",
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "35c8ef79-1e8a-43c7-9142-72a93b0e2902",
+      "createdAt": "2026-10-26T15:17:26.338Z"
+    },
+    {
       "actorType": "system",
       "actorEmail": "system@clinic.local",
       "action": "stage5.verification_run",
@@ -2400,6 +2568,21 @@
       "key": "test_login_ratelimit_1793023268909",
       "hits": 3,
       "resetAt": "2026-10-26T14:02:08.909Z"
+    },
+    "login:staff:::1:admin@omsaiclinic.local": {
+      "key": "login:staff:::1:admin@omsaiclinic.local",
+      "hits": 1,
+      "resetAt": "2026-10-26T15:27:26.233Z"
+    },
+    "login:patient:::1:mithleshkumar527@gmail.com": {
+      "key": "login:patient:::1:mithleshkumar527@gmail.com",
+      "hits": 4,
+      "resetAt": "2026-10-27T07:14:34.326Z"
+    },
+    "reg:::1": {
+      "key": "reg:::1",
+      "hits": 1,
+      "resetAt": "2026-10-27T07:20:15.046Z"
     }
   },
   "articles": [
@@ -2435,128 +2618,38 @@
       "updatedAt": "2026-10-26T14:01:08.906Z"
     },
     {
-      "slug": "unreviewed-draft-article",
-      "titleEn": "Unreviewed Draft Article",
-      "titleNe": "",
-      "excerptEn": "Draft",
-      "excerptNe": "",
-      "contentEn": "Draft content",
-      "contentNe": "",
-      "category": "General",
-      "status": "draft",
-      "id": "f406e3ba-029e-4d7b-9fd4-9a03cc74b67d",
-      "createdAt": "2026-10-26T13:50:05.580Z",
-      "updatedAt": "2026-10-26T13:50:05.580Z"
-    },
-    {
-      "slug": "hypertension-awareness-stage5",
-      "titleEn": "Hypertension Management and Dietary Salt Reduction",
-      "titleNe": "",
-      "excerptEn": "Practical guidance on blood pressure monitoring and dietary lifestyle modifications.",
-      "excerptNe": "",
-      "contentEn": "Hypertension is often called the silent killer. Regular monitoring and balanced diet are critical.",
-      "contentNe": "",
-      "category": "Chronic Disease",
-      "reviewedByDoctorId": "1783d924-769d-4d7d-840b-b90a3df6deae",
+      "id": "f29af6e5-df93-4f86-8e28-e06f7a305cdb",
+      "titleNe": "ज्वरो आउँदा कहिले चिकित्सकलाई भेट्ने?",
+      "excerptNe": "धेरैजसो ज्वरो आफैं ठीक हुन्छ — तर केही लक्षण देखिए तुरुन्त चिकित्सकीय सल्लाह लिनुपर्छ।",
+      "contentNe": "ज्वरो संक्रमणको सामान्य प्रतिक्रिया हो। हल्का अवस्थामा आराम, पर्याप्त तरल र निगरानी पर्याप्त हुन्छ। ज्वरो तीन दिनभन्दा बढी रहेमा, धेरै उच्च भएमा, वा सास फेर्न कठिनाई, कडा टाउको दुखाई, अलमल, छालामा दाग वा लगातार वान्ता भएमा चिकित्सकीय सल्लाह लिनुहोस्।",
+      "reviewedByDoctorId": "fed28dd6-cc8b-4ae8-93cf-412bfd9e1129",
       "reviewedByDoctorName": "Dr. Anand Sharma",
-      "reviewedAt": "2026-10-26T13:50:05.579Z",
+      "reviewedAt": "2026-10-27T03:17:13.989Z",
       "status": "published",
-      "id": "e943abf8-217c-4a8a-a92d-8b7945df14a6",
-      "createdAt": "2026-10-26T13:50:05.579Z",
-      "updatedAt": "2026-10-26T13:50:05.579Z"
+      "createdAt": "2026-10-27T03:17:13.989Z",
+      "updatedAt": "2026-10-27T03:17:13.989Z",
+      "slug": "when-to-see-a-doctor-for-fever",
+      "titleEn": "When Should You See a Doctor for a Fever?",
+      "excerptEn": "Most fevers settle on their own — but some signs mean you should seek clinical advice promptly.",
+      "contentEn": "A fever is a common response to infection. Rest, fluids and monitoring are usually enough for mild cases. Seek medical advice if the fever lasts more than three days, is very high, or is accompanied by breathing difficulty, severe headache, confusion, a rash, or persistent vomiting. Young children, older adults and people with chronic conditions should be reviewed earlier.",
+      "category": "Preventive Care"
     },
     {
-      "slug": "unreviewed-draft-article",
-      "titleEn": "Unreviewed Draft Article",
-      "titleNe": "",
-      "excerptEn": "Draft",
-      "excerptNe": "",
-      "contentEn": "Draft content",
-      "contentNe": "",
-      "category": "General",
-      "status": "draft",
-      "id": "20ddc1d6-e4c1-41f7-ab00-d5ddc3c4ab78",
-      "createdAt": "2026-10-26T13:34:06.895Z",
-      "updatedAt": "2026-10-26T13:34:06.895Z"
-    },
-    {
-      "slug": "hypertension-awareness-stage5",
-      "titleEn": "Hypertension Management and Dietary Salt Reduction",
-      "titleNe": "",
-      "excerptEn": "Practical guidance on blood pressure monitoring and dietary lifestyle modifications.",
-      "excerptNe": "",
-      "contentEn": "Hypertension is often called the silent killer. Regular monitoring and balanced diet are critical.",
-      "contentNe": "",
-      "category": "Chronic Disease",
-      "reviewedByDoctorId": "d8ec2e75-6424-4729-93ad-45ea1d916301",
+      "id": "d863c278-f450-4e13-b9f7-b0a73e3dc050",
+      "titleNe": "तपाईंको सीबीसी रिपोर्ट कसरी पढ्ने?",
+      "excerptNe": "हिमोग्लोबिन, श्वेतकोष र प्लेटलेटले तपाईंको स्वास्थ्यको फरक-फरक पक्ष देखाउँछन्।",
+      "contentNe": "सीबीसीले रक्तका मुख्य अंगहरू मापन गर्छ। हिमोग्लोबिनले अक्सिजन बोक्छ, श्वेतकोषले रोग प्रतिरोधात्मक क्षमतामा सहयोग गर्छ र प्लेटलेटले रक्त जम्न मद्दत गर्छ। नतिजालाई उमेर, लिङ्ग र लक्षणअनुसार व्याख्या गरिन्छ — सामान्य दायराभन्दा बाहिरको एक मान मात्र निदान होइन।",
+      "reviewedByDoctorId": "fed28dd6-cc8b-4ae8-93cf-412bfd9e1129",
       "reviewedByDoctorName": "Dr. Anand Sharma",
-      "reviewedAt": "2026-10-26T13:34:06.894Z",
+      "reviewedAt": "2026-10-27T03:17:13.989Z",
       "status": "published",
-      "id": "90f42868-11f2-4e5c-aa28-db73d26cd8a2",
-      "createdAt": "2026-10-26T13:34:06.894Z",
-      "updatedAt": "2026-10-26T13:34:06.894Z"
-    },
-    {
-      "slug": "unreviewed-draft-article",
-      "titleEn": "Unreviewed Draft Article",
-      "titleNe": "",
-      "excerptEn": "Draft",
-      "excerptNe": "",
-      "contentEn": "Draft content",
-      "contentNe": "",
-      "category": "General",
-      "status": "draft",
-      "id": "b96eb2f0-09e7-42c9-96ac-08a9c0c716af",
-      "createdAt": "2026-10-26T12:03:21.756Z",
-      "updatedAt": "2026-10-26T12:03:21.756Z"
-    },
-    {
-      "slug": "hypertension-awareness-stage5",
-      "titleEn": "Hypertension Management and Dietary Salt Reduction",
-      "titleNe": "",
-      "excerptEn": "Practical guidance on blood pressure monitoring and dietary lifestyle modifications.",
-      "excerptNe": "",
-      "contentEn": "Hypertension is often called the silent killer. Regular monitoring and balanced diet are critical.",
-      "contentNe": "",
-      "category": "Chronic Disease",
-      "reviewedByDoctorId": "47eb4a51-20a7-4c65-a802-48c184359153",
-      "reviewedByDoctorName": "Dr. Anand Sharma",
-      "reviewedAt": "2026-10-26T12:03:21.756Z",
-      "status": "published",
-      "id": "6d7c17a1-901b-4efe-ac29-79ce467b855f",
-      "createdAt": "2026-10-26T12:03:21.756Z",
-      "updatedAt": "2026-10-26T12:03:21.756Z"
-    },
-    {
-      "slug": "unreviewed-draft-article",
-      "titleEn": "Unreviewed Draft Article",
-      "titleNe": "",
-      "excerptEn": "Draft",
-      "excerptNe": "",
-      "contentEn": "Draft content",
-      "contentNe": "",
-      "category": "General",
-      "status": "draft",
-      "id": "0072dcc8-9ce9-49c2-a075-cfeade2f497a",
-      "createdAt": "2026-10-26T11:31:53.993Z",
-      "updatedAt": "2026-10-26T11:31:53.993Z"
-    },
-    {
-      "slug": "hypertension-awareness-stage5",
-      "titleEn": "Hypertension Management and Dietary Salt Reduction",
-      "titleNe": "",
-      "excerptEn": "Practical guidance on blood pressure monitoring and dietary lifestyle modifications.",
-      "excerptNe": "",
-      "contentEn": "Hypertension is often called the silent killer. Regular monitoring and balanced diet are critical.",
-      "contentNe": "",
-      "category": "Chronic Disease",
-      "reviewedByDoctorId": "0b20360c-df81-44eb-904b-824517889fbc",
-      "reviewedByDoctorName": "Dr. Anand Sharma",
-      "reviewedAt": "2026-10-26T11:31:53.993Z",
-      "status": "published",
-      "id": "212752a0-537d-49c5-9bb7-128e511fdf02",
-      "createdAt": "2026-10-26T11:31:53.993Z",
-      "updatedAt": "2026-10-26T11:31:53.993Z"
+      "createdAt": "2026-10-27T03:17:13.989Z",
+      "updatedAt": "2026-10-27T03:17:13.989Z",
+      "slug": "understanding-your-cbc-report",
+      "titleEn": "Understanding Your Complete Blood Count (CBC)",
+      "excerptEn": "Haemoglobin, white cells and platelets each tell a different part of your health story.",
+      "contentEn": "A CBC measures the main components of blood. Haemoglobin carries oxygen, white blood cells support immunity, and platelets help clotting. Results are interpreted against age, sex and symptoms — a single value outside the reference range is not automatically a diagnosis. Always review your report with a clinician, especially if you feel unwell.",
+      "category": "Lab Diagnostics"
     }
   ]
 }

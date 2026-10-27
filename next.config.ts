@@ -2,6 +2,9 @@ import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // Keep file tracing scoped to this project; there is another lockfile in the
+  // home directory, which otherwise makes Next infer the wrong workspace root.
+  outputFileTracingRoot: process.cwd(),
   eslint: {
     ignoreDuringBuilds: true,
   },

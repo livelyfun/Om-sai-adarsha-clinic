@@ -1,20 +1,34 @@
 import React from 'react';
 import Link from 'next/link';
+import { ArrowRight, Home, Stethoscope } from 'lucide-react';
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4 text-center">
-      <div className="max-w-md p-8 bg-white rounded-2xl border border-slate-200 shadow-xs space-y-4">
-        <h2 className="text-2xl font-bold text-slate-900 font-serif">404 — Page Not Found</h2>
-        <p className="text-xs text-slate-600">
-          The requested page could not be found. Please check the URL or return to the clinic homepage.
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-cream px-4 text-center">
+      <div className="pointer-events-none absolute inset-0 bg-grid opacity-[0.35]" />
+      <div className="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-brand-200/40 blur-3xl" />
+
+      <div className="relative w-full max-w-md">
+        <p className="font-display text-[6rem] font-semibold leading-none tracking-tighter text-brand-900">
+          404
         </p>
-        <div className="pt-2">
-          <Link
-            href="/en"
-            className="inline-flex items-center justify-center rounded-xl bg-teal-800 px-5 py-2.5 text-xs font-semibold text-white hover:bg-teal-900 shadow-xs"
-          >
-            Return to Homepage
+        <h1 className="mt-2 font-display text-2xl font-semibold tracking-tight text-ink">
+          Page not found
+        </h1>
+        <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-slate-600">
+          The requested page could not be found. Please check the URL or return to the clinic
+          homepage.
+        </p>
+
+        <div className="mt-7 flex flex-wrap items-center justify-center gap-2.5">
+          <Link href="/en" className="btn btn-primary text-xs">
+            <Home className="h-3.5 w-3.5" />
+            Return to homepage
+          </Link>
+          <Link href="/en/doctors" className="btn btn-outline text-xs">
+            <Stethoscope className="h-3.5 w-3.5" />
+            Browse doctors
+            <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>
       </div>

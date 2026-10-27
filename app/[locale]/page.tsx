@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { db } from '@/lib/db';
 import { getMessages, Locale } from '@/lib/i18n';
+import { uniqueBy, isDemoPlaceholderName } from '@/lib/utils';
 import {
   Calendar,
   Stethoscope,
@@ -9,22 +10,36 @@ import {
   Clock,
   ShieldCheck,
   ArrowRight,
+  ArrowUpRight,
   Info,
   MapPin,
   Phone,
-  User,
   HeartPulse,
   BookOpen,
   CheckCircle2,
-  ExternalLink,
   ChevronRight,
-  Sparkles,
   FileText,
+  Facebook,
+  Microscope,
+  Users,
+  Sparkles,
+  ClipboardCheck,
 } from 'lucide-react';
 import { HomeFaqAccordion } from '@/components/public/HomeFaqAccordion';
+import SectionHeading from '@/components/public/SectionHeading';
 
 interface HomePageProps {
   params: Promise<{ locale: string }>;
+}
+
+function initialsOf(name: string) {
+  return name
+    .replace(/^(dr\.?|prof\.?)\s+/i, '')
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase() ?? '')
+    .join('');
 }
 
 export default async function HomePage({ params }: HomePageProps) {
@@ -35,20 +50,22 @@ export default async function HomePage({ params }: HomePageProps) {
   const nav = messages.nav;
   const booking = messages.booking;
 
-  // Query published records from DB
-  const publishedDoctors = db.getDoctors(true);
+  // Published catalogue (de-duplicated: automated seed runs can leave copies behind)
+  const publishedDoctors = uniqueBy(db.getDoctors(true), (d) => d.nameEn).filter(
+    (d) => !isDemoPlaceholderName(d.nameEn)
+  );
   const featuredDoctors = publishedDoctors.filter((d) => d.isFeatured);
   const doctorsToShow = (featuredDoctors.length > 0 ? featuredDoctors : publishedDoctors).slice(0, 3);
 
-  const publishedServices = db.getMedicalServices(true);
+  const publishedServices = uniqueBy(db.getMedicalServices(true), (s) => s.nameEn);
   const featuredServices = publishedServices.filter((s) => s.isFeatured);
   const servicesToShow = (featuredServices.length > 0 ? featuredServices : publishedServices).slice(0, 3);
 
-  const publishedLabTests = db.getLabTests(true);
+  const publishedLabTests = uniqueBy(db.getLabTests(true), (t) => t.nameEn);
   const featuredLabTests = publishedLabTests.filter((t) => t.isFeatured);
   const labTestsToShow = (featuredLabTests.length > 0 ? featuredLabTests : publishedLabTests).slice(0, 4);
 
-  const publishedArticles = db.getArticles(true).slice(0, 3);
+  const publishedArticles = uniqueBy(db.getArticles(true), (a) => a.titleEn).slice(0, 3);
 
   // Settings
   const clinicName =
@@ -76,7 +93,6 @@ export default async function HomePage({ params }: HomePageProps) {
       ? db.getSetting('opening_hours_ne') || 'आइतबार – शुक्रबार: बिहान ०७:०० – साँझ ०८:०० (शनिबार बन्द)'
       : db.getSetting('opening_hours_en') || 'Sunday – Friday: 07:00 AM – 08:00 PM (Saturday Closed)';
 
-  // Curated FAQ preview items
   const homeFaqs = [
     {
       q: locale === 'ne' ? 'अनलाइन बुकिङ कसरी काम गर्छ?' : 'How does the online booking request work?',
@@ -108,462 +124,575 @@ export default async function HomePage({ params }: HomePageProps) {
     },
   ];
 
+  const trustStats = [
+    { value: locale === 'ne' ? 'एनएमसी' : 'NMC', label: locale === 'ne' ? 'दर्ता चिकित्सक' : 'Registered doctors', icon: ShieldCheck },
+    { value: locale === 'ne' ? '६ दिन' : '6 days', label: locale === 'ne' ? 'साप्ताहिक खुला' : 'Open every week', icon: Clock },
+    { value: locale === 'ne' ? 'डिजिटल' : 'Digital', label: locale === 'ne' ? 'सुरक्षित रिपोर्ट' : 'Secure lab reports', icon: FileText },
+    { value: locale === 'ne' ? 'परिवार' : 'Family', label: locale === 'ne' ? '६ सम्म प्रोफाइल' : 'Up to 6 profiles', icon: Users },
+  ];
+
   return (
-    <div className="flex flex-col bg-white text-slate-900 selection:bg-teal-100 selection:text-teal-900">
-      {/* 1. HERO SECTION: Refined, Light, Dignified Clinical Presence */}
-      <section className="relative overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-teal-50/40 via-white to-slate-50/50 py-16 lg:py-24">
-        {/* Subtle decorative background glow */}
-        <div className="absolute top-0 right-1/4 -z-10 h-96 w-96 rounded-full bg-teal-100/40 blur-3xl" />
-        <div className="absolute bottom-0 left-10 -z-10 h-72 w-72 rounded-full bg-emerald-50/60 blur-2xl" />
+    <div className="flex flex-col bg-cream text-ink">
+      {/* 1. HERO — deep evergreen, editorial headline, live clinic card */}
+      <section className="relative overflow-hidden bg-brand-950 text-white">
+        <div className="pointer-events-none absolute inset-0 bg-grid-light opacity-25" />
+        <div className="pointer-events-none absolute -right-24 -top-40 h-[34rem] w-[34rem] rounded-full bg-brand-600/25 blur-[110px]" />
+        <div className="pointer-events-none absolute -left-32 bottom-0 h-96 w-96 rounded-full bg-sand-500/10 blur-[100px]" />
 
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            {/* Left Column: Clinical Mission & Patient Action */}
-            <div className="lg:col-span-7 space-y-6">
-              {/* Quiet brand kicker without pills */}
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-teal-800">
-                <span>{clinicName}</span>
-                <span aria-hidden="true" className="text-teal-400">·</span>
-                <span>{locale === 'ne' ? 'आउटडोर क्लिनिक तथा डायग्नोस्टिक्स' : 'Outpatient & Diagnostics'}</span>
-              </div>
+        <div className="container-x relative grid gap-12 py-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-14 lg:py-20">
+          {/* Copy */}
+          <div className="animate-fade-up">
+            <div className="flex flex-wrap items-center gap-2.5">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3.5 py-1.5 text-[0.6875rem] font-medium text-brand-100/90 backdrop-blur-xs">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sand-400 opacity-60" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-sand-400" />
+                </span>
+                {locale === 'ne' ? 'ओपीडी तथा डायग्नोस्टिक्स' : 'Outpatient & Diagnostics'}
+                <span className="text-white/20">·</span>
+                <span className="text-sand-300 font-semibold">{clinicName}</span>
+              </span>
 
-              {/* Editorial Display Headline */}
-              <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-950 leading-[1.12] text-balance">
-                {tagline}
-              </h1>
+              {emergencyPhone && (
+                <a
+                  href={`tel:${emergencyPhone}`}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-rose-500/30 bg-rose-950/40 px-3 py-1.5 text-[0.6875rem] font-semibold text-rose-200 transition-colors hover:bg-rose-900/60"
+                >
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-400 opacity-75" />
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-rose-400" />
+                  </span>
+                  <span>{locale === 'ne' ? 'आपतकालीन: ' : 'Emergency: '}</span>
+                  <span className="font-mono font-bold text-white">{emergencyPhone}</span>
+                </a>
+              )}
+            </div>
 
-              {/* Subheading */}
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
-                {locale === 'ne'
-                  ? 'हामी बिरामीहरूको सुविधाको लागि अनलाइन अनुरोधमा आधारित विशेषज्ञ परामर्श, गुणस्तरीय ल्याब परीक्षण र गोप्य रिपोर्ट पहुँच उपलब्ध गराउँछौं।'
-                  : 'Providing compassionate outpatient medicine, qualified specialist consultations, and authenticated digital lab report access for patients and families.'}
+            <h1 className="display-title mt-6 text-[2.6rem] text-white sm:text-6xl lg:text-[4rem] leading-[1.12]">
+              {locale === 'ne' ? (
+                <>
+                  सहृदयी सेवा,
+                  <br />
+                  <span className="text-sand-300">भरपर्दो उत्तर।</span>
+                </>
+              ) : (
+                <>
+                  Compassionate care,
+                  <br />
+                  <span className="text-sand-300">reliable answers.</span>
+                </>
+              )}
+            </h1>
+
+            <p className="mt-5 max-w-xl text-[0.9375rem] leading-relaxed text-brand-100/80 sm:text-base">
+              {locale === 'ne'
+                ? 'विशेषज्ञ चिकित्सक परामर्श, सटीक ल्याब परीक्षण र सुरक्षित डिजिटल रिपोर्ट — तपाईं र तपाईंको परिवारको लागि एकै ठाउँमा।'
+                : 'Expert doctor consultations, precise laboratory diagnostics and secure digital reports — all under one roof, for you and your family.'}
+            </p>
+
+            {/* Main Action Buttons */}
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Link href={`/${locale}/book`} className="btn btn-accent group !py-3.5 !px-6 shadow-lg">
+                <Calendar className="h-4 w-4" />
+                <span>{common.bookSession}</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link href={`/${locale}/doctors`} className="btn btn-outline-light !py-3.5 !px-5">
+                <Stethoscope className="h-4 w-4" />
+                <span>{locale === 'ne' ? 'चिकित्सक हेर्नुहोस्' : 'Meet our doctors'}</span>
+              </Link>
+            </div>
+
+            {/* Quick Navigation Dock */}
+            <div className="mt-8 pt-2">
+              <p className="text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-sand-400/80 mb-2.5">
+                {locale === 'ne' ? 'द्रुत सेवाहरू' : 'Quick access'}
               </p>
-
-              {/* Informative Request-to-Confirmation Notice (Section 2 & 7) */}
-              <div className="rounded-xl border border-teal-200 bg-teal-50/70 p-4 text-xs sm:text-sm text-teal-950 flex items-start gap-3 shadow-xs">
-                <Info className="h-5 w-5 text-teal-800 shrink-0 mt-0.5" />
-                <p className="leading-relaxed">
-                  <strong className="font-semibold">{locale === 'ne' ? 'सूचना: ' : 'Booking Notice: '}</strong>
-                  {booking.requestNotice}
-                </p>
-              </div>
-
-              {/* Primary Action Buttons */}
-              <div className="pt-2 flex flex-wrap items-center gap-3.5">
-                <Link
-                  href={`/${locale}/book`}
-                  className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-semibold px-6 py-3.5 shadow-sm transition-all active:scale-[0.98] focus-visible:outline-teal-900"
-                >
-                  <Calendar className="h-5 w-5" />
-                  <span>{common.bookSession}</span>
-                </Link>
-
-                <Link
-                  href={`/${locale}/doctors`}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-semibold px-5 py-3.5 transition-colors focus-visible:outline-slate-900"
-                >
-                  <Stethoscope className="h-5 w-5 text-teal-700" />
-                  <span>{nav.doctors}</span>
-                </Link>
-
-                <Link
-                  href={`/${locale}/portal/login`}
-                  className="inline-flex items-center gap-1.5 px-3 py-3 text-xs font-semibold text-slate-600 hover:text-teal-900 transition-colors"
-                >
-                  <User className="h-4 w-4 text-teal-700" />
-                  <span>{common.myAccount}</span>
-                  <ArrowRight className="h-3 w-3" />
-                </Link>
-              </div>
-
-              {/* Proof Row: Clean unboxed metadata with separators */}
-              <div className="pt-4 border-t border-slate-200/80 flex flex-wrap items-center gap-y-2 gap-x-4 text-xs font-medium text-slate-600">
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-teal-700" />
-                  <span>{locale === 'ne' ? 'दर्ता भएका विशेषज्ञ चिकित्सकहरू' : 'NMC Registered Specialists'}</span>
-                </div>
-                <span aria-hidden="true" className="text-slate-300">·</span>
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-teal-700" />
-                  <span>{locale === 'ne' ? 'कम्प्युटराइज्ड ल्याब डायग्नोस्टिक्स' : 'Automated Lab Pathology'}</span>
-                </div>
-                <span aria-hidden="true" className="text-slate-300">·</span>
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-teal-700" />
-                  <span>{locale === 'ne' ? 'प्रमाणीकृत डिजिटल रिपोर्ट' : 'Authenticated Digital Reports'}</span>
-                </div>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  { href: `/${locale}/book`, icon: Calendar, label: locale === 'ne' ? 'अपोइन्टमेन्ट अनुरोध' : 'Book Appointment' },
+                  { href: `/${locale}/lab-tests`, icon: FlaskConical, label: locale === 'ne' ? 'ल्याब परीक्षण सूची' : 'Lab Test Catalog' },
+                  { href: `/${locale}/portal/login`, icon: FileText, label: locale === 'ne' ? 'डिजिटल रिपोर्ट' : 'Patient Reports' },
+                  { href: `/${locale}/explore/faq`, icon: Info, label: locale === 'ne' ? 'बारम्बार सोधिने प्रश्न' : 'Clinic FAQ' },
+                ].map((shortcut) => (
+                  <Link
+                    key={shortcut.href}
+                    href={shortcut.href}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-xs font-semibold text-brand-100/90 backdrop-blur-xs transition-all hover:border-sand-400/50 hover:bg-white/[0.1] hover:text-white"
+                  >
+                    <shortcut.icon className="h-3.5 w-3.5 text-sand-400" />
+                    <span>{shortcut.label}</span>
+                  </Link>
+                ))}
               </div>
             </div>
 
-            {/* Right Column: Interactive Clinic Care & Triage Hub */}
-            <div className="lg:col-span-5">
-              <div className="rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-xs space-y-6">
-                {/* Card Header: Operational Status & Opening Hours */}
-                <div className="space-y-1.5 pb-4 border-b border-slate-100">
-                  <div className="flex items-center justify-between text-xs font-semibold text-teal-800">
-                    <span className="flex items-center gap-1.5">
-                      <Clock className="h-4 w-4 text-teal-700" />
-                      {locale === 'ne' ? 'क्लिनिक खुल्ने समय' : 'Clinic Hours & Reception'}
-                    </span>
-                    <span className="text-slate-500 font-normal">
-                      {locale === 'ne' ? 'काउन्टर खुल्ला' : 'Walk-in & OPD'}
-                    </span>
-                  </div>
-                  <p className="text-sm font-medium text-slate-800">{openingHours}</p>
-                </div>
+            {/* Trust Highlights */}
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2.5 text-[0.75rem] font-medium text-brand-100/70 border-t border-white/10 pt-5">
+              <span className="inline-flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-sand-300" />
+                {locale === 'ne' ? 'एनएमसी दर्ता विशेषज्ञ' : 'NMC registered specialists'}
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-sand-300" />
+                {locale === 'ne' ? 'कम्प्युटराइज्ड ल्याब' : 'Automated pathology'}
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-sand-300" />
+                {locale === 'ne' ? 'प्रमाणीकृत रिपोर्ट' : 'Authenticated reports'}
+              </span>
+            </div>
+          </div>
 
-                {/* 1-Click Triage Fast Track */}
-                <div className="space-y-2.5">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 block">
-                    {locale === 'ne' ? 'द्रुत सेवा छनोट' : 'Quick Service Selector'}
-                  </span>
-
-                  <Link
-                    href={`/${locale}/doctors`}
-                    className="group flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-teal-300 bg-slate-50/60 hover:bg-teal-50/30 transition-all"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 rounded-lg bg-teal-100/70 text-teal-800 flex items-center justify-center">
-                        <Stethoscope className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-semibold text-slate-900 group-hover:text-teal-900">
-                          {locale === 'ne' ? 'विशेषज्ञ चिकित्सक परामर्श' : 'Doctor Consultations'}
-                        </h4>
-                        <p className="text-xs text-slate-500">
-                          {locale === 'ne' ? 'बालरोग, फिजिसियन, स्त्रीरोग तथा हाडजोर्नी' : 'Pediatrics, Physician, Gynecology & Orthopedics'}
-                        </p>
-                      </div>
-                    </div>
-                    <ChevronRight className="h-4 w-4 text-slate-400 group-hover:text-teal-800 group-hover:translate-x-0.5 transition-all" />
-                  </Link>
-
-                  <Link
-                    href={`/${locale}/lab-tests`}
-                    className="group flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-teal-300 bg-slate-50/60 hover:bg-teal-50/30 transition-all"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 rounded-lg bg-teal-100/70 text-teal-800 flex items-center justify-center">
-                        <FlaskConical className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-semibold text-slate-900 group-hover:text-teal-900">
-                          {locale === 'ne' ? 'प्रयोगशाला तथा रगत परीक्षण' : 'Pathology & Lab Diagnostics'}
-                        </h4>
-                        <p className="text-xs text-slate-500">
-                          {locale === 'ne' ? 'बायोकेमिस्ट्री, हेमाटोलोजी, थाइराइड तथा लिपिड' : 'Biochemistry, CBC, Thyroid, Lipid & Profiles'}
-                        </p>
-                      </div>
-                    </div>
-                    <ChevronRight className="h-4 w-4 text-slate-400 group-hover:text-teal-800 group-hover:translate-x-0.5 transition-all" />
-                  </Link>
-
-                  <Link
-                    href={`/${locale}/services`}
-                    className="group flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-teal-300 bg-slate-50/60 hover:bg-teal-50/30 transition-all"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 rounded-lg bg-teal-100/70 text-teal-800 flex items-center justify-center">
-                        <HeartPulse className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-semibold text-slate-900 group-hover:text-teal-900">
-                          {locale === 'ne' ? 'आउटडोर तथा सामान्य उपचार सेवा' : 'Outpatient Clinical Procedures'}
-                        </h4>
-                        <p className="text-xs text-slate-500">
-                          {locale === 'ne' ? 'इसिजी, घाउ ड्रेसिङ, नेबुलाइजेसन तथा नर्सिङ' : 'ECG, wound care, nebulization & nursing support'}
-                        </p>
-                      </div>
-                    </div>
-                    <ChevronRight className="h-4 w-4 text-slate-400 group-hover:text-teal-800 group-hover:translate-x-0.5 transition-all" />
-                  </Link>
-                </div>
-
-                {/* Patient Claim Code Help Strip */}
-                <div className="rounded-xl border border-slate-200 bg-slate-50/80 p-3.5 text-xs text-slate-600 space-y-1">
-                  <div className="font-semibold text-slate-800 flex items-center gap-1.5">
-                    <FileText className="h-3.5 w-3.5 text-teal-700" />
-                    <span>{locale === 'ne' ? 'काउन्टरमा परीक्षण गराउनुभएको छ?' : 'Visited our clinic counter?'}</span>
-                  </div>
-                  <p className="text-[11px] leading-relaxed">
-                    {locale === 'ne'
-                      ? 'रिसेप्सनबाट प्राप्त ७-दिने दाबी कोड प्रयोग गरी आफ्नो रिपोर्ट अनलाइन हेर्नुहोस्।'
-                      : 'Use your 7-day walk-in claim code from reception to link and view your lab reports.'}
+          {/* Visit card */}
+          <div className="relative animate-fade-up delay-200 lg:pl-4">
+            <div className="relative overflow-hidden rounded-[1.75rem] bg-white text-ink shadow-[0_35px_80px_-25px_rgba(0,0,0,0.5)] border border-brand-950/10">
+              <div className="flex items-center justify-between border-b border-brand-950/8 bg-sand-50/80 px-6 py-4">
+                <div>
+                  <p className="text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-brand-700">
+                    {locale === 'ne' ? 'आजको क्लिनिक' : 'Today at the clinic'}
                   </p>
-                  <Link
-                    href={`/${locale}/portal/login`}
-                    className="inline-block text-[11px] font-bold text-teal-800 hover:underline pt-0.5"
-                  >
-                    {locale === 'ne' ? 'दाबी कोड प्रविष्ट गर्नुहोस् →' : 'Enter Claim Code in Portal →'}
-                  </Link>
+                  <p className="mt-0.5 font-display text-lg font-semibold tracking-tight text-ink">
+                    {locale === 'ne' ? 'तपाईंको भ्रमण योजना' : 'Plan your visit'}
+                  </p>
+                </div>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-3 py-1 text-[0.6875rem] font-bold text-brand-800 border border-brand-200/50">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-500 opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-500" />
+                  </span>
+                  {locale === 'ne' ? 'खुला छ' : 'Open Today'}
+                </span>
+              </div>
+
+              <div className="px-6 py-5">
+                <div className="flex items-start gap-2.5 rounded-xl bg-brand-50/60 p-3 text-xs text-slate-700">
+                  <Clock className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" />
+                  <span className="font-medium leading-relaxed">{openingHours}</span>
                 </div>
 
-                {/* Telephone Inquiry */}
-                <div className="pt-2 flex items-center justify-between text-xs text-slate-500">
-                  <span>{locale === 'ne' ? 'सिधा फोन सम्पर्क:' : 'Reception Desk:'}</span>
+                <div className="mt-4 space-y-1">
+                  {[
+                    {
+                      href: `/${locale}/doctors`,
+                      icon: Stethoscope,
+                      title: locale === 'ne' ? 'चिकित्सक परामर्श' : 'Doctor consultation',
+                      sub:
+                        locale === 'ne'
+                          ? 'बालरोग, फिजिसियन, स्त्रीरोग, हाडजोर्नी'
+                          : 'Pediatrics · Physician · Gynecology · Orthopedics',
+                    },
+                    {
+                      href: `/${locale}/lab-tests`,
+                      icon: FlaskConical,
+                      title: locale === 'ne' ? 'ल्याब तथा रगत परीक्षण' : 'Lab & blood tests',
+                      sub:
+                        locale === 'ne'
+                          ? 'बायोकेमिस्ट्री, हेमाटोलोजी, थाइराइड'
+                          : 'Biochemistry · Hematology · Thyroid',
+                    },
+                    {
+                      href: `/${locale}/portal/login`,
+                      icon: FileText,
+                      title: locale === 'ne' ? 'ल्याब रिपोर्ट हेर्नुहोस्' : 'View lab reports',
+                      sub:
+                        locale === 'ne'
+                          ? 'सुरक्षित पोर्टलबाट डाउनलोड'
+                          : 'Secure PDF downloads in your portal',
+                    },
+                  ].map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-brand-50/70"
+                    >
+                      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-brand-50 text-brand-700 transition-colors group-hover:bg-brand-100">
+                        <item.icon className="h-4.5 w-4.5" />
+                      </span>
+                      <span className="min-w-0 flex-1">
+                        <span className="block text-[0.8125rem] font-semibold text-ink group-hover:text-brand-900">
+                          {item.title}
+                        </span>
+                        <span className="block truncate text-[0.6875rem] text-slate-500">
+                          {item.sub}
+                        </span>
+                      </span>
+                      <ChevronRight className="h-4 w-4 shrink-0 text-slate-300 transition-all group-hover:translate-x-0.5 group-hover:text-brand-700" />
+                    </Link>
+                  ))}
+                </div>
+
+                {/* Claim report callout */}
+                <Link
+                  href={`/${locale}/portal/login`}
+                  className="mt-3 flex items-center justify-between rounded-xl border border-sand-200 bg-sand-50/70 px-3.5 py-2.5 transition-colors hover:bg-sand-100"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <Sparkles className="h-4 w-4 text-sand-500 shrink-0" />
+                    <span className="text-xs font-semibold text-brand-950">
+                      {locale === 'ne' ? 'काउन्टर दाबी कोडले रिपोर्ट हेर्नुहोस्' : 'Have a walk-in claim code?'}
+                    </span>
+                  </div>
+                  <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
+                </Link>
+
+                {/* Direct Reception dial */}
+                <div className="mt-4 flex items-center justify-between rounded-xl bg-brand-950 px-4 py-3 text-white">
+                  <div>
+                    <p className="text-[0.625rem] uppercase tracking-[0.14em] text-brand-200/70">
+                      {locale === 'ne' ? 'रिसेप्सन सम्पर्क' : 'Direct Reception'}
+                    </p>
+                    <a href={`tel:${phone}`} className="mt-0.5 block font-mono text-sm font-semibold hover:text-sand-300 transition-colors">
+                      {phone}
+                    </a>
+                  </div>
                   <a
                     href={`tel:${phone}`}
-                    className="font-bold text-slate-900 hover:text-teal-800 flex items-center gap-1 font-mono"
+                    className="grid h-9 w-9 place-items-center rounded-full bg-white/10 text-sand-300 transition-colors hover:bg-white/20"
+                    aria-label={locale === 'ne' ? 'फोन गर्नुहोस्' : 'Call reception'}
                   >
-                    <Phone className="h-3.5 w-3.5 text-teal-700" />
-                    <span>{phone}</span>
+                    <Phone className="h-4 w-4" />
                   </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* 2. CORE PILLARS QUICK LINKS (Section 5 requirement) */}
-      <section className="py-12 bg-white border-b border-slate-100">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="rounded-2xl border border-slate-200/80 p-6 space-y-3 hover:border-teal-300 transition-colors">
-              <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-xl bg-teal-50 text-teal-800 flex items-center justify-center">
-                  <Stethoscope className="h-5 w-5" />
+        {/* Stats strip */}
+        <div className="relative border-t border-white/10">
+          <div className="container-x grid grid-cols-2 divide-x divide-white/10 md:grid-cols-4">
+            {trustStats.map((stat) => (
+              <div key={stat.label} className="flex items-center gap-3 px-4 py-5 first:pl-0 sm:px-6">
+                <stat.icon className="h-5 w-5 shrink-0 text-sand-300" />
+                <div>
+                  <p className="font-display text-lg font-semibold leading-none text-white">{stat.value}</p>
+                  <p className="mt-1 text-[0.625rem] uppercase tracking-[0.1em] text-brand-100/60">
+                    {stat.label}
+                  </p>
                 </div>
-                <h3 className="font-serif text-lg font-bold text-slate-900">
-                  {locale === 'ne' ? '०१. विशेषज्ञ चिकित्सक परामर्श' : '01. Specialist Consultations'}
-                </h3>
               </div>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                {locale === 'ne'
-                  ? 'नेपाल मेडिकल काउन्सिल (NMC) प्रमाणित विशेषज्ञ चिकित्सकहरूद्वारा विभिन्न रोगहरूको सघन स्वास्थ्य परीक्षण।'
-                  : 'NMC registered doctors covering Internal Medicine, Pediatrics, Obstetrics & Gynecology, and Orthopedics.'}
-              </p>
-              <Link
-                href={`/${locale}/doctors`}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-800 hover:underline pt-1"
-              >
-                <span>{locale === 'ne' ? 'चिकित्सक सूची हेर्नुहोस्' : 'Browse Medical Specialists'}</span>
-                <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-
-            <div className="rounded-2xl border border-slate-200/80 p-6 space-y-3 hover:border-teal-300 transition-colors">
-              <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-xl bg-teal-50 text-teal-800 flex items-center justify-center">
-                  <FlaskConical className="h-5 w-5" />
-                </div>
-                <h3 className="font-serif text-lg font-bold text-slate-900">
-                  {locale === 'ne' ? '०२. अत्याधुनिक ल्याब परीक्षण' : '02. Laboratory Diagnostics'}
-                </h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                {locale === 'ne'
-                  ? 'कम्प्युटराइज्ड उपकरणबाट रगत, पिसाब तथा बायोकेमिकल परीक्षण। आधिकारिक ल्याब प्राविधिकद्वारा प्रमाणीकरण।'
-                  : 'Computerized clinical pathology, blood biochemistry, hormone panels, and routine wellness screenings.'}
-              </p>
-              <Link
-                href={`/${locale}/lab-tests`}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-800 hover:underline pt-1"
-              >
-                <span>{locale === 'ne' ? 'ल्याब क्याटलग हेर्नुहोस्' : 'View Full Lab Catalogue'}</span>
-                <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-
-            <div className="rounded-2xl border border-slate-200/80 p-6 space-y-3 hover:border-teal-300 transition-colors">
-              <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-xl bg-teal-50 text-teal-800 flex items-center justify-center">
-                  <HeartPulse className="h-5 w-5" />
-                </div>
-                <h3 className="font-serif text-lg font-bold text-slate-900">
-                  {locale === 'ne' ? '०३. आउटडोर क्लिनिकल सेवा' : '03. Outpatient Care & OPD'}
-                </h3>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                {locale === 'ne'
-                  ? 'प्राथमिक स्वास्थ्य जाँच, ड्रेसिङ, नेबुलाइजेसन, नियमित रक्तचाप तथा सुगर निगरानी सेवा।'
-                  : 'Outpatient general health consultations, wound dressings, ECG screenings, nebulization, and vitals monitoring.'}
-              </p>
-              <Link
-                href={`/${locale}/services`}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-800 hover:underline pt-1"
-              >
-                <span>{locale === 'ne' ? 'सेवाहरू अवलोकन गर्नुहोस्' : 'Explore Clinical Services'}</span>
-                <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 3. FEATURED DOCTORS SECTION */}
-      {doctorsToShow.length > 0 && (
-        <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
-            <div className="space-y-1">
-              <span className="text-xs font-semibold uppercase tracking-wider text-teal-800">
-                {locale === 'ne' ? 'हाम्रा विशेषज्ञहरू' : 'Medical Staff'}
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-950">
-                {locale === 'ne' ? 'विशेषज्ञ चिकित्सक टोली' : 'Featured Clinical Specialists'}
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
-                {locale === 'ne'
-                  ? 'नेपाल मेडिकल काउन्सिलमा दर्ता भएका अनुभवी चिकित्सकहरूबाट स्वास्थ्य परामर्श लिनुहोस्।'
-                  : 'Consult verified, board-certified physicians dedicated to clinical excellence and personalized patient care.'}
-              </p>
-            </div>
-            <Link
-              href={`/${locale}/doctors`}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-800 hover:underline"
-            >
-              <span>{locale === 'ne' ? 'सबै चिकित्सकहरू हेर्नुहोस्' : 'View All Specialists'}</span>
-              <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {doctorsToShow.map((doc) => {
-              const name = locale === 'ne' && doc.nameNe ? doc.nameNe : doc.nameEn;
-              const specialty = locale === 'ne' && doc.specialtyNe ? doc.specialtyNe : doc.specialtyEn;
-              const isMissingNepali = locale === 'ne' && (!doc.nameNe || !doc.specialtyNe);
-
-              return (
-                <div
-                  key={doc.id}
-                  className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs hover:border-teal-300 hover:shadow-sm transition-all flex flex-col justify-between"
-                >
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-4">
-                      <div className="h-12 w-12 rounded-xl bg-teal-50 border border-teal-100 text-teal-800 flex items-center justify-center font-bold text-lg shrink-0">
-                        <Stethoscope className="h-6 w-6" />
-                      </div>
-                      <div className="min-w-0">
-                        <h3 className="font-bold text-base text-slate-900 truncate">{name}</h3>
-                        <p className="text-xs text-teal-800 font-semibold">{specialty}</p>
-                        {doc.qualificationsEn && (
-                          <p className="text-[11px] text-slate-500 mt-0.5 truncate">
-                            {locale === 'ne' && doc.qualificationsNe ? doc.qualificationsNe : doc.qualificationsEn}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-
-                    {isMissingNepali && (
-                      <p className="text-[10px] text-amber-800 bg-amber-50 p-2 rounded-lg border border-amber-200">
-                        {common.nepaliMissingNote}
-                      </p>
-                    )}
-
-                    {doc.bioEn && (
-                      <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
-                        {locale === 'ne' && doc.bioNe ? doc.bioNe : doc.bioEn}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-                    <div>
-                      <span className="text-[10px] text-slate-400 block uppercase font-medium">
-                        {locale === 'ne' ? 'परामर्श शुल्क' : 'Consultation Fee'}
-                      </span>
-                      <span className="font-bold text-slate-900 font-mono">
-                        NPR {doc.consultationFee}
-                      </span>
-                    </div>
-
-                    <Link
-                      href={`/${locale}/doctors/${doc.slug}`}
-                      className="inline-flex items-center gap-1 font-bold text-teal-800 hover:underline"
-                    >
-                      <span>{locale === 'ne' ? 'समयतालिका' : 'Profile & Slots'}</span>
-                      <ArrowRight className="h-3 w-3" />
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </section>
-      )}
-
-      {/* 4. FEATURED MEDICAL SERVICES (Section 5 requirement) */}
-      {servicesToShow.length > 0 && (
-        <section className="py-16 bg-slate-50/70 border-y border-slate-200/80 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
-              <div className="space-y-1">
-                <span className="text-xs font-semibold uppercase tracking-wider text-teal-800">
-                  {locale === 'ne' ? 'क्लिनिकल सेवाहरू' : 'Outpatient Healthcare'}
-                </span>
-                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-950">
-                  {locale === 'ne' ? 'हाम्रा प्रमुख स्वास्थ्य सेवाहरू' : 'Featured Medical Services'}
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
-                  {locale === 'ne'
-                    ? 'दैनिक प्राथमिक उपचार, बालबालिकाको स्वास्थ्य जाँच, र नियमित स्वास्थ्य निगरानी।'
-                    : 'From preventive family medicine to routine pediatric OPD and specialized clinical care.'}
-                </p>
-              </div>
-              <Link
-                href={`/${locale}/services`}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-800 hover:underline"
-              >
-                <span>{locale === 'ne' ? 'सबै सेवाहरू हेर्नुहोस्' : 'View All Medical Services'}</span>
+      {/* 2. CARE PILLARS */}
+      <section className="relative bg-cream py-16 sm:py-20">
+        <div className="container-x">
+          <SectionHeading
+            eyebrow={locale === 'ne' ? 'हामी कसरी सहयोग गर्छौं' : 'How we care'}
+            title={locale === 'ne' ? 'एकै छानामुनि पूर्ण स्वास्थ्य सेवा' : 'One clinic, every step of care'}
+            description={
+              locale === 'ne'
+                ? 'परामर्शदेखि ल्याब परीक्षण र रिपोर्टसम्म — सबै प्रक्रिया सरल, पारदर्शी र बिरामी-केन्द्रित।'
+                : 'From your first consultation to the final lab report, every step is designed to be simple, transparent and centred on you.'
+            }
+            action={
+              <Link href={`/${locale}/explore/about`} className="link-arrow">
+                {locale === 'ne' ? 'क्लिनिकबारे जान्नुहोस्' : 'About the clinic'}
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
-            </div>
+            }
+          />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {servicesToShow.map((svc) => {
-                const title = locale === 'ne' && svc.nameNe ? svc.nameNe : svc.nameEn;
-                const desc = locale === 'ne' && svc.descriptionNe ? svc.descriptionNe : svc.descriptionEn;
-                const isMissingNe = locale === 'ne' && !svc.nameNe;
+          <div className="grid gap-4 md:grid-cols-3">
+            {[
+              {
+                n: '01',
+                icon: Stethoscope,
+                title: locale === 'ne' ? 'विशेषज्ञ परामर्श' : 'Specialist consultations',
+                body:
+                  locale === 'ne'
+                    ? 'नेपाल मेडिकल काउन्सिलमा दर्ता भएका चिकित्सकहरूद्वारा आन्तरिक चिकित्सा, बालरोग, स्त्रीरोग तथा हाडजोर्नी परामर्श।'
+                    : 'NMC-registered doctors covering internal medicine, pediatrics, gynecology and orthopedics.',
+                href: `/${locale}/doctors`,
+                cta: locale === 'ne' ? 'चिकित्सक सूची' : 'Browse specialists',
+                featured: true,
+              },
+              {
+                n: '02',
+                icon: FlaskConical,
+                title: locale === 'ne' ? 'ल्याब डायग्नोस्टिक्स' : 'Laboratory diagnostics',
+                body:
+                  locale === 'ne'
+                    ? 'कम्प्युटराइज्ड उपकरणबाट रगत, पिसाब तथा बायोकेमिकल परीक्षण, प्रमाणित प्राविधिकद्वारा जाँच।'
+                    : 'Computerized pathology and biochemistry, reviewed and verified by qualified lab technologists.',
+                href: `/${locale}/lab-tests`,
+                cta: locale === 'ne' ? 'परीक्षण सूची' : 'View lab catalogue',
+              },
+              {
+                n: '03',
+                icon: HeartPulse,
+                title: locale === 'ne' ? 'ओपीडी तथा नर्सिङ' : 'Outpatient & nursing',
+                body:
+                  locale === 'ne'
+                    ? 'प्राथमिक उपचार, घाउ ड्रेसिङ, इसिजी, नेबुलाइजेसन तथा नियमित रक्तचाप र सुगर निगरानी।'
+                    : 'Primary care, wound dressing, ECG, nebulization and routine blood pressure and sugar monitoring.',
+                href: `/${locale}/services`,
+                cta: locale === 'ne' ? 'सेवाहरू हेर्नुहोस्' : 'Explore services',
+              },
+            ].map((pillar) => (
+              <Link
+                key={pillar.n}
+                href={pillar.href}
+                className={
+                  pillar.featured
+                    ? 'group relative overflow-hidden rounded-3xl bg-brand-900 p-7 text-white shadow-soft transition-transform duration-300 hover:-translate-y-1'
+                    : 'group relative overflow-hidden rounded-3xl border border-brand-950/8 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-soft'
+                }
+              >
+                {pillar.featured && <div className="absolute inset-0 bg-grid-light opacity-30" />}
+                <div className="relative">
+                  <div className="flex items-center justify-between">
+                    <span
+                      className={
+                        pillar.featured
+                          ? 'grid h-11 w-11 place-items-center rounded-2xl bg-white/10 text-sand-300'
+                          : 'grid h-11 w-11 place-items-center rounded-2xl bg-brand-50 text-brand-700'
+                      }
+                    >
+                      <pillar.icon className="h-5 w-5" />
+                    </span>
+                    <span
+                      className={
+                        pillar.featured
+                          ? 'font-display text-3xl font-semibold text-white/20'
+                          : 'font-display text-3xl font-semibold text-brand-950/10'
+                      }
+                    >
+                      {pillar.n}
+                    </span>
+                  </div>
+                  <h3
+                    className={
+                      pillar.featured
+                        ? 'mt-6 font-display text-xl font-semibold tracking-tight'
+                        : 'mt-6 font-display text-xl font-semibold tracking-tight text-ink'
+                    }
+                  >
+                    {pillar.title}
+                  </h3>
+                  <p
+                    className={
+                      pillar.featured
+                        ? 'mt-2.5 text-[0.8125rem] leading-relaxed text-brand-100/75'
+                        : 'mt-2.5 text-[0.8125rem] leading-relaxed text-slate-600'
+                    }
+                  >
+                    {pillar.body}
+                  </p>
+                  <span
+                    className={
+                      pillar.featured
+                        ? 'mt-6 inline-flex items-center gap-1.5 text-xs font-semibold text-sand-300'
+                        : 'mt-6 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-700'
+                    }
+                  >
+                    {pillar.cta}
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. DOCTORS */}
+      {doctorsToShow.length > 0 && (
+        <section className="border-y border-brand-950/8 bg-white py-16 sm:py-20">
+          <div className="container-x">
+            <SectionHeading
+              eyebrow={locale === 'ne' ? 'चिकित्सक टोली' : 'Our clinicians'}
+              title={locale === 'ne' ? 'तपाईंलाई चिन्ने चिकित्सक' : 'Doctors who listen'}
+              description={
+                locale === 'ne'
+                  ? 'प्रमाणित र अनुभवी विशेषज्ञहरूसँग परामर्श लिनुहोस्, र आफ्नो समयतालिका अनुसार अनुरोध गर्नुहोस्।'
+                  : 'Consult verified, board-certified physicians and request a slot that fits your week.'
+              }
+              action={
+                <Link href={`/${locale}/doctors`} className="link-arrow">
+                  {locale === 'ne' ? 'सबै चिकित्सक' : 'All specialists'}
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              }
+            />
+
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {doctorsToShow.map((doc) => {
+                const name = locale === 'ne' && doc.nameNe ? doc.nameNe : doc.nameEn;
+                const specialty = locale === 'ne' && doc.specialtyNe ? doc.specialtyNe : doc.specialtyEn;
+                const quals = locale === 'ne' && doc.qualificationsNe ? doc.qualificationsNe : doc.qualificationsEn;
+                const isMissingNepali = locale === 'ne' && (!doc.nameNe || !doc.specialtyNe);
+                const bio = locale === 'ne' && doc.bioNe ? doc.bioNe : doc.bioEn;
 
                 return (
-                  <div
-                    key={svc.id}
-                    className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs flex flex-col justify-between hover:border-teal-300 transition-all"
-                  >
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <div className="h-10 w-10 rounded-xl bg-teal-50 text-teal-800 flex items-center justify-center">
-                          <HeartPulse className="h-5 w-5" />
-                        </div>
-                        <span className="text-xs text-slate-500 font-medium capitalize">
-                          {svc.bookingMode === 'request'
-                            ? (locale === 'ne' ? 'अनुरोधमा उपलब्ध' : 'Online Request')
-                            : (locale === 'ne' ? 'काउन्टर परामर्श' : 'Counter Walk-in')}
+                  <article key={doc.id} className="group card card-hover overflow-hidden">
+                    <div className="relative h-24 overflow-hidden bg-gradient-to-br from-brand-800 to-brand-950">
+                      <div className="absolute inset-0 bg-grid-light opacity-40" />
+                      <div className="absolute -right-6 -top-8 h-24 w-24 rounded-full bg-sand-400/15 blur-xl" />
+                      <span className="absolute right-4 top-4 rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[0.625rem] font-semibold text-brand-50 backdrop-blur">
+                        {locale === 'ne' ? 'उपलब्ध' : 'Consultation'}
+                      </span>
+                    </div>
+
+                    <div className="relative px-5 pb-5">
+                      <div className="-mt-8 flex items-end gap-3">
+                        <span className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl border-4 border-white bg-brand-50 font-display text-xl font-semibold text-brand-800 shadow-sm">
+                          {initialsOf(name)}
+                        </span>
+                        <span className="pb-1 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-brand-600">
+                          {specialty}
                         </span>
                       </div>
 
-                      <h3 className="font-bold text-base text-slate-900">{title}</h3>
+                      <h3 className="mt-3 font-display text-lg font-semibold tracking-tight text-ink">
+                        {name}
+                      </h3>
+                      {quals && <p className="mt-0.5 text-[0.6875rem] text-slate-500">{quals}</p>}
 
-                      {isMissingNe && (
-                        <p className="text-[10px] text-amber-800 bg-amber-50 p-2 rounded-lg border border-amber-200">
+                      {isMissingNepali && (
+                        <p className="mt-3 rounded-lg border border-amber-200 bg-amber-50 p-2 text-[0.625rem] text-amber-800">
                           {common.nepaliMissingNote}
                         </p>
                       )}
 
-                      <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed">
-                        {desc}
+                      <p className="mt-3 line-clamp-2 min-h-[2.5rem] text-xs leading-relaxed text-slate-600">
+                        {bio ||
+                          (locale === 'ne'
+                            ? 'क्लिनिकमा नियमित परामर्श उपलब्ध।'
+                            : 'Available for outpatient consultations at the clinic.')}
                       </p>
-                    </div>
 
-                    <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-                      <div>
-                        <span className="text-[10px] text-slate-400 block uppercase font-medium">
-                          {locale === 'ne' ? 'सेवा शुल्क' : 'Service Fee'}
-                        </span>
-                        <span className="font-bold text-slate-900 font-mono">
-                          {svc.fee !== null ? `NPR ${svc.fee}` : (locale === 'ne' ? 'काउन्टरमा पुष्टि हुने' : 'Confirmed at counter')}
-                        </span>
+                      <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-brand-950/8 pt-4">
+                        <div>
+                          <p className="text-[0.625rem] uppercase tracking-[0.1em] text-slate-400">
+                            {locale === 'ne' ? 'परामर्श शुल्क' : 'Consultation'}
+                          </p>
+                          <p className="font-display text-sm font-semibold text-ink">
+                            NPR {doc.consultationFee}
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <Link
+                            href={`/${locale}/doctors/${doc.slug}`}
+                            className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1.5 text-[0.6875rem] font-semibold text-slate-600 transition-colors hover:border-brand-300 hover:text-brand-900"
+                          >
+                            {locale === 'ne' ? 'तालिका' : 'Schedule'}
+                          </Link>
+                          <Link
+                            href={`/${locale}/book?doctor=${doc.id}`}
+                            className="inline-flex items-center gap-1 rounded-full bg-brand-800 px-3.5 py-1.5 text-[0.6875rem] font-bold text-white shadow-xs transition-all hover:bg-brand-900 hover:shadow-sm"
+                          >
+                            <Calendar className="h-3 w-3" />
+                            {locale === 'ne' ? 'बुकिङ' : 'Book'}
+                          </Link>
+                        </div>
                       </div>
+                    </div>
+                  </article>
+                );
+              })}
 
-                      <Link
-                        href={`/${locale}/book?service=${svc.id}`}
-                        className="inline-flex items-center gap-1 font-bold text-teal-800 hover:underline"
-                      >
-                        <span>{locale === 'ne' ? 'अनुरोध गर्नुहोस्' : 'Request Service'}</span>
+              {doctorsToShow.length < 3 && (
+                <article
+                  className={`relative flex flex-col justify-between overflow-hidden rounded-3xl bg-brand-950 p-6 text-white ${
+                    doctorsToShow.length === 1 ? 'md:col-span-1 lg:col-span-2' : ''
+                  }`}
+                >
+                  <div className="pointer-events-none absolute inset-0 bg-grid-light opacity-25" />
+                  <div className="pointer-events-none absolute -right-10 -top-12 h-40 w-40 rounded-full bg-brand-600/30 blur-2xl" />
+                  <div className="relative">
+                    <span className="grid h-11 w-11 place-items-center rounded-2xl bg-white/10 text-sand-300">
+                      <Phone className="h-5 w-5" />
+                    </span>
+                    <h3 className="mt-5 font-display text-xl font-semibold tracking-tight">
+                      {locale === 'ne'
+                        ? 'अर्को विशेषज्ञ चाहिन्छ?'
+                        : 'Looking for a different specialty?'}
+                    </h3>
+                    <p className="mt-2 max-w-sm text-[0.8125rem] leading-relaxed text-brand-100/75">
+                      {locale === 'ne'
+                        ? 'क्लिनिकमा थप विशेषज्ञ परामर्श उपलब्ध हुन सक्छ। रिसेप्सनलाई फोन गर्नुहोस् वा अनुरोध पठाउनुहोस्।'
+                        : 'Additional specialists may be available on request. Call reception or send a request and we will guide you.'}
+                    </p>
+                  </div>
+                  <div className="relative mt-6 flex flex-wrap items-center gap-2.5">
+                    <a href={`tel:${phone}`} className="btn btn-accent !px-4 !py-2.5 text-xs">
+                      <Phone className="h-3.5 w-3.5" />
+                      {phone}
+                    </a>
+                    <Link href={`/${locale}/book`} className="btn btn-outline-light !px-4 !py-2.5 text-xs">
+                      <Calendar className="h-3.5 w-3.5" />
+                      {common.bookSession}
+                    </Link>
+                  </div>
+                </article>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 4. SERVICES */}
+      {servicesToShow.length > 0 && (
+        <section className="bg-cream py-16 sm:py-20">
+          <div className="container-x">
+            <SectionHeading
+              eyebrow={locale === 'ne' ? 'क्लिनिकल सेवा' : 'Clinical services'}
+              title={locale === 'ne' ? 'दैनिक उपचार, नियमित हेरचाह' : 'Everyday care, thoughtfully delivered'}
+              description={
+                locale === 'ne'
+                  ? 'प्रतिरोधात्मक परिवार चिकित्सादेखि नियमित बाल ओपीडीसम्म, तपाईंको दिनचर्यामा मिल्ने सेवाहरू।'
+                  : 'From preventive family medicine to routine pediatric OPD — services built around your daily life.'
+              }
+              action={
+                <Link href={`/${locale}/services`} className="link-arrow">
+                  {locale === 'ne' ? 'सबै सेवा' : 'All services'}
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              }
+            />
+
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {servicesToShow.map((svc) => {
+                const title = locale === 'ne' && svc.nameNe ? svc.nameNe : svc.nameEn;
+                const desc = locale === 'ne' && svc.descriptionNe ? svc.descriptionNe : svc.descriptionEn;
+                return (
+                  <article key={svc.id} className="group card card-hover flex flex-col p-6">
+                    <div className="flex items-start justify-between">
+                      <span className="grid h-11 w-11 place-items-center rounded-2xl bg-brand-50 text-brand-700">
+                        <HeartPulse className="h-5 w-5" />
+                      </span>
+                      <span className="chip">
+                        {svc.bookingMode === 'request'
+                          ? locale === 'ne'
+                            ? 'अनलाइन अनुरोध'
+                            : 'Online request'
+                          : locale === 'ne'
+                            ? 'काउन्टर'
+                            : 'Walk-in'}
+                      </span>
+                    </div>
+                    <h3 className="mt-5 font-display text-lg font-semibold tracking-tight text-ink">{title}</h3>
+                    <p className="mt-2 line-clamp-3 flex-1 text-[0.8125rem] leading-relaxed text-slate-600">
+                      {desc || (locale === 'ne' ? 'विवरण क्लिनिकमा उपलब्ध।' : 'Details available at reception.')}
+                    </p>
+                    <div className="mt-5 flex items-center justify-between border-t border-brand-950/8 pt-4">
+                      <span className="font-display text-sm font-semibold text-ink">
+                        {svc.fee !== null && svc.fee > 0
+                          ? `NPR ${svc.fee}`
+                          : locale === 'ne'
+                            ? 'काउन्टरमा पुष्टि'
+                            : 'Confirmed at counter'}
+                      </span>
+                      <Link href={`/${locale}/book?service=${svc.id}`} className="link-arrow">
+                        {locale === 'ne' ? 'अनुरोध' : 'Request'}
                         <ArrowRight className="h-3 w-3" />
                       </Link>
                     </div>
-                  </div>
+                  </article>
                 );
               })}
             </div>
@@ -571,299 +700,374 @@ export default async function HomePage({ params }: HomePageProps) {
         </section>
       )}
 
-      {/* 5. FEATURED LAB DIAGNOSTIC TESTS (Section 5 requirement) */}
-      {labTestsToShow.length > 0 && (
-        <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
-            <div className="space-y-1">
-              <span className="text-xs font-semibold uppercase tracking-wider text-teal-800">
-                {locale === 'ne' ? 'डायग्नोस्टिक ल्याब' : 'Pathology Diagnostics'}
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-950">
-                {locale === 'ne' ? 'प्रमुख प्रयोगशाला परीक्षणहरू' : 'Laboratory Diagnostic Tests'}
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
+      {/* 5. LAB DIAGNOSTICS + DIGITAL REPORTS */}
+      <section className="border-y border-brand-950/8 bg-white py-16 sm:py-20">
+        <div className="container-x grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
+          <div>
+            <span className="eyebrow">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
+              {locale === 'ne' ? 'ल्याब डायग्नोस्टिक्स' : 'Lab diagnostics'}
+            </span>
+            <h2 className="display-title mt-3 text-3xl sm:text-[2.5rem]">
+              {locale === 'ne' ? 'सटीक नतिजा, सुरक्षित पहुँच' : 'Precise results. Private by default.'}
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-slate-600">
+              {locale === 'ne'
+                ? 'तपाईंको नमुना क्लिनिकमै प्रशोधन गरिन्छ र प्रमाणित प्राविधिकद्वारा जाँच गरी रिपोर्ट पोर्टलमा जारी गरिन्छ।'
+                : 'Samples are processed in-clinic and verified by qualified technologists before your report is released to your secure portal.'}
+            </p>
+
+            <div className="mt-6 space-y-2.5">
+              {[
+                locale === 'ne' ? 'प्रमाणित ल्याब प्राविधिकद्वारा जाँच' : 'Reviewed by qualified lab technologists',
+                locale === 'ne' ? 'पोर्टलमा सुरक्षित पीडीएफ रिपोर्ट' : 'Authenticated PDF reports in your portal',
+                locale === 'ne' ? 'घरमै नमुना संकलन उपलब्ध' : 'Home sample collection where available',
+              ].map((item) => (
+                <p key={item} className="flex items-start gap-2 text-[0.8125rem] text-slate-600">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" />
+                  {item}
+                </p>
+              ))}
+            </div>
+
+            <div className="mt-7 overflow-hidden rounded-3xl bg-brand-900 p-6 text-white">
+              <div className="flex items-center gap-3">
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-sand-300">
+                  <FileText className="h-5 w-5" />
+                </span>
+                <div>
+                  <p className="font-display text-base font-semibold">Your reports, online</p>
+                  <p className="text-[0.6875rem] text-brand-100/70">
+                    {locale === 'ne' ? 'पोर्टलमा लगइन गर्नुहोस्' : 'Sign in to the patient portal'}
+                  </p>
+                </div>
+              </div>
+              <p className="mt-4 text-xs leading-relaxed text-brand-100/75">
                 {locale === 'ne'
-                  ? 'सटीक परिणाम, सुरक्षित नमुना संकलन र बिरामी पोर्टलमा तत्काल डिजिटल रिपोर्ट उपलब्धता।'
-                  : 'Precise automated test results, prompt sample processing, and private online PDF report delivery.'}
+                  ? 'काउन्टरमा परीक्षण गराउनुभएको छ? रिसेप्सनबाट प्राप्त ७-दिने दाबी कोड प्रयोग गरी रिपोर्ट अनलाइन हेर्नुहोस्।'
+                  : 'Visited the clinic counter? Use the 7-day claim code from reception to link and view your reports online.'}
+              </p>
+              <Link
+                href={`/${locale}/portal/login`}
+                className="mt-5 inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2.5 text-[0.6875rem] font-bold text-brand-900 transition-colors hover:bg-sand-100"
+              >
+                {locale === 'ne' ? 'रिपोर्ट हेर्नुहोस्' : 'Access my reports'}
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+          </div>
+
+          <div>
+            <div className="mb-5 flex items-end justify-between">
+              <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-slate-400">
+                {locale === 'ne' ? 'लोकप्रिय परीक्षणहरू' : 'Popular investigations'}
+              </p>
+              <Link href={`/${locale}/lab-tests`} className="link-arrow">
+                {locale === 'ne' ? 'सबै हेर्नुहोस्' : 'View all'}
+                <ArrowRight className="h-3 w-3" />
+              </Link>
+            </div>
+
+            {labTestsToShow.length > 0 ? (
+              <div className="grid gap-3 sm:grid-cols-2">
+                {labTestsToShow.map((test) => {
+                  const testName = locale === 'ne' && test.nameNe ? test.nameNe : test.nameEn;
+                  const sample =
+                    locale === 'ne' ? test.sampleTypeNe || test.sampleTypeEn : test.sampleTypeEn;
+                  return (
+                    <Link
+                      key={test.id}
+                      href={`/${locale}/lab-tests/${test.slug}`}
+                      className="group card card-hover flex flex-col p-5"
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-50 text-brand-700">
+                          <FlaskConical className="h-4 w-4" />
+                        </span>
+                        {test.isHomeCollectionAvailable && (
+                          <span className="rounded-full bg-sand-100 px-2 py-0.5 text-[0.5625rem] font-bold uppercase tracking-wide text-sand-500">
+                            {locale === 'ne' ? 'घरमै' : 'Home'}
+                          </span>
+                        )}
+                      </div>
+                      <h3 className="mt-4 font-display text-[0.9375rem] font-semibold leading-snug text-ink group-hover:text-brand-800">
+                        {testName}
+                      </h3>
+                      {sample && (
+                        <p className="mt-1 text-[0.6875rem] text-slate-500">
+                          {locale === 'ne' ? 'नमुना: ' : 'Sample: '}
+                          <span className="font-medium text-slate-700">{sample}</span>
+                        </p>
+                      )}
+                      <div className="mt-auto flex items-center justify-between border-t border-brand-950/8 pt-3.5 text-[0.6875rem]">
+                        <span className="font-semibold text-ink">
+                          {test.price !== null
+                            ? `NPR ${test.price}`
+                            : locale === 'ne'
+                              ? 'शुल्क पुष्टि हुने'
+                              : 'Price on confirmation'}
+                        </span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-slate-300 transition-colors group-hover:text-brand-700" />
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="rounded-2xl border border-dashed border-brand-950/15 p-8 text-center text-sm text-slate-500">
+                {locale === 'ne' ? 'परीक्षण सूची अद्यावधिक हुँदैछ।' : 'Lab catalogue is being updated.'}
+              </div>
+            )}
+
+            <div className="mt-4 flex items-start gap-3 rounded-2xl border border-brand-950/8 bg-cream p-4">
+              <Microscope className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" />
+              <p className="text-[0.6875rem] leading-relaxed text-slate-600">
+                {locale === 'ne'
+                  ? 'अधिकांश परीक्षणको नतिजा क्लिनिकको समयभित्रै प्राप्त हुन्छ। आवश्यक पूर्वतयारीको जानकारी परीक्षण विवरणमा उल्लेख छ।'
+                  : 'Most routine results are available within the clinic day. Preparation instructions are listed on each test page.'}
               </p>
             </div>
-            <Link
-              href={`/${locale}/lab-tests`}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-800 hover:underline"
-            >
-              <span>{locale === 'ne' ? 'सबै परीक्षणहरू हेर्नुहोस्' : 'View Full Lab Catalogue'}</span>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. ARTICLES */}
+      {publishedArticles.length > 0 && (
+        <section className="bg-cream py-16 sm:py-20">
+          <div className="container-x">
+            <SectionHeading
+              eyebrow={locale === 'ne' ? 'स्वास्थ्य जानकारी' : 'Health guidance'}
+              title={locale === 'ne' ? 'पढ्न लायक, भरपर्दो सल्लाह' : 'Advice worth reading'}
+              description={
+                locale === 'ne'
+                  ? 'क्लिनिकका चिकित्सकहरूद्वारा समीक्षा गरिएका रोग रोकथाम तथा स्वस्थ जीवनशैलीका लेखहरू।'
+                  : 'Prevention and everyday wellness articles, reviewed by our clinical team.'
+              }
+              action={
+                <Link href={`/${locale}/explore/health-info`} className="link-arrow">
+                  {locale === 'ne' ? 'सबै लेख' : 'All articles'}
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              }
+            />
+
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {publishedArticles.map((article) => {
+                const title = locale === 'ne' && article.titleNe ? article.titleNe : article.titleEn;
+                const excerpt = locale === 'ne' && article.excerptNe ? article.excerptNe : article.excerptEn;
+                return (
+                  <Link
+                    key={article.id}
+                    href={`/${locale}/explore/health-info/${article.slug}`}
+                    className="group card card-hover flex flex-col p-6"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="chip">
+                        <BookOpen className="h-3 w-3" />
+                        {article.category || 'General health'}
+                      </span>
+                      <span className="text-[0.625rem] text-slate-400">
+                        {article.createdAt
+                          ? new Date(article.createdAt).toLocaleDateString(locale === 'ne' ? 'ne-NP' : 'en-GB', {
+                              day: 'numeric',
+                              month: 'short',
+                              year: 'numeric',
+                            })
+                          : ''}
+                      </span>
+                    </div>
+                    <h3 className="mt-5 line-clamp-2 font-display text-lg font-semibold leading-snug tracking-tight text-ink group-hover:text-brand-800">
+                      {title}
+                    </h3>
+                    <p className="mt-2.5 line-clamp-3 flex-1 text-[0.8125rem] leading-relaxed text-slate-600">
+                      {excerpt}
+                    </p>
+                    <span className="mt-5 inline-flex items-center gap-1.5 border-t border-brand-950/8 pt-4 text-[0.6875rem] font-bold text-brand-700">
+                      {locale === 'ne' ? 'लेख पढ्नुहोस्' : 'Read article'}
+                      <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 7. FAQ */}
+      <section className="border-y border-brand-950/8 bg-white py-16 sm:py-20">
+        <div className="container-x grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+          <div>
+            <span className="eyebrow">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
+              {locale === 'ne' ? 'प्रश्नहरू' : 'Questions'}
+            </span>
+            <h2 className="display-title mt-3 text-3xl sm:text-[2.5rem]">
+              {locale === 'ne' ? 'जान्नैपर्ने कुराहरू' : 'Good to know'}
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-slate-600">
+              {locale === 'ne'
+                ? 'अपोइन्टमेन्ट अनुरोध, ल्याब रिपोर्ट र भुक्तानी सम्बन्धी स्पष्ट उत्तरहरू।'
+                : 'Clear answers about appointment requests, lab reports and payments.'}
+            </p>
+
+            <div className="mt-7 rounded-2xl border border-brand-950/8 bg-cream p-5">
+              <p className="font-display text-sm font-semibold text-ink">
+                {locale === 'ne' ? 'अझै प्रश्न छ?' : 'Still have a question?'}
+              </p>
+              <p className="mt-1 text-xs leading-relaxed text-slate-600">
+                {locale === 'ne'
+                  ? 'रिसेप्सन टोलीले क्लिनिक समयभित्र सहयोग गर्नेछ।'
+                  : 'Our reception team is happy to help during clinic hours.'}
+              </p>
+              <a
+                href={`tel:${phone}`}
+                className="mt-4 inline-flex items-center gap-2 text-xs font-bold text-brand-800 hover:underline"
+              >
+                <Phone className="h-3.5 w-3.5" />
+                {phone}
+              </a>
+            </div>
+
+            <Link href={`/${locale}/explore/faq`} className="link-arrow mt-6">
+              {locale === 'ne' ? 'सबै प्रश्नहरू' : 'All frequently asked questions'}
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {labTestsToShow.map((test) => {
-              const testName = locale === 'ne' && test.nameNe ? test.nameNe : test.nameEn;
-              const isMissingNe = locale === 'ne' && !test.nameNe;
-
-              return (
-                <div
-                  key={test.id}
-                  className="rounded-2xl border border-slate-200/90 bg-white p-5 shadow-xs hover:border-teal-300 transition-all flex flex-col justify-between"
-                >
-                  <div className="space-y-2.5">
-                    <div className="flex items-center justify-between text-xs text-slate-500">
-                      <div className="h-8 w-8 rounded-lg bg-teal-50 text-teal-800 flex items-center justify-center">
-                        <FlaskConical className="h-4 w-4" />
-                      </div>
-                      {test.isHomeCollectionAvailable && (
-                        <span className="text-[11px] text-teal-800 font-semibold">
-                          {locale === 'ne' ? 'घरमै संकलन' : 'Home Sample'}
-                        </span>
-                      )}
-                    </div>
-
-                    <h4 className="font-bold text-sm text-slate-900 leading-snug">{testName}</h4>
-
-                    {isMissingNe && (
-                      <p className="text-[10px] text-amber-800 bg-amber-50 p-1.5 rounded">
-                        {common.nepaliMissingNote}
-                      </p>
-                    )}
-
-                    {(locale === 'ne' ? test.sampleTypeNe || test.sampleTypeEn : test.sampleTypeEn) && (
-                      <p className="text-[11px] text-slate-500">
-                        {locale === 'ne' ? 'नमुना: ' : 'Sample: '}
-                        <span className="font-medium text-slate-700">
-                          {locale === 'ne' ? test.sampleTypeNe || test.sampleTypeEn : test.sampleTypeEn}
-                        </span>
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-                    <div>
-                      <span className="text-[10px] text-slate-400 block uppercase font-medium">
-                        {locale === 'ne' ? 'परीक्षण शुल्क' : 'Price'}
-                      </span>
-                      <span className="font-bold text-slate-900 font-mono">
-                        {test.price !== null ? `NPR ${test.price}` : (locale === 'ne' ? 'पुष्टि हुने' : 'Confirmed')}
-                      </span>
-                    </div>
-
-                    <Link
-                      href={`/${locale}/lab-tests/${test.slug}`}
-                      className="font-bold text-teal-800 hover:underline flex items-center gap-1"
-                    >
-                      <span>{locale === 'ne' ? 'विवरण' : 'Details'}</span>
-                      <ArrowRight className="h-3 w-3" />
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </section>
-      )}
-
-      {/* 6. PATIENT HEALTH GUIDANCE / LATEST ARTICLES (Section 5 requirement) */}
-      {publishedArticles.length > 0 && (
-        <section className="py-16 bg-slate-50/70 border-y border-slate-200/80 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
-              <div className="space-y-1">
-                <span className="text-xs font-semibold uppercase tracking-wider text-teal-800">
-                  {locale === 'ne' ? 'स्वास्थ्य सचेतना' : 'Clinical Health Guidance'}
-                </span>
-                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-950">
-                  {locale === 'ne' ? 'नयाँ स्वास्थ्य लेख तथा सुझावहरू' : 'Verified Health Articles'}
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
-                  {locale === 'ne'
-                    ? 'क्लिनिकका चिकित्सकहरूद्वारा प्रमाणित स्वास्थ्य सल्लाह र रोग रोकथामका व्यावहारिक उपायहरू।'
-                    : 'Evidence-based insights, preventive wellness guidelines, and medical advice reviewed by our staff.'}
-                </p>
-              </div>
-              <Link
-                href={`/${locale}/explore/health-info`}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-800 hover:underline"
-              >
-                <span>{locale === 'ne' ? 'सबै लेखहरू हेर्नुहोस्' : 'Explore All Articles'}</span>
-                <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {publishedArticles.map((article) => {
-                const title = locale === 'ne' && article.titleNe ? article.titleNe : article.titleEn;
-                const excerpt = locale === 'ne' && article.excerptNe ? article.excerptNe : article.excerptEn;
-
-                return (
-                  <div
-                    key={article.id}
-                    className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs flex flex-col justify-between hover:border-teal-300 transition-all"
-                  >
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-2 text-xs text-slate-500">
-                        <BookOpen className="h-4 w-4 text-teal-700" />
-                        <span>{article.category || 'General Health'}</span>
-                        <span aria-hidden="true">·</span>
-                        <span>{article.createdAt ? new Date(article.createdAt).toLocaleDateString() : 'Recent'}</span>
-                      </div>
-
-                      <h3 className="font-bold text-base text-slate-900 leading-snug line-clamp-2">
-                        {title}
-                      </h3>
-
-                      <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed">
-                        {excerpt}
-                      </p>
-                    </div>
-
-                    <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-                      <span className="text-slate-500">
-                        {locale === 'ne' ? 'चिकित्सकद्वारा प्रमाणित' : 'Clinically Reviewed'}
-                      </span>
-                      <Link
-                        href={`/${locale}/explore/health-info/${article.slug}`}
-                        className="font-bold text-teal-800 hover:underline flex items-center gap-1"
-                      >
-                        <span>{locale === 'ne' ? 'पूरा पढ्नुहोस्' : 'Read Article'}</span>
-                        <ArrowRight className="h-3 w-3" />
-                      </Link>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* 7. FREQUENTLY ASKED QUESTIONS PREVIEW (Section 5 requirement) */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
-        <div className="text-center space-y-2 mb-10">
-          <span className="text-xs font-semibold uppercase tracking-wider text-teal-800">
-            {locale === 'ne' ? 'प्रायः सोधिने प्रश्नहरू' : 'Patient Inquiries & FAQ'}
-          </span>
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-950">
-            {locale === 'ne' ? 'क्लिनिक सेवा सम्बन्धी जानकारी' : 'Everything You Need to Know'}
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-500 max-w-xl mx-auto">
-            {locale === 'ne'
-              ? 'अपोइन्टमेन्ट अनुरोध, ल्याब रिपोर्ट र क्लिनिक प्रक्रिया सम्बन्धी मुख्य प्रश्नहरूको स्पष्ट जवाफ।'
-              : 'Clear answers on requesting consultations, receiving authenticated lab reports, and payment policies.'}
-          </p>
-        </div>
-
-        <HomeFaqAccordion faqs={homeFaqs} />
-
-        <div className="mt-8 text-center">
-          <Link
-            href={`/${locale}/explore/faq`}
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-800 hover:underline"
-          >
-            <span>{locale === 'ne' ? 'थप प्रायः सोधिने प्रश्नहरू हेर्नुहोस्' : 'View Full Frequently Asked Questions'}</span>
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
+          <HomeFaqAccordion faqs={homeFaqs} />
         </div>
       </section>
 
-      {/* 8. PHYSICAL CLINIC LOCATION, HOURS & OFFICIAL FACEBOOK HUB */}
-      <section className="py-16 bg-slate-50/80 border-t border-slate-200/80 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center space-y-2 mb-10">
-            <span className="text-xs font-semibold uppercase tracking-wider text-teal-800">
-              {locale === 'ne' ? 'क्लिनिक उपस्थिति' : 'Physical Location & Connect'}
-            </span>
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-950">
-              {locale === 'ne' ? 'क्लिनिक सम्पर्क तथा सामाजिक उपस्थिति' : 'Visit Us or Connect Directly'}
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* 1: Location */}
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs space-y-3">
-              <div className="h-10 w-10 rounded-xl bg-teal-50 text-teal-800 flex items-center justify-center">
-                <MapPin className="h-5 w-5" />
-              </div>
-              <h4 className="font-bold text-slate-900 text-sm">
-                {locale === 'ne' ? 'क्लिनिक स्थान' : 'Physical Address'}
-              </h4>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                {address || (locale === 'ne' ? 'ठेगाना क्लिनिकद्वारा पुष्टि हुने' : 'Location confirmed by clinic')}
-              </p>
-            </div>
-
-            {/* 2: Operating Hours */}
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs space-y-3">
-              <div className="h-10 w-10 rounded-xl bg-teal-50 text-teal-800 flex items-center justify-center">
-                <Clock className="h-5 w-5" />
-              </div>
-              <h4 className="font-bold text-slate-900 text-sm">
-                {locale === 'ne' ? 'खुल्ने समय' : 'Clinical Operating Hours'}
-              </h4>
-              <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                {openingHours}
-              </p>
-            </div>
-
-            {/* 3: Telephone Inquiries */}
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs space-y-3">
-              <div className="h-10 w-10 rounded-xl bg-teal-50 text-teal-800 flex items-center justify-center">
-                <Phone className="h-5 w-5" />
-              </div>
-              <h4 className="font-bold text-slate-900 text-sm">
-                {locale === 'ne' ? 'सम्पर्क तथा रिसेप्सन' : 'Telephone & Emergency'}
-              </h4>
-              <div className="space-y-1">
-                <p className="text-xs text-slate-500">{locale === 'ne' ? 'रिसेप्सन:' : 'Main Line:'}</p>
-                <a
-                  href={`tel:${phone}`}
-                  className="block text-xs font-bold text-slate-900 hover:text-teal-800 font-mono"
-                >
-                  {phone}
-                </a>
-                {emergencyPhone && emergencyPhone !== phone && (
-                  <>
-                    <p className="text-xs text-slate-500 pt-1">{locale === 'ne' ? 'आपतकालीन:' : 'Emergency:'}</p>
-                    <a
-                      href={`tel:${emergencyPhone}`}
-                      className="block text-xs font-bold text-rose-700 hover:underline font-mono"
-                    >
-                      {emergencyPhone}
-                    </a>
-                  </>
-                )}
-              </div>
-            </div>
-
-            {/* 4: Official Facebook Community */}
-            <div className="rounded-2xl border border-blue-200/80 bg-blue-50/40 p-6 shadow-xs space-y-3 flex flex-col justify-between">
-              <div className="space-y-3">
-                <div className="h-10 w-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center">
-                  <ShieldCheck className="h-5 w-5" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-900 text-sm">
-                    {locale === 'ne' ? 'आधिकारिक फेसबुक' : 'Official Facebook Page'}
-                  </h4>
-                  <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                    {locale === 'ne'
-                      ? 'दैनिक स्वास्थ्य सूचना, ओपिडी तालिका तथा शिविरहरूको जानकारीको लागि हामीसँग जोडिनुहोस्।'
-                      : 'Follow our official page for doctor rotation schedules, public health camps, and announcements.'}
-                  </p>
-                </div>
-              </div>
-
-              {facebookUrl && (
+      {/* 8. LOCATION & CONTACT */}
+      <section className="bg-cream py-16 sm:py-20">
+        <div className="container-x">
+          <SectionHeading
+            eyebrow={locale === 'ne' ? 'भेट्नुहोस्' : 'Visit us'}
+            title={locale === 'ne' ? 'क्लिनिकमा आउनुहोस्' : 'Find us, or reach out'}
+            description={
+              locale === 'ne'
+                ? 'ठेगाना, खुल्ने समय र सम्पर्क विवरण।'
+                : 'Address, opening hours and the fastest way to reach the clinic.'
+            }
+            action={
+              facebookUrl ? (
                 <a
                   href={facebookUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 hover:text-blue-900 hover:underline"
+                  className="inline-flex items-center gap-2 rounded-full border border-brand-950/10 bg-white px-4 py-2.5 text-xs font-semibold text-brand-900 transition-colors hover:border-brand-300"
                 >
-                  <span>{locale === 'ne' ? 'फेसबुक पेज खोल्नुहोस्' : 'Visit Official Facebook'}</span>
-                  <ExternalLink className="h-3.5 w-3.5" />
+                  <Facebook className="h-4 w-4 text-[#1877F2]" />
+                  {locale === 'ne' ? 'फेसबुक पेज' : 'Facebook page'}
+                  <ArrowUpRight className="h-3.5 w-3.5 text-slate-400" />
+                </a>
+              ) : undefined
+            }
+          />
+
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <div className="card p-6">
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand-50 text-brand-700">
+                <MapPin className="h-5 w-5" />
+              </span>
+              <h3 className="mt-5 font-display text-sm font-semibold text-ink">
+                {locale === 'ne' ? 'क्लिनिक स्थान' : 'Clinic address'}
+              </h3>
+              <p className="mt-2 text-xs leading-relaxed text-slate-600">
+                {address || (locale === 'ne' ? 'ठेगाना क्लिनिकद्वारा पुष्टि हुने' : 'Location confirmed by clinic')}
+              </p>
+            </div>
+
+            <div className="card p-6">
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand-50 text-brand-700">
+                <Clock className="h-5 w-5" />
+              </span>
+              <h3 className="mt-5 font-display text-sm font-semibold text-ink">
+                {locale === 'ne' ? 'खुल्ने समय' : 'Opening hours'}
+              </h3>
+              <p className="mt-2 text-xs font-medium leading-relaxed text-slate-600">{openingHours}</p>
+            </div>
+
+            <div className="card p-6">
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand-50 text-brand-700">
+                <Phone className="h-5 w-5" />
+              </span>
+              <h3 className="mt-5 font-display text-sm font-semibold text-ink">
+                {locale === 'ne' ? 'फोन सम्पर्क' : 'Call the clinic'}
+              </h3>
+              <a
+                href={`tel:${phone}`}
+                className="mt-2 block font-mono text-xs font-bold text-slate-800 hover:text-brand-800"
+              >
+                {phone}
+              </a>
+              {emergencyPhone && emergencyPhone !== phone && (
+                <a
+                  href={`tel:${emergencyPhone}`}
+                  className="mt-1 block font-mono text-xs font-bold text-rose-700 hover:underline"
+                >
+                  {locale === 'ne' ? 'आपतकालीन: ' : 'Emergency: '}
+                  {emergencyPhone}
                 </a>
               )}
             </div>
+
+            <div className="relative overflow-hidden rounded-3xl bg-brand-900 p-6 text-white">
+              <div className="absolute inset-0 bg-grid-light opacity-30" />
+              <div className="relative">
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-sand-300">
+                  <ClipboardCheck className="h-5 w-5" />
+                </span>
+                <h3 className="mt-5 font-display text-sm font-semibold">
+                  {locale === 'ne' ? 'अनलाइन अनुरोध' : 'Request a visit'}
+                </h3>
+                <p className="mt-2 text-xs leading-relaxed text-brand-100/75">
+                  {locale === 'ne'
+                    ? 'तपाईंको समय अनुरोध पठाउनुहोस् — रिसेप्सनले पुष्टि गर्नेछ।'
+                    : 'Send a preferred time — reception will confirm your slot.'}
+                </p>
+                <Link
+                  href={`/${locale}/book`}
+                  className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2 text-[0.6875rem] font-bold text-brand-900"
+                >
+                  {common.bookSession}
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. FINAL CTA */}
+      <section className="relative overflow-hidden bg-brand-950 py-14 text-white sm:py-16">
+        <div className="pointer-events-none absolute inset-0 bg-grid-light opacity-25" />
+        <div className="pointer-events-none absolute -right-24 top-0 h-72 w-72 rounded-full bg-brand-600/25 blur-3xl" />
+        <div className="container-x relative flex flex-col items-start justify-between gap-7 md:flex-row md:items-center">
+          <div className="max-w-xl">
+            <span className="eyebrow text-sand-300">
+              <span className="h-1.5 w-1.5 rounded-full bg-sand-400" />
+              {locale === 'ne' ? 'सुरु गर्नुहोस्' : 'Get started'}
+            </span>
+            <h2 className="display-title mt-3 text-3xl text-white sm:text-[2.5rem]">
+              {locale === 'ne' ? 'आजै आफ्नो स्वास्थ्यको ख्याल गर्नुहोस्' : 'Your health deserves a head start'}
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-brand-100/75">
+              {locale === 'ne'
+                ? 'अनलाइन अनुरोध गर्नुहोस् वा रिसेप्सनलाई फोन गर्नुहोस्। हामी तपाईंको समय पुष्टि गर्नेछौं।'
+                : 'Send a request online or call reception. We will confirm a time that works for you.'}
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link href={`/${locale}/book`} className="btn btn-accent">
+              <Calendar className="h-4 w-4" />
+              {common.bookSession}
+            </Link>
+            <a href={`tel:${phone}`} className="btn btn-outline-light">
+              <Phone className="h-4 w-4" />
+              {phone}
+            </a>
           </div>
         </div>
       </section>

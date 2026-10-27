@@ -189,7 +189,7 @@ export default function PatientDashboardClient({
         );
       case 'pending':
         return (
-          <span className="inline-flex items-center gap-1 text-[11px] font-bold bg-slate-100 text-slate-800 border border-slate-300 px-2.5 py-0.5 rounded-full">
+          <span className="inline-flex items-center gap-1 text-[11px] font-bold bg-slate-100 text-slate-800 border border-brand-950/15 px-2.5 py-0.5 rounded-full">
             <Clock className="h-3 w-3 text-slate-600" />
             <span>{bookingMessages.statusPending}</span>
           </span>
@@ -233,9 +233,9 @@ export default function PatientDashboardClient({
       {/* Add Family Profile Modal */}
       {showAddProfileModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-          <div className="w-full max-w-md bg-white border border-slate-200 p-6 rounded-2xl shadow-xl space-y-4">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-              <h3 className="font-bold text-slate-900 text-base">{t.addFamilyMember}</h3>
+          <div className="w-full max-w-md bg-white border border-brand-950/10 p-6 rounded-2xl shadow-xl space-y-4">
+            <div className="flex items-center justify-between border-b border-brand-950/8 pb-3">
+              <h3 className="font-bold text-ink text-base">{t.addFamilyMember}</h3>
               <button type="button" onClick={() => setShowAddProfileModal(false)} className="text-slate-400 hover:text-slate-600">
                 <X className="h-5 w-5" />
               </button>
@@ -249,7 +249,7 @@ export default function PatientDashboardClient({
                   value={newProfileName}
                   onChange={(e) => setNewProfileName(e.target.value)}
                   placeholder="e.g. Maya Sharma"
-                  className="w-full rounded-xl border border-slate-300 py-2 px-3 text-xs text-slate-900"
+                  className="w-full rounded-xl border border-brand-950/15 py-2 px-3 text-xs text-ink"
                 />
               </div>
               <div className="grid grid-cols-2 gap-3">
@@ -258,7 +258,7 @@ export default function PatientDashboardClient({
                   <select
                     value={newProfileRelation}
                     onChange={(e) => setNewProfileRelation(e.target.value)}
-                    className="w-full rounded-xl border border-slate-300 py-2 px-3 text-xs text-slate-900"
+                    className="w-full rounded-xl border border-brand-950/15 py-2 px-3 text-xs text-ink"
                   >
                     <option value="child">Child (छोरा/छोरी)</option>
                     <option value="parent">Parent (आमा/बुवा)</option>
@@ -272,7 +272,7 @@ export default function PatientDashboardClient({
                   <select
                     value={newProfileSex}
                     onChange={(e) => setNewProfileSex(e.target.value)}
-                    className="w-full rounded-xl border border-slate-300 py-2 px-3 text-xs text-slate-900"
+                    className="w-full rounded-xl border border-brand-950/15 py-2 px-3 text-xs text-ink"
                   >
                     <option value="female">Female</option>
                     <option value="male">Male</option>
@@ -286,7 +286,7 @@ export default function PatientDashboardClient({
                   type="date"
                   value={newProfileDob}
                   onChange={(e) => setNewProfileDob(e.target.value)}
-                  className="w-full rounded-xl border border-slate-300 py-2 px-3 text-xs text-slate-900"
+                  className="w-full rounded-xl border border-brand-950/15 py-2 px-3 text-xs text-ink"
                 />
               </div>
               <div className="pt-2 flex justify-end gap-2">
@@ -299,7 +299,7 @@ export default function PatientDashboardClient({
                 </button>
                 <button
                   type="submit"
-                  className="rounded-xl bg-teal-800 hover:bg-teal-900 px-5 py-2 text-xs font-semibold text-white"
+                  className="rounded-xl bg-brand-800 hover:bg-brand-900 px-5 py-2 text-xs font-semibold text-white"
                 >
                   Save Profile
                 </button>
@@ -312,11 +312,11 @@ export default function PatientDashboardClient({
       {/* Redeem Walk-in Claim Code Modal */}
       {showClaimModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-          <div className="w-full max-w-md bg-white border border-slate-200 p-6 rounded-2xl shadow-xl space-y-4">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+          <div className="w-full max-w-md bg-white border border-brand-950/10 p-6 rounded-2xl shadow-xl space-y-4">
+            <div className="flex items-center justify-between border-b border-brand-950/8 pb-3">
               <div className="flex items-center gap-2">
-                <KeyRound className="h-5 w-5 text-teal-800" />
-                <h3 className="font-bold text-slate-900 text-base">
+                <KeyRound className="h-5 w-5 text-brand-800" />
+                <h3 className="font-bold text-ink text-base">
                   {locale === 'ne' ? 'दावी कोड प्रविष्ट गर्नुहोस्' : 'Redeem Walk-in Claim Code'}
                 </h3>
               </div>
@@ -356,7 +356,7 @@ export default function PatientDashboardClient({
                   value={claimCodeInput}
                   onChange={(e) => setClaimCodeInput(e.target.value.toUpperCase())}
                   placeholder="CL-XXXX-XXXX"
-                  className="w-full font-mono font-bold tracking-wider rounded-xl border border-slate-300 py-2.5 px-3 text-sm text-slate-900 uppercase"
+                  className="w-full font-mono font-bold tracking-wider rounded-xl border border-brand-950/15 py-2.5 px-3 text-sm text-ink uppercase"
                 />
               </div>
 
@@ -371,7 +371,7 @@ export default function PatientDashboardClient({
                 <button
                   type="submit"
                   disabled={isClaiming || !claimCodeInput.trim()}
-                  className="rounded-xl bg-teal-800 hover:bg-teal-900 disabled:opacity-50 px-5 py-2 text-xs font-semibold text-white shadow-xs"
+                  className="rounded-xl bg-brand-800 hover:bg-brand-900 disabled:opacity-50 px-5 py-2 text-xs font-semibold text-white shadow-xs"
                 >
                   {isClaiming ? 'Linking...' : (locale === 'ne' ? 'प्रमाणित गर्नुहोस्' : 'Claim & Link')}
                 </button>
@@ -382,14 +382,14 @@ export default function PatientDashboardClient({
       )}
 
       {/* Dashboard Tabs Header */}
-      <div className="border-b border-slate-200">
+      <div className="border-b border-brand-950/10">
         <nav className="flex space-x-6 text-xs sm:text-sm font-semibold overflow-x-auto pb-px">
           <button
             type="button"
             onClick={() => setActiveTab('upcoming')}
             className={`pb-3 border-b-2 flex items-center gap-2 transition-colors shrink-0 ${
               activeTab === 'upcoming'
-                ? 'border-teal-800 text-teal-900 font-bold'
+                ? 'border-brand-800 text-brand-900 font-bold'
                 : 'border-transparent text-slate-500 hover:text-slate-800'
             }`}
           >
@@ -405,7 +405,7 @@ export default function PatientDashboardClient({
             onClick={() => setActiveTab('lab')}
             className={`pb-3 border-b-2 flex items-center gap-2 transition-colors shrink-0 ${
               activeTab === 'lab'
-                ? 'border-teal-800 text-teal-900 font-bold'
+                ? 'border-brand-800 text-brand-900 font-bold'
                 : 'border-transparent text-slate-500 hover:text-slate-800'
             }`}
           >
@@ -421,13 +421,13 @@ export default function PatientDashboardClient({
             onClick={() => setActiveTab('reports')}
             className={`pb-3 border-b-2 flex items-center gap-2 transition-colors shrink-0 ${
               activeTab === 'reports'
-                ? 'border-teal-800 text-teal-900 font-bold'
+                ? 'border-brand-800 text-brand-900 font-bold'
                 : 'border-transparent text-slate-500 hover:text-slate-800'
             }`}
           >
             <FileText className="h-4 w-4" />
             <span>{locale === 'ne' ? 'ल्याब रिपोर्टहरू' : 'Lab Reports'}</span>
-            <span className="px-2 py-0.5 text-xs bg-teal-100 text-teal-900 rounded-full font-bold">
+            <span className="px-2 py-0.5 text-xs bg-brand-100 text-brand-900 rounded-full font-bold">
               {reports.filter(r => r.status === 'released').length}
             </span>
           </button>
@@ -437,7 +437,7 @@ export default function PatientDashboardClient({
             onClick={() => setActiveTab('past')}
             className={`pb-3 border-b-2 flex items-center gap-2 transition-colors shrink-0 ${
               activeTab === 'past'
-                ? 'border-teal-800 text-teal-900 font-bold'
+                ? 'border-brand-800 text-brand-900 font-bold'
                 : 'border-transparent text-slate-500 hover:text-slate-800'
             }`}
           >
@@ -453,7 +453,7 @@ export default function PatientDashboardClient({
             onClick={() => setActiveTab('profiles')}
             className={`pb-3 border-b-2 flex items-center gap-2 transition-colors shrink-0 ${
               activeTab === 'profiles'
-                ? 'border-teal-800 text-teal-900 font-bold'
+                ? 'border-brand-800 text-brand-900 font-bold'
                 : 'border-transparent text-slate-500 hover:text-slate-800'
             }`}
           >
@@ -470,7 +470,7 @@ export default function PatientDashboardClient({
       {activeTab === 'upcoming' && (
         <div className="space-y-4">
           {upcomingAppointments.length === 0 ? (
-            <div className="rounded-2xl border border-dashed border-slate-200 bg-white p-12 text-center space-y-3">
+            <div className="rounded-2xl border border-dashed border-brand-950/10 bg-white p-12 text-center space-y-3">
               <Calendar className="mx-auto h-8 w-8 text-slate-300" />
               <p className="text-sm font-semibold text-slate-800">
                 {locale === 'ne' ? 'कुनै आगामी अपोइन्टमेन्ट अनुरोध छैन' : 'No active appointment requests'}
@@ -482,7 +482,7 @@ export default function PatientDashboardClient({
               </p>
               <Link
                 href={`/${locale}/book`}
-                className="mt-2 inline-flex items-center gap-1.5 rounded-xl bg-teal-800 px-5 py-2.5 text-xs font-semibold text-white hover:bg-teal-900 shadow-xs"
+                className="mt-2 inline-flex items-center gap-1.5 rounded-xl bg-brand-800 px-5 py-2.5 text-xs font-semibold text-white hover:bg-brand-900 shadow-xs"
               >
                 <Plus className="h-4 w-4" />
                 <span>{common.bookSession}</span>
@@ -498,12 +498,12 @@ export default function PatientDashboardClient({
                 <div
                   key={apt.id}
                   className={`rounded-2xl border bg-white p-6 shadow-xs space-y-4 transition-all ${
-                    isRescheduleProposed ? 'border-amber-400 ring-2 ring-amber-400/20' : 'border-slate-200'
+                    isRescheduleProposed ? 'border-amber-400 ring-2 ring-amber-400/20' : 'border-brand-950/10'
                   }`}
                 >
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-brand-950/8">
                     <div className="flex items-center gap-3">
-                      <span className="font-mono text-xs font-bold text-teal-900 bg-teal-50 px-2.5 py-1 rounded-md border border-teal-200">
+                      <span className="font-mono text-xs font-bold text-brand-900 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">
                         {apt.referenceNo}
                       </span>
                       {getStatusBadge(apt.status)}
@@ -554,22 +554,22 @@ export default function PatientDashboardClient({
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
                     <div>
                       <span className="text-slate-400 block font-medium">Provider / Service:</span>
-                      <span className="font-bold text-slate-900 mt-0.5 block">{apt.doctorNameSnapshot}</span>
+                      <span className="font-bold text-ink mt-0.5 block">{apt.doctorNameSnapshot}</span>
                     </div>
                     <div>
                       <span className="text-slate-400 block font-medium">Requested Time:</span>
-                      <span className="font-bold text-slate-900 mt-0.5 block">
+                      <span className="font-bold text-ink mt-0.5 block">
                         {new Date(apt.startTime).toLocaleDateString()} at {new Date(apt.startTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                       </span>
                     </div>
                     <div>
                       <span className="text-slate-400 block font-medium">Consultation Fee:</span>
-                      <span className="font-bold text-slate-900 mt-0.5 block">NPR {apt.feeSnapshot}</span>
+                      <span className="font-bold text-ink mt-0.5 block">NPR {apt.feeSnapshot}</span>
                     </div>
                   </div>
 
                   {apt.patientNotes && (
-                    <p className="text-xs text-slate-600 bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+                    <p className="text-xs text-slate-600 bg-cream p-2.5 rounded-lg border border-brand-950/8">
                       <strong>Patient Note:</strong> {apt.patientNotes}
                     </p>
                   )}
@@ -598,7 +598,7 @@ export default function PatientDashboardClient({
       {activeTab === 'lab' && (
         <div className="space-y-4">
           {upcomingLabs.length === 0 ? (
-            <div className="rounded-2xl border border-dashed border-slate-200 bg-white p-12 text-center space-y-3">
+            <div className="rounded-2xl border border-dashed border-brand-950/10 bg-white p-12 text-center space-y-3">
               <FlaskConical className="mx-auto h-8 w-8 text-cyan-400" />
               <p className="text-sm font-semibold text-slate-800">
                 {locale === 'ne' ? 'कुनै सक्रिय ल्याब अनुरोध छैन' : 'No active laboratory bookings'}
@@ -616,8 +616,8 @@ export default function PatientDashboardClient({
               const isLoading = actionLoading === lab.id;
 
               return (
-                <div key={lab.id} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs space-y-4">
-                  <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                <div key={lab.id} className="rounded-2xl border border-brand-950/10 bg-white p-6 shadow-xs space-y-4">
+                  <div className="flex items-center justify-between pb-3 border-b border-brand-950/8">
                     <div className="flex items-center gap-3">
                       <span className="font-mono text-xs font-bold text-cyan-900 bg-cyan-50 px-2.5 py-1 rounded-md border border-cyan-200">
                         {lab.referenceNo}
@@ -632,13 +632,13 @@ export default function PatientDashboardClient({
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                     <div>
                       <span className="text-slate-400 block font-medium">Preferred Visit Time:</span>
-                      <span className="font-bold text-slate-900 mt-0.5 block">
+                      <span className="font-bold text-ink mt-0.5 block">
                         {new Date(lab.preferredTime).toLocaleDateString()} at {new Date(lab.preferredTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                       </span>
                     </div>
                     <div>
                       <span className="text-slate-400 block font-medium">Estimated Charges:</span>
-                      <span className="font-bold text-slate-900 mt-0.5 block">NPR {lab.estimatedTotal} (Counter settlement)</span>
+                      <span className="font-bold text-ink mt-0.5 block">NPR {lab.estimatedTotal} (Counter settlement)</span>
                     </div>
                   </div>
 
@@ -666,7 +666,7 @@ export default function PatientDashboardClient({
         <div className="space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-2">
             <div>
-              <h3 className="font-bold text-slate-900 text-sm">
+              <h3 className="font-bold text-ink text-sm">
                 {locale === 'ne' ? 'प्रमाणित ल्याब रिपोर्टहरू' : 'Verified Laboratory Reports'}
               </h3>
               <p className="text-xs text-slate-500">
@@ -684,17 +684,17 @@ export default function PatientDashboardClient({
                 setClaimSuccess('');
                 setShowClaimModal(true);
               }}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-teal-800 hover:bg-teal-900 px-4 py-2 text-xs font-semibold text-white shadow-xs shrink-0"
+              className="inline-flex items-center gap-1.5 rounded-xl bg-brand-800 hover:bg-brand-900 px-4 py-2 text-xs font-semibold text-white shadow-xs shrink-0"
             >
-              <KeyRound className="h-4 w-4 text-teal-200" />
+              <KeyRound className="h-4 w-4 text-brand-200" />
               <span>{locale === 'ne' ? 'दावी कोड जोड्नुहोस्' : 'Link Walk-in Report'}</span>
             </button>
           </div>
 
           {/* Filter out draft reports from patient view */}
           {reports.filter(r => r.status !== 'draft').length === 0 ? (
-            <div className="rounded-2xl border border-dashed border-slate-200 bg-white p-12 text-center space-y-3">
-              <FileText className="mx-auto h-8 w-8 text-teal-600" />
+            <div className="rounded-2xl border border-dashed border-brand-950/10 bg-white p-12 text-center space-y-3">
+              <FileText className="mx-auto h-8 w-8 text-brand-600" />
               <p className="text-sm font-semibold text-slate-800">
                 {locale === 'ne' ? 'अहिलेसम्म कुनै ल्याब रिपोर्ट जारी गरिएको छैन' : 'No laboratory reports released yet'}
               </p>
@@ -713,10 +713,10 @@ export default function PatientDashboardClient({
                 const isSuperseded = report.status === 'superseded';
 
                 return (
-                  <div key={report.id} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs space-y-4">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pb-3 border-b border-slate-100">
+                  <div key={report.id} className="rounded-2xl border border-brand-950/10 bg-white p-6 shadow-xs space-y-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pb-3 border-b border-brand-950/8">
                       <div className="flex items-center gap-3">
-                        <span className="font-mono text-xs font-bold text-teal-900 bg-teal-50 px-2.5 py-1 rounded-md border border-teal-200">
+                        <span className="font-mono text-xs font-bold text-brand-900 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">
                           v{report.version}
                         </span>
                         {isReleased && (
@@ -756,26 +756,26 @@ export default function PatientDashboardClient({
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
                       <div>
                         <span className="text-slate-400 block font-medium">{locale === 'ne' ? 'फाइल नाम:' : 'Document File:'}</span>
-                        <span className="font-bold text-slate-900 mt-0.5 block truncate" title={report.originalFilename}>
+                        <span className="font-bold text-ink mt-0.5 block truncate" title={report.originalFilename}>
                           {report.originalFilename}
                         </span>
                       </div>
                       <div>
                         <span className="text-slate-400 block font-medium">{locale === 'ne' ? 'जारी मिति:' : 'Released Date:'}</span>
-                        <span className="font-bold text-slate-900 mt-0.5 block">
+                        <span className="font-bold text-ink mt-0.5 block">
                           {report.releasedAt ? new Date(report.releasedAt).toLocaleDateString() : new Date(report.createdAt).toLocaleDateString()}
                         </span>
                       </div>
                       <div>
                         <span className="text-slate-400 block font-medium">{locale === 'ne' ? 'साइज:' : 'File Size:'}</span>
-                        <span className="font-bold text-slate-900 mt-0.5 block">
+                        <span className="font-bold text-ink mt-0.5 block">
                           {Math.round(report.fileSize / 1024)} KB
                         </span>
                       </div>
                     </div>
 
                     {/* Action buttons */}
-                    <div className="pt-2 flex items-center justify-between border-t border-slate-100">
+                    <div className="pt-2 flex items-center justify-between border-t border-brand-950/8">
                       <span className="text-[10px] text-slate-400 font-mono truncate max-w-xs">
                         SHA-256: {report.checksumSha256.slice(0, 16)}...
                       </span>
@@ -785,7 +785,7 @@ export default function PatientDashboardClient({
                           href={`/api/reports/${report.id}/download`}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-1.5 rounded-xl bg-teal-800 hover:bg-teal-900 px-4 py-2 text-xs font-semibold text-white shadow-xs transition-colors"
+                          className="inline-flex items-center gap-1.5 rounded-xl bg-brand-800 hover:bg-brand-900 px-4 py-2 text-xs font-semibold text-white shadow-xs transition-colors"
                         >
                           <FileText className="h-3.5 w-3.5" />
                           <span>{locale === 'ne' ? 'रिपोर्ट डाउनलोड (PDF)' : 'Download Report (PDF)'}</span>
@@ -808,13 +808,13 @@ export default function PatientDashboardClient({
       {activeTab === 'past' && (
         <div className="space-y-4">
           {pastAppointments.length === 0 && pastLabs.length === 0 ? (
-            <div className="rounded-2xl border border-dashed border-slate-200 bg-white p-12 text-center text-xs text-slate-500">
+            <div className="rounded-2xl border border-dashed border-brand-950/10 bg-white p-12 text-center text-xs text-slate-500">
               No historical or archived bookings yet.
             </div>
           ) : (
             <div className="space-y-3">
               {pastAppointments.map((apt) => (
-                <div key={apt.id} className="p-4 rounded-xl border border-slate-200 bg-white flex items-center justify-between text-xs">
+                <div key={apt.id} className="p-4 rounded-xl border border-brand-950/10 bg-white flex items-center justify-between text-xs">
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="font-mono font-bold text-slate-800">{apt.referenceNo}</span>
@@ -826,7 +826,7 @@ export default function PatientDashboardClient({
                 </div>
               ))}
               {pastLabs.map((lab) => (
-                <div key={lab.id} className="p-4 rounded-xl border border-slate-200 bg-white flex items-center justify-between text-xs">
+                <div key={lab.id} className="p-4 rounded-xl border border-brand-950/10 bg-white flex items-center justify-between text-xs">
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="font-mono font-bold text-slate-800">{lab.referenceNo}</span>
@@ -847,7 +847,7 @@ export default function PatientDashboardClient({
         <div className="space-y-6">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="font-bold text-slate-900 text-sm">{t.tabProfiles}</h3>
+              <h3 className="font-bold text-ink text-sm">{t.tabProfiles}</h3>
               <p className="text-xs text-slate-500">
                 Manage individuals who receive clinical care under this account. Maximum 6 profiles.
               </p>
@@ -856,7 +856,7 @@ export default function PatientDashboardClient({
               <button
                 type="button"
                 onClick={() => setShowAddProfileModal(true)}
-                className="inline-flex items-center gap-1.5 rounded-xl bg-teal-800 hover:bg-teal-900 px-4 py-2 text-xs font-semibold text-white shadow-xs"
+                className="inline-flex items-center gap-1.5 rounded-xl bg-brand-800 hover:bg-brand-900 px-4 py-2 text-xs font-semibold text-white shadow-xs"
               >
                 <Plus className="h-4 w-4" />
                 <span>{t.addFamilyMember}</span>
@@ -866,15 +866,15 @@ export default function PatientDashboardClient({
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {profiles.map((p) => (
-              <div key={p.id} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs space-y-3">
+              <div key={p.id} className="rounded-2xl border border-brand-950/10 bg-white p-5 shadow-xs space-y-3">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 rounded-xl bg-teal-50 text-teal-800 flex items-center justify-center font-bold">
+                    <div className="h-10 w-10 rounded-xl bg-brand-50 text-brand-800 flex items-center justify-center font-bold">
                       <Users className="h-5 w-5" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-sm text-slate-900">{p.fullName}</h4>
-                      <p className="text-[11px] text-teal-800 font-semibold capitalize">{p.relationshipLabel}</p>
+                      <h4 className="font-bold text-sm text-ink">{p.fullName}</h4>
+                      <p className="text-[11px] text-brand-800 font-semibold capitalize">{p.relationshipLabel}</p>
                     </div>
                   </div>
                   {p.identityVerifiedAt ? (
@@ -888,7 +888,7 @@ export default function PatientDashboardClient({
                   )}
                 </div>
 
-                <div className="text-[11px] text-slate-500 space-y-1 pt-1 border-t border-slate-100">
+                <div className="text-[11px] text-slate-500 space-y-1 pt-1 border-t border-brand-950/8">
                   {p.dob && <p>DOB: {p.dob}</p>}
                   {p.sex && <p>Sex: {p.sex}</p>}
                   {p.phone && <p>Phone: {p.phone}</p>}

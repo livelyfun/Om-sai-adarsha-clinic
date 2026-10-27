@@ -5,3 +5,10 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Secrets & credentials — never commit
+credentials.md
+secrets.md
+*.pem
+*.key
+storage/secure-reports/
