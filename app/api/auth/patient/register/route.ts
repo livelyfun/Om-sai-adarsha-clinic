@@ -53,13 +53,15 @@ export async function POST(req: NextRequest) {
     const verificationToken = generateRandomToken(32);
     const verificationTokenHash = hashToken(verificationToken);
 
+    const hasSmtpConfig = Boolean(process.env.SMTP_HOST && process.env.SMTP_USER);
+
     const user = db.createUser({
       email,
       phone,
       passwordHash,
       userType: 'patient',
       isActive: true,
-      emailVerifiedAt: null,
+      emailVerifiedAt: hasSmtpConfig ? null : new Date().toISOString(),
       verificationTokenHash,
       preferredLocale,
     });

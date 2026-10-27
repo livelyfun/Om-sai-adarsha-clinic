@@ -18,15 +18,18 @@ export async function requireStaffAuth(requiredPermission?: PermissionKey): Prom
   return auth as AuthContext & { user: NonNullable<AuthContext['user']> };
 }
 
-export async function requirePatientAuth(requireVerified: boolean = false): Promise<AuthContext & { user: NonNullable<AuthContext['user']> }> {
+export async function requirePatientAuth(
+  requireVerified: boolean = false,
+  locale: string = 'en'
+): Promise<AuthContext & { user: NonNullable<AuthContext['user']> }> {
   const auth = await getAuthContext();
 
   if (!auth.user || auth.user.userType !== 'patient') {
-    redirect('/en/portal/login');
+    redirect(`/${locale}/portal/login`);
   }
 
   if (requireVerified && !auth.user.emailVerifiedAt) {
-    redirect('/en/portal/verify');
+    redirect(`/${locale}/portal/verify`);
   }
 
   return auth as AuthContext & { user: NonNullable<AuthContext['user']> };

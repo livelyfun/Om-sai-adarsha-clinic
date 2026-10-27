@@ -404,15 +404,38 @@
     {
       "email": "mithleshkumar527@gmail.com",
       "phone": "mithleshkumar527@gmail.com",
-      "passwordHash": "3468cf267b72c64625ea9ec831dc7810:f68cee2e230c2cc7a950bea176c4b5083776feb17713c91a4da9351e10751ac1fe99f19b33d61f5fb33ee35b660d60cda8d7b472894c97447bf3b6cbba9df065",
+      "passwordHash": "33aed1edb9b25318a42a2b5a975b3bf3:f9926c631689eee5d5b120d88cc3c7e16bc2c47e465f94b6a804d96e0ea4fb3398fa4c35a43973533cc66991d660a349d81154b2545aa0d5320aef8e559c1897",
       "userType": "patient",
       "isActive": true,
-      "emailVerifiedAt": "2026-10-27T07:07:46.987Z",
+      "emailVerifiedAt": "2026-10-27T08:26:09.772Z",
       "verificationTokenHash": null,
       "preferredLocale": "en",
       "id": "cb610e77-c068-492b-8fe0-14a18780336c",
       "createdAt": "2026-10-27T07:05:15.128Z",
-      "updatedAt": "2026-10-27T07:07:46.987Z"
+      "updatedAt": "2026-10-27T08:26:09.772Z"
+    },
+    {
+      "email": "reception@omsaiclinic.local",
+      "passwordHash": "12d660367d2ab7b8fb02f86a1cd29a8b:03aa29096c4ed7367efcc977c585f86bd79f0ecf06238ae353804913cbcec9bc054719fa6524b451c8017a2a22c000ba04090f86bd4a4d94c8157d6de9c06f28",
+      "userType": "staff",
+      "isActive": true,
+      "mustChangePassword": false,
+      "preferredLocale": "en",
+      "id": "9af683c3-f668-41c7-b17e-0c727aa37b38",
+      "createdAt": "2026-10-27T08:26:09.617Z",
+      "updatedAt": "2026-10-27T08:26:09.617Z"
+    },
+    {
+      "email": "patient.test@example.local",
+      "phone": "9800000000",
+      "passwordHash": "2c9a5ecc0bc13e07ab72f72c0d529850:91ec50db7140bfe207f0da015098785b4f9590237543cea05074c911937822fafc5ae829a86e8c3ebc249f1f95063450bff403657b962371ee7b3aef67823e48",
+      "userType": "patient",
+      "isActive": true,
+      "emailVerifiedAt": "2026-10-27T08:26:09.698Z",
+      "preferredLocale": "en",
+      "id": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "createdAt": "2026-10-27T08:26:09.698Z",
+      "updatedAt": "2026-10-27T08:26:09.698Z"
     }
   ],
   "sessions": [
@@ -460,6 +483,24 @@
       "ipAddress": "::1",
       "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
       "createdAt": "2026-10-27T07:13:03.443Z"
+    },
+    {
+      "id": "7512b518-ceba-4f64-84cb-4a3044aad4d2",
+      "userId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "tokenHash": "54cfd5d0e4cef900faa1328f005ce3c9150d14cc57fb821b1c7995a8ba908dda",
+      "expiresAt": "2026-11-03T08:26:38.206Z",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.18.0",
+      "createdAt": "2026-10-27T08:26:38.207Z"
+    },
+    {
+      "id": "90d0906a-6204-4539-bc1e-f014eba23584",
+      "userId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "tokenHash": "fcd1a125bcd6569a27cc93183697836c08b26742a508dea445bfc1b8041af59a",
+      "expiresAt": "2026-11-03T08:27:02.680Z",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.18.0",
+      "createdAt": "2026-10-27T08:27:02.680Z"
     }
   ],
   "roles": [
@@ -505,6 +546,14 @@
       "customGrantedPermissions": [],
       "customRevokedPermissions": [],
       "createdAt": "2026-10-26T10:38:29.311Z"
+    },
+    {
+      "userId": "9af683c3-f668-41c7-b17e-0c727aa37b38",
+      "roleId": "reception",
+      "fullName": "Dev Front Desk Staff",
+      "customGrantedPermissions": [],
+      "customRevokedPermissions": [],
+      "createdAt": "2026-10-27T08:26:09.620Z"
     }
   ],
   "patientProfiles": [
@@ -832,6 +881,29 @@
       "id": "9f0ed6f7-c751-449d-bd5c-04cc9053bf04",
       "createdAt": "2026-10-27T07:05:15.131Z",
       "updatedAt": "2026-10-27T07:05:15.131Z"
+    },
+    {
+      "managingUserId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "fullName": "Sample Test Patient",
+      "dob": "1990-01-01",
+      "sex": "female",
+      "phone": "9800000000",
+      "relationshipLabel": "myself",
+      "identityVerifiedAt": "2026-10-27T08:26:09.700Z",
+      "verifiedByStaffId": "9af683c3-f668-41c7-b17e-0c727aa37b38",
+      "id": "892e2cf1-9333-46b3-b60e-243678476da6",
+      "createdAt": "2026-10-27T08:26:09.700Z",
+      "updatedAt": "2026-10-27T08:26:09.700Z"
+    },
+    {
+      "managingUserId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "fullName": "Sample Child Patient",
+      "dob": "2020-05-15",
+      "sex": "male",
+      "relationshipLabel": "child",
+      "id": "5f7b195c-f83f-43c3-8191-ae4cf0c06897",
+      "createdAt": "2026-10-27T08:26:09.702Z",
+      "updatedAt": "2026-10-27T08:26:09.702Z"
     }
   ],
   "claimCodes": [
@@ -2233,6 +2305,97 @@
       "requestId": null,
       "ipAddress": "::1",
       "metadataJson": {},
+      "id": "a9ead84e-b80f-4826-a85d-089bb48e0aeb",
+      "createdAt": "2026-10-27T08:27:02.686Z"
+    },
+    {
+      "actorUserId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "actorEmail": "patient.test@example.local",
+      "actorType": "patient",
+      "action": "patient_login_success",
+      "entityType": "session",
+      "entityId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "04031a49-4b52-46ad-993d-637e8d771de6",
+      "createdAt": "2026-10-27T08:26:38.220Z"
+    },
+    {
+      "actorUserId": null,
+      "actorEmail": "patient.test@example.local",
+      "actorType": "anonymous",
+      "action": "patient_login_failed",
+      "entityType": "auth",
+      "entityId": null,
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "6265d717-e0d6-4305-af4c-263af1242715",
+      "createdAt": "2026-10-27T08:24:57.321Z"
+    },
+    {
+      "actorUserId": null,
+      "actorEmail": "patient.test@example.local",
+      "actorType": "anonymous",
+      "action": "patient_login_failed",
+      "entityType": "auth",
+      "entityId": null,
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "4b8df63e-d51a-4ae9-bc5f-3574d45f6b76",
+      "createdAt": "2026-10-27T08:24:12.269Z"
+    },
+    {
+      "actorUserId": null,
+      "actorEmail": "mithleshkumar527@gmail.com",
+      "actorType": "anonymous",
+      "action": "patient_login_failed",
+      "entityType": "auth",
+      "entityId": null,
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "e0a82c27-43d7-4013-869a-effa26be3915",
+      "createdAt": "2026-10-27T08:11:59.707Z"
+    },
+    {
+      "actorUserId": null,
+      "actorEmail": "mithleshkumar527@gmail.com",
+      "actorType": "anonymous",
+      "action": "patient_login_failed",
+      "entityType": "auth",
+      "entityId": null,
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "1b8dc29f-a0bb-4477-bf9b-d9bba5cbba43",
+      "createdAt": "2026-10-27T08:11:28.177Z"
+    },
+    {
+      "actorUserId": null,
+      "actorEmail": "mithleshkumar527@gmail.com",
+      "actorType": "anonymous",
+      "action": "patient_login_failed",
+      "entityType": "auth",
+      "entityId": null,
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "9d0374db-9dd0-45b3-bd50-f0e4d52037e2",
+      "createdAt": "2026-10-27T08:11:02.567Z"
+    },
+    {
+      "actorUserId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "actorEmail": "mithleshkumar527@gmail.com",
+      "actorType": "patient",
+      "action": "patient_login_success",
+      "entityType": "session",
+      "entityId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
       "id": "cd80dea9-99d1-4cb1-b11a-f7e5d6fb55d2",
       "createdAt": "2026-10-27T07:13:03.458Z"
     },
@@ -2534,55 +2697,15 @@
     }
   ],
   "rateLimits": {
-    "reg:::ffff:127.0.0.1": {
-      "key": "reg:::ffff:127.0.0.1",
+    "login:patient:::1:patient.test@example.local": {
+      "key": "login:patient:::1:patient.test@example.local",
       "hits": 1,
-      "resetAt": "2026-10-26T10:53:35.133Z"
-    },
-    "login:patient:::ffff:127.0.0.1:anita.sharma@example.com": {
-      "key": "login:patient:::ffff:127.0.0.1:anita.sharma@example.com",
-      "hits": 1,
-      "resetAt": "2026-10-26T10:48:40.362Z"
-    },
-    "test_login_ratelimit_1793014313994": {
-      "key": "test_login_ratelimit_1793014313994",
-      "hits": 3,
-      "resetAt": "2026-10-26T11:32:53.994Z"
-    },
-    "test_login_ratelimit_1793016201762": {
-      "key": "test_login_ratelimit_1793016201762",
-      "hits": 3,
-      "resetAt": "2026-10-26T12:04:21.762Z"
-    },
-    "test_login_ratelimit_1793021646896": {
-      "key": "test_login_ratelimit_1793021646896",
-      "hits": 3,
-      "resetAt": "2026-10-26T13:35:06.896Z"
-    },
-    "test_login_ratelimit_1793022605582": {
-      "key": "test_login_ratelimit_1793022605582",
-      "hits": 3,
-      "resetAt": "2026-10-26T13:51:05.582Z"
-    },
-    "test_login_ratelimit_1793023268909": {
-      "key": "test_login_ratelimit_1793023268909",
-      "hits": 3,
-      "resetAt": "2026-10-26T14:02:08.909Z"
-    },
-    "login:staff:::1:admin@omsaiclinic.local": {
-      "key": "login:staff:::1:admin@omsaiclinic.local",
-      "hits": 1,
-      "resetAt": "2026-10-26T15:27:26.233Z"
+      "resetAt": "2026-10-27T08:36:38.132Z"
     },
     "login:patient:::1:mithleshkumar527@gmail.com": {
       "key": "login:patient:::1:mithleshkumar527@gmail.com",
-      "hits": 4,
-      "resetAt": "2026-10-27T07:14:34.326Z"
-    },
-    "reg:::1": {
-      "key": "reg:::1",
       "hits": 1,
-      "resetAt": "2026-10-27T07:20:15.046Z"
+      "resetAt": "2026-10-27T08:37:02.602Z"
     }
   },
   "articles": [

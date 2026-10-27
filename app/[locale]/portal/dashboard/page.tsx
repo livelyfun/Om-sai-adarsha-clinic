@@ -20,7 +20,7 @@ export default async function PatientDashboardPage({ params }: DashboardPageProp
   const bookingMessages = messages.booking;
 
   // Enforce server-side patient authentication
-  const auth = await requirePatientAuth(false);
+  const auth = await requirePatientAuth(false, locale);
   const patient = auth.user;
 
   // Load profiles owned by this patient account

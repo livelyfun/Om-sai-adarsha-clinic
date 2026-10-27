@@ -23,8 +23,11 @@ export async function sendAuthEmail(options: SendAuthEmailOptions): Promise<{ su
 
   if (isProduction && !hasSmtpConfig) {
     // In production without configured SMTP credentials, report NOT CONFIGURED
-    console.error(`[AUTH_EMAIL_BOUNDARY] NOT CONFIGURED: Failed to send ${options.type} to ${options.to}. SMTP credentials missing.`);
-    throw new Error('Authentication email delivery is NOT CONFIGURED in this environment.');
+    console.error(`[AUTH_EMAIL_BOUNDARY] NOT CONFIGURED: Cannot send ${options.type} to ${options.to}. SMTP credentials missing.`);
+    return {
+      success: false,
+      messageId: 'not-configured',
+    };
   }
 
   // In development, securely print action URL to server console for immediate testing

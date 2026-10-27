@@ -11,8 +11,7 @@ export async function POST(req: NextRequest) {
     }
 
     const tokenHash = hashToken(token);
-    const allUsers = (db as any).data.users as any[];
-    const user = allUsers.find(u => u.verificationTokenHash === tokenHash);
+    const user = db.getUserByVerificationTokenHash(tokenHash);
 
     if (!user) {
       return NextResponse.json(

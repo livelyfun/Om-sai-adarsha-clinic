@@ -970,6 +970,38 @@ class PersistentDatabase {
     this.data.articles = this.data.articles.filter(a => a.id !== id);
     this.save();
   }
+
+  // ----------------------------------------------------
+  // TOKEN LOOKUPS (public methods to avoid private .data access)
+  // ----------------------------------------------------
+  getUserByVerificationTokenHash(tokenHash: string): User | undefined {
+    return this.data.users.find(u => u.verificationTokenHash === tokenHash);
+  }
+
+  getUserByPasswordResetTokenHash(tokenHash: string): User | undefined {
+    const now = new Date().toISOString();
+    return this.data.users.find(
+      u => u.resetTokenHash === tokenHash && u.resetTokenExpiresAt && u.resetTokenExpiresAt > now
+    );
+  }
+
+  /** DEV ONLY — reset a user's password directly (never call in production) */
+  devResetUserPassword(email: string, newPasswordHash: string): boolean {
+    if (process.env.APP_ENV === 'production') return false;
+    const user = this.getUserByEmail(email);
+    if (!user) return false;
+    this.updateUser(user.id, { passwordHash: newPasswordHash });
+    return true;
+  }
+
+  /** DEV ONLY — mark a user's email as verified (never call in production) */
+  devVerifyUserEmail(email: string): boolean {
+    if (process.env.APP_ENV === 'production') return false;
+    const user = this.getUserByEmail(email);
+    if (!user) return false;
+    this.updateUser(user.id, { emailVerifiedAt: new Date().toISOString(), verificationTokenHash: null });
+    return true;
+  }
 }
 
 // Global singleton instance

@@ -12,3 +12,4 @@ secrets.md
 *.pem
 *.key
 storage/secure-reports/
+.vercel
