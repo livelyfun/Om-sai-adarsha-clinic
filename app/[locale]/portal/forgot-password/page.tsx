@@ -6,6 +6,7 @@ import { useParams } from 'next/navigation';
 import { getMessages, Locale } from '@/lib/i18n';
 import { KeyRound, Mail, ArrowRight, AlertCircle, CheckCircle } from 'lucide-react';
 import AuthShell from '@/components/public/AuthShell';
+import { forgetPassword } from '@/lib/auth/auth-client';
 
 export default function ForgotPasswordPage() {
   const params = useParams();
@@ -16,7 +17,6 @@ export default function ForgotPasswordPage() {
 
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
-  const [devResetUrl, setDevResetUrl] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -26,16 +26,17 @@ export default function ForgotPasswordPage() {
     setLoading(true);
 
     try {
-      const res = await fetch('/api/auth/patient/forgot-password', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+      const redirectTo = `${window.location.origin}/${locale}/portal/reset-password`;
+      const result = await forgetPassword({
+        email: email.trim().toLowerCase(),
+        redirectTo,
       });
-      const data = await res.json();
-      setSubmitted(true);
-      if (data.resetUrlDevOnly) {
-        setDevResetUrl(data.resetUrlDevOnly);
+
+      if (result.error) {
+        throw new Error(result.error.message || 'Failed to submit request');
       }
+
+      setSubmitted(true);
     } catch (err: any) {
       setError(err.message || 'Failed to submit request');
     } finally {
@@ -75,19 +76,10 @@ export default function ForgotPasswordPage() {
                 <p className="mt-1 text-xs leading-relaxed text-brand-800">
                   {locale === 'ne'
                     ? 'यदि यो इमेल दर्ता छ भने पासवर्ड रिसेट लिङ्क पठाइएको छ। कृपया आफ्नो इनबक्स जाँच गर्नुहोस्।'
-                    : 'If an account exists for this email, password recovery instructions have been sent.'}
+                    : 'If an account exists for this email, password recovery instructions have been sent. Check your inbox.'}
                 </p>
               </div>
             </div>
-
-            {devResetUrl && (
-              <div className="space-y-1 rounded-xl border border-amber-200 bg-amber-50 p-3 text-xs">
-                <span className="font-bold text-amber-900">[DEV SHORTCUT] Reset link:</span>
-                <Link href={devResetUrl} className="block truncate text-brand-800 underline">
-                  {devResetUrl}
-                </Link>
-              </div>
-            )}
 
             <Link href={`/${locale}/portal/login`} className="btn btn-ghost w-full">
               ← {locale === 'ne' ? 'लगइनमा फर्कनुहोस्' : 'Return to login'}

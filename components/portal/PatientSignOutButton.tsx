@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { LogOut, Loader2 } from 'lucide-react';
 import { Locale } from '@/lib/i18n';
+import { signOut } from '@/lib/auth/auth-client';
 
 interface PatientSignOutButtonProps {
   locale: Locale;
@@ -17,11 +18,14 @@ export default function PatientSignOutButton({ locale, label }: PatientSignOutBu
   async function handleSignOut() {
     setLoading(true);
     try {
-      await fetch('/api/auth/logout', { method: 'POST' });
+      await signOut();
       router.push(`/${locale}/portal/login`);
       router.refresh();
     } catch (err) {
       console.error('Logout error:', err);
+      // Even on error, redirect to login
+      router.push(`/${locale}/portal/login`);
+      router.refresh();
     } finally {
       setLoading(false);
     }

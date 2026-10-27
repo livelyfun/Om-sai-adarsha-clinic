@@ -6,6 +6,7 @@ import { useSearchParams, useParams } from 'next/navigation';
 import { getMessages, Locale } from '@/lib/i18n';
 import { CheckCircle2, AlertCircle, Mail, ArrowRight, Loader2 } from 'lucide-react';
 import AuthShell from '@/components/public/AuthShell';
+import { verifyEmail } from '@/lib/auth/auth-client';
 
 export default function VerifyEmailPage() {
   const searchParams = useSearchParams();
@@ -25,14 +26,9 @@ export default function VerifyEmailPage() {
 
     async function doVerify(tokenToVerify: string) {
       try {
-        const res = await fetch('/api/auth/patient/verify', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ token: tokenToVerify }),
-        });
-        const data = await res.json();
-        if (!res.ok) {
-          throw new Error(data.error || 'Verification failed');
+        const result = await verifyEmail({ token: tokenToVerify });
+        if (result && (result as any).error) {
+          throw new Error((result as any).error.message || 'Verification failed');
         }
         if (active) {
           setStatus('success');
@@ -40,7 +36,10 @@ export default function VerifyEmailPage() {
       } catch (err: any) {
         if (active) {
           setStatus('error');
-          setErrorMessage(err.message || 'Invalid or expired token.');
+          setErrorMessage(
+            err.message ||
+              (locale === 'ne' ? 'अमान्य वा म्याद सकिएको लिङ्क।' : 'Invalid or expired token.')
+          );
         }
       }
     }
