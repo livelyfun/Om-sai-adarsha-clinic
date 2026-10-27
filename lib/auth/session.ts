@@ -166,3 +166,5 @@ export async function getAuthContext(): Promise<AuthContext> {
     isSuperAdmin,
   };
 }
+
+export const getLegacyAuthContext = getAuthContext;

@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation';
 import { headers } from 'next/headers';
 import { auth } from './auth';
+import { getLegacyAuthContext } from './session';
 import { db } from '@/lib/db';
 import { PermissionKey } from '@/lib/db/types';
 
@@ -59,18 +60,41 @@ async function getBetterAuthSession(): Promise<BetterAuthSession> {
 /**
  * Get auth context from Better Auth session.
  * Maps Better Auth user to the app's AuthContext shape.
+ * Falls back to legacy session token (for staff login at /sai-clinic-management/login).
  */
 export async function getAuthContext(): Promise<AuthContext> {
-  const empty: AuthContext = {
-    user: null,
-    sessionToken: null,
-    staffPermissions: [],
-    isStaff: false,
-    isSuperAdmin: false,
-  };
-
   const session = await getBetterAuthSession();
-  if (!session?.user) return empty;
+  if (!session?.user) {
+    try {
+      const legacyCtx = await getLegacyAuthContext();
+      if (legacyCtx.user) {
+        return {
+          user: {
+            id: legacyCtx.user.id,
+            email: legacyCtx.user.email,
+            name: (legacyCtx.user as any).name || legacyCtx.user.email,
+            emailVerifiedAt: legacyCtx.user.emailVerifiedAt || null,
+            userType: legacyCtx.user.userType,
+            isActive: legacyCtx.user.isActive,
+            preferredLocale: legacyCtx.user.preferredLocale,
+          },
+          sessionToken: legacyCtx.sessionToken,
+          staffPermissions: legacyCtx.staffPermissions,
+          isStaff: legacyCtx.isStaff,
+          isSuperAdmin: legacyCtx.isSuperAdmin,
+        };
+      }
+    } catch {
+      // outside cookie context
+    }
+    return {
+      user: null,
+      sessionToken: null,
+      staffPermissions: [],
+      isStaff: false,
+      isSuperAdmin: false,
+    };
+  }
 
   const betterUser = session.user;
 
