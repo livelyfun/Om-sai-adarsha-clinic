@@ -206,6 +206,12 @@ class PersistentDatabase {
     return this.data.users.find(u => u.email.toLowerCase() === email.toLowerCase());
   }
 
+  getUserByPhone(phone: string): User | undefined {
+    const clean = phone.replace(/\D/g, '');
+    if (!clean) return undefined;
+    return this.data.users.find(u => u.phone && u.phone.replace(/\D/g, '') === clean);
+  }
+
   getUserById(id: string): User | undefined {
     return this.data.users.find(u => u.id === id);
   }

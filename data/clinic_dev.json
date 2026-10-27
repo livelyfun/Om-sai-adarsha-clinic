@@ -501,6 +501,42 @@
       "ipAddress": "::1",
       "userAgent": "curl/8.18.0",
       "createdAt": "2026-10-27T08:27:02.680Z"
+    },
+    {
+      "id": "0abfd949-fd42-4b15-a5a3-8cb525f97418",
+      "userId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "tokenHash": "7eae085ec63f1f6ed3f9f2fdcacfa4da1c978431dce49e001bdb06242673c8f3",
+      "expiresAt": "2026-11-03T08:41:42.459Z",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.18.0",
+      "createdAt": "2026-10-27T08:41:42.459Z"
+    },
+    {
+      "id": "98d61b34-636d-4e1f-acd0-64b0b9081cb7",
+      "userId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "tokenHash": "a0f53be74e342651c98f55d3290561a73f2d2c836858b0f35d46b8ba68f3c20b",
+      "expiresAt": "2026-11-03T08:42:21.249Z",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.18.0",
+      "createdAt": "2026-10-27T08:42:21.251Z"
+    },
+    {
+      "id": "696aeace-3075-4d4d-a139-b102d4f42e09",
+      "userId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "tokenHash": "23fe7d14433a2375f2e5eb21160f80ce73b0877c949a359ffd0cccbe32861c58",
+      "expiresAt": "2026-11-03T08:42:27.112Z",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.18.0",
+      "createdAt": "2026-10-27T08:42:27.112Z"
+    },
+    {
+      "id": "2eb4ff27-782f-449e-b281-df62093e92b3",
+      "userId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "tokenHash": "de2376ac853dc8d26b8677bf53553bac43e5d0d51e93215a9e19c3ef903784c2",
+      "expiresAt": "2026-11-03T08:42:32.848Z",
+      "ipAddress": "::1",
+      "userAgent": "curl/8.18.0",
+      "createdAt": "2026-10-27T08:42:32.848Z"
     }
   ],
   "roles": [
@@ -2296,6 +2332,71 @@
   ],
   "auditLogs": [
     {
+      "actorUserId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "actorEmail": "patient.test@example.local",
+      "actorType": "patient",
+      "action": "patient_login_success",
+      "entityType": "session",
+      "entityId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "325e5c05-095c-4348-96db-df23668eb606",
+      "createdAt": "2026-10-27T08:42:32.853Z"
+    },
+    {
+      "actorUserId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "actorEmail": "mithleshkumar527@gmail.com",
+      "actorType": "patient",
+      "action": "patient_login_success",
+      "entityType": "session",
+      "entityId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "e4ec9f41-45ae-48aa-9623-b8af5b489896",
+      "createdAt": "2026-10-27T08:42:27.117Z"
+    },
+    {
+      "actorUserId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "actorEmail": "patient.test@example.local",
+      "actorType": "patient",
+      "action": "patient_login_success",
+      "entityType": "session",
+      "entityId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "71c2cbb3-99f8-4b35-a274-ead0c6fc9c3b",
+      "createdAt": "2026-10-27T08:42:21.264Z"
+    },
+    {
+      "actorUserId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "actorEmail": "mithleshkumar527@gmail.com",
+      "actorType": "patient",
+      "action": "patient_login_success",
+      "entityType": "session",
+      "entityId": "cb610e77-c068-492b-8fe0-14a18780336c",
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "76cd613c-d028-4fd9-9a65-4f35564a70f2",
+      "createdAt": "2026-10-27T08:41:42.467Z"
+    },
+    {
+      "actorUserId": null,
+      "actorEmail": "mithleshkumar527@gmail.com",
+      "actorType": "anonymous",
+      "action": "patient_login_failed",
+      "entityType": "auth",
+      "entityId": null,
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "2705f0db-2b10-45b1-8fc5-32c90a2ea9d5",
+      "createdAt": "2026-10-27T08:38:04.753Z"
+    },
+    {
       "actorUserId": "cb610e77-c068-492b-8fe0-14a18780336c",
       "actorEmail": "mithleshkumar527@gmail.com",
       "actorType": "patient",
@@ -2700,12 +2801,17 @@
     "login:patient:::1:patient.test@example.local": {
       "key": "login:patient:::1:patient.test@example.local",
       "hits": 1,
-      "resetAt": "2026-10-27T08:36:38.132Z"
+      "resetAt": "2026-10-27T08:52:32.771Z"
     },
     "login:patient:::1:mithleshkumar527@gmail.com": {
       "key": "login:patient:::1:mithleshkumar527@gmail.com",
-      "hits": 1,
-      "resetAt": "2026-10-27T08:37:02.602Z"
+      "hits": 3,
+      "resetAt": "2026-10-27T08:48:04.678Z"
+    },
+    "login:patient:::1:9800000000": {
+      "key": "login:patient:::1:9800000000",
+      "hits": 2,
+      "resetAt": "2026-10-27T08:51:48.079Z"
     }
   },
   "articles": [

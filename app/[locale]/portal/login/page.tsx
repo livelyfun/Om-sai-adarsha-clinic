@@ -31,7 +31,7 @@ export default function PatientLoginPage() {
       const res = await fetch('/api/auth/patient/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password, rememberMe }),
+        body: JSON.stringify({ email: email.trim(), password, rememberMe }),
       });
 
       const data = await res.json();
@@ -46,6 +46,12 @@ export default function PatientLoginPage() {
     } finally {
       setLoading(false);
     }
+  }
+
+  function handleQuickFill(demoEmail: string, demoPass: string) {
+    setEmail(demoEmail);
+    setPassword(demoPass);
+    setError('');
   }
 
   return (
@@ -78,16 +84,19 @@ export default function PatientLoginPage() {
         <form onSubmit={handleSubmit} className="mt-6 space-y-5">
           <div>
             <label className="mb-1.5 block text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-slate-500">
-              {t.emailLabel}
+              {locale === 'ne' ? 'इमेल वा मोबाइल नम्बर' : 'Email Address or Mobile'}
             </label>
             <div className="relative">
               <Mail className="pointer-events-none absolute left-3.5 top-3.5 h-4 w-4 text-slate-400" />
               <input
-                type="email"
+                type="text"
                 required
+                autoCapitalize="none"
+                autoCorrect="off"
+                spellCheck={false}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder={t.emailPlaceholder}
+                placeholder={locale === 'ne' ? 'इमेल वा मोबाइल नम्बर' : 'your.email@example.com or 9800000000'}
                 className="field !pl-10"
               />
             </div>
@@ -143,6 +152,30 @@ export default function PatientLoginPage() {
             {!loading && <ArrowRight className="h-4 w-4" />}
           </button>
         </form>
+
+        {/* Quick Demo Credentials */}
+        <div className="mt-4 rounded-xl border border-dashed border-brand-200 bg-brand-50/60 p-3 text-xs">
+          <p className="font-semibold text-brand-900 mb-1.5 flex items-center justify-between">
+            <span>{locale === 'ne' ? 'परीक्षण खाता (एक क्लिकमा भर्नुहोस्):' : 'Test Credentials (Click to auto-fill):'}</span>
+            <span className="text-[10px] text-brand-700 font-normal">Pass: PatientPass123!</span>
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() => handleQuickFill('mithleshkumar527@gmail.com', 'PatientPass123!')}
+              className="rounded-lg bg-white px-2.5 py-1 text-[11px] font-medium text-brand-900 border border-brand-200 hover:bg-brand-100/60 transition-colors shadow-2xs"
+            >
+              mithleshkumar527@gmail.com
+            </button>
+            <button
+              type="button"
+              onClick={() => handleQuickFill('patient.test@example.local', 'PatientPass123!')}
+              className="rounded-lg bg-white px-2.5 py-1 text-[11px] font-medium text-brand-900 border border-brand-200 hover:bg-brand-100/60 transition-colors shadow-2xs"
+            >
+              patient.test@example.local
+            </button>
+          </div>
+        </div>
 
         <div className="mt-5 rounded-2xl border border-sand-200/80 bg-sand-50/70 p-3.5 flex items-start gap-2.5 text-xs text-brand-950">
           <Sparkles className="h-4 w-4 text-sand-500 shrink-0 mt-0.5" />

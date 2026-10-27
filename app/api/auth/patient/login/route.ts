@@ -6,8 +6,8 @@ import { createSessionCookie } from '@/lib/auth/session';
 import { recordAudit } from '@/lib/audit';
 
 const loginSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(1),
+  email: z.string().trim().min(1, 'Email or mobile number is required'),
+  password: z.string().min(1, 'Password is required'),
 });
 
 export async function POST(req: NextRequest) {
@@ -18,19 +18,21 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const parsed = loginSchema.safeParse(body);
     if (!parsed.success) {
+      console.warn('[LOGIN_DEBUG] Schema validation failed:', parsed.error.issues);
       return NextResponse.json(
         { error: 'The email or password provided is incorrect.' },
         { status: 400 }
       );
     }
 
-    const { email, password } = parsed.data;
-    const rateKey = `login:patient:${ip}:${email.toLowerCase()}`;
-    const rateCheck = db.checkRateLimit(rateKey, 5, 600); // 5 attempts per 10 minutes
+    const { email: rawIdentifier, password } = parsed.data;
+    const identifier = rawIdentifier.trim().toLowerCase();
+    const rateKey = `login:patient:${ip}:${identifier}`;
+    const rateCheck = db.checkRateLimit(rateKey, 10, 600); // 10 attempts per 10 minutes
 
     if (!rateCheck.allowed) {
       recordAudit({
-        actorEmail: email,
+        actorEmail: identifier,
         actorType: 'anonymous',
         action: 'patient_login_rate_limited',
         entityType: 'auth',
@@ -42,12 +44,23 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const user = db.getUserByEmail(email);
+    // Support lookup by either email or phone number
+    const user = db.getUserByEmail(identifier) || db.getUserByPhone(identifier);
+
+    const isPasswordValid = user ? verifyPassword(password, user.passwordHash) : false;
+
+    console.log('[LOGIN_DEBUG_CHECK]', {
+      submittedIdentifier: identifier,
+      userFound: Boolean(user),
+      userEmail: user?.email,
+      userType: user?.userType,
+      isPasswordValid,
+    });
 
     // Constant-time failure response to prevent account enumeration
-    if (!user || user.userType !== 'patient' || !verifyPassword(password, user.passwordHash)) {
+    if (!user || user.userType !== 'patient' || !isPasswordValid) {
       recordAudit({
-        actorEmail: email,
+        actorEmail: identifier,
         actorType: 'anonymous',
         action: 'patient_login_failed',
         entityType: 'auth',
