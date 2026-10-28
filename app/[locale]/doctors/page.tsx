@@ -193,8 +193,16 @@ export default async function DoctorsDirectoryPage({ params, searchParams }: Doc
 
                       <div className="relative flex flex-1 flex-col px-5 pb-5">
                         <div className="-mt-7 flex items-end gap-3">
-                          <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl border-4 border-white bg-brand-50 font-display text-lg font-semibold text-brand-800 shadow-sm">
-                            {initialsOf(name)}
+                          <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl border-4 border-white bg-brand-50 font-display text-lg font-semibold text-brand-800 shadow-sm overflow-hidden">
+                            {doc.photoUrl ? (
+                              <img
+                                src={doc.photoUrl}
+                                alt={name}
+                                className="h-full w-full object-cover"
+                              />
+                            ) : (
+                              initialsOf(name)
+                            )}
                           </span>
                           <span className="pb-1 text-[0.625rem] font-semibold uppercase tracking-[0.1em] text-brand-600">
                             {specialty}

@@ -383,19 +383,23 @@ export default function PatientDashboardClient({
 
       {/* Dashboard Tabs Header */}
       <div className="border-b border-brand-950/10">
-        <nav className="flex space-x-6 text-xs sm:text-sm font-semibold overflow-x-auto pb-px">
+        {/* Mobile: horizontal scroll tab bar */}
+        <nav
+          className="-mx-1 flex gap-0.5 overflow-x-auto pb-px text-xs font-semibold scrollbar-none sm:mx-0 sm:gap-1 sm:text-sm"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
           <button
             type="button"
             onClick={() => setActiveTab('upcoming')}
-            className={`pb-3 border-b-2 flex items-center gap-2 transition-colors shrink-0 ${
+            className={`flex shrink-0 items-center gap-1.5 whitespace-nowrap border-b-2 px-3 pb-3 pt-1 transition-colors sm:gap-2 sm:px-4 ${
               activeTab === 'upcoming'
                 ? 'border-brand-800 text-brand-900 font-bold'
                 : 'border-transparent text-slate-500 hover:text-slate-800'
             }`}
           >
-            <Calendar className="h-4 w-4" />
+            <Calendar className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             <span>{t.tabUpcoming}</span>
-            <span className="px-2 py-0.5 text-xs bg-slate-100 rounded-full font-bold">
+            <span className="px-1.5 py-0.5 text-[0.625rem] bg-slate-100 rounded-full font-bold sm:px-2">
               {upcomingAppointments.length}
             </span>
           </button>
@@ -403,15 +407,15 @@ export default function PatientDashboardClient({
           <button
             type="button"
             onClick={() => setActiveTab('lab')}
-            className={`pb-3 border-b-2 flex items-center gap-2 transition-colors shrink-0 ${
+            className={`flex shrink-0 items-center gap-1.5 whitespace-nowrap border-b-2 px-3 pb-3 pt-1 transition-colors sm:gap-2 sm:px-4 ${
               activeTab === 'lab'
                 ? 'border-brand-800 text-brand-900 font-bold'
                 : 'border-transparent text-slate-500 hover:text-slate-800'
             }`}
           >
-            <FlaskConical className="h-4 w-4" />
+            <FlaskConical className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             <span>{t.tabLab}</span>
-            <span className="px-2 py-0.5 text-xs bg-slate-100 rounded-full font-bold">
+            <span className="px-1.5 py-0.5 text-[0.625rem] bg-slate-100 rounded-full font-bold sm:px-2">
               {upcomingLabs.length}
             </span>
           </button>
@@ -419,15 +423,16 @@ export default function PatientDashboardClient({
           <button
             type="button"
             onClick={() => setActiveTab('reports')}
-            className={`pb-3 border-b-2 flex items-center gap-2 transition-colors shrink-0 ${
+            className={`flex shrink-0 items-center gap-1.5 whitespace-nowrap border-b-2 px-3 pb-3 pt-1 transition-colors sm:gap-2 sm:px-4 ${
               activeTab === 'reports'
                 ? 'border-brand-800 text-brand-900 font-bold'
                 : 'border-transparent text-slate-500 hover:text-slate-800'
             }`}
           >
-            <FileText className="h-4 w-4" />
-            <span>{locale === 'ne' ? 'ल्याब रिपोर्टहरू' : 'Lab Reports'}</span>
-            <span className="px-2 py-0.5 text-xs bg-brand-100 text-brand-900 rounded-full font-bold">
+            <FileText className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+            <span className="hidden xs:inline">{locale === 'ne' ? 'ल्याब रिपोर्टहरू' : 'Lab Reports'}</span>
+            <span className="xs:hidden">{locale === 'ne' ? 'रिपोर्ट' : 'Reports'}</span>
+            <span className="px-1.5 py-0.5 text-[0.625rem] bg-brand-100 text-brand-900 rounded-full font-bold sm:px-2">
               {reports.filter(r => r.status === 'released').length}
             </span>
           </button>
@@ -435,15 +440,15 @@ export default function PatientDashboardClient({
           <button
             type="button"
             onClick={() => setActiveTab('past')}
-            className={`pb-3 border-b-2 flex items-center gap-2 transition-colors shrink-0 ${
+            className={`flex shrink-0 items-center gap-1.5 whitespace-nowrap border-b-2 px-3 pb-3 pt-1 transition-colors sm:gap-2 sm:px-4 ${
               activeTab === 'past'
                 ? 'border-brand-800 text-brand-900 font-bold'
                 : 'border-transparent text-slate-500 hover:text-slate-800'
             }`}
           >
-            <Clock className="h-4 w-4" />
+            <Clock className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             <span>{t.tabPast}</span>
-            <span className="px-2 py-0.5 text-xs bg-slate-100 rounded-full font-bold">
+            <span className="px-1.5 py-0.5 text-[0.625rem] bg-slate-100 rounded-full font-bold sm:px-2">
               {pastAppointments.length + pastLabs.length}
             </span>
           </button>
@@ -451,15 +456,15 @@ export default function PatientDashboardClient({
           <button
             type="button"
             onClick={() => setActiveTab('profiles')}
-            className={`pb-3 border-b-2 flex items-center gap-2 transition-colors shrink-0 ${
+            className={`flex shrink-0 items-center gap-1.5 whitespace-nowrap border-b-2 px-3 pb-3 pt-1 transition-colors sm:gap-2 sm:px-4 ${
               activeTab === 'profiles'
                 ? 'border-brand-800 text-brand-900 font-bold'
                 : 'border-transparent text-slate-500 hover:text-slate-800'
             }`}
           >
-            <Users className="h-4 w-4" />
+            <Users className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             <span>{t.tabProfiles}</span>
-            <span className="px-2 py-0.5 text-xs bg-slate-100 rounded-full font-bold">
+            <span className="px-1.5 py-0.5 text-[0.625rem] bg-slate-100 rounded-full font-bold sm:px-2">
               {profiles.length}
             </span>
           </button>
@@ -551,7 +556,7 @@ export default function PatientDashboardClient({
                     </div>
                   )}
 
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                  <div className="grid grid-cols-1 gap-3 text-xs sm:grid-cols-3 sm:gap-4">
                     <div>
                       <span className="text-slate-400 block font-medium">Provider / Service:</span>
                       <span className="font-bold text-ink mt-0.5 block">{apt.doctorNameSnapshot}</span>

@@ -66,7 +66,7 @@ export default function Footer({ locale, messages }: FooterProps) {
                   href={facebookUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-semibold text-brand-200 transition-colors hover:text-white"
+                  className="inline-flex min-h-9 items-center gap-2 text-xs font-semibold text-brand-200 transition-colors hover:text-white"
                 >
                   <span className="grid h-7 w-7 place-items-center rounded-full bg-white/10">
                     <Facebook className="h-3.5 w-3.5" />
@@ -86,7 +86,10 @@ export default function Footer({ locale, messages }: FooterProps) {
             <ul className="mt-4 space-y-2.5 text-sm">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-brand-100/70 transition-colors hover:text-white">
+                  <Link
+                    href={link.href}
+                    className="inline-flex min-h-9 items-center text-brand-100/70 transition-colors hover:text-white"
+                  >
                     {link.label}
                   </Link>
                 </li>
@@ -102,7 +105,10 @@ export default function Footer({ locale, messages }: FooterProps) {
             <ul className="mt-4 space-y-2.5 text-sm">
               {patientLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-brand-100/70 transition-colors hover:text-white">
+                  <Link
+                    href={link.href}
+                    className="inline-flex min-h-9 items-center text-brand-100/70 transition-colors hover:text-white"
+                  >
                     {link.label}
                   </Link>
                 </li>
@@ -125,7 +131,7 @@ export default function Footer({ locale, messages }: FooterProps) {
               {phone && (
                 <a
                   href={`tel:${phone}`}
-                  className="flex items-center gap-2.5 font-medium text-white transition-colors hover:text-sand-300"
+                  className="inline-flex min-h-9 items-center gap-2.5 font-medium text-white transition-colors hover:text-sand-300"
                 >
                   <Phone className="h-4 w-4 shrink-0 text-sand-400" />
                   {phone}
@@ -134,7 +140,7 @@ export default function Footer({ locale, messages }: FooterProps) {
               {email && (
                 <a
                   href={`mailto:${email}`}
-                  className="flex items-center gap-2.5 text-brand-100/70 transition-colors hover:text-white"
+                  className="inline-flex min-h-9 items-center gap-2.5 text-brand-100/70 transition-colors hover:text-white"
                 >
                   <Mail className="h-4 w-4 shrink-0 text-sand-400" />
                   {email}
@@ -160,9 +166,9 @@ export default function Footer({ locale, messages }: FooterProps) {
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-[0.6875rem] text-brand-100/50 sm:flex-row">
           <p>{t.copyright}</p>
           <div className="flex items-center gap-3">
-            <Link href="/en" className="transition-colors hover:text-white">English</Link>
+            <Link href="/en" className="inline-flex min-h-8 items-center px-1 transition-colors hover:text-white">English</Link>
             <span className="h-1 w-1 rounded-full bg-brand-100/30" />
-            <Link href="/ne" className="transition-colors hover:text-white">नेपाली</Link>
+            <Link href="/ne" className="inline-flex min-h-8 items-center px-1 transition-colors hover:text-white">नेपाली</Link>
           </div>
         </div>
       </div>

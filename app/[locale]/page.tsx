@@ -139,7 +139,7 @@ export default async function HomePage({ params }: HomePageProps) {
         <div className="pointer-events-none absolute -right-24 -top-40 h-[34rem] w-[34rem] rounded-full bg-brand-600/25 blur-[110px]" />
         <div className="pointer-events-none absolute -left-32 bottom-0 h-96 w-96 rounded-full bg-sand-500/10 blur-[100px]" />
 
-        <div className="container-x relative grid gap-12 py-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-14 lg:py-20">
+        <div className="container-x relative grid gap-10 py-10 sm:gap-12 sm:py-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-14 lg:py-20">
           {/* Copy */}
           <div className="animate-fade-up">
             <div className="flex flex-wrap items-center gap-2.5">
@@ -168,7 +168,7 @@ export default async function HomePage({ params }: HomePageProps) {
               )}
             </div>
 
-            <h1 className="display-title mt-6 text-[2.6rem] text-white sm:text-6xl lg:text-[4rem] leading-[1.12]">
+            <h1 className="display-title mt-5 text-[2.1rem] leading-[1.1] text-white sm:text-5xl sm:mt-6 lg:text-[4rem] lg:leading-[1.12]">
               {locale === 'ne' ? (
                 <>
                   सहृदयी सेवा,
@@ -245,8 +245,8 @@ export default async function HomePage({ params }: HomePageProps) {
           </div>
 
           {/* Visit card */}
-          <div className="relative animate-fade-up delay-200 lg:pl-4">
-            <div className="relative overflow-hidden rounded-[1.75rem] bg-white text-ink shadow-[0_35px_80px_-25px_rgba(0,0,0,0.5)] border border-brand-950/10">
+          <div className="relative animate-fade-up delay-200 min-w-0 lg:pl-4">
+            <div className="relative overflow-hidden rounded-[1.75rem] bg-white text-ink shadow-[0_35px_80px_-25px_rgba(0,0,0,0.5)] border border-brand-950/10 max-w-full">
               <div className="flex items-center justify-between border-b border-brand-950/8 bg-sand-50/80 px-6 py-4">
                 <div>
                   <p className="text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-brand-700">
@@ -363,11 +363,11 @@ export default async function HomePage({ params }: HomePageProps) {
         <div className="relative border-t border-white/10">
           <div className="container-x grid grid-cols-2 divide-x divide-white/10 md:grid-cols-4">
             {trustStats.map((stat) => (
-              <div key={stat.label} className="flex items-center gap-3 px-4 py-5 first:pl-0 sm:px-6">
-                <stat.icon className="h-5 w-5 shrink-0 text-sand-300" />
+              <div key={stat.label} className="flex items-center gap-2.5 px-3 py-4 first:pl-0 sm:gap-3 sm:px-6 sm:py-5">
+                <stat.icon className="h-4 w-4 shrink-0 text-sand-300 sm:h-5 sm:w-5" />
                 <div>
-                  <p className="font-display text-lg font-semibold leading-none text-white">{stat.value}</p>
-                  <p className="mt-1 text-[0.625rem] uppercase tracking-[0.1em] text-brand-100/60">
+                  <p className="font-display text-base font-semibold leading-none text-white sm:text-lg">{stat.value}</p>
+                  <p className="mt-1 text-[0.5625rem] uppercase tracking-[0.1em] text-brand-100/60 sm:text-[0.625rem]">
                     {stat.label}
                   </p>
                 </div>
@@ -539,8 +539,16 @@ export default async function HomePage({ params }: HomePageProps) {
 
                     <div className="relative px-5 pb-5">
                       <div className="-mt-8 flex items-end gap-3">
-                        <span className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl border-4 border-white bg-brand-50 font-display text-xl font-semibold text-brand-800 shadow-sm">
-                          {initialsOf(name)}
+                        <span className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl border-4 border-white bg-brand-50 font-display text-xl font-semibold text-brand-800 shadow-sm overflow-hidden">
+                          {doc.photoUrl ? (
+                            <img
+                              src={doc.photoUrl}
+                              alt={name}
+                              className="h-full w-full object-cover"
+                            />
+                          ) : (
+                            initialsOf(name)
+                          )}
                         </span>
                         <span className="pb-1 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-brand-600">
                           {specialty}
@@ -702,7 +710,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
       {/* 5. LAB DIAGNOSTICS + DIGITAL REPORTS */}
       <section className="border-y border-brand-950/8 bg-white py-16 sm:py-20">
-        <div className="container-x grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
+        <div className="container-x grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
           <div>
             <span className="eyebrow">
               <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
@@ -769,7 +777,7 @@ export default async function HomePage({ params }: HomePageProps) {
             </div>
 
             {labTestsToShow.length > 0 ? (
-              <div className="grid gap-3 sm:grid-cols-2">
+              <div className="grid gap-3 grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
                 {labTestsToShow.map((test) => {
                   const testName = locale === 'ne' && test.nameNe ? test.nameNe : test.nameEn;
                   const sample =

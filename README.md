@@ -294,6 +294,29 @@ curl http://localhost:3000/api/test/stage1-verification
 
 Tests: password hashing, bootstrap idempotency, registration & email verification, password reset, staff/patient role separation, audit logging, i18n bundle completeness.
 
+### Responsive Layout Verification
+Playwright checks every public page at 13 widths (320 px → 1920 px) and fails on
+horizontal scrolling or content pushed outside the viewport. The mobile drawer,
+desktop navigation and — when credentials are supplied — the patient dashboard
+and staff CMS are covered too.
+
+```bash
+npm run test:e2e
+```
+
+Optional environment variables:
+
+| Variable | Purpose |
+|----------|---------|
+| `BASE_URL` | Use an already-running server instead of starting `npm run dev` |
+| `CHROME_PATH` | Use a locally installed Chromium |
+| `E2E_PATIENT_EMAIL` / `E2E_PATIENT_PASSWORD` | Include patient dashboard checks |
+| `E2E_STAFF_EMAIL` / `E2E_STAFF_PASSWORD` | Include staff CMS checks |
+
+For a full report with per-page offenders and screenshots, run
+`npm run audit:responsive` against a running dev server (artifacts are written to
+`/tmp/opencode/responsive-shots`).
+
 ---
 
 ## Development Notes

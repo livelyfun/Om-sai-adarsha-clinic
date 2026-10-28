@@ -112,7 +112,7 @@ export default function ForgotPasswordPage() {
         )}
 
         <div className="mt-6 border-t border-brand-950/8 pt-5 text-center">
-          <Link href={`/${locale}/portal/login`} className="text-xs font-semibold text-brand-700 hover:underline">
+          <Link href={`/${locale}/portal/login`} className="inline-flex items-center py-1.5 text-xs font-semibold text-brand-700 hover:underline">
             {t.alreadyHaveAccount}
           </Link>
         </div>

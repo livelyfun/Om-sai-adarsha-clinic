@@ -32,7 +32,7 @@ export default function PageHeader({
 
       <div
         className={cn(
-          'container-x relative py-12 sm:py-16',
+          'container-x relative py-8 sm:py-12 md:py-16',
           centered ? 'text-center' : 'text-left'
         )}
       >
@@ -41,13 +41,13 @@ export default function PageHeader({
             <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
             {eyebrow}
           </span>
-          <h1 className="display-title mt-4 text-4xl sm:text-[3.25rem]">{title}</h1>
+          <h1 className="display-title mt-3 text-[2rem] sm:text-4xl md:text-[3.25rem]">{title}</h1>
           {description && (
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-slate-600 sm:text-base">
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-slate-600 sm:mt-4 sm:text-base">
               {description}
             </p>
           )}
-          {children && <div className="mt-7 w-full">{children}</div>}
+          {children && <div className="mt-6 w-full sm:mt-7">{children}</div>}
         </div>
       </div>
     </section>

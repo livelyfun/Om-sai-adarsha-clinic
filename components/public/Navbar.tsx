@@ -111,7 +111,6 @@ export default function Navbar({
 
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
-    if (isMobileMenuOpen) setIsVisible(true);
     return () => {
       document.body.style.overflow = '';
     };
@@ -121,7 +120,7 @@ export default function Navbar({
     <header
       className={cn(
         'sticky top-0 z-40 w-full transition-transform duration-300 ease-in-out',
-        isVisible ? 'translate-y-0 shadow-sm' : '-translate-y-full shadow-none'
+        isVisible ? 'shadow-sm' : '-translate-y-full shadow-none'
       )}
     >
       {/* Utility strip */}
@@ -264,7 +263,10 @@ export default function Navbar({
 
             <button
               type="button"
-              onClick={() => setIsMobileMenuOpen(true)}
+              onClick={() => {
+                setIsMobileMenuOpen(true);
+                setIsVisible(true);
+              }}
               className="grid h-10 w-10 place-items-center rounded-xl border border-slate-200 text-slate-700 transition-colors hover:bg-slate-100 lg:hidden"
               aria-label={t.openMenu}
             >

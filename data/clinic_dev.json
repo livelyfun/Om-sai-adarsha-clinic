@@ -537,6 +537,78 @@
       "ipAddress": "::1",
       "userAgent": "curl/8.18.0",
       "createdAt": "2026-10-27T08:42:32.848Z"
+    },
+    {
+      "id": "efe37f9b-9c2e-4d7d-b1e0-7de52ae5b680",
+      "userId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "tokenHash": "4fdee8c02ac020bd26d971bf936b8d0e530cb3ed7531e96ba9abeb6cc782c57f",
+      "expiresAt": "2026-11-03T15:51:13.081Z",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "createdAt": "2026-10-27T15:51:13.082Z"
+    },
+    {
+      "id": "25df39ab-068b-4bf4-a3f7-fdf9c1876115",
+      "userId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "tokenHash": "caed9c5efe6d5acb66a283015f53e6badba25b7d7e4e1686078eb638413a1876",
+      "expiresAt": "2026-11-03T15:54:03.421Z",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "createdAt": "2026-10-27T15:54:03.422Z"
+    },
+    {
+      "id": "963cf175-540f-493d-959d-2bb8d286b5cc",
+      "userId": "18e4a5d3-bfc1-41b9-81b9-931d9e40d3e5",
+      "tokenHash": "7568f1e5576202c0e1226dc6ec19f37207e54f880cd0346bfa4f13d7e2cdb92f",
+      "expiresAt": "2026-11-03T15:56:32.129Z",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "createdAt": "2026-10-27T15:56:32.129Z"
+    },
+    {
+      "id": "789ad8bc-c73e-48cb-91e2-24fd0b1f230e",
+      "userId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "tokenHash": "b78fccd7b8f3923bb27d61a7e53056aec73b3f39f2f77d5085664cb5d21f58b6",
+      "expiresAt": "2026-11-03T16:01:34.832Z",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "createdAt": "2026-10-27T16:01:34.833Z"
+    },
+    {
+      "id": "60bee625-0fd7-40f3-bcc8-6273412e6487",
+      "userId": "18e4a5d3-bfc1-41b9-81b9-931d9e40d3e5",
+      "tokenHash": "5096592028b0cdefa77fb0278c5d3647638d1a15f37c7c13faddf42756d44380",
+      "expiresAt": "2026-11-03T16:04:21.865Z",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "createdAt": "2026-10-27T16:04:21.865Z"
+    },
+    {
+      "id": "04c80462-a9b2-4b4d-9c6b-4111a62be38a",
+      "userId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "tokenHash": "ac18edbc512385784949ef2a33a2d00614e89a0efa587c28965eac39fb4dc8fa",
+      "expiresAt": "2026-11-03T16:49:16.864Z",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "createdAt": "2026-10-27T16:49:16.865Z"
+    },
+    {
+      "id": "ffeab23d-bd3e-496d-be6e-820d9b9a88c3",
+      "userId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "tokenHash": "40f3faa05f9dbc03e7f842007e21af7c4e52440905f7f875bdf24dfc85f23f8a",
+      "expiresAt": "2026-11-04T06:38:13.936Z",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+      "createdAt": "2026-10-28T06:38:13.936Z"
+    },
+    {
+      "id": "e8e79b16-9388-4da6-96b2-7f8edb68827b",
+      "userId": "18e4a5d3-bfc1-41b9-81b9-931d9e40d3e5",
+      "tokenHash": "38ffd766e68342bf8ec67c92c63590e0a2868ec89a26960ed7f6eaabea3ae730",
+      "expiresAt": "2026-11-04T06:39:54.610Z",
+      "ipAddress": "::1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+      "createdAt": "2026-10-28T06:39:54.610Z"
     }
   ],
   "roles": [
@@ -991,295 +1063,544 @@
   ],
   "doctors": [
     {
-      "slug": "test-doc-1793012175171",
-      "nameEn": "Dr. Stage Two Specialist",
-      "nameNe": "",
-      "specialtyEn": "Orthopedics & Sports Medicine",
-      "specialtyNe": "",
+      "id": "doc-shaileja-chhetri",
+      "slug": "prof-dr-shaileja-chhetri",
+      "nameEn": "Prof. Dr. Shaileja Chhetri (Shrestha)",
+      "nameNe": "प्रो. डा. शैलेजा क्षेत्री (श्रेष्ठ)",
+      "photoUrl": "/images/doctors/shaileja-chhetri.jpg",
+      "qualificationsEn": "MBBS, MD, DMAS | Prof. of Obstetric & Gynecology, Ex. HOD OBS & Gynae (BPKIHS) | NMC No: 6303",
+      "qualificationsNe": "एमबीबीएस, एमडी, डीएमएएस | प्राध्यापक तथा पूर्व विभागीय प्रमुख, प्रसुती तथा स्त्रीरोग विभाग (बीपी प्रतिष्ठान) | एनएमसी नं: ६३०३",
+      "specialtyEn": "Obstetrics & Gynecology (Senior Specialist)",
+      "specialtyNe": "वरिष्ठ स्त्री तथा प्रसुती रोग विशेषज्ञ",
+      "bioEn": "Prof. Dr. Shaileja Chhetri is an eminent Professor of Obstetrics and Gynecology and former Head of Department at BPKIHS Dharan. She provides expert consultations in high-risk pregnancies, maternal care, infertility, and advanced gynecological wellness.",
+      "bioNe": "प्रो. डा. शैलेजा क्षेत्री बीपी कोइराला स्वास्थ्य विज्ञान प्रतिष्ठानका पूर्व विभागीय प्रमुख तथा वरिष्ठ प्राध्यापक हुनुहुन्छ। उहाँले महिलाको प्रसुती, उच्च जोखिमयुक्त गर्भावस्था, निःसन्तान परामर्श तथा स्त्रीरोग सम्बन्धी विशेषज्ञ सेवा प्रदान गर्नुहुन्छ।",
+      "consultationFee": 800,
+      "slotDurationMinutes": 20,
+      "isActive": true,
+      "isFeatured": true,
+      "createdAt": "2026-10-27T14:17:32.710Z"
+    },
+    {
+      "id": "doc-nikesh-raj-shrestha",
+      "slug": "prof-dr-nikesh-raj-shrestha",
+      "nameEn": "Prof. Dr. Nikesh Raj Shrestha",
+      "nameNe": "प्रो. डा. निकेश राज श्रेष्ठ",
+      "photoUrl": "/images/doctors/nikesh-raj-shrestha.jpg",
+      "qualificationsEn": "MBBS, MD, FESC | Fellow of European Society of Cardiology, Ex. Associate Professor (BPKIHS, Dharan) | NMC No: 3195",
+      "qualificationsNe": "एमबीबीएस, एमडी, एफईएससी | फेलो अफ युरोपियन सोसाइटी अफ कार्डियोलोजी, पूर्व सह-प्राध्यापक (बीपीकेआईएचएस, धरान) | एनएमसी नं: ३१९५",
+      "specialtyEn": "Interventional Cardiology (Senior Specialist)",
+      "specialtyNe": "वरिष्ठ इन्टरभेन्सनल कार्डियोलोजिष्ट",
+      "bioEn": "Prof. Dr. Nikesh Raj Shrestha is an internationally recognized Interventional Cardiologist and FESC Fellow specializing in cardiovascular diseases, cardiac catheterization, hypertension management, heart failure therapy, and coronary care.",
+      "bioNe": "प्रो. डा. निकेश राज श्रेष्ठ मुटुरोग सम्बन्धी वरिष्ठ इन्टरभेन्सनल कार्डियोलोजिष्ट तथा युरोपियन सोसाइटी अफ कार्डियोलोजीका फेलो हुनुहुन्छ। उहाँ मुटुको समस्या, उच्च रक्तचाप, एन्जियोग्राफी तथा कार्डियाक केयरमा अनुभवी हुनुहुन्छ।",
+      "consultationFee": 1000,
+      "slotDurationMinutes": 20,
+      "isActive": true,
+      "isFeatured": true,
+      "createdAt": "2026-10-27T14:17:32.710Z"
+    },
+    {
+      "id": "doc-rajiv-shrestha",
+      "slug": "dr-rajiv-shrestha",
+      "nameEn": "Dr. Rajiv Shrestha",
+      "nameNe": "डा. राजीव श्रेष्ठ",
+      "photoUrl": "/images/doctors/rajiv-shrestha.jpg",
+      "qualificationsEn": "MBBS, MD (Cardiology) | Sr. Consultant Cardiologist (Ex. Gangalal Heart Centre, Norvic Hospital, Neuro Cardio Hospital) | NMC No: 3310",
+      "qualificationsNe": "एमबीबीएस, एमडी (मुटुरोग) | वरिष्ठ कन्सल्टेन्ट मुटु रोग विशेषज्ञ (गंगालाल हृदय केन्द्र, नर्भिक हस्पिटल, न्यूरो कार्डियो) | एनएमसी नं: ३३१०",
+      "specialtyEn": "Cardiology (Senior Consultant)",
+      "specialtyNe": "वरिष्ठ कन्सल्टेन्ट मुटु रोग विशेषज्ञ",
+      "bioEn": "Dr. Rajiv Shrestha brings years of clinical leadership from Shahid Gangalal National Heart Centre, Norvic Hospital, and Neuro Cardio Hospital. He provides expert diagnostic evaluations including 2D Echo, ECG, and clinical management of cardiac conditions.",
+      "bioNe": "डा. राजीव श्रेष्ठ गंगालाल राष्ट्रिय हृदय केन्द्र, नर्भिक हस्पिटल र न्यूरो कार्डियो हस्पिटलमा सेवा पुर्याइसक्नुभएका अनुभवी वरिष्ठ मुटुरोग विशेषज्ञ हुनुहुन्छ। उहाँले मुटुरोग निदान, इकोकार्डियोग्राफी तथा उपचार सेवा प्रदान गर्नुहुन्छ।",
+      "consultationFee": 800,
+      "slotDurationMinutes": 20,
+      "isActive": true,
+      "isFeatured": true,
+      "createdAt": "2026-10-27T14:17:32.710Z"
+    },
+    {
+      "id": "doc-kaushar-ali",
+      "slug": "dr-kaushar-ali",
+      "nameEn": "Dr. Kaushar Ali",
+      "nameNe": "डा. कौशर अली",
+      "photoUrl": "/images/doctors/kaushar-ali.jpg",
+      "qualificationsEn": "MBBS, MD Medicine (Bir Hospital) | Training in NCD (Singapore) | NMC No: 14168",
+      "qualificationsNe": "एमबीबीएस, एमडी मेडिसिन (वीर अस्पताल) | एनसिडी विशेष तालिम (सिंगापुर) | एनएमसी नं: १४१६८",
+      "specialtyEn": "Internal Medicine (Senior Physician)",
+      "specialtyNe": "वरिष्ठ इन्टरनल फिजिसियन",
+      "bioEn": "Dr. Kaushar Ali completed his MD in Internal Medicine at Bir Hospital and received specialized NCD (Non-Communicable Diseases) clinical training in Singapore. He manages diabetes, hypertension, metabolic syndrome, and complex medical disorders.",
+      "bioNe": "डा. कौशर अली वीर अस्पतालबाट एमडी तथा सिंगापुरबाट नसर्ने रोग (NCD) सम्बन्धी विशेष तालिम प्राप्त वरिष्ठ इन्टरनल फिजिसियन हुनुहुन्छ। उहाँले मधुमेह, रक्तचाप, छाती तथा पेटका समस्याहरूको सफल उपचार गर्नुहुन्छ।",
       "consultationFee": 700,
       "slotDurationMinutes": 20,
       "isActive": true,
       "isFeatured": true,
-      "id": "8356c5c2-b8f1-42c2-a8b3-2fe09538520c",
-      "createdAt": "2026-10-26T10:56:15.171Z"
+      "createdAt": "2026-10-27T14:17:32.710Z"
     },
     {
-      "slug": "doctor-stage3-1793013035235",
-      "nameEn": "Dr. Conflict Test Specialist",
-      "nameNe": "डा. परीक्षण विशेषज्ञ",
-      "specialtyEn": "Cardiology",
-      "specialtyNe": "मुटुरोग",
-      "consultationFee": 1500,
+      "id": "doc-santosh-kumar-yadav",
+      "slug": "dr-santosh-kumar-yadav",
+      "nameEn": "Dr. Santosh Kumar Yadav",
+      "nameNe": "डा. सन्तोष कुमार यादव",
+      "photoUrl": "/images/doctors/santosh-kumar-yadav.jpg",
+      "qualificationsEn": "MBBS, MD, NAMS (Kanti Children Hospital, Maharajgunj, Kathmandu) | NMC No: 13918",
+      "qualificationsNe": "एमबीबीएस, एमडी, न्याम्स (कान्ति बाल अस्पताल, महाराजगंज, काठमाण्डौ) | एनएमसी नं: १३९१८",
+      "specialtyEn": "Pediatrics & Neonatology (Senior Specialist)",
+      "specialtyNe": "वरिष्ठ नवजात शिशु तथा बाल रोग विशेषज्ञ",
+      "bioEn": "Dr. Santosh Kumar Yadav is a dedicated pediatrician trained at Kanti Children’s Hospital, Kathmandu. He specializes in newborn intensive care, childhood developmental milestones, infectious illnesses, and immunization schedules.",
+      "bioNe": "डा. सन्तोष कुमार यादव कान्ति बाल अस्पतालबाट प्रशिक्षित वरिष्ठ नवजात शिशु तथा बालरोग विशेषज्ञ हुनुहुन्छ। उहाँले शिशुहरूको स्वास्थ्य, वृद्धि-विकास, बाल संक्रमण तथा खोप परामर्श प्रदान गर्नुहुन्छ।",
+      "consultationFee": 600,
+      "slotDurationMinutes": 20,
+      "isActive": true,
+      "isFeatured": true,
+      "createdAt": "2026-10-27T14:17:32.710Z"
+    },
+    {
+      "id": "doc-lav-kumar-mandal",
+      "slug": "dr-lav-kumar-mandal",
+      "nameEn": "Dr. Lav Kumar Mandal",
+      "nameNe": "डा. लव कु. मण्डल",
+      "photoUrl": "/images/doctors/lav-kumar-mandal.jpg",
+      "qualificationsEn": "MBBS, MS (BPKIHS) | NMC No: 19546",
+      "qualificationsNe": "एमबीबीएस, एमएस (बीपीकेआईएचएस) | एनएमसी नं: १९५४६",
+      "specialtyEn": "General & Laparoscopic Surgery (Senior Surgeon)",
+      "specialtyNe": "वरिष्ठ जेनेरल तथा ल्याप्रोस्कोपिक सर्जन",
+      "bioEn": "Dr. Lav Kumar Mandal is a Senior General and Laparoscopic Surgeon trained at BPKIHS. He specializes in minimally invasive laparoscopic procedures, hernia repair, gallstone management, gastrointestinal surgical consultations, and minor surgical care.",
+      "bioNe": "डा. लव कुमार मण्डल बीपीकेआईएचएसबाट दीक्षित वरिष्ठ जेनेरल तथा ल्याप्रोस्कोपिक सर्जन हुनुहुन्छ। उहाँले पेट, पत्थरी, हर्निया तथा सामान्य शल्यक्रिया सम्बन्धी परामर्श तथा सेवा प्रदान गर्नुहुन्छ।",
+      "consultationFee": 700,
       "slotDurationMinutes": 20,
       "isActive": true,
       "isFeatured": false,
-      "id": "f06c3f6b-3c1b-4aad-add5-dfdd761dc7a1",
-      "createdAt": "2026-10-26T11:10:35.236Z"
+      "createdAt": "2026-10-27T14:17:32.710Z"
     },
     {
-      "slug": "doctor-stage3-1793014264428",
-      "nameEn": "Dr. Conflict Test Specialist",
-      "nameNe": "डा. परीक्षण विशेषज्ञ",
-      "specialtyEn": "Cardiology",
-      "specialtyNe": "मुटुरोग",
-      "consultationFee": 1500,
+      "id": "doc-vijay-kumar-mehta",
+      "slug": "dr-vijay-kumar-mehta",
+      "nameEn": "Dr. Vijay Kumar Mehta",
+      "nameNe": "डा. विजय कुमार मेहता",
+      "photoUrl": "/images/doctors/vijay-kumar-mehta.jpg",
+      "qualificationsEn": "MBBS, MS (NAMS) | Fellowship in Joint Replacement | NMC No: 16176",
+      "qualificationsNe": "एमबीबीएस, एमएस (न्याम्स) | फेलोसिप इन जोइन्ट रिप्लेसमेन्ट | एनएमसी नं: १६१७६",
+      "specialtyEn": "Orthopedics & Joint Replacement (Senior Specialist)",
+      "specialtyNe": "हाडजोर्नी तथा नशा रोग विशेषज्ञ",
+      "bioEn": "Dr. Vijay Kumar Mehta is an Orthopedic Surgeon with advanced fellowship credentials in joint replacement. He diagnoses and treats arthritis, joint degenerations, spine and nerve pain, sports trauma, and complex fractures.",
+      "bioNe": "डा. विजय कुमार मेहता न्याम्सबाट एमएस तथा जोर्नी प्रत्यारोपण (Joint Replacement) मा फेलोसिप प्राप्त हाडजोर्नी तथा नशा रोग विशेषज्ञ हुनुहुन्छ। उहाँले जोर्नी दुखाइ, भाँचिएको हड्डी र नशा सम्बन्धी उपचार गर्नुहुन्छ।",
+      "consultationFee": 700,
+      "slotDurationMinutes": 20,
+      "isActive": true,
+      "isFeatured": true,
+      "createdAt": "2026-10-27T14:17:32.710Z"
+    },
+    {
+      "id": "doc-sabita-khadka",
+      "slug": "dr-sabita-khadka",
+      "nameEn": "Dr. Sabita Khadka",
+      "nameNe": "डा. सबिता खड्का",
+      "photoUrl": "/images/doctors/sabita-khadka.jpg",
+      "qualificationsEn": "MBBS, MD (Psychiatry), NAMS | NMC No: 11715",
+      "qualificationsNe": "एमबीबीएस, एमडी (मानसरोग), न्याम्स | एनएमसी नं: ११७१५",
+      "specialtyEn": "Psychiatry & Mental Health (Senior Specialist)",
+      "specialtyNe": "वरिष्ठ मानसिक रोग विशेषज्ञ",
+      "bioEn": "Dr. Sabita Khadka is a Senior Psychiatrist specializing in adult and adolescent mental health, offering clinical evaluations and therapy for depressive episodes, anxiety, obsessive-compulsive concerns, insomnia, and psychological wellbeing.",
+      "bioNe": "डा. सबिता खड्का न्याम्सबाट एमडी प्राप्त वरिष्ठ मानसिक रोग विशेषज्ञ हुनुहुन्छ। उहाँले डिप्रेसन, एन्जाइटी, अनिद्रा, तनाव व्यवस्थापन तथा मानसिक स्वास्थ्य परामर्श सेवा प्रदान गर्नुहुन्छ।",
+      "consultationFee": 600,
       "slotDurationMinutes": 20,
       "isActive": true,
       "isFeatured": false,
-      "id": "fcb9ad0a-85bd-43db-a42b-c3216e201d70",
-      "createdAt": "2026-10-26T11:31:04.429Z"
+      "createdAt": "2026-10-27T14:17:32.710Z"
     },
     {
-      "slug": "doctor-stage3-1793014273640",
-      "nameEn": "Dr. Conflict Test Specialist",
-      "nameNe": "डा. परीक्षण विशेषज्ञ",
-      "specialtyEn": "Cardiology",
-      "specialtyNe": "मुटुरोग",
-      "consultationFee": 1500,
+      "id": "doc-tapan-pradhan",
+      "slug": "dr-tapan-pradhan",
+      "nameEn": "Dr. Tapan Pradhan",
+      "nameNe": "डा. तपन प्रधान",
+      "photoUrl": "/images/doctors/tapan-pradhan.jpg",
+      "qualificationsEn": "MBBS, MD (Dermatology & Venereology) | NMC No: 11834",
+      "qualificationsNe": "एमबीबीएस, एमडी (छाला तथा यौनरोग) | एनएमसी नं: ११८३४",
+      "specialtyEn": "Dermatology & Venereology (Senior Specialist)",
+      "specialtyNe": "वरिष्ठ यौन तथा छाला रोग विशेषज्ञ",
+      "bioEn": "Dr. Tapan Pradhan is a Senior Consultant Dermatologist treating chronic eczema, psoriasis, acne, hair fall, fungal skin infections, and sexually transmitted diseases with evidence-based dermatological care.",
+      "bioNe": "डा. तपन प्रधान छाला तथा यौनरोगका वरिष्ठ विशेषज्ञ हुनुहुन्छ। उहाँले दाद, एलर्जी, डण्डीफोर, कपाल तथा नङका समस्या र यौनरोग सम्बन्धी आधुनिक उपचार तथा परामर्श प्रदान गर्नुहुन्छ।",
+      "consultationFee": 600,
       "slotDurationMinutes": 20,
       "isActive": true,
       "isFeatured": false,
-      "id": "79f0c30d-cdef-4d01-85f7-5c8599fbf7e3",
-      "createdAt": "2026-10-26T11:31:13.641Z"
-    },
-    {
-      "slug": "dr-anand-stage5",
-      "nameEn": "Dr. Anand Sharma",
-      "nameNe": "डा. आनन्द शर्मा",
-      "specialtyEn": "Internal Medicine",
-      "specialtyNe": "इन्टरनल मेडिसिन",
-      "consultationFee": 700,
-      "slotDurationMinutes": 20,
-      "isActive": true,
-      "isFeatured": true,
-      "id": "0b20360c-df81-44eb-904b-824517889fbc",
-      "createdAt": "2026-10-26T11:31:53.992Z"
-    },
-    {
-      "slug": "test-doc-1793016190464",
-      "nameEn": "Dr. Stage Two Specialist",
-      "nameNe": "",
-      "specialtyEn": "Orthopedics & Sports Medicine",
-      "specialtyNe": "",
-      "consultationFee": 700,
-      "slotDurationMinutes": 20,
-      "isActive": true,
-      "isFeatured": true,
-      "id": "2205fbe4-c9f4-4708-bd68-4c58063f2b65",
-      "createdAt": "2026-10-26T12:03:10.464Z"
-    },
-    {
-      "slug": "doctor-stage3-1793016193879",
-      "nameEn": "Dr. Conflict Test Specialist",
-      "nameNe": "डा. परीक्षण विशेषज्ञ",
-      "specialtyEn": "Cardiology",
-      "specialtyNe": "मुटुरोग",
-      "consultationFee": 1500,
-      "slotDurationMinutes": 20,
-      "isActive": true,
-      "isFeatured": false,
-      "id": "acef44f8-7223-44bb-8848-b7467869d5fc",
-      "createdAt": "2026-10-26T12:03:13.879Z"
-    },
-    {
-      "slug": "dr-anand-stage5",
-      "nameEn": "Dr. Anand Sharma",
-      "nameNe": "डा. आनन्द शर्मा",
-      "specialtyEn": "Internal Medicine",
-      "specialtyNe": "इन्टरनल मेडिसिन",
-      "consultationFee": 700,
-      "slotDurationMinutes": 20,
-      "isActive": true,
-      "isFeatured": true,
-      "id": "47eb4a51-20a7-4c65-a802-48c184359153",
-      "createdAt": "2026-10-26T12:03:21.755Z"
-    },
-    {
-      "slug": "test-doc-1793021619707",
-      "nameEn": "Dr. Stage Two Specialist",
-      "nameNe": "",
-      "specialtyEn": "Orthopedics & Sports Medicine",
-      "specialtyNe": "",
-      "consultationFee": 700,
-      "slotDurationMinutes": 20,
-      "isActive": true,
-      "isFeatured": true,
-      "id": "2b8a6af7-c3b5-4283-9cd5-140268abb50d",
-      "createdAt": "2026-10-26T13:33:39.708Z"
-    },
-    {
-      "slug": "doctor-stage3-1793021625827",
-      "nameEn": "Dr. Conflict Test Specialist",
-      "nameNe": "डा. परीक्षण विशेषज्ञ",
-      "specialtyEn": "Cardiology",
-      "specialtyNe": "मुटुरोग",
-      "consultationFee": 1500,
-      "slotDurationMinutes": 20,
-      "isActive": true,
-      "isFeatured": false,
-      "id": "60b17dfe-cd88-4fb2-bcac-9ce1b5e74af9",
-      "createdAt": "2026-10-26T13:33:45.827Z"
-    },
-    {
-      "slug": "dr-anand-stage5",
-      "nameEn": "Dr. Anand Sharma",
-      "nameNe": "डा. आनन्द शर्मा",
-      "specialtyEn": "Internal Medicine",
-      "specialtyNe": "इन्टरनल मेडिसिन",
-      "consultationFee": 700,
-      "slotDurationMinutes": 20,
-      "isActive": true,
-      "isFeatured": true,
-      "id": "d8ec2e75-6424-4729-93ad-45ea1d916301",
-      "createdAt": "2026-10-26T13:34:06.893Z"
-    },
-    {
-      "slug": "test-doc-1793022566351",
-      "nameEn": "Dr. Stage Two Specialist",
-      "nameNe": "",
-      "specialtyEn": "Orthopedics & Sports Medicine",
-      "specialtyNe": "",
-      "consultationFee": 700,
-      "slotDurationMinutes": 20,
-      "isActive": true,
-      "isFeatured": true,
-      "id": "717ac95e-dd3d-41a4-b7c8-0561778f1513",
-      "createdAt": "2026-10-26T13:49:26.351Z"
-    },
-    {
-      "slug": "doctor-stage3-1793022581175",
-      "nameEn": "Dr. Conflict Test Specialist",
-      "nameNe": "डा. परीक्षण विशेषज्ञ",
-      "specialtyEn": "Cardiology",
-      "specialtyNe": "मुटुरोग",
-      "consultationFee": 1500,
-      "slotDurationMinutes": 20,
-      "isActive": true,
-      "isFeatured": false,
-      "id": "e662195e-0520-4ce8-851e-f33d0b98d49b",
-      "createdAt": "2026-10-26T13:49:41.175Z"
-    },
-    {
-      "slug": "dr-anand-stage5",
-      "nameEn": "Dr. Anand Sharma",
-      "nameNe": "डा. आनन्द शर्मा",
-      "specialtyEn": "Internal Medicine",
-      "specialtyNe": "इन्टरनल मेडिसिन",
-      "consultationFee": 700,
-      "slotDurationMinutes": 20,
-      "isActive": true,
-      "isFeatured": true,
-      "id": "1783d924-769d-4d7d-840b-b90a3df6deae",
-      "createdAt": "2026-10-26T13:50:05.577Z"
-    },
-    {
-      "slug": "test-doc-1793023265855",
-      "nameEn": "Dr. Stage Two Specialist",
-      "nameNe": "",
-      "specialtyEn": "Orthopedics & Sports Medicine",
-      "specialtyNe": "",
-      "consultationFee": 700,
-      "slotDurationMinutes": 20,
-      "isActive": true,
-      "isFeatured": true,
-      "id": "1210b3a4-198a-4cdb-b62a-333ce611f315",
-      "createdAt": "2026-10-26T14:01:05.855Z"
-    },
-    {
-      "slug": "doctor-stage3-1793023267251",
-      "nameEn": "Dr. Conflict Test Specialist",
-      "nameNe": "डा. परीक्षण विशेषज्ञ",
-      "specialtyEn": "Cardiology",
-      "specialtyNe": "मुटुरोग",
-      "consultationFee": 1500,
-      "slotDurationMinutes": 20,
-      "isActive": true,
-      "isFeatured": false,
-      "id": "23827108-c25a-4ac5-a9b8-d1b6c9ccd7d9",
-      "createdAt": "2026-10-26T14:01:07.251Z"
-    },
-    {
-      "slug": "dr-anand-stage5",
-      "nameEn": "Dr. Anand Sharma",
-      "nameNe": "डा. आनन्द शर्मा",
-      "specialtyEn": "Internal Medicine",
-      "specialtyNe": "इन्टरनल मेडिसिन",
-      "consultationFee": 700,
-      "slotDurationMinutes": 20,
-      "isActive": true,
-      "isFeatured": true,
-      "id": "fed28dd6-cc8b-4ae8-93cf-412bfd9e1129",
-      "createdAt": "2026-10-26T14:01:08.905Z"
+      "createdAt": "2026-10-27T14:17:32.710Z"
     }
   ],
   "doctorSchedules": [
     {
-      "id": "48d8d537-07a0-4749-af76-ea0db6ca90e5",
-      "doctorId": "8356c5c2-b8f1-42c2-a8b3-2fe09538520c",
+      "id": "a4f14150-0ecb-4509-b8bf-7a1db4a44017",
+      "doctorId": "doc-shaileja-chhetri",
       "dayOfWeek": 0,
       "startTimeMinutes": 540,
       "endTimeMinutes": 1020
     },
     {
-      "id": "b8c8148e-b1f1-4123-967d-0a806e3598ff",
-      "doctorId": "8356c5c2-b8f1-42c2-a8b3-2fe09538520c",
+      "id": "88754226-d4c6-408f-b24c-738c2d43614f",
+      "doctorId": "doc-shaileja-chhetri",
       "dayOfWeek": 1,
       "startTimeMinutes": 540,
       "endTimeMinutes": 1020
     },
     {
-      "id": "d26bc5ca-4970-4492-9e80-649669fc34cd",
-      "doctorId": "2205fbe4-c9f4-4708-bd68-4c58063f2b65",
+      "id": "8299b5d5-7c1c-4ab6-9e41-fdc08f516230",
+      "doctorId": "doc-shaileja-chhetri",
+      "dayOfWeek": 2,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "d7bbb670-e3c5-4fbf-9879-b0c44cfc118e",
+      "doctorId": "doc-shaileja-chhetri",
+      "dayOfWeek": 3,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "ec5c2fc6-b6cc-4ceb-9729-b880add2065b",
+      "doctorId": "doc-shaileja-chhetri",
+      "dayOfWeek": 4,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "60d86792-7abb-43f2-bb87-cb2e62f6a78b",
+      "doctorId": "doc-shaileja-chhetri",
+      "dayOfWeek": 5,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "77b13310-c37f-440d-8219-9b4fe1e902bf",
+      "doctorId": "doc-nikesh-raj-shrestha",
       "dayOfWeek": 0,
       "startTimeMinutes": 540,
       "endTimeMinutes": 1020
     },
     {
-      "id": "0f1976c8-3656-4cf0-9f4f-496ed439d0fc",
-      "doctorId": "2205fbe4-c9f4-4708-bd68-4c58063f2b65",
+      "id": "a2dbc79b-2845-42a0-a46d-375e5bf68ebc",
+      "doctorId": "doc-nikesh-raj-shrestha",
       "dayOfWeek": 1,
       "startTimeMinutes": 540,
       "endTimeMinutes": 1020
     },
     {
-      "id": "4831ea0c-f818-4501-bde7-90ed03798f27",
-      "doctorId": "2b8a6af7-c3b5-4283-9cd5-140268abb50d",
+      "id": "5ba5ddca-a8ac-4f14-a1ca-3d3dbc00be54",
+      "doctorId": "doc-nikesh-raj-shrestha",
+      "dayOfWeek": 2,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "62d7ceee-53d5-4a00-8b06-6476119cc91f",
+      "doctorId": "doc-nikesh-raj-shrestha",
+      "dayOfWeek": 3,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "22984198-e606-464e-8984-72099710528d",
+      "doctorId": "doc-nikesh-raj-shrestha",
+      "dayOfWeek": 4,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "aa57186a-4b34-41a2-a56a-dfa65f5495fd",
+      "doctorId": "doc-nikesh-raj-shrestha",
+      "dayOfWeek": 5,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "9f21e9c1-e30a-437a-997e-3fdb1a7e1ced",
+      "doctorId": "doc-rajiv-shrestha",
       "dayOfWeek": 0,
       "startTimeMinutes": 540,
       "endTimeMinutes": 1020
     },
     {
-      "id": "4c3545c2-d8b2-454d-bb59-ff18035b93e6",
-      "doctorId": "2b8a6af7-c3b5-4283-9cd5-140268abb50d",
+      "id": "3600471c-772f-4bf9-8ff0-b1298a5becc0",
+      "doctorId": "doc-rajiv-shrestha",
       "dayOfWeek": 1,
       "startTimeMinutes": 540,
       "endTimeMinutes": 1020
     },
     {
-      "id": "274be13e-2f40-4240-b7bf-7c59535decb6",
-      "doctorId": "717ac95e-dd3d-41a4-b7c8-0561778f1513",
+      "id": "214ebb04-0b22-45b3-8b66-aa0333d67e0a",
+      "doctorId": "doc-rajiv-shrestha",
+      "dayOfWeek": 2,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "d4f20885-bf78-4c38-9867-bf7d6a87f8cf",
+      "doctorId": "doc-rajiv-shrestha",
+      "dayOfWeek": 3,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "aa9f676f-7449-4d99-94e6-2e3af8eb917c",
+      "doctorId": "doc-rajiv-shrestha",
+      "dayOfWeek": 4,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "def7779b-bb69-4190-a432-f3592314c40c",
+      "doctorId": "doc-rajiv-shrestha",
+      "dayOfWeek": 5,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "062c8c08-cd78-45cb-9dcd-d352bacd5ab0",
+      "doctorId": "doc-kaushar-ali",
       "dayOfWeek": 0,
       "startTimeMinutes": 540,
       "endTimeMinutes": 1020
     },
     {
-      "id": "39fd04dd-0087-4feb-9d93-8465af43e02d",
-      "doctorId": "717ac95e-dd3d-41a4-b7c8-0561778f1513",
+      "id": "c9d079ec-f282-4b4c-a3d0-d2dce2acafcb",
+      "doctorId": "doc-kaushar-ali",
       "dayOfWeek": 1,
       "startTimeMinutes": 540,
       "endTimeMinutes": 1020
     },
     {
-      "id": "fdaccaf0-1f72-45f6-88aa-0cee7ae1b394",
-      "doctorId": "1210b3a4-198a-4cdb-b62a-333ce611f315",
+      "id": "404c600b-9fc8-4794-9417-6f5ecd5fac38",
+      "doctorId": "doc-kaushar-ali",
+      "dayOfWeek": 2,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "bbc033dd-0484-4b2f-ac06-2ad815f2f873",
+      "doctorId": "doc-kaushar-ali",
+      "dayOfWeek": 3,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "8e1cb6d4-72ff-4e24-883c-d3dbc9b0af9a",
+      "doctorId": "doc-kaushar-ali",
+      "dayOfWeek": 4,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "7b8a7669-98e9-435e-9b07-def4584c16aa",
+      "doctorId": "doc-kaushar-ali",
+      "dayOfWeek": 5,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "40008c81-c357-45d1-94b0-06c651ca4897",
+      "doctorId": "doc-santosh-kumar-yadav",
       "dayOfWeek": 0,
       "startTimeMinutes": 540,
       "endTimeMinutes": 1020
     },
     {
-      "id": "a9ac68e0-b83b-4535-aa1b-d701a55c2ddf",
-      "doctorId": "1210b3a4-198a-4cdb-b62a-333ce611f315",
+      "id": "026c9082-b31a-4f9f-9db2-f64b6894469b",
+      "doctorId": "doc-santosh-kumar-yadav",
       "dayOfWeek": 1,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "9b5b10e2-bf49-4871-b816-8526db840bbd",
+      "doctorId": "doc-santosh-kumar-yadav",
+      "dayOfWeek": 2,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "83185d99-3cc0-4db7-8a78-ec822e348767",
+      "doctorId": "doc-santosh-kumar-yadav",
+      "dayOfWeek": 3,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "a7196e0b-3563-437f-b76b-287a57c80dc1",
+      "doctorId": "doc-santosh-kumar-yadav",
+      "dayOfWeek": 4,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "7070fb87-3d0e-4349-a525-6c30082f4386",
+      "doctorId": "doc-santosh-kumar-yadav",
+      "dayOfWeek": 5,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "7f2fc9e8-b8d9-4b80-bf99-54b3091ccdee",
+      "doctorId": "doc-lav-kumar-mandal",
+      "dayOfWeek": 0,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "639e4c1e-166a-484b-b0dd-09ead4d49443",
+      "doctorId": "doc-lav-kumar-mandal",
+      "dayOfWeek": 1,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "6f79efdf-a450-4657-b088-6d656ec72a13",
+      "doctorId": "doc-lav-kumar-mandal",
+      "dayOfWeek": 2,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "49d329eb-a012-43a8-8b0e-0ac656add6be",
+      "doctorId": "doc-lav-kumar-mandal",
+      "dayOfWeek": 3,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "13861b04-73e5-4a3c-b67c-8f357cf36d5b",
+      "doctorId": "doc-lav-kumar-mandal",
+      "dayOfWeek": 4,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "6848ec70-b13b-4167-a073-efa12c3ea019",
+      "doctorId": "doc-lav-kumar-mandal",
+      "dayOfWeek": 5,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "8bace5c0-d573-4bec-a010-dc2bba5755ec",
+      "doctorId": "doc-vijay-kumar-mehta",
+      "dayOfWeek": 0,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "ea120b53-781f-4ab2-abde-fdf9b7519437",
+      "doctorId": "doc-vijay-kumar-mehta",
+      "dayOfWeek": 1,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "cba711bc-84a5-40bb-9af7-cc27333fcfa8",
+      "doctorId": "doc-vijay-kumar-mehta",
+      "dayOfWeek": 2,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "6120a805-02c4-454b-96bf-03c7f3456eb9",
+      "doctorId": "doc-vijay-kumar-mehta",
+      "dayOfWeek": 3,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "55b8f59d-c215-487f-855f-27e2b2c8a9c8",
+      "doctorId": "doc-vijay-kumar-mehta",
+      "dayOfWeek": 4,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "421fad77-a5af-4629-a050-677f44e66629",
+      "doctorId": "doc-vijay-kumar-mehta",
+      "dayOfWeek": 5,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "7aef3d2a-fd93-48cc-83d8-eee2ed623f21",
+      "doctorId": "doc-sabita-khadka",
+      "dayOfWeek": 0,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "77e87200-463b-47f1-abd1-a3dca5d4a4b4",
+      "doctorId": "doc-sabita-khadka",
+      "dayOfWeek": 1,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "7caee4f5-60db-424e-bfc9-b003fce2f882",
+      "doctorId": "doc-sabita-khadka",
+      "dayOfWeek": 2,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "de56226f-be5a-4d40-afeb-888980041d72",
+      "doctorId": "doc-sabita-khadka",
+      "dayOfWeek": 3,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "c4b26ab6-050c-4b33-93aa-db09e122daa0",
+      "doctorId": "doc-sabita-khadka",
+      "dayOfWeek": 4,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "6cec78ea-edf3-4304-b689-ec140f26a60a",
+      "doctorId": "doc-sabita-khadka",
+      "dayOfWeek": 5,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "5c400741-12d6-4317-b138-14dc9fe7ef4d",
+      "doctorId": "doc-tapan-pradhan",
+      "dayOfWeek": 0,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "4a7f7490-affc-46a8-9809-a278f2ec0c10",
+      "doctorId": "doc-tapan-pradhan",
+      "dayOfWeek": 1,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "afe934f2-9615-4773-8f45-2bb692872676",
+      "doctorId": "doc-tapan-pradhan",
+      "dayOfWeek": 2,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "aead0da6-b81c-4113-82b7-3348c3daef80",
+      "doctorId": "doc-tapan-pradhan",
+      "dayOfWeek": 3,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "98cff3a2-df9a-4c7d-b6a5-6deafcaa5f8d",
+      "doctorId": "doc-tapan-pradhan",
+      "dayOfWeek": 4,
+      "startTimeMinutes": 540,
+      "endTimeMinutes": 1020
+    },
+    {
+      "id": "3de24898-6b43-4c27-a0f6-c29dc9b0e1b1",
+      "doctorId": "doc-tapan-pradhan",
+      "dayOfWeek": 5,
       "startTimeMinutes": 540,
       "endTimeMinutes": 1020
     }
@@ -1322,6 +1643,58 @@
       "isActive": true,
       "isFeatured": true,
       "createdAt": "2026-10-27T03:17:13.989Z"
+    },
+    {
+      "id": "10d060b2-400c-469c-b51e-56c78bc1dc7e",
+      "slug": "echo-ecg-service",
+      "nameEn": "Echocardiography (2D Echo) & ECG",
+      "nameNe": "इकोकार्डियोग्राफी (2D Echo) तथा इसिजी सेवा",
+      "descriptionEn": "High-resolution cardiac ultrasound and electrical rhythm testing supervised by senior consultant cardiologists.",
+      "descriptionNe": "वरिष्ठ मुटुरोग विशेषज्ञद्वारा उच्च गुणस्तरको मुटुको भिडियो एक्सरे (इको) तथा इसिजी परीक्षण।",
+      "fee": 1500,
+      "bookingMode": "request",
+      "isFeatured": true,
+      "isActive": true,
+      "createdAt": "2026-10-27T14:17:32.710Z"
+    },
+    {
+      "id": "1e125124-56cf-43da-bbcd-3b0645a6dc44",
+      "slug": "digital-xray-usg-service",
+      "nameEn": "Digital X-Ray & Ultrasound (USG)",
+      "nameNe": "डिजिटल एक्सरे तथा भिडियो एक्सरे सेवा",
+      "descriptionEn": "State-of-the-art digital radiography and abdominal/pelvic sonography for rapid diagnostic assessment.",
+      "descriptionNe": "पेट, छाती तथा हाडजोर्नीको आधुनिक डिजिटल एक्सरे तथा अल्ट्रासाउन्ड (भिडियो एक्सरे) सुविधा।",
+      "fee": 1000,
+      "bookingMode": "request",
+      "isFeatured": true,
+      "isActive": true,
+      "createdAt": "2026-10-27T14:17:32.710Z"
+    },
+    {
+      "id": "545628eb-b1fe-4f82-81f2-3df60481cb70",
+      "slug": "pharmacy-service",
+      "nameEn": "In-House Registered Pharmacy",
+      "nameNe": "फार्मेसी सेवा सुविधा",
+      "descriptionEn": "Comprehensive on-site pharmacy providing authentic prescription medicines, wellness supplies, and patient counseling.",
+      "descriptionNe": "प्रमाणित चिकित्सकद्वारा सिफारिस गरिएका गुणस्तरीय औषधि तथा स्वास्थ्य सामग्रीहरूको सुलभ फार्मेसी सेवा।",
+      "fee": 0,
+      "bookingMode": "walk-in",
+      "isFeatured": true,
+      "isActive": true,
+      "createdAt": "2026-10-27T14:17:32.710Z"
+    },
+    {
+      "id": "c76120e8-88d4-438c-ae66-79e7ca028976",
+      "slug": "clinical-pathology-lab",
+      "nameEn": "Comprehensive Clinical Pathology & Diagnostics",
+      "nameNe": "आधुनिक ल्याब तथा रगत परीक्षण",
+      "descriptionEn": "Automated biochemistry, hematology, hormonal and microbiological diagnostic investigations with rapid report delivery.",
+      "descriptionNe": "पूर्ण स्वचालित मेसिनहरूद्वारा रगत, पिसाब तथा अन्य जैविक नमुनाहरूको भरपर्दो र द्रुत ल्याब परीक्षण।",
+      "fee": 500,
+      "bookingMode": "request",
+      "isFeatured": true,
+      "isActive": true,
+      "createdAt": "2026-10-27T14:17:32.710Z"
     }
   ],
   "serviceQuestions": [],
@@ -1447,7 +1820,7 @@
   "appointments": [
     {
       "profileId": "ff22c5a6-25b6-47e5-ad2b-d4bd142b9969",
-      "doctorId": "f06c3f6b-3c1b-4aad-add5-dfdd761dc7a1",
+      "doctorId": "doc-nikesh-raj-shrestha",
       "startTime": "2026-11-10T10:00:00.000Z",
       "endTime": "2026-11-10T10:20:00.000Z",
       "status": "confirmed",
@@ -1460,7 +1833,7 @@
     },
     {
       "profileId": "2d6160e8-31d1-4997-b2c6-cbcada525ab5",
-      "doctorId": "f06c3f6b-3c1b-4aad-add5-dfdd761dc7a1",
+      "doctorId": "doc-nikesh-raj-shrestha",
       "startTime": "2026-11-10T11:00:00.000Z",
       "endTime": "2026-11-10T11:20:00.000Z",
       "status": "confirmed",
@@ -1486,7 +1859,7 @@
     },
     {
       "profileId": "c5ce6126-1f1b-4450-8202-e3e3b2fadac8",
-      "doctorId": "fcb9ad0a-85bd-43db-a42b-c3216e201d70",
+      "doctorId": "doc-nikesh-raj-shrestha",
       "startTime": "2026-11-10T10:00:00.000Z",
       "endTime": "2026-11-10T10:20:00.000Z",
       "status": "confirmed",
@@ -1499,7 +1872,7 @@
     },
     {
       "profileId": "44365f68-47d7-4d45-aae0-950be2731afc",
-      "doctorId": "fcb9ad0a-85bd-43db-a42b-c3216e201d70",
+      "doctorId": "doc-nikesh-raj-shrestha",
       "startTime": "2026-11-10T11:00:00.000Z",
       "endTime": "2026-11-10T11:20:00.000Z",
       "status": "confirmed",
@@ -1525,7 +1898,7 @@
     },
     {
       "profileId": "cd9ba7ec-7dab-454b-8ffe-5c90cfb8b029",
-      "doctorId": "79f0c30d-cdef-4d01-85f7-5c8599fbf7e3",
+      "doctorId": "doc-nikesh-raj-shrestha",
       "startTime": "2026-11-10T10:00:00.000Z",
       "endTime": "2026-11-10T10:20:00.000Z",
       "status": "confirmed",
@@ -1538,7 +1911,7 @@
     },
     {
       "profileId": "20d86f67-f81d-480b-9f73-b349c41cdca3",
-      "doctorId": "79f0c30d-cdef-4d01-85f7-5c8599fbf7e3",
+      "doctorId": "doc-nikesh-raj-shrestha",
       "startTime": "2026-11-10T11:00:00.000Z",
       "endTime": "2026-11-10T11:20:00.000Z",
       "status": "confirmed",
@@ -1564,7 +1937,7 @@
     },
     {
       "profileId": "7a9f743d-d542-4c75-ab52-0f4eefdde31f",
-      "doctorId": "acef44f8-7223-44bb-8848-b7467869d5fc",
+      "doctorId": "doc-nikesh-raj-shrestha",
       "startTime": "2026-11-10T10:00:00.000Z",
       "endTime": "2026-11-10T10:20:00.000Z",
       "status": "confirmed",
@@ -1577,7 +1950,7 @@
     },
     {
       "profileId": "9077fc8b-fd4a-44f2-b2bc-cb02214b153c",
-      "doctorId": "acef44f8-7223-44bb-8848-b7467869d5fc",
+      "doctorId": "doc-nikesh-raj-shrestha",
       "startTime": "2026-11-10T11:00:00.000Z",
       "endTime": "2026-11-10T11:20:00.000Z",
       "status": "confirmed",
@@ -1603,7 +1976,7 @@
     },
     {
       "profileId": "b0ebde56-cea9-470c-a840-cc084c599324",
-      "doctorId": "60b17dfe-cd88-4fb2-bcac-9ce1b5e74af9",
+      "doctorId": "doc-nikesh-raj-shrestha",
       "startTime": "2026-11-10T10:00:00.000Z",
       "endTime": "2026-11-10T10:20:00.000Z",
       "status": "confirmed",
@@ -1616,7 +1989,7 @@
     },
     {
       "profileId": "a1af656a-4e0b-42cb-8cbb-07bf23479f95",
-      "doctorId": "60b17dfe-cd88-4fb2-bcac-9ce1b5e74af9",
+      "doctorId": "doc-nikesh-raj-shrestha",
       "startTime": "2026-11-10T11:00:00.000Z",
       "endTime": "2026-11-10T11:20:00.000Z",
       "status": "confirmed",
@@ -1642,7 +2015,7 @@
     },
     {
       "profileId": "1d555776-21a1-4a37-b5f5-dd3833693218",
-      "doctorId": "e662195e-0520-4ce8-851e-f33d0b98d49b",
+      "doctorId": "doc-nikesh-raj-shrestha",
       "startTime": "2026-11-10T10:00:00.000Z",
       "endTime": "2026-11-10T10:20:00.000Z",
       "status": "confirmed",
@@ -1655,7 +2028,7 @@
     },
     {
       "profileId": "4639a59b-4bfe-4875-be79-199445101800",
-      "doctorId": "e662195e-0520-4ce8-851e-f33d0b98d49b",
+      "doctorId": "doc-nikesh-raj-shrestha",
       "startTime": "2026-11-10T11:00:00.000Z",
       "endTime": "2026-11-10T11:20:00.000Z",
       "status": "confirmed",
@@ -1681,7 +2054,7 @@
     },
     {
       "profileId": "d6413cc8-2e62-48f6-9aed-baab96f2fc97",
-      "doctorId": "23827108-c25a-4ac5-a9b8-d1b6c9ccd7d9",
+      "doctorId": "doc-nikesh-raj-shrestha",
       "startTime": "2026-11-10T10:00:00.000Z",
       "endTime": "2026-11-10T10:20:00.000Z",
       "status": "confirmed",
@@ -1694,7 +2067,7 @@
     },
     {
       "profileId": "1eeb6418-f0a3-4c3c-bae4-3b6f1fde06f2",
-      "doctorId": "23827108-c25a-4ac5-a9b8-d1b6c9ccd7d9",
+      "doctorId": "doc-nikesh-raj-shrestha",
       "startTime": "2026-11-10T11:00:00.000Z",
       "endTime": "2026-11-10T11:20:00.000Z",
       "status": "confirmed",
@@ -2332,6 +2705,123 @@
   ],
   "auditLogs": [
     {
+      "actorUserId": "18e4a5d3-bfc1-41b9-81b9-931d9e40d3e5",
+      "actorEmail": "admin@omsaiclinic.local",
+      "actorType": "staff",
+      "action": "staff_login_success",
+      "entityType": "cms_session",
+      "entityId": "18e4a5d3-bfc1-41b9-81b9-931d9e40d3e5",
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "595417f5-ea29-40f7-95f4-12f2b8bed12e",
+      "createdAt": "2026-10-28T06:39:56.749Z"
+    },
+    {
+      "actorUserId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "actorEmail": "patient.test@example.local",
+      "actorType": "patient",
+      "action": "patient_login_success",
+      "entityType": "session",
+      "entityId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "0065cab0-d8e2-42f4-9fc5-cbfd68dd242d",
+      "createdAt": "2026-10-28T06:38:13.942Z"
+    },
+    {
+      "actorUserId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "actorEmail": "patient.test@example.local",
+      "actorType": "patient",
+      "action": "patient_login_success",
+      "entityType": "session",
+      "entityId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "8eeb0975-b2d7-491b-94cb-6aef03e3e230",
+      "createdAt": "2026-10-27T16:49:16.871Z"
+    },
+    {
+      "actorUserId": "18e4a5d3-bfc1-41b9-81b9-931d9e40d3e5",
+      "actorEmail": "admin@omsaiclinic.local",
+      "actorType": "staff",
+      "action": "staff_login_success",
+      "entityType": "cms_session",
+      "entityId": "18e4a5d3-bfc1-41b9-81b9-931d9e40d3e5",
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "57c3886c-2660-4e84-b1eb-d07627769a86",
+      "createdAt": "2026-10-27T16:04:21.958Z"
+    },
+    {
+      "actorUserId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "actorEmail": "patient.test@example.local",
+      "actorType": "patient",
+      "action": "patient_login_success",
+      "entityType": "session",
+      "entityId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "cfa25125-31f1-4087-b7c5-cb441c474ccd",
+      "createdAt": "2026-10-27T16:01:34.843Z"
+    },
+    {
+      "actorUserId": "18e4a5d3-bfc1-41b9-81b9-931d9e40d3e5",
+      "actorEmail": "admin@omsaiclinic.local",
+      "actorType": "staff",
+      "action": "staff_login_success",
+      "entityType": "cms_session",
+      "entityId": "18e4a5d3-bfc1-41b9-81b9-931d9e40d3e5",
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "3e6a2932-db0a-4446-b0ff-ece6518f3304",
+      "createdAt": "2026-10-27T15:56:32.135Z"
+    },
+    {
+      "actorUserId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "actorEmail": "patient.test@example.local",
+      "actorType": "patient",
+      "action": "patient_login_success",
+      "entityType": "session",
+      "entityId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "b20973e8-4b9e-4955-8620-45914c1634d9",
+      "createdAt": "2026-10-27T15:54:03.429Z"
+    },
+    {
+      "actorUserId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "actorEmail": "patient.test@example.local",
+      "actorType": "patient",
+      "action": "patient_login_success",
+      "entityType": "session",
+      "entityId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "dce301cb-1134-4c70-ae17-c45745695509",
+      "createdAt": "2026-10-27T15:51:13.090Z"
+    },
+    {
+      "actorUserId": null,
+      "actorEmail": "mithleshkumar527@gmail.com",
+      "actorType": "anonymous",
+      "action": "patient_login_failed",
+      "entityType": "auth",
+      "entityId": null,
+      "requestId": null,
+      "ipAddress": "::1",
+      "metadataJson": {},
+      "id": "1332dadb-8970-48e9-be2b-9ab1cd7c7ede",
+      "createdAt": "2026-10-27T08:44:21.890Z"
+    },
+    {
       "actorUserId": "5d22a2dd-6c6b-4c7d-85ee-31c557c3d9dc",
       "actorEmail": "patient.test@example.local",
       "actorType": "patient",
@@ -2742,23 +3232,23 @@
     "clinic_name_ne": "ॐ साई आदर्श क्लिनिक",
     "tagline_en": "Compassionate Care, Reliable Diagnostics & Expert Consultations",
     "tagline_ne": "सहृदयी स्वास्थ्य सेवा, गुणस्तरीय ल्याब तथा विशेषज्ञ परामर्श",
-    "min_lead_time_hours": 3,
+    "min_lead_time_hours": 2,
     "max_advance_booking_days": 30,
     "cancellation_cutoff_hours": 4,
     "max_open_requests_per_patient": 5,
     "default_slot_duration_minutes": 20,
     "week_start_day": 0,
     "weekly_holiday_day": 6,
-    "address_en": "",
-    "address_ne": "",
-    "phone": "",
-    "email": "",
-    "emergency_phone": "",
-    "whatsapp_number": "",
-    "map_url": "",
+    "address_en": "Shahid Marg, In Front of Birendra Sabhagriha, Biratnagar, Nepal",
+    "address_ne": "शहिद मार्ग, विरेन्द्र सभागृह अगाडि, विराटनगर, नेपाल",
+    "phone": "+977-9807358874",
+    "email": "omsaiaadarshaclinic@gmail.com",
+    "emergency_phone": "+977-9810581421",
+    "whatsapp_number": "+977-9807358874",
+    "map_url": "https://maps.google.com/?q=Birendra+Sabhagriha+Biratnagar",
     "facebook_url": "https://www.facebook.com/p/Om-Sai-Aadarsha-Clinic-100084050983392/",
-    "opening_hours_en": "Sunday – Friday: 07:00 AM – 08:00 PM (Saturday Closed)",
-    "opening_hours_ne": "आइतबार – शुक्रबार: बिहान ०७:०० – साँझ ०८:०० (शनिबार बन्द)"
+    "opening_hours_en": "Sunday – Friday: 07:00 AM – 07:00 PM (Saturday Closed)",
+    "opening_hours_ne": "आइतबार – शुक्रबार: बिहान ०७:०० – साँझ ०७:०० (शनिबार बन्द)"
   },
   "clinicClosures": [
     {
@@ -2801,17 +3291,22 @@
     "login:patient:::1:patient.test@example.local": {
       "key": "login:patient:::1:patient.test@example.local",
       "hits": 1,
-      "resetAt": "2026-10-27T08:52:32.771Z"
+      "resetAt": "2026-10-28T06:48:09.134Z"
     },
     "login:patient:::1:mithleshkumar527@gmail.com": {
       "key": "login:patient:::1:mithleshkumar527@gmail.com",
-      "hits": 3,
+      "hits": 4,
       "resetAt": "2026-10-27T08:48:04.678Z"
     },
     "login:patient:::1:9800000000": {
       "key": "login:patient:::1:9800000000",
       "hits": 2,
       "resetAt": "2026-10-27T08:51:48.079Z"
+    },
+    "login:staff:::1:admin@omsaiclinic.local": {
+      "key": "login:staff:::1:admin@omsaiclinic.local",
+      "hits": 1,
+      "resetAt": "2026-10-28T06:49:54.547Z"
     }
   },
   "articles": [
@@ -2827,7 +3322,9 @@
       "status": "draft",
       "id": "a1b55e1a-e43d-4e72-a6a6-78d11529f47a",
       "createdAt": "2026-10-26T14:01:08.907Z",
-      "updatedAt": "2026-10-26T14:01:08.907Z"
+      "updatedAt": "2026-10-26T14:01:08.907Z",
+      "reviewedByDoctorId": "doc-shaileja-chhetri",
+      "reviewedByDoctorName": "Prof. Dr. Shaileja Chhetri (Shrestha)"
     },
     {
       "slug": "hypertension-awareness-stage5",
@@ -2838,8 +3335,8 @@
       "contentEn": "Hypertension is often called the silent killer. Regular monitoring and balanced diet are critical.",
       "contentNe": "",
       "category": "Chronic Disease",
-      "reviewedByDoctorId": "fed28dd6-cc8b-4ae8-93cf-412bfd9e1129",
-      "reviewedByDoctorName": "Dr. Anand Sharma",
+      "reviewedByDoctorId": "doc-shaileja-chhetri",
+      "reviewedByDoctorName": "Prof. Dr. Shaileja Chhetri (Shrestha)",
       "reviewedAt": "2026-10-26T14:01:08.906Z",
       "status": "published",
       "id": "58b097c5-a94b-4220-b981-e2b7d920a318",
@@ -2851,8 +3348,8 @@
       "titleNe": "ज्वरो आउँदा कहिले चिकित्सकलाई भेट्ने?",
       "excerptNe": "धेरैजसो ज्वरो आफैं ठीक हुन्छ — तर केही लक्षण देखिए तुरुन्त चिकित्सकीय सल्लाह लिनुपर्छ।",
       "contentNe": "ज्वरो संक्रमणको सामान्य प्रतिक्रिया हो। हल्का अवस्थामा आराम, पर्याप्त तरल र निगरानी पर्याप्त हुन्छ। ज्वरो तीन दिनभन्दा बढी रहेमा, धेरै उच्च भएमा, वा सास फेर्न कठिनाई, कडा टाउको दुखाई, अलमल, छालामा दाग वा लगातार वान्ता भएमा चिकित्सकीय सल्लाह लिनुहोस्।",
-      "reviewedByDoctorId": "fed28dd6-cc8b-4ae8-93cf-412bfd9e1129",
-      "reviewedByDoctorName": "Dr. Anand Sharma",
+      "reviewedByDoctorId": "doc-shaileja-chhetri",
+      "reviewedByDoctorName": "Prof. Dr. Shaileja Chhetri (Shrestha)",
       "reviewedAt": "2026-10-27T03:17:13.989Z",
       "status": "published",
       "createdAt": "2026-10-27T03:17:13.989Z",
@@ -2868,8 +3365,8 @@
       "titleNe": "तपाईंको सीबीसी रिपोर्ट कसरी पढ्ने?",
       "excerptNe": "हिमोग्लोबिन, श्वेतकोष र प्लेटलेटले तपाईंको स्वास्थ्यको फरक-फरक पक्ष देखाउँछन्।",
       "contentNe": "सीबीसीले रक्तका मुख्य अंगहरू मापन गर्छ। हिमोग्लोबिनले अक्सिजन बोक्छ, श्वेतकोषले रोग प्रतिरोधात्मक क्षमतामा सहयोग गर्छ र प्लेटलेटले रक्त जम्न मद्दत गर्छ। नतिजालाई उमेर, लिङ्ग र लक्षणअनुसार व्याख्या गरिन्छ — सामान्य दायराभन्दा बाहिरको एक मान मात्र निदान होइन।",
-      "reviewedByDoctorId": "fed28dd6-cc8b-4ae8-93cf-412bfd9e1129",
-      "reviewedByDoctorName": "Dr. Anand Sharma",
+      "reviewedByDoctorId": "doc-shaileja-chhetri",
+      "reviewedByDoctorName": "Prof. Dr. Shaileja Chhetri (Shrestha)",
       "reviewedAt": "2026-10-27T03:17:13.989Z",
       "status": "published",
       "createdAt": "2026-10-27T03:17:13.989Z",

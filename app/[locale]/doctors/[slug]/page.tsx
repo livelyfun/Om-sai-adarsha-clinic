@@ -81,7 +81,7 @@ export default async function DoctorDetailPage({ params }: DoctorDetailPageProps
         <div className="container-x py-4">
           <Link
             href={`/${locale}/doctors`}
-            className="inline-flex items-center gap-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-slate-500 transition-colors hover:text-brand-800"
+            className="inline-flex min-h-9 items-center gap-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-slate-500 transition-colors hover:text-brand-800"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             {locale === 'ne' ? 'चिकित्सक सूचीमा फर्कनुहोस्' : 'Back to doctors'}
@@ -96,8 +96,16 @@ export default async function DoctorDetailPage({ params }: DoctorDetailPageProps
               <div className="pointer-events-none absolute inset-0 bg-grid-light opacity-30" />
               <div className="pointer-events-none absolute -right-12 -top-16 h-52 w-52 rounded-full bg-sand-400/15 blur-2xl" />
               <div className="relative flex flex-col gap-5 sm:flex-row sm:items-center">
-                <span className="grid h-20 w-20 shrink-0 place-items-center rounded-3xl border border-white/15 bg-white/10 font-display text-2xl font-semibold text-sand-200 backdrop-blur">
-                  {initialsOf(name)}
+                <span className="grid h-20 w-20 shrink-0 place-items-center rounded-3xl border border-white/15 bg-white/10 font-display text-2xl font-semibold text-sand-200 backdrop-blur overflow-hidden">
+                  {doctor.photoUrl ? (
+                    <img
+                      src={doctor.photoUrl}
+                      alt={name}
+                      className="h-full w-full object-cover"
+                    />
+                  ) : (
+                    initialsOf(name)
+                  )}
                 </span>
                 <div>
                   <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[0.5625rem] font-semibold uppercase tracking-[0.1em] text-brand-50">

@@ -16,8 +16,30 @@ export default function AuthShell({ locale, children }: AuthShellProps) {
   return (
     <div className="relative overflow-hidden bg-cream">
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-40 mask-fade-b" />
-      <div className="container-x relative grid min-h-[78vh] items-center gap-10 py-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16 lg:py-16">
-        {/* Brand panel */}
+
+      {/* Mobile-only compact branded header */}
+      <div className="relative border-b border-brand-950/8 bg-white/80 backdrop-blur-sm lg:hidden">
+        <div className="container-x flex items-center justify-between py-3.5">
+          <Link href={`/${locale}`} className="flex items-center gap-2.5">
+            <span className="grid h-8 w-8 place-items-center rounded-xl bg-brand-900 text-sm font-bold text-sand-200">
+              ॐ
+            </span>
+            <span className="text-sm font-bold tracking-tight text-ink">
+              {locale === 'ne' ? 'ॐ साई आदर्श क्लिनिक' : 'Om Sai Clinic'}
+            </span>
+          </Link>
+          <Link
+            href={`/${locale}`}
+            className="inline-flex min-h-9 items-center gap-1.5 text-[0.6875rem] font-semibold text-brand-700 hover:text-brand-900"
+          >
+            <ArrowLeft className="h-3 w-3" />
+            {locale === 'ne' ? 'फिर्ता' : 'Back'}
+          </Link>
+        </div>
+      </div>
+
+      <div className="container-x relative grid min-h-[calc(100dvh-4rem)] items-start gap-8 py-8 sm:min-h-[78vh] sm:py-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-16 lg:py-16">
+        {/* Brand panel — desktop only */}
         <aside className="relative hidden overflow-hidden rounded-[2rem] bg-brand-950 p-10 text-white lg:block">
           <div className="pointer-events-none absolute inset-0 bg-grid-light opacity-25" />
           <div className="pointer-events-none absolute -right-20 -top-24 h-80 w-80 rounded-full bg-brand-600/30 blur-3xl" />
@@ -26,7 +48,7 @@ export default function AuthShell({ locale, children }: AuthShellProps) {
           <div className="relative flex h-full flex-col">
             <Link
               href={`/${locale}`}
-              className="inline-flex items-center gap-2 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-brand-200/80 transition-colors hover:text-white"
+              className="inline-flex min-h-9 items-center gap-2 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-brand-200/80 transition-colors hover:text-white"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               {locale === 'ne' ? 'गृहपृष्ठ' : 'Back to clinic'}

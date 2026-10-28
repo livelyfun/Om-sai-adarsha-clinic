@@ -202,6 +202,65 @@ export default async function AboutPage({ params }: AboutPageProps) {
             </div>
           </div>
         </section>
+
+        {/* Official Clinic Notice / Flyer */}
+        <section className="card overflow-hidden">
+          <div className="grid items-center md:grid-cols-[1.2fr_1fr]">
+            <div className="space-y-4 p-7 sm:p-9">
+              <span className="eyebrow">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
+                {locale === 'ne' ? 'आधिकारिक सूचना तथा विशेषज्ञ टोली' : 'Official Clinic Board & Notice'}
+              </span>
+              <h2 className="display-title text-2xl sm:text-3xl">
+                {locale === 'ne' ? 'प्रमाणित विशेषज्ञ चिकित्सकहरूको समूह' : 'Specialist Physicians & Services'}
+              </h2>
+              <p className="text-sm leading-relaxed text-slate-600">
+                {locale === 'ne'
+                  ? 'ॐ साई आदर्श क्लिनिक, शहिद मार्ग, विरेन्द्र सभागृह अगाडि विराटनगरमा नेपाल मेडिकल काउन्सिल (एनएमसी) प्रमाणित वरिष्ठ प्राध्यापक, कन्सल्टेन्ट कार्डियोलोजिष्ट, बालरोग, स्त्रीरोग तथा हाडजोर्नी विशेषज्ञहरूद्वारा नियमित ओपीडी तथा आकस्मिक परामर्श सेवा प्रदान गरिन्छ।'
+                  : 'Located at Shahid Marg, in front of Birendra Sabhagriha, Biratnagar, Om Sai Aadarsha Clinic features eminent NMC-registered professors, cardiologists, pediatricians, gynecologists, and surgeons dedicated to reliable outpatient care.'}
+              </p>
+
+              <div className="space-y-2.5 border-t border-brand-950/8 pt-4">
+                <h4 className="text-[0.6875rem] font-semibold uppercase tracking-wider text-slate-500">
+                  {locale === 'ne' ? 'प्रत्यक्ष सम्पर्क व्यक्तिहरू (विराटनगर):' : 'Direct Contact Personnel (Biratnagar):'}
+                </h4>
+                <div className="grid gap-2 text-xs text-slate-700 sm:grid-cols-2">
+                  <div className="flex items-center gap-1.5 font-medium">
+                    <Phone className="h-3.5 w-3.5 shrink-0 text-brand-700" />
+                    <span>
+                      {locale === 'ne' ? 'भोला प्रसाद दास: ' : 'Bhola Prasad Das: '}
+                      <span className="font-mono text-ink">9807358874</span>
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5 font-medium">
+                    <Phone className="h-3.5 w-3.5 shrink-0 text-brand-700" />
+                    <span>
+                      {locale === 'ne' ? 'दिलशाद अन्सारी: ' : 'Dilshad Ansari: '}
+                      <span className="font-mono text-ink">9810581421</span>
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5 font-medium sm:col-span-2">
+                    <Phone className="h-3.5 w-3.5 shrink-0 text-brand-700" />
+                    <span>
+                      {locale === 'ne' ? 'धर्मलाल चन्द्रवंशी: ' : 'Dharamlal Chandravanshi: '}
+                      <span className="font-mono text-ink">9807073278</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-center border-t border-brand-950/8 bg-brand-50 p-6 sm:p-8 md:border-l md:border-t-0">
+              <div className="group relative max-w-xs overflow-hidden rounded-2xl border-2 border-white shadow-md">
+                <img
+                  src="/images/fb_profile.jpg"
+                  alt={locale === 'ne' ? 'ॐ साई आदर्श क्लिनिक आधिकारिक सूचना' : 'Om Sai Aadarsha Clinic Official Flyer'}
+                  className="h-auto w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );

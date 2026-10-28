@@ -31,6 +31,9 @@
   --radius-4xl: 2rem;
   --radius-5xl: 2.75rem;
 
+  /* Extra-small breakpoint used by compact mobile layouts */
+  --breakpoint-xs: 26rem;
+
   --shadow-soft: 0 2px 4px rgba(8, 33, 29, 0.04), 0 12px 32px -12px rgba(8, 33, 29, 0.12);
   --shadow-lift: 0 20px 48px -18px rgba(8, 33, 29, 0.22);
   --shadow-glow: 0 0 30px -5px rgba(49, 132, 116, 0.35);
@@ -41,28 +44,36 @@
   html {
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
-  }
-
-  /* Sleek custom scrollbars */
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #f1ede3;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #c3d9cf;
-    border-radius: 9999px;
-    border: 2px solid #f1ede3;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #80c0b0;
+    /* Prevent horizontal overflow on mobile */
+    overflow-x: hidden;
   }
 
   body {
     font-feature-settings: "cv11", "ss01";
     text-rendering: optimizeLegibility;
+    /* Prevent horizontal overflow */
+    overflow-x: hidden;
+    /* Ensure body fills at least the full viewport on mobile */
+    min-height: 100dvh;
+  }
+
+  /* Sleek custom scrollbars — desktop only */
+  @media (min-width: 768px) {
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1ede3;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c3d9cf;
+      border-radius: 9999px;
+      border: 2px solid #f1ede3;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #80c0b0;
+    }
   }
 
   ::selection {
@@ -74,6 +85,12 @@
     outline: 2px solid var(--color-brand-500);
     outline-offset: 2px;
   }
+
+  /* Ensure images don't cause horizontal overflow */
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 @layer components {
@@ -81,7 +98,14 @@
     width: 100%;
     max-width: 82rem;
     margin-inline: auto;
-    padding-inline: 1.25rem;
+    /* Mobile-first: tighter padding on small screens */
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 480px) {
+    .container-x {
+      padding-inline: 1.5rem;
+    }
   }
 
   @media (min-width: 640px) {
@@ -114,6 +138,9 @@
     line-height: 1.08;
     color: var(--color-ink);
     text-wrap: balance;
+    /* Prevent text from causing horizontal overflow */
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .btn {
@@ -125,11 +152,21 @@
     font-size: 0.875rem;
     font-weight: 600;
     line-height: 1;
-    padding: 0.875rem 1.5rem;
+    /* Mobile-first: minimum tap target size (44px) */
+    min-height: 2.75rem;
+    padding: 0.75rem 1.25rem;
     transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
     white-space: nowrap;
     position: relative;
     cursor: pointer;
+    /* Ensure buttons don't cause overflow */
+    max-width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .btn {
+      padding: 0.875rem 1.5rem;
+    }
   }
 
   .btn:active {
@@ -197,12 +234,22 @@
     border-radius: 1.35rem;
     box-shadow: 0 2px 8px -2px rgba(8, 33, 29, 0.04);
     transition: all 240ms cubic-bezier(0.16, 1, 0.3, 1);
+    /* Prevent cards from causing horizontal overflow */
+    min-width: 0;
+    overflow: hidden;
   }
 
   .card-hover:hover {
     border-color: var(--color-brand-300);
     box-shadow: 0 20px 40px -15px rgba(8, 33, 29, 0.12), 0 0 0 1px rgba(49, 132, 116, 0.15);
-    transform: translateY(-4px);
+    /* Reduce lift on mobile to avoid layout issues */
+    transform: translateY(-2px);
+  }
+
+  @media (min-width: 768px) {
+    .card-hover:hover {
+      transform: translateY(-4px);
+    }
   }
 
   /* Glassmorphism primitives */
@@ -232,6 +279,7 @@
   .chip {
     display: inline-flex;
     align-items: center;
+    min-height: 2.25rem;
     gap: 0.375rem;
     border-radius: 9999px;
     border: 1px solid rgba(8, 33, 29, 0.1);
@@ -250,6 +298,8 @@
 
   .field {
     width: 100%;
+    min-width: 0;
+    max-width: 100%;
     border-radius: 0.95rem;
     border: 1px solid rgba(8, 33, 29, 0.15);
     background: #fff;
@@ -273,6 +323,10 @@
   .link-arrow {
     display: inline-flex;
     align-items: center;
+    /* Comfortable touch target without shifting the visual layout */
+    min-height: 2rem;
+    padding-block: 0.375rem;
+    margin-block: -0.375rem;
     gap: 0.375rem;
     font-size: 0.75rem;
     font-weight: 700;

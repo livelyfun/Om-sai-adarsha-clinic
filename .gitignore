@@ -13,3 +13,4 @@ secrets.md
 *.key
 storage/secure-reports/
 .vercel
+test-results/

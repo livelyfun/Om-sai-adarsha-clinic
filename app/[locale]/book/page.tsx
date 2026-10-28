@@ -261,8 +261,8 @@ export default function BookingHubPage() {
         }
       />
 
-      <div className="container-x grid gap-8 py-10 sm:py-12 lg:grid-cols-[1fr_19rem] lg:items-start">
-        <div className="space-y-5">
+      <div className="container-x grid grid-cols-1 gap-6 py-8 sm:gap-8 sm:py-10 lg:grid-cols-[minmax(0,1fr)_19rem] lg:items-start">
+        <div className="min-w-0 space-y-5">
           {/* Request notice */}
           <div className="flex items-start gap-3.5 rounded-2xl border border-brand-200 bg-brand-50 p-4 text-brand-950">
             <Info className="mt-0.5 h-5 w-5 shrink-0 text-brand-700" />
@@ -389,11 +389,11 @@ export default function BookingHubPage() {
                         onClick={() => setActiveTab(tab.id)}
                         className={
                           active
-                            ? 'flex items-center justify-center gap-1.5 rounded-xl bg-white py-2.5 text-[0.75rem] font-semibold text-brand-900 shadow-sm'
-                            : 'flex items-center justify-center gap-1.5 rounded-xl py-2.5 text-[0.75rem] font-medium text-slate-500 transition-colors hover:text-brand-800'
+                            ? 'flex min-h-[2.5rem] items-center justify-center gap-1.5 rounded-xl bg-white py-2 text-[0.6875rem] font-semibold text-brand-900 shadow-sm sm:text-[0.75rem] sm:py-2.5'
+                            : 'flex min-h-[2.5rem] items-center justify-center gap-1.5 rounded-xl py-2 text-[0.6875rem] font-medium text-slate-500 transition-colors hover:text-brand-800 sm:text-[0.75rem] sm:py-2.5'
                         }
                       >
-                        <tab.icon className="h-4 w-4" />
+                        <tab.icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                         {tab.label}
                       </button>
                     );
@@ -419,7 +419,7 @@ export default function BookingHubPage() {
                         : 'Sign in to select a patient profile.'}
                     </p>
                   ) : (
-                    <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
+                    <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
                       {profiles.map((p) => (
                         <label
                           key={p.id}
@@ -802,7 +802,7 @@ export default function BookingHubPage() {
         </div>
 
         {/* Summary rail */}
-        <aside className="space-y-4 lg:sticky lg:top-28">
+        <aside className="min-w-0 space-y-4 lg:sticky lg:top-28">
           <div className="rounded-3xl border border-brand-950/8 bg-white p-6 shadow-soft">
             <p className="eyebrow">
               <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />

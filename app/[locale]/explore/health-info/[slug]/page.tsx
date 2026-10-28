@@ -42,7 +42,7 @@ export default async function HealthArticleDetailPage({ params }: ArticlePagePro
         <div className="container-x py-4">
           <Link
             href={`/${locale}/explore/health-info`}
-            className="inline-flex items-center gap-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-slate-500 transition-colors hover:text-brand-800"
+            className="inline-flex min-h-9 items-center gap-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-slate-500 transition-colors hover:text-brand-800"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             {locale === 'ne' ? 'स्वास्थ्य लेखहरू' : 'Health articles'}

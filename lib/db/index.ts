@@ -102,16 +102,16 @@ const DEFAULT_SETTINGS: Record<string, any> = {
   default_slot_duration_minutes: 20,
   week_start_day: 0, // Sunday
   weekly_holiday_day: 6, // Saturday
-  address_en: '',
-  address_ne: '',
-  phone: '',
-  email: '',
-  emergency_phone: '',
-  whatsapp_number: '',
-  map_url: '',
+  address_en: 'Shahid Marg, In Front of Birendra Sabhagriha, Biratnagar, Nepal',
+  address_ne: 'शहिद मार्ग, विरेन्द्र सभागृह अगाडि, विराटनगर, नेपाल',
+  phone: '+977-9807358874',
+  email: 'omsaiaadarshaclinic@gmail.com',
+  emergency_phone: '+977-9810581421',
+  whatsapp_number: '+977-9807358874',
+  map_url: 'https://maps.google.com/?q=Birendra+Sabhagriha+Biratnagar',
   facebook_url: 'https://www.facebook.com/p/Om-Sai-Aadarsha-Clinic-100084050983392/',
-  opening_hours_en: 'Sunday – Friday: 07:00 AM – 08:00 PM (Saturday Closed)',
-  opening_hours_ne: 'आइतबार – शुक्रबार: बिहान ०७:०० – साँझ ०८:०० (शनिबार बन्द)',
+  opening_hours_en: 'Sunday – Friday: 07:00 AM – 07:00 PM (Saturday Closed)',
+  opening_hours_ne: 'आइतबार – शुक्रबार: बिहान ०७:०० – साँझ ०७:०० (शनिबार बन्द)',
 };
 
 class PersistentDatabase {

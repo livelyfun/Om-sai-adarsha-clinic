@@ -175,7 +175,7 @@ export default function PatientRegisterPage() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-3 text-slate-400 transition-colors hover:text-slate-600"
+                  className="absolute right-1.5 top-1.5 grid h-9 w-9 place-items-center rounded-lg text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600"
                   aria-label={showPassword ? 'Hide password' : 'Show password'}
                 >
                   {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -234,7 +234,7 @@ export default function PatientRegisterPage() {
         )}
 
         <div className="mt-6 border-t border-brand-950/8 pt-5 text-center">
-          <Link href={`/${locale}/portal/login`} className="text-xs font-semibold text-brand-700 hover:underline">
+          <Link href={`/${locale}/portal/login`} className="inline-flex items-center py-1.5 text-xs font-semibold text-brand-700 hover:underline">
             {t.alreadyHaveAccount}
           </Link>
         </div>
